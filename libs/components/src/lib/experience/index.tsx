@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import cls from 'classnames';
 
-import '../tailwind-imports.css';
 import TextField from '../textField';
 // locals
 import { useData } from './useData';
+import classes from './index.module.scss';
 
 /* eslint-disable-next-line */
 export interface ExperienceProps {}
@@ -12,17 +11,9 @@ export interface ExperienceProps {}
 export const Experience: FC<ExperienceProps> = () => {
   const data = useData();
   return (
-    <div className={cls('p-1', 'bg-white', 'font-bold', 'text-black')}>
+    <div className={classes.container}>
       <h1>Experience</h1>
-      <div
-        className={cls(
-          'ml-2',
-          'p-2',
-          'bg-white',
-          'font-semibold',
-          'text-black'
-        )}
-      >
+      <div className={classes.text}>
         <TextField value={data.value} setValue={data.setValue} />
       </div>
     </div>

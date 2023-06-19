@@ -1,0 +1,25 @@
+$white: #fff;
+$black: #000;
+
+@mixin padding($spacing){
+    padding: $spacing;
+}
+
+@mixin ml($spacing) {
+    margin-left: $spacing;
+}
+
+.container {
+    @include padding("10px");
+    background-color: $white;
+    font-weight: 600;
+    color: $black;
+}
+
+.text {
+    @include p-20;
+    @include ml("20px");
+    background-color: $white;
+    font-weight: 600;
+    color: $black;
+}

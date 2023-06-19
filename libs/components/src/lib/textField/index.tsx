@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import cls from 'classnames';
 
-import '../tailwind-imports.css';
 // locals
 import { useData } from './useData';
+import classes from './index.module.scss';
 
 /* eslint-disable-next-line */
 export interface TextFieldProps {
@@ -17,7 +17,7 @@ export const TextField: FC<TextFieldProps> = ({
 }) => {
   const data = useData();
   return (
-    <div className={cls('bg-white', 'font-bold', 'text-black')}>
+    <div className={classes.container}>
       {!data.showInput && (
         <h2 className={cls('p-1')} onClick={() => data.setShowInput(true)}>
           {value}
@@ -31,18 +31,8 @@ export const TextField: FC<TextFieldProps> = ({
             event.key === 'Enter' && data.setShowInput(false)
           }
           value={value}
-          // onBlur={() => data.setShowInput(false)}
-          className={cls(
-            'p-1',
-            'bg-white',
-            'font-bold',
-            'text-black',
-            'outline-none',
-            'focus:border-blue-300',
-            'focus:border-solid',
-            'focus:border-2',
-            'focus:rounded-md'
-          )}
+          onBlur={() => data.setShowInput(false)}
+          className={classes.text}
         />
       )}
     </div>
