@@ -17,12 +17,14 @@ $blue: #3A86FF;
 }
 
 .input {
-    @include padding("10px");
+    @include padding(5px);
+    @include ml(10px);
     background-color: $white;
     font-weight: 600;
     color: $black;
     outline: none;
     &:focus {
         background-color: $blue;
+        color: $white;
     }
 } 

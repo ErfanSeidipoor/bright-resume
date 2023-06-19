@@ -32,7 +32,7 @@ export const TextField: FC<TextFieldProps> = ({
           }
           value={value}
           onBlur={() => data.setShowInput(false)}
-          className={classes.text}
+          className={classes.input}
         />
       )}
     </div>

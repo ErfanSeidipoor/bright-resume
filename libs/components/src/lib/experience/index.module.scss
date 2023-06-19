@@ -10,15 +10,15 @@ $black: #000;
 }
 
 .container {
-    @include padding("10px");
+    @include padding(10px);
     background-color: $white;
     font-weight: 600;
     color: $black;
 }
 
 .text {
-    @include p-20;
-    @include ml("20px");
+    @include padding(10px);
+    @include ml(10px);
     background-color: $white;
     font-weight: 600;
     color: $black;
