@@ -1,6 +1,6 @@
 $white: #fff;
 $black: #000;
-$blue: #3A86FF;
+$blue: #3A86FF80;
 
 @mixin padding($spacing) {
     padding: $spacing;
@@ -17,14 +17,12 @@ $blue: #3A86FF;
 }
 
 .input {
-    @include padding(5px);
-    @include ml(10px);
+    @include padding(0 2px);
     background-color: $white;
     font-weight: 600;
     color: $black;
     outline: none;
     &:focus {
         background-color: $blue;
-        color: $white;
     }
 } 

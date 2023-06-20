@@ -12,9 +12,17 @@ export const Experience: FC<ExperienceProps> = () => {
   const data = useData();
   return (
     <div className={classes.container}>
-      <h1>Experience</h1>
-      <div className={classes.text}>
-        <TextField value={data.value} setValue={data.setValue} />
+      <div className={classes.wrapper}>
+        <h1 className={classes.heading1}>Experience</h1>
+        <div className={classes.text}>
+          <div className={classes.dot} />
+          <TextField
+            value={data.value}
+            setValue={data.setValue}
+            fontSize={'20px'}
+          />
+          <hr className={classes.hr} />
+        </div>
       </div>
     </div>
   );
