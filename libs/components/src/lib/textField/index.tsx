@@ -4,7 +4,6 @@ import { FC } from 'react';
 import { useData } from './useData';
 import classes from './index.module.scss';
 
-/* eslint-disable-next-line */
 export interface TextFieldProps {
   value: string;
   setValue: (value: string) => void;
@@ -22,9 +21,7 @@ export const TextField: FC<TextFieldProps> = ({
       <input
         ref={data.inputRef}
         onChange={(e) => setValue(e.target.value)}
-        // onKeyDown={(event) => event.key === 'Enter' && data.setShowInput(false)}
         value={value}
-        // onBlur={() => data.setShowInput(false)}
         className={classes.input}
         style={{
           fontSize: fontSize,
