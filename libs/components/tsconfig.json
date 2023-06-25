@@ -5,8 +5,10 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "types": ["vite/client"]
   },
+  "typescript.tsserver.pluginPaths": ["typescript-plugin-css-modules"],
   "files": [],
   "include": [],
   "references": [

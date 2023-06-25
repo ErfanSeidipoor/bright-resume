@@ -1,0 +1,7 @@
+{
+    "typescript.tsserver.pluginPaths": [
+        "typescript-plugin-css-modules"
+    ],
+    "typescript.enablePromptUseWorkspaceTsdk": false,
+    "typescript.tsdk": "node_modules/typescript/lib"
+}
