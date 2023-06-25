@@ -1,0 +1,28 @@
+$white: #fff;
+$black: #000;
+$blue: #3A86FF80;
+
+@mixin padding($spacing) {
+    padding: $spacing;
+}
+
+@mixin ml($spacing) {
+    margin-left: $spacing;
+}
+
+.container {
+    background-color: $white;
+    font-weight: 600;
+    color: $black;
+}
+
+.input {
+    @include padding(0 2px);
+    background-color: $white;
+    font-weight: 600;
+    color: $black;
+    outline: none;
+    &:focus {
+        background-color: $blue;
+    }
+} 
