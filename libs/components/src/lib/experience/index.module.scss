@@ -1,0 +1,61 @@
+$white: #fff;
+$black: #000;
+$hrColor: rgba(0, 0, 0, 0.1);
+
+@mixin padding($spacing){
+    padding: $spacing;
+}
+
+@mixin mt($spacing) {
+    margin-top: $spacing;
+}
+
+@mixin ml($spacing) {
+    margin-left: $spacing;
+}
+
+.container {
+    @include padding(10px);
+    background-color: $white;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .wrapper {
+        position: relative;
+    }
+    .text {
+        @include padding(5px);
+        @include mt(10px);
+        background-color: $white;
+        font-weight: 600;
+        color: $black;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        .hr {
+            width: 3px;
+            height: calc(100% - 22px);
+            background-color: $hrColor;
+            position: absolute;
+            left: 6px;
+            top: 22px;
+        }
+        .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            background-color: $black;
+        }
+    }
+    .heading1 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
+
+
+
