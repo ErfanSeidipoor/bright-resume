@@ -1,0 +1,6 @@
+@function spacing($firstKey, $secondKey: 0) {
+  @if $secondKey {
+    @return map-get($spacing, $firstKey) map-get($spacing, $secondKey);
+  }
+  @return map-get($spacing, $firstKey);
+}

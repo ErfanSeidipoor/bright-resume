@@ -1,0 +1,18 @@
+@mixin maxWidth($property) {
+  @media screen and (max-width: map-get($grid-breakpoints, $property)) {
+    @content;
+  }
+}
+
+@mixin minWidth($property) {
+  @media screen and (min-width: map-get($grid-breakpoints, $property)) {
+    @content;
+  }
+}
+
+@mixin transition($property, $time, $timing-function: ease-in) {
+  transition: $property $time $timing-function;
+  -webkit-transition: $property $time $timing-function;
+  -moz-transition: $property $time $timing-function;
+  -o-transition: $property $time $timing-function;
+}

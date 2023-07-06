@@ -1,0 +1,19 @@
+@import '../../../../theme/index';
+
+.root {
+  background-color: $primary;
+  color: var(--button-text-color);
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  padding: spacing(0, 1);
+  margin: spacing(2);
+  font-size: $fs-5;
+  font-weight: $fs-light;
+  cursor: pointer;
+  &:hover {
+    background-color: $grey-300;
+    color: $light;
+  }
+  @include transition(all, 150ms);
+}
