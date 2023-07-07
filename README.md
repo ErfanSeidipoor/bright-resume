@@ -1,10 +1,5 @@
-# BrightResume
-
-## This is an open source project aimed at providing a simple and easy-to-use resume builder tool for developers. It is built with React, Redux, and Firebase...
-
 # Bright Resume Builder
 
-[![Build Status](https://img.shields.io/travis/your_username/resume-builder.svg?style=flat-square)](https://travis-ci.org/your_username/resume-builder)
 [![License](https://img.shields.io/github/license/your_username/resume-builder.svg?style=flat-square)](https://github.com/your_username/resume-builder/blob/main/LICENSE)
 
 Resume Builder is an open-source tool that allows you to create professional resumes easily. With its customizable templates and intuitive interface, you can generate impressive resumes tailored to your needs. This project aims to simplify the resume creation process and provide a portable solution that you can run anywhere.
@@ -13,7 +8,7 @@ Resume Builder is an open-source tool that allows you to create professional res
 
 - **Template Customization**: Choose from a range of professionally designed templates and customize them to suit your preferences.
 - **Flexible Sections**: Easily modify and reorder sections such as education, work experience, skills, and more.
-- **Import External Data**: Import your professional details from LinkedIn, GitHub, or a personal website to populate your resume quickly.
+- **Export to PDF**: Export the resume as a PDF or share it online.
 - **Collaboration**: Share your resume with others for feedback and suggestions, fostering a collaborative resume-building process.
 - **Portability**: Run the Bright Resume Builder on any platform or environment, making it convenient for your resume creation needs.
 
@@ -24,7 +19,7 @@ Resume Builder is an open-source tool that allows you to create professional res
    `yarn global add nx@latest` or `npm install --global nx@latest`
 2. Navigate to the project directory: `cd bright-resume`
 4. Install dependencies: `yarn add` or `npm install`
-5. Start the application: `npx nx serve`
+5. Start the application: `npx nx serve <name-of-project>`
 
 ## Contributing
 
@@ -48,6 +43,10 @@ Please refer to the following link for detailed information on how to link a pul
 This documentation provides step-by-step instructions and explanations on the process of linking a pull request to an issue. By following these guidelines, you can establish a clear connection between the code changes in a pull request and the corresponding issue, ensuring effective tracking and collaboration within your project.
 
 Take a look at the documentation to learn more about this feature and how to leverage it for better project management.
+
+## Issues and Bug Reports
+
+If you encounter any issues or bugs while using the Bright Resume application, please [open-an-issue] on our GitHub repository. We appreciate your feedback and will do our best to address the problems promptly.
 
 
 ## License
