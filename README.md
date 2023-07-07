@@ -1,5 +1,7 @@
 # Bright Resume Builder
 
+![Bright Resume Logo](/path/to/logo.png)
+
 [![License](https://img.shields.io/github/license/your_username/resume-builder.svg?style=flat-square)](https://github.com/your_username/resume-builder/blob/main/LICENSE)
 
 Resume Builder is an open-source tool that allows you to create professional resumes easily. With its customizable templates and intuitive interface, you can generate impressive resumes tailored to your needs. This project aims to simplify the resume creation process and provide a portable solution that you can run anywhere.
@@ -43,6 +45,19 @@ Please refer to the following link for detailed information on how to link a pul
 This documentation provides step-by-step instructions and explanations on the process of linking a pull request to an issue. By following these guidelines, you can establish a clear connection between the code changes in a pull request and the corresponding issue, ensuring effective tracking and collaboration within your project.
 
 Take a look at the documentation to learn more about this feature and how to leverage it for better project management.
+
+
+## Project Structure
+
+The project follows the NX monorepo architecture, which allows for a modular and scalable codebase. The main folders in the project are:
+
+- `apps`: Contains the main applications.
+  - `web`: The main Bright Resume application.
+- `libs`: Contains shared libraries and utility modules that can be used across different applications or libraries.
+  - `components`: A library with reusable UI components for building the resume.
+  - `assets`: A library containing all assets likes fonts, images,.
+- `tools`: Contains various tools or scripts related to the project.
+
 
 ## Issues and Bug Reports
 
