@@ -1,6 +1,6 @@
 # Bright Resume Builder
 
-![Bright Resume Logo](/path/to/logo.png)
+![Bright Resume Logo](/libs/assets/src/image/logo-with-typography-horizontal-dark.png)
 
 [![License](https://img.shields.io/github/license/your_username/resume-builder.svg?style=flat-square)](https://github.com/your_username/resume-builder/blob/main/LICENSE)
 
@@ -17,9 +17,9 @@ Resume Builder is an open-source tool that allows you to create professional res
 ## Installation
 
 1. Clone the repository: `https://github.com/ErfanSeidipoor/bright-resume.git`
-3. Installing Nx Globally
+2. Installing Nx Globally
    `yarn global add nx@latest` or `npm install --global nx@latest`
-2. Navigate to the project directory: `cd bright-resume`
+3. Navigate to the project directory: `cd bright-resume`
 4. Install dependencies: `yarn add` or `npm install`
 5. Start the application: `npx nx serve <name-of-project>`
 
@@ -46,7 +46,6 @@ This documentation provides step-by-step instructions and explanations on the pr
 
 Take a look at the documentation to learn more about this feature and how to leverage it for better project management.
 
-
 ## Project Structure
 
 The project follows the NX monorepo architecture, which allows for a modular and scalable codebase. The main folders in the project are:
@@ -58,11 +57,9 @@ The project follows the NX monorepo architecture, which allows for a modular and
   - `assets`: A library containing all assets likes fonts, images,.
 - `tools`: Contains various tools or scripts related to the project.
 
-
 ## Issues and Bug Reports
 
 If you encounter any issues or bugs while using the Bright Resume application, please [open-an-issue] on our GitHub repository. We appreciate your feedback and will do our best to address the problems promptly.
-
 
 ## License
 
