@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 // components
-import { Button } from '@bright-resume/components';
+import { LogoIcon } from '@bright-resume/components';
 
 const HomePage: NextPage = () => {
-  return <Button>Click me</Button>;
+  return <LogoIcon />;
 };
 
 export default HomePage;
