@@ -4,7 +4,7 @@ import classes from './index.module.scss';
 
 type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TypographyProps extends React.HTMLProps<HTMLElement> {
   variant: Variant;
   component?: React.ElementType;
 }
