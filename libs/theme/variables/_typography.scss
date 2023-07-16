@@ -1,11 +1,35 @@
-$fs-1: 35px;
-$fs-2: 25px;
-$fs-3: 20px;
-$fs-4: 18px;
-$fs-5: 16px;
+$font-size: (
+  h1: 35px,
+  h2: 25px,
+  h3: 20px,
+  h4: 18px,
+  h5: 16px,
+);
 
-$fs-bold: 700;
-$fs-semi-bold: 600;
-$fs-medium: 500;
-$fs-regular: 400;
-$fs-light: 300;
+$font-weight: (
+  bold: 700,
+  semi-bold: 600,
+  medium: 500,
+  regular: 400,
+  light: 300,
+);
+
+@mixin typography($type) {
+  font-size: map-get($font-size, $type);
+  line-height: 150%;
+  @if (map-get($font-size, $type) == 35px) {
+    font-weight: map-get($font-weight, bold);
+  }
+  @if (map-get($font-size, $type) == 25px) {
+    font-weight: map-get($font-weight, semi-bold);
+  }
+  @if (map-get($font-size, $type) == 20px) {
+    font-weight: map-get($font-weight, medium);
+  }
+  @if (map-get($font-size, $type) == 18px) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if (map-get($font-size, $type) == 16px) {
+    font-weight: map-get($font-weight, light);
+  }
+}
