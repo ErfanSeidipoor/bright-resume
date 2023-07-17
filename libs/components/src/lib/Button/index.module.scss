@@ -1,0 +1,11 @@
+@import '../../../../theme/index';
+
+.root {
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  padding: spacing(0, 1);
+  margin: spacing(2);
+  cursor: pointer;
+  @include transition(all, 150ms);
+}
