@@ -1,4 +1,4 @@
-import LogoSvg from 'libs/assets/src/svg/logo.svg';
+import LogoSvg from '../../../../assets/src/svg/logo.svg';
 
 export const LogoIcon = (props: React.HTMLProps<HTMLElement>) => (
   <LogoSvg {...props} />
