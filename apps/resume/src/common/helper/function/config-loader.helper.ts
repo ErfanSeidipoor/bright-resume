@@ -8,7 +8,7 @@ const ROUTE_TO_CONFIG_FILE = [
   'apps',
   'resume',
   'assets',
-  'config.yaml',
+  'config.yml',
 ];
 export const LoadConfigs = (): Record<string, unknown> => {
   return yaml.load(
