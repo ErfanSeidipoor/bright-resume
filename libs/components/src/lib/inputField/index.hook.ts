@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 // locals
 import classes from './index.module.scss';
-import { TextFieldVariantEnum } from '.';
+import { InputFieldVariantEnum } from '.';
 
-export const useData = (variant: TextFieldVariantEnum) => {
+export const useData = (variant: InputFieldVariantEnum) => {
   const [isInputActive, setIsInputActive] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isInputActive) {
@@ -15,36 +16,40 @@ export const useData = (variant: TextFieldVariantEnum) => {
     }
   }, [isInputActive]);
 
-  const handleInputFocus = () => {
-    inputRef.current?.focus();
-  };
-
-  const handleGetVariantClassName = (variant: TextFieldVariantEnum) => {
+  const handleGetVariantClassName = (variant: InputFieldVariantEnum) => {
     switch (variant) {
-      case TextFieldVariantEnum.xxl:
+      case InputFieldVariantEnum.xxl:
         return classes.xxl;
-      case TextFieldVariantEnum.xl:
+      case InputFieldVariantEnum.xl:
         return classes.xl;
-      case TextFieldVariantEnum.lg:
+      case InputFieldVariantEnum.lg:
         return classes.lg;
-      case TextFieldVariantEnum.md:
+      case InputFieldVariantEnum.md:
         return classes.md;
-      case TextFieldVariantEnum.sm:
+      case InputFieldVariantEnum.sm:
         return classes.sm;
-      case TextFieldVariantEnum.xs:
+      case InputFieldVariantEnum.xs:
         return classes.xs;
-      case TextFieldVariantEnum.xxs:
+      case InputFieldVariantEnum.xxs:
         return classes.xxs;
       default:
         return classes.lg;
     }
   };
 
+  const handleClickOutSide = (e: MouseEvent) => {
+    if (!rootRef.current?.contains(e.target as Node)) setIsInputActive(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutSide, true);
+  }, []);
+
   return {
     isInputActive,
     setIsInputActive,
     inputRef,
-    handleInputFocus,
     handleGetVariantClassName,
+    rootRef,
   };
 };

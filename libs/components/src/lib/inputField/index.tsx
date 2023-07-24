@@ -1,35 +1,36 @@
-import { FC } from 'react';
-import cls from 'classnames';
+import { FC } from "react";
+import cls from "classnames";
 
 // locals
-import { useData } from './index.hook';
-import classes from './index.module.scss';
-import SolarPenBoldSvg from '../../../../assets/src/svg/solar-pen-bold.svg';
-import Image from 'next/image';
-import Typography from '../Typography';
+import { useData } from "./index.hook";
+import classes from "./index.module.scss";
+import SolarPenBoldSvg from "../../../../assets/src/svg/solar-pen-bold.svg";
+import Image from "next/image";
+import Typography from "../Typography";
 
-export enum TextFieldVariantEnum {
-  'xxl' = 'h1',
-  'xl' = 'h2',
-  'lg' = 'h3',
-  'md' = 'h4',
-  'sm' = 'h5',
-  'xs' = 'h6',
-  'xxs' = 'h6',
+export enum InputFieldVariantEnum {
+  "xxl" = "h1",
+  "xl" = "h2",
+  "lg" = "h3",
+  "md" = "h4",
+  "sm" = "h5",
+  "xs" = "h6",
+  "xxs" = "h6",
 }
 
-export interface TextFieldProps
+export interface InputFieldProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  variant: TextFieldVariantEnum;
+  variant?: InputFieldVariantEnum;
 }
 
-export const TextField: FC<TextFieldProps> = ({
-  variant = TextFieldVariantEnum.lg,
+export const InputField: FC<InputFieldProps> = ({
+  variant = InputFieldVariantEnum.lg,
   ...props
 }) => {
   const data = useData(variant);
   return (
     <div
+      ref={data.rootRef}
       className={cls(classes.root, {
         [classes.enableInput]: !!data.isInputActive,
       })}
@@ -49,7 +50,7 @@ export const TextField: FC<TextFieldProps> = ({
           )}
           disabled={!data.isInputActive}
           onKeyDown={(event) =>
-            event.key === 'Enter' && data.setIsInputActive(false)
+            event.key === "Enter" && data.setIsInputActive(false)
           }
           {...props}
         />
@@ -69,4 +70,4 @@ export const TextField: FC<TextFieldProps> = ({
   );
 };
 
-export default TextField;
+export default InputField;

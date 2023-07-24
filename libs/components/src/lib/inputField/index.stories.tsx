@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useState } from 'react';
-import TextField, { TextFieldVariantEnum } from '.';
+import InputField, { InputFieldVariantEnum } from '.';
 
 export default {
-  component: TextField,
-  title: 'TextField',
-} as ComponentMeta<typeof TextField>;
+  component: InputField,
+  title: 'InputField',
+} as ComponentMeta<typeof InputField>;
 
-const Template: ComponentStory<typeof TextField> = (args) => {
+const Template: ComponentStory<typeof InputField> = (args) => {
   const [value, setValue] = useState<string | undefined>();
   return (
-    <TextField
+    <InputField
       {...args}
       value={value}
       defaultValue="Position"
@@ -21,12 +21,12 @@ const Template: ComponentStory<typeof TextField> = (args) => {
 
 export const xLarge = Template.bind({});
 xLarge.args = {
-  variant: TextFieldVariantEnum.xxl,
+  variant: InputFieldVariantEnum.xxl,
 };
 
 export const large = Template.bind({});
 large.args = {
-  variant: TextFieldVariantEnum.xl,
+  variant: InputFieldVariantEnum.xl,
 };
 
 export const medium = Template.bind({});
