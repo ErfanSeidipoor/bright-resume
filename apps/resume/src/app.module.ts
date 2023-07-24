@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { LoadConfigs } from './common/helper/function/config-loader.helper';
+import { RouterModule } from '@nestjs/core';
+import { AppController } from './app.controller';
+import { appRoutes } from './app.routes';
 
 @Module({
   imports: [
@@ -9,8 +12,9 @@ import { LoadConfigs } from './common/helper/function/config-loader.helper';
       load: [LoadConfigs],
       ignoreEnvFile: true,
     }),
+    RouterModule.register(appRoutes),
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
