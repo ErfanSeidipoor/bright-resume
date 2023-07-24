@@ -23,6 +23,9 @@ export const Typography: React.FC<TypographyProps> = ({
     [classes.h4]: variant === 'h4',
     [classes.h5]: variant === 'h5',
     [classes.h6]: variant === 'h6',
+    [classes.h7]: variant === 'h7',
+    [classes.h8]: variant === 'h8',
+    [classes.h9]: variant === 'h9',
   });
 
   return (

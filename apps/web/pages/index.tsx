@@ -6,7 +6,9 @@ const HomePage: NextPage = () => {
   return (
     <div>
       <Button>as</Button>
-      <Typography variant="h2">Hi</Typography>
+      <Typography variant="h7">Hi</Typography>
+      <Typography variant="h8">Hi</Typography>
+      <Typography variant="h9">Hi</Typography>
       <LogoIcon width={20} />
     </div>
   );
