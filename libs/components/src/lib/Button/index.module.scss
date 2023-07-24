@@ -5,7 +5,12 @@
   border: none;
   height: 2rem;
   padding: spacing(0, 1);
-  margin: spacing(2);
   cursor: pointer;
+  min-width: 5rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  &:hover {
+    background-color: var(--button-bg-color-hover);
+  }
   @include transition(all, 150ms);
 }

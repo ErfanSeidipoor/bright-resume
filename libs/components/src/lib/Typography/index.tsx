@@ -2,20 +2,21 @@ import cls from 'classnames';
 
 import classes from './index.module.scss';
 
-type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'h7' | 'h8' | 'h9';
 
-export interface TypographyProps extends React.HTMLProps<HTMLElement> {
+export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   variant: Variant;
   component?: React.ElementType;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
   variant,
-  component: Component = 'div',
+  component: Component = 'p',
   children,
+  className,
   ...props
 }) => {
-  const rootClasses = cls(classes.root, {
+  const rootClasses = cls(classes.root, className, {
     [classes.h1]: variant === 'h1',
     [classes.h2]: variant === 'h2',
     [classes.h3]: variant === 'h3',
