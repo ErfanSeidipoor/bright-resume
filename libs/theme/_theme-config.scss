@@ -1,0 +1,29 @@
+#theme-blue {
+  --button-bg-color: #{$blue};
+  --button-text-color: #{$light};
+  --button-bg-color-hover: #{$dark-blue};
+}
+
+#theme-green {
+  --button-bg-color: #{$green};
+  --button-text-color: #{$light};
+  --button-bg-color-hover: #{$dark-green};
+}
+
+#theme-purple {
+  --button-bg-color: #{$purple};
+  --button-text-color: #{$light};
+  --button-bg-color-hover: #{$dark-purple};
+}
+
+#theme-gold {
+  --button-bg-color: #{$gold};
+  --button-text-color: #{$light};
+  --button-bg-color-hover: #{$dark-gold};
+}
+
+#theme-grey {
+  --button-bg-color: #{$grey-300};
+  --button-text-color: #{$light};
+  --button-bg-color-hover: #{$grey-500};
+}
