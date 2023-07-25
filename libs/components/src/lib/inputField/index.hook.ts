@@ -1,12 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 // locals
-import classes from './index.module.scss';
-import { InputFieldVariantEnum } from '.';
+import classes from "./index.module.scss";
+import { InputFieldVariantEnum } from ".";
 
 export const useData = (variant: InputFieldVariantEnum) => {
   const [isInputActive, setIsInputActive] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isInputActive) {
@@ -37,19 +36,10 @@ export const useData = (variant: InputFieldVariantEnum) => {
     }
   };
 
-  const handleClickOutSide = (e: MouseEvent) => {
-    if (!rootRef.current?.contains(e.target as Node)) setIsInputActive(false);
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutSide, true);
-  }, []);
-
   return {
     isInputActive,
     setIsInputActive,
     inputRef,
     handleGetVariantClassName,
-    rootRef,
   };
 };

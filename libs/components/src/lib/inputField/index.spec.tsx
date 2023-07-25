@@ -25,7 +25,7 @@ describe("InputField Component", () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it("show input after user clicked", async () => {
+  it("shows input after user clicked", async () => {
     renderComponent();
     const icon = screen.getByRole("img");
     user.click(icon);
@@ -33,7 +33,7 @@ describe("InputField Component", () => {
     expect(input).toBeDefined();
   });
 
-  it("user type some text in input field", async () => {
+  it("should input value changed when user type some text in input field", async () => {
     renderComponent();
     const icon = screen.getByRole("img");
     user.click(icon);
