@@ -41,6 +41,5 @@ export const useData = (variant: InputFieldVariantEnum) => {
     setIsInputActive,
     inputRef,
     handleGetVariantClassName,
-    rootRef,
   };
 };
