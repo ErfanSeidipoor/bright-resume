@@ -4,9 +4,9 @@ import cls from "classnames";
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-import SolarPenBoldSvg from "../../../../assets/src/svg/solar-pen-bold.svg";
 import Image from "next/image";
 import Typography from "../Typography";
+import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
 
 export enum InputFieldVariantEnum {
   "xxl" = "h1",
@@ -28,44 +28,56 @@ export const InputField: FC<InputFieldProps> = ({
   ...props
 }) => {
   const data = useData(variant);
-  return (
-    <div
-      ref={data.rootRef}
-      className={cls(classes.root, {
-        [classes.enableInput]: !!data.isInputActive,
-      })}
-    >
-      {!data.isInputActive && (
+
+  const renderTypography = () => {
+    return (
+      <>
         <Typography variant={variant}>
           {props.value || props.defaultValue}
         </Typography>
-      )}
-      {data.isInputActive && (
-        <input
-          ref={data.inputRef}
-          className={cls(
-            classes.input,
-            data.handleGetVariantClassName(variant),
-            props.className
-          )}
-          disabled={!data.isInputActive}
-          onKeyDown={(event) =>
-            event.key === "Enter" && data.setIsInputActive(false)
-          }
-          {...props}
-        />
-      )}
-
-      {!data.isInputActive && (
         <Image
           className={classes.editIcon}
           src={SolarPenBoldSvg}
-          alt="arrow-right"
+          alt="solar-pen"
           width={18}
           height={18}
           onClick={() => data.setIsInputActive(!data.isInputActive)}
         />
-      )}
+      </>
+    );
+  };
+
+  const renderInput = () => {
+    return (
+      <input
+        ref={data.inputRef}
+        className={cls(
+          classes.input,
+          data.handleGetVariantClassName(variant),
+          props.className
+        )}
+        disabled={!data.isInputActive}
+        onKeyDown={(event) =>
+          event.key === "Enter" && data.setIsInputActive(false)
+        }
+        {...props}
+      />
+    );
+  };
+
+  const renderBody = () => {
+    if (!data.isInputActive) return renderTypography();
+    else return renderInput();
+  };
+
+  return (
+    <div
+      className={cls(classes.root, {
+        [classes.enableInput]: !!data.isInputActive,
+      })}
+      onBlur={() => data.setIsInputActive(false)}
+    >
+      {renderBody()}
     </div>
   );
 };
