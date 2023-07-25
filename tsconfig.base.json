@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bright-resume/assets": ["libs/assets/src/index.ts"],
-      "@icons": ["libs/assets/src/svg"],
+      "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/components": ["libs/components/src/index.ts"],
       "@bright-resume/web": ["apps/web"],
       "@libs/scss": ["libs/components/scss"]

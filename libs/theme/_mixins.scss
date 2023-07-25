@@ -16,3 +16,35 @@
   -moz-transition: $property $time $timing-function;
   -o-transition: $property $time $timing-function;
 }
+
+@mixin typography($type) {
+  font-size: map-get($font-size, $type);
+  line-height: 150%;
+  @if ($type == h1) {
+    font-weight: map-get($font-weight, semi-bold);
+  }
+  @if ($type == h2) {
+    font-weight: map-get($font-weight, bold);
+  }
+  @if ($type == h3) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h4) {
+    font-weight: map-get($font-weight, semi-bold);
+  }
+  @if ($type == h5) {
+    font-weight: map-get($font-weight, medium);
+  }
+  @if ($type == h6) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h7) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h8) {
+    font-weight: map-get($font-weight, light);
+  }
+  @if ($type == h9) {
+    font-weight: map-get($font-weight, medium);
+  }
+}
