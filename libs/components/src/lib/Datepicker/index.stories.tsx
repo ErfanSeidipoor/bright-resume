@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DatePicker from '.';
+import { useState } from 'react';
+import { MonthEnum } from './index.hook';
 
 export default {
   component: DatePicker,
@@ -7,11 +9,23 @@ export default {
 } as ComponentMeta<typeof DatePicker>;
 
 const Template: ComponentStory<typeof DatePicker> = (args) => {
-  return <DatePicker {...args} />;
+  const [month, setMonth] = useState<MonthEnum | undefined>(undefined);
+  const [year, setYear] = useState<number | undefined>(undefined);
+  return (
+    <DatePicker
+      {...args}
+      month={month}
+      year={year}
+      onChangeMonth={setMonth}
+      onChangeYear={setYear}
+    />
+  );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
+  month: undefined,
+  year: undefined,
   placeholder: 'Pick your date!',
   placeholderColor: 'black',
 };
