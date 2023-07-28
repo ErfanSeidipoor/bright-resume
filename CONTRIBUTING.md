@@ -18,6 +18,8 @@ today! As a contributor, here are the guidelines we would like you to follow:
 
 - [Coding Rules](#rules)
 
+- [Commit Message Guidelines](#commit)
+
 <!-- ## <a name="coc"></a> Code of Conduct
 
 Help us keep Bright Resume open and inclusive. Please read and follow our [Code of Conduct][coc]. -->
