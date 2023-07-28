@@ -10,13 +10,13 @@
     align-items: center;
     gap: spacing(1, 1);
     &:hover {
-        border: 1px dashed $primary;
+        border: 1px dashed $blue;
         .editIcon {
             display: block
         }
     }
     &:focus {
-        border: 1px solid $primary;
+        border: 1px solid $blue;
     }
 
     .editIcon {
@@ -30,36 +30,36 @@
         outline: none;
     } 
 
-    .xxl {
+    .headingOne {
       @include typography(h1);
     }
-      
-    .xl {
+    .headingTwo {
       @include typography(h2);
     }
-    
-    .lg {
+    .headingThree {
       @include typography(h3);
     }
-    
-    .md {
+    .headingFour {
       @include typography(h4);
     }
-    
-    .sm {
+    .headingFive {
       @include typography(h5);
     }
-    
-    .xs {
+    .headingSix {
       @include typography(h6);
     }
-    
-    .xxs {
-      @include typography(h6);
+    .headingSeven {
+      @include typography(h7);
+    }
+    .headingEight {
+      @include typography(h8);
+    }
+    .headingNine {
+      @include typography(h9);
     }
 
     &.enableInput {
-      border: 1px solid $primary !important;
+      border: 1px solid $blue !important;
     }
 }
 

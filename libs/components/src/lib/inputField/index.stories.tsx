@@ -1,10 +1,10 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { useState } from 'react';
-import InputField, { InputFieldVariantEnum } from '.';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { useState } from "react";
+import InputField from ".";
 
 export default {
   component: InputField,
-  title: 'InputField',
+  title: "InputField",
 } as ComponentMeta<typeof InputField>;
 
 const Template: ComponentStory<typeof InputField> = (args) => {
@@ -19,14 +19,14 @@ const Template: ComponentStory<typeof InputField> = (args) => {
   );
 };
 
-export const xLarge = Template.bind({});
-xLarge.args = {
-  variant: InputFieldVariantEnum.xxl,
+export const headingOne = Template.bind({});
+headingOne.args = {
+  variant: "h1",
 };
 
-export const large = Template.bind({});
-large.args = {
-  variant: InputFieldVariantEnum.xl,
+export const headingTwo = Template.bind({});
+headingTwo.args = {
+  variant: "h2",
 };
 
 export const medium = Template.bind({});
