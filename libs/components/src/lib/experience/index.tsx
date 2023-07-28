@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import TextField from '../textField';
+import InputField from "../inputField";
 // locals
-import { useData } from './useData';
-import classes from './index.module.scss';
+import { useData } from "./useData";
+import classes from "./index.module.scss";
 
 /* eslint-disable-next-line */
 export interface ExperienceProps {}
@@ -16,10 +16,9 @@ export const Experience: FC<ExperienceProps> = () => {
         <h1 className={classes.heading1}>Experience</h1>
         <div className={classes.text}>
           <div className={classes.dot} />
-          <TextField
+          <InputField
             value={data.value}
-            setValue={data.setValue}
-            fontSize={'20px'}
+            onChange={(e) => data.setValue(e.target.value)}
           />
           <hr className={classes.hr} />
         </div>

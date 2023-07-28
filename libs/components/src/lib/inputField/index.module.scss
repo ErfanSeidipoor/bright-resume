@@ -1,0 +1,65 @@
+@import '../../../../theme/index';
+
+.root {
+    background-color: $light;
+    color: $dark;
+    border-radius: spacing(1, 1);
+    border: 1px solid transparent;
+    padding: spacing(0.5, 0.5);
+    display: flex;
+    align-items: center;
+    gap: spacing(1, 1);
+    &:hover {
+        border: 1px dashed $primary;
+        .editIcon {
+            display: block
+        }
+    }
+    &:focus {
+        border: 1px solid $primary;
+    }
+
+    .editIcon {
+        display: none;
+        cursor: pointer;
+    }
+
+    .input {
+        background-color: $light;
+        color: $dark;
+        outline: none;
+    } 
+
+    .xxl {
+      @include typography(h1);
+    }
+      
+    .xl {
+      @include typography(h2);
+    }
+    
+    .lg {
+      @include typography(h3);
+    }
+    
+    .md {
+      @include typography(h4);
+    }
+    
+    .sm {
+      @include typography(h5);
+    }
+    
+    .xs {
+      @include typography(h6);
+    }
+    
+    .xxs {
+      @include typography(h6);
+    }
+
+    &.enableInput {
+      border: 1px solid $primary !important;
+    }
+}
+
