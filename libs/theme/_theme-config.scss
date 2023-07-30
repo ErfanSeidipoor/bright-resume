@@ -1,29 +1,99 @@
 #theme-blue {
-  --button-bg-color: #{$blue};
-  --button-text-color: #{$light};
-  --button-bg-color-hover: #{$dark-blue};
+  --primary: #{$blue};
+  --dark-primary: #{$dark-blue};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --light: #{$light};
+  --dark: #{$dark};
 }
 
 #theme-green {
-  --button-bg-color: #{$green};
-  --button-text-color: #{$light};
-  --button-bg-color-hover: #{$dark-green};
+  --primary: #{$green};
+  --dark-primary: #{$dark-green};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$blue};
+  --dark-success: #{$dark-blue};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --light: #{$light};
+  --dark: #{$dark};
 }
 
 #theme-purple {
-  --button-bg-color: #{$purple};
-  --button-text-color: #{$light};
-  --button-bg-color-hover: #{$dark-purple};
+  --primary: #{$purple};
+  --dark-primary: #{$dark-purple};
+  --secondary: #{$dark-blue};
+  --dark-secondary: #{$dark-blue};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --light: #{$light};
+  --dark: #{$dark};
 }
 
 #theme-gold {
-  --button-bg-color: #{$gold};
-  --button-text-color: #{$light};
-  --button-bg-color-hover: #{$dark-gold};
+  --primary: #{$gold};
+  --dark-primary: #{$dark-gold};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$blue};
+  --dark-warning: #{$dark-blue};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --light: #{$light};
+  --dark: #{$dark};
 }
 
 #theme-grey {
-  --button-bg-color: #{$grey-300};
-  --button-text-color: #{$light};
-  --button-bg-color-hover: #{$grey-500};
+  --primary: #{$grey-300};
+  --dark-primary: #{$grey-500};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --info: #{$blue};
+  --dark-info: #{$dark-blue};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --light: #{$light};
+  --dark: #{$dark};
 }
