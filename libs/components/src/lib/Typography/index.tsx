@@ -20,13 +20,20 @@ type TypographyProps<T extends React.ElementType> = {
 } & React.ComponentPropsWithoutRef<T>;
 
 export const Typography = <T extends React.ElementType = "p">({
-  variant = "h8",
+  variant = "h7",
   component,
   children,
   className,
   ...props
 }: TypographyProps<T>) => {
-  const Component = component || "p";
+  const getComponent = (): React.ElementType => {
+    if (!component && ["h7", "h8", "h9"].includes(variant)) {
+      return "p";
+    }
+    return component || (variant as React.ElementType);
+  };
+
+  const Component = getComponent();
 
   const rootClasses = cls(classes.root, className, {
     [classes.h1]: variant === "h1",
