@@ -2,19 +2,19 @@ import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import InputField from ".";
+import { TextField } from ".";
 
 const mockedOnChange = jest.fn();
 
 const renderComponent = () => {
   const { baseElement } = render(
-    <InputField id="input-test" onChange={mockedOnChange} />
+    <TextField id="input-test" onChange={mockedOnChange} />
   );
 
   return { baseElement };
 };
 
-describe("InputField Component", () => {
+describe("TextField Component", () => {
   it("should render successfully", () => {
     const { baseElement } = renderComponent();
     const title = screen.getByRole("heading", { level: 3 });

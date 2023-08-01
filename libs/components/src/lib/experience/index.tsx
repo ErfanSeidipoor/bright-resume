@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import InputField from "../inputField";
+import { TextField } from "../TextField";
 // locals
 import { useData } from "./useData";
 import classes from "./index.module.scss";
@@ -16,7 +16,7 @@ export const Experience: FC<ExperienceProps> = () => {
         <h1 className={classes.heading1}>Experience</h1>
         <div className={classes.text}>
           <div className={classes.dot} />
-          <InputField
+          <TextField
             value={data.value}
             onChange={(e) => data.setValue(e.target.value)}
           />

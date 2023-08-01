@@ -1,17 +1,7 @@
 import cls from "classnames";
+import { TypographyVariant } from "../types/index.type";
 
 import classes from "./index.module.scss";
-
-export type TypographyVariant =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "h7"
-  | "h8"
-  | "h9";
 
 type TypographyProps<T extends React.ElementType> = {
   component?: T;

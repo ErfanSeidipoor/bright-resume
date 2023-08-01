@@ -4,21 +4,18 @@ import Image from "next/image";
 // svg
 import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
 // types
-import { TypographyVariant } from "../types";
+import { TypographyVariant } from "../types/index.type";
+// components
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Typography from "../Typography";
 
-export interface InputFieldProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
-}
+};
 
-export const InputField: FC<InputFieldProps> = ({
-  variant = "h3",
-  ...props
-}) => {
+export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
   const data = useData();
 
   const renderTypography = () => {
@@ -41,23 +38,15 @@ export const InputField: FC<InputFieldProps> = ({
 
   const renderInput = () => {
     return (
-      <input
-        ref={data.inputRef}
-        className={cls(classes.input, props.className, {
-          [classes.headingOne]: variant === "h1",
-          [classes.headingTwo]: variant === "h2",
-          [classes.headingThree]: variant === "h3",
-          [classes.headingFour]: variant === "h4",
-          [classes.headingFive]: variant === "h5",
-          [classes.headingSix]: variant === "h6",
-          [classes.headingSeven]: variant === "h7",
-          [classes.headingEight]: variant === "h8",
-          [classes.headingNine]: variant === "h9",
-        })}
+      <Typography
+        component="input"
+        autoFocus
+        className={classes.input}
         disabled={!data.isInputActive}
         onKeyDown={(event) =>
           event.key === "Enter" && data.setIsInputActive(false)
         }
+        variant={variant}
         {...props}
       />
     );
@@ -79,5 +68,3 @@ export const InputField: FC<InputFieldProps> = ({
     </div>
   );
 };
-
-export default InputField;

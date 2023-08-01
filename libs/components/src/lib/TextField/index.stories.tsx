@@ -1,21 +1,23 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { useState } from "react";
-import InputField from ".";
+import { TextField } from ".";
 
 export default {
-  component: InputField,
-  title: "InputField",
-} as ComponentMeta<typeof InputField>;
+  component: TextField,
+  title: "TextField",
+} as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof InputField> = (args) => {
+const Template: ComponentStory<typeof TextField> = (args) => {
   const [value, setValue] = useState<string | undefined>();
   return (
-    <InputField
-      {...args}
-      value={value}
-      defaultValue="Position"
-      onChange={(e) => setValue(e.target.value)}
-    />
+    <div id="theme-blue">
+      <TextField
+        {...args}
+        value={value}
+        defaultValue="Position"
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </div>
   );
 };
 
