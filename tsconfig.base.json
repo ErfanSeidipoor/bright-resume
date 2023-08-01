@@ -19,7 +19,8 @@
       "@bright-resume/components": ["libs/components/src/index.ts"],
       "@bright-resume/web": ["apps/web"],
       "@libs/scss": ["libs/components/scss"]
-    }
+    },
+    "types": ["node", "jest", "@testing-library/jest-dom"],
   },
   "exclude": ["node_modules", "tmp"]
 }

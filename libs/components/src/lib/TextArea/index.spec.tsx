@@ -1,23 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
+import "@testing-library/jest-dom/extend-expect";
 
-import InputField, { InputFieldVariantEnum } from ".";
+import { TextArea } from ".";
 
 const mockedOnChange = jest.fn();
 
 const renderComponent = () => {
   const { baseElement } = render(
-    <InputField
-      id="input-test"
-      variant={InputFieldVariantEnum.lg}
-      onChange={mockedOnChange}
-    />
+    <TextArea id="input-test" onChange={mockedOnChange} />
   );
 
   return { baseElement };
 };
 
-describe("InputField Component", () => {
+describe("TextArea Component", () => {
   it("should render successfully", () => {
     const { baseElement } = renderComponent();
     const title = screen.getByRole("heading", { level: 3 });
@@ -33,14 +30,14 @@ describe("InputField Component", () => {
     expect(input).toBeDefined();
   });
 
-  it("should input value changed when user type some text in input field", async () => {
+  it("shows input value after user type something", async () => {
     renderComponent();
     const icon = screen.getByRole("img");
     user.click(icon);
     const input = await screen.findByRole("textbox");
-    user.click(input);
-    user.keyboard("some text for testing");
+    await user.click(input);
+    await user.keyboard("some text for testing");
     expect(input).toBeDefined();
-    // expect(input).toHaveValue("new value");
+    expect((input as HTMLInputElement).value).toBe("some text for testing");
   });
 });

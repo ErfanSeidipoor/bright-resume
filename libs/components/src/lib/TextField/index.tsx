@@ -1,33 +1,22 @@
 import { FC } from "react";
 import cls from "classnames";
-
+import Image from "next/image";
+// svg
+import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
+// types
+import { TypographyVariant } from "../types/index.type";
+// components
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-import Image from "next/image";
 import Typography from "../Typography";
-import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
 
-export enum InputFieldVariantEnum {
-  "xxl" = "h1",
-  "xl" = "h2",
-  "lg" = "h3",
-  "md" = "h4",
-  "sm" = "h5",
-  "xs" = "h6",
-  "xxs" = "h6",
-}
+type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  variant?: TypographyVariant;
+};
 
-export interface InputFieldProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  variant?: InputFieldVariantEnum;
-}
-
-export const InputField: FC<InputFieldProps> = ({
-  variant = InputFieldVariantEnum.lg,
-  ...props
-}) => {
-  const data = useData(variant);
+export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
+  const data = useData();
 
   const renderTypography = () => {
     return (
@@ -49,17 +38,15 @@ export const InputField: FC<InputFieldProps> = ({
 
   const renderInput = () => {
     return (
-      <input
-        ref={data.inputRef}
-        className={cls(
-          classes.input,
-          data.handleGetVariantClassName(variant),
-          props.className
-        )}
+      <Typography
+        component="input"
+        autoFocus
+        className={classes.input}
         disabled={!data.isInputActive}
         onKeyDown={(event) =>
           event.key === "Enter" && data.setIsInputActive(false)
         }
+        variant={variant}
         {...props}
       />
     );
@@ -81,5 +68,3 @@ export const InputField: FC<InputFieldProps> = ({
     </div>
   );
 };
-
-export default InputField;
