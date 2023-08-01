@@ -2,5 +2,5 @@
   @if $secondKey {
     @return map-get($spacing, $firstKey) map-get($spacing, $secondKey);
   }
-  @return map-get($spacing, $firstKey);
+  @return map-get($spacing, $firstKey) map-get($spacing, $firstKey);
 }
