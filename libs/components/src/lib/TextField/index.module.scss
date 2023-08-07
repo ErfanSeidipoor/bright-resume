@@ -1,7 +1,7 @@
 @import '../../../../theme/index';
 
 .root {
-    background-color: var(--light);
+    background-color: transparent;
     color: var(--dark);
     border-radius: spacing(1, 1);
     border: 1px solid transparent;
@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     gap: spacing(1, 1);
+    cursor: pointer;
     &:hover {
         border: 1px dashed var(--primary);
         .editIcon {
