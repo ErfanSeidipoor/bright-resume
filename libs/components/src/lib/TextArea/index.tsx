@@ -13,9 +13,14 @@ import Typography from "../Typography";
 
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   variant?: TypographyVariant;
+  showDefaultValue?: boolean;
 };
 
-export const TextArea: FC<TextAreaProps> = ({ variant = "h6", ...props }) => {
+export const TextArea: FC<TextAreaProps> = ({
+  variant = "h6",
+  showDefaultValue = false,
+  ...props
+}) => {
   const data = useData();
 
   const renderTypography = () => {
@@ -30,7 +35,6 @@ export const TextArea: FC<TextAreaProps> = ({ variant = "h6", ...props }) => {
           alt="solar-pen"
           width={18}
           height={18}
-          onClick={() => data.setIsInputActive(!data.isInputActive)}
         />
       </>
     );
@@ -40,14 +44,15 @@ export const TextArea: FC<TextAreaProps> = ({ variant = "h6", ...props }) => {
     return (
       <Typography
         component="textarea"
-        autoFocus
+        onFocus={data.handleActiveInput}
+        autoFocus={data.isInputActive}
         className={classes.input}
-        disabled={!data.isInputActive}
         onKeyDown={(event) =>
-          event.key === "Enter" && data.setIsInputActive(false)
+          event.key === "Enter" && data.handleDeActiveInput()
         }
         variant={variant}
-        rows={4}
+        rows={props.rows || 3}
+        defaultValue={""}
         {...props}
       />
     );
@@ -61,9 +66,10 @@ export const TextArea: FC<TextAreaProps> = ({ variant = "h6", ...props }) => {
   return (
     <div
       className={cls(classes.root, {
-        [classes.enableInput]: !!data.isInputActive,
+        [classes.enableRoot]: !!data.isInputActive,
       })}
-      onBlur={() => data.setIsInputActive(false)}
+      onBlur={data.handleDeActiveInput}
+      onClick={data.handleActiveInput}
     >
       {renderBody()}
     </div>

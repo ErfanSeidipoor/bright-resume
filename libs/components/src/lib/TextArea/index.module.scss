@@ -1,7 +1,8 @@
 @import '../../../../theme/index';
 
 .root {
-    background-color: var(--light);
+    width: 100%;
+    background-color: transparent;
     color: var(--dark);
     border-radius: spacing(1, 1);
     border: 1px solid transparent;
@@ -9,7 +10,8 @@
     display: flex;
     align-items: center;
     gap: spacing(1, 1);
-    padding-right: spacing(5);
+    position: relative;
+    cursor: pointer;
     &:hover {
         border: 1px dashed var(--primary);
         .editIcon {
@@ -23,6 +25,9 @@
     .editIcon {
         display: none;
         cursor: pointer;
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
     }
 
     .input {
@@ -30,10 +35,12 @@
         color: var(--dark);
         outline: none;
         width: 100%;
+        resize: none;
     } 
 
-    &.enableInput {
+    &.enableRoot {
       border: 1px solid var(--primary) !important;
+      padding-right: 0!important;
     }
 }
 
