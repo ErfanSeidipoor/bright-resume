@@ -30,7 +30,6 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
           alt="solar-pen"
           width={18}
           height={18}
-          onClick={() => data.setIsInputActive(!data.isInputActive)}
         />
       </>
     );
@@ -42,11 +41,11 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
         component="input"
         autoFocus
         className={classes.input}
-        disabled={!data.isInputActive}
         onKeyDown={(event) =>
-          event.key === "Enter" && data.setIsInputActive(false)
+          event.key === "Enter" && data.handleDeActiveInput()
         }
         variant={variant}
+        defaultValue={""}
         {...props}
       />
     );
@@ -62,7 +61,8 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
       className={cls(classes.root, {
         [classes.enableInput]: !!data.isInputActive,
       })}
-      onBlur={() => data.setIsInputActive(false)}
+      onBlur={data.handleDeActiveInput}
+      onClick={data.handleActiveInput}
     >
       {renderBody()}
     </div>

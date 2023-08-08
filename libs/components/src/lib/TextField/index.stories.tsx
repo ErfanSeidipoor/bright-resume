@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof TextField>;
 
 const Template: ComponentStory<typeof TextField> = (args) => {
-  const [value, setValue] = useState<string | undefined>();
+  const [value, setValue] = useState<string | undefined>("");
   return (
     <div id="theme-blue">
       <TextField
