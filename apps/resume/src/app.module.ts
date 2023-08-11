@@ -9,6 +9,11 @@ import {
   ALL_EXCEPTION_FILTER_TOKEN,
   AllExceptionsFilter,
 } from './common/filters/all-exceptions.filter';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ResumeModule } from './api/modules/resume/resume.module';
+import { join } from 'path';
+import { cwd } from 'process';
 
 @Module({
   imports: [
@@ -18,6 +23,13 @@ import {
       ignoreEnvFile: true,
     }),
     RouterModule.register(appRoutes),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      playground: true,
+      include: [ResumeModule],
+      autoSchemaFile: join(cwd(), 'apps', 'resume', 'src', 'schema.gql'),
+      sortSchema: true,
+    }),
     DatabaseModule,
   ],
   controllers: [AppController],

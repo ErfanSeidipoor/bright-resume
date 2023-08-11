@@ -4,7 +4,6 @@ import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import { AppConfigs } from './common/constant/app-config.constant';
 import { Logger } from '@nestjs/common';
-import { setupSwagger } from './common/helper/function/setup-swagger.helper';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppConfig } from './common/interface/config/app-config.interface';
 import { GlobalValidationPipe } from './common/pipes/global-validation.pipe';
@@ -20,8 +19,6 @@ async function bootstrap(): Promise<void> {
   const configService = app.get<ConfigService>(ConfigService);
 
   const { port } = configService.get<AppConfig>(AppConfigs.APP);
-
-  setupSwagger(app);
 
   app.useGlobalInterceptors(SerializerInterceptor(app));
   app.useGlobalPipes(GlobalValidationPipe);
