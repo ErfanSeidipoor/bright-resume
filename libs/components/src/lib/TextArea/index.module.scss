@@ -14,7 +14,7 @@
     cursor: pointer;
     &:hover {
         border: 1px dashed var(--primary);
-        .editIcon {
+        .edit__icon {
             display: block;
         }
     }
@@ -22,7 +22,7 @@
         border: 1px solid var(--primary);
     }
 
-    .editIcon {
+    .edit__icon {
         display: none;
         cursor: pointer;
         position: absolute;
@@ -38,7 +38,7 @@
         resize: none;
     } 
 
-    &.enableRoot {
+    &.enable__root {
       border: 1px solid var(--primary) !important;
       padding-right: 0!important;
     }
