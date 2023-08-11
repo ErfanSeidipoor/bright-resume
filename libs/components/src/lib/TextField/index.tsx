@@ -22,10 +22,10 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
     return (
       <>
         <Typography variant={variant}>
-          {props.value || props.defaultValue}
+          {props.value || props.defaultValue || props.placeholder}
         </Typography>
         <Image
-          className={classes.editIcon}
+          className={classes.edit__icon}
           src={SolarPenBoldSvg}
           alt="solar-pen"
           width={18}
@@ -45,7 +45,6 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
           event.key === "Enter" && data.handleDeActiveInput()
         }
         variant={variant}
-        defaultValue={""}
         {...props}
       />
     );
@@ -59,7 +58,7 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
   return (
     <div
       className={cls(classes.root, {
-        [classes.enableInput]: !!data.isInputActive,
+        [classes.enable__root]: !!data.isInputActive,
       })}
       onBlur={data.handleDeActiveInput}
       onClick={data.handleActiveInput}

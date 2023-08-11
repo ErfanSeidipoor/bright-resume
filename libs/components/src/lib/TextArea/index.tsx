@@ -13,30 +13,20 @@ import Typography from "../Typography";
 
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   variant?: TypographyVariant;
-  showDefaultValue?: boolean;
 };
 
-export const TextArea: FC<TextAreaProps> = ({
-  variant = "h6",
-  showDefaultValue = false,
-  ...props
-}) => {
+export const TextArea: FC<TextAreaProps> = ({ variant = "h6", ...props }) => {
   const data = useData();
 
-  const renderTypography = () => {
+  const renderIcon = () => {
     return (
-      <>
-        <Typography variant={variant}>
-          {props.value || props.defaultValue}
-        </Typography>
-        <Image
-          className={classes.editIcon}
-          src={SolarPenBoldSvg}
-          alt="solar-pen"
-          width={18}
-          height={18}
-        />
-      </>
+      <Image
+        className={classes.edit__icon}
+        src={SolarPenBoldSvg}
+        alt="solar-pen"
+        width={18}
+        height={18}
+      />
     );
   };
 
@@ -48,30 +38,25 @@ export const TextArea: FC<TextAreaProps> = ({
         autoFocus={data.isInputActive}
         className={classes.input}
         onKeyDown={(event) =>
-          event.key === "Enter" && data.handleDeActiveInput()
+          event.key === "Escape" && data.handleDeActiveInput()
         }
         variant={variant}
         rows={props.rows || 3}
-        defaultValue={""}
         {...props}
       />
     );
   };
 
-  const renderBody = () => {
-    if (!data.isInputActive) return renderTypography();
-    else return renderInput();
-  };
-
   return (
     <div
       className={cls(classes.root, {
-        [classes.enableRoot]: !!data.isInputActive,
+        [classes.enable__root]: !!data.isInputActive,
       })}
       onBlur={data.handleDeActiveInput}
       onClick={data.handleActiveInput}
     >
-      {renderBody()}
+      {renderInput()}
+      {renderIcon()}
     </div>
   );
 };

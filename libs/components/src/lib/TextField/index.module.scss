@@ -12,7 +12,7 @@
     cursor: pointer;
     &:hover {
         border: 1px dashed var(--primary);
-        .editIcon {
+        .edit__icon {
             display: block
         }
     }
@@ -20,7 +20,7 @@
         border: 1px solid var(--primary);
     }
 
-    .editIcon {
+    .edit__icon {
         display: none;
         cursor: pointer;
     }
@@ -32,7 +32,7 @@
         width: 100%;
     } 
 
-    &.enableInput {
+    &.enable__root {
       border: 1px solid var(--primary) !important;
     }
 }
