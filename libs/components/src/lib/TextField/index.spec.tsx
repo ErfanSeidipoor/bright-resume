@@ -32,8 +32,8 @@ describe("TextField Component", () => {
 
   it("shows input value after user type something", async () => {
     renderComponent();
-    const icon = screen.getByRole("img");
-    user.click(icon);
+    const title = screen.getByRole("heading", { level: 3 });
+    user.click(title);
     const input = await screen.findByRole("textbox");
     await user.click(input);
     await user.keyboard("some text for testing");

@@ -23,6 +23,9 @@
     .edit__icon {
         display: none;
         cursor: pointer;
+        > svg > path {
+            fill: var(--primary);
+        }
     }
 
     .input {
