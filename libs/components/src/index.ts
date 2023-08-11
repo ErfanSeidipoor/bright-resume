@@ -1,4 +1,4 @@
-// export * from './lib/about-me';
+export * from "./lib/AboutMe";
 export * from "./lib/Button";
 export * from "./lib/components";
 export * from "./lib/Icons";
