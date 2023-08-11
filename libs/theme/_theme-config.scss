@@ -1,8 +1,10 @@
 #theme-blue {
   --primary: #{$blue};
   --dark-primary: #{$dark-blue};
+  --light-primary: #{$light-blue};
   --secondary: #{$dark-purple};
   --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
   --info: #{$grey-300};
   --dark-info: #{$grey-500};
   --success: #{$green};
@@ -14,6 +16,7 @@
   --grey-300: #{$grey-300};
   --grey-400: #{$grey-400};
   --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
 }
@@ -21,8 +24,10 @@
 #theme-green {
   --primary: #{$green};
   --dark-primary: #{$dark-green};
+  --light-primary: #{$light-green};
   --secondary: #{$dark-purple};
   --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
   --info: #{$grey-300};
   --dark-info: #{$grey-500};
   --success: #{$blue};
@@ -34,6 +39,7 @@
   --grey-300: #{$grey-300};
   --grey-400: #{$grey-400};
   --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
 }
@@ -41,8 +47,10 @@
 #theme-purple {
   --primary: #{$purple};
   --dark-primary: #{$dark-purple};
+  --light-primary: #{$light-purple};
   --secondary: #{$dark-blue};
   --dark-secondary: #{$dark-blue};
+  --light-secondary: #{$light-blue};
   --info: #{$grey-300};
   --dark-info: #{$grey-500};
   --success: #{$green};
@@ -54,6 +62,7 @@
   --grey-300: #{$grey-300};
   --grey-400: #{$grey-400};
   --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
 }
@@ -61,8 +70,10 @@
 #theme-gold {
   --primary: #{$gold};
   --dark-primary: #{$dark-gold};
+  --light-primary: #{$light-gold};
   --secondary: #{$dark-purple};
   --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
   --info: #{$grey-300};
   --dark-info: #{$grey-500};
   --success: #{$green};
@@ -74,6 +85,7 @@
   --grey-300: #{$grey-300};
   --grey-400: #{$grey-400};
   --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
 }
@@ -81,8 +93,10 @@
 #theme-grey {
   --primary: #{$grey-300};
   --dark-primary: #{$grey-500};
+  --light-primary: #{$grey-100};
   --secondary: #{$dark-purple};
   --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
   --info: #{$blue};
   --dark-info: #{$dark-blue};
   --success: #{$green};
@@ -94,6 +108,7 @@
   --grey-300: #{$grey-300};
   --grey-400: #{$grey-400};
   --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
 }

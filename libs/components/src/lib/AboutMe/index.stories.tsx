@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import AboutMe from ".";
+
+import AboutMe from "./";
 
 export default {
   component: AboutMe,
@@ -7,7 +8,11 @@ export default {
 } as ComponentMeta<typeof AboutMe>;
 
 const Template: ComponentStory<typeof AboutMe> = (args) => {
-  return <AboutMe {...args} />;
+  return (
+    <div id="theme-blue">
+      <AboutMe {...args} />
+    </div>
+  );
 };
 
 export const Primary = Template.bind({});
