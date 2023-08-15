@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
+import { faker } from "@faker-js/faker";
 
 import { TextArea } from ".";
 
@@ -22,22 +23,15 @@ describe("TextArea Component", () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it("shows input after user clicked", async () => {
-    renderComponent();
-    const icon = screen.getByRole("img");
-    user.click(icon);
-    const input = await screen.findByRole("textbox");
-    expect(input).toBeDefined();
-  });
-
   it("shows input value after user type something", async () => {
+    const TEXT = faker.word.noun();
     renderComponent();
-    const icon = screen.getByRole("img");
-    user.click(icon);
-    const input = await screen.findByRole("textbox");
+    const input = screen.getByRole("textbox");
     await user.click(input);
-    await user.keyboard("some text for testing");
+    await user.keyboard(TEXT);
     expect(input).toBeDefined();
-    expect((input as HTMLInputElement).value).toBe("some text for testing");
+    expect((input as HTMLInputElement).value).toBe(TEXT);
+    expect(mockedOnChange).toHaveBeenCalled();
+    expect(mockedOnChange).toHaveBeenCalledTimes(TEXT.length);
   });
 });
