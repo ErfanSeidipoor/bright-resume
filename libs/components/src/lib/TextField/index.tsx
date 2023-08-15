@@ -1,8 +1,5 @@
 import { FC } from "react";
 import cls from "classnames";
-import Image from "next/image";
-// svg
-import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
 // types
 import { TypographyVariant } from "../types/index.type";
 // components
