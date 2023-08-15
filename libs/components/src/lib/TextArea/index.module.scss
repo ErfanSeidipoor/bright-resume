@@ -28,6 +28,9 @@
         position: absolute;
         bottom: 4px;
         right: 4px;
+        > svg > path {
+            fill: var(--primary);
+        }
     }
 
     .input {
@@ -37,6 +40,10 @@
         width: 100%;
         resize: none;
     } 
+
+    .disable__input {
+        cursor: pointer;
+    }
 
     &.enable__root {
       border: 1px solid var(--primary) !important;

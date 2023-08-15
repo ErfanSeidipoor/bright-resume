@@ -6,10 +6,11 @@ import SolarPenBoldSvg from "@bright-resume/assets/svg/solar-pen-bold.svg";
 // types
 import { TypographyVariant } from "../types/index.type";
 // components
+import { SolarPenBoldIcon } from "../Icons";
+import Typography from "../Typography";
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-import Typography from "../Typography";
 
 type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
@@ -24,13 +25,9 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
         <Typography variant={variant}>
           {props.value || props.defaultValue || props.placeholder}
         </Typography>
-        <Image
-          className={classes.edit__icon}
-          src={SolarPenBoldSvg}
-          alt="solar-pen"
-          width={18}
-          height={18}
-        />
+        <div className={classes.edit__icon}>
+          <SolarPenBoldIcon width={18} height={18} />
+        </div>
       </>
     );
   };

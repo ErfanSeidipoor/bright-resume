@@ -17,8 +17,8 @@ const renderComponent = () => {
 describe("TextArea Component", () => {
   it("should render successfully", () => {
     const { baseElement } = renderComponent();
-    const title = screen.getByRole("heading", { level: 3 });
-    expect(title).toBeDefined();
+    const textArea = screen.getByRole("textbox");
+    expect(textArea).toBeDefined();
     expect(baseElement).toBeTruthy();
   });
 
