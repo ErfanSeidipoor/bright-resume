@@ -8,3 +8,14 @@ export type TypographyVariant =
   | "h7"
   | "h8"
   | "h9";
+
+export type TextAreaProps =
+  React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+    variant?: TypographyVariant;
+    rootClassName?: string;
+  };
+
+export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  variant?: TypographyVariant;
+  rootClassName?: string;
+};
