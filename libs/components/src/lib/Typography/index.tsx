@@ -1,27 +1,42 @@
-import cls from 'classnames';
+import cls from "classnames";
 
-import classes from './index.module.scss';
+import { TypographyVariant } from "../types/index.type";
 
-type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+import classes from "./index.module.scss";
 
-export interface TypographyProps extends React.HTMLProps<HTMLElement> {
-  variant: Variant;
-  component?: React.ElementType;
-}
+export type TypographyProps<T extends React.ElementType> = {
+  component?: T;
+  variant?: TypographyVariant;
+  children?: React.ReactNode;
+  className?: string;
+} & React.ComponentPropsWithoutRef<T>;
 
-export const Typography: React.FC<TypographyProps> = ({
-  variant,
-  component: Component = 'div',
+export const Typography = <T extends React.ElementType = "p">({
+  variant = "h7",
+  component,
   children,
+  className,
   ...props
-}) => {
-  const rootClasses = cls(classes.root, {
-    [classes.h1]: variant === 'h1',
-    [classes.h2]: variant === 'h2',
-    [classes.h3]: variant === 'h3',
-    [classes.h4]: variant === 'h4',
-    [classes.h5]: variant === 'h5',
-    [classes.h6]: variant === 'h6',
+}: TypographyProps<T>) => {
+  const getComponent = (): React.ElementType => {
+    if (!component && ["h7", "h8", "h9"].includes(variant)) {
+      return "p";
+    }
+    return component || (variant as React.ElementType);
+  };
+
+  const Component = getComponent();
+
+  const rootClasses = cls(classes.root, className, {
+    [classes.h1]: variant === "h1",
+    [classes.h2]: variant === "h2",
+    [classes.h3]: variant === "h3",
+    [classes.h4]: variant === "h4",
+    [classes.h5]: variant === "h5",
+    [classes.h6]: variant === "h6",
+    [classes.h7]: variant === "h7",
+    [classes.h8]: variant === "h8",
+    [classes.h9]: variant === "h9",
   });
 
   return (

@@ -1,0 +1,12 @@
+@import "../../../../theme/index";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+  padding: spacing(5, 5);
+  background-color: white;
+  &:hover {
+    background-color: var(--light-primary);
+  }
+}

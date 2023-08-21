@@ -1,0 +1,41 @@
+@import "../../../../theme/index";
+
+.root {
+  background-color: transparent;
+  color: var(--dark);
+  border-radius: spacing(1, 1);
+  border: 1px solid transparent;
+  padding: spacing(0.5, 0.5);
+  display: flex;
+  align-items: center;
+  gap: spacing(1, 1);
+  cursor: pointer;
+  &:hover {
+    border: 1px dashed var(--primary);
+    .edit__icon {
+      display: block;
+    }
+  }
+  &:focus {
+    border: 1px solid var(--primary);
+  }
+
+  .edit__icon {
+    display: none;
+    cursor: pointer;
+    > svg > path {
+      fill: var(--primary);
+    }
+  }
+
+  .input {
+    background-color: transparent;
+    color: var(--dark);
+    outline: none;
+    width: 100%;
+  }
+
+  &.enable__root {
+    border: 1px solid var(--primary) !important;
+  }
+}

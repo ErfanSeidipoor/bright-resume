@@ -1,6 +1,21 @@
-@function spacing($firstKey, $secondKey: 0) {
-  @if $secondKey {
+@function spacing(
+  $firstKey,
+  $secondKey: null,
+  $thirdKey: null,
+  $fourthKey: null
+) {
+  @if $fourthKey {
+    @return map-get($spacing, $firstKey) map-get($spacing, $secondKey)
+      map-get($spacing, $thirdKey) map-get($spacing, $fourthKey);
+  }
+  @if $thirdKey {
     @return map-get($spacing, $firstKey) map-get($spacing, $secondKey);
   }
-  @return map-get($spacing, $firstKey);
+  @if $secondKey {
+    @return map-get($spacing, $firstKey) map-get($spacing, $secondKey)
+      map-get($spacing, $thirdKey);
+  }
+  @if $firstKey {
+    @return map-get($spacing, $firstKey);
+  }
 }

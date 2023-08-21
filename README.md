@@ -3,6 +3,8 @@
 ![Bright Resume Logo](/libs/assets/src/image/logo-with-typography-horizontal-dark.png)
 
 [![License](https://img.shields.io/github/license/your_username/resume-builder.svg?style=flat-square)](https://github.com/your_username/resume-builder/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/ErfanSeidipoor/bright-resume)](https://github.com/ErfanSeidipoor/bright-resume/issues)
+[![GitHub stars](https://img.shields.io/github/stars/ErfanSeidipoor/bright-resume)](https://github.com/ErfanSeidipoor/bright-resume/stargazers)
 
 Resume Builder is an open-source tool that allows you to create professional resumes easily. With its customizable templates and intuitive interface, you can generate impressive resumes tailored to your needs. This project aims to simplify the resume creation process and provide a portable solution that you can run anywhere.
 
@@ -56,6 +58,11 @@ The project follows the NX monorepo architecture, which allows for a modular and
   - `components`: A library with reusable UI components for building the resume.
   - `assets`: A library containing all assets likes fonts, images,.
 - `tools`: Contains various tools or scripts related to the project.
+
+## Community and support
+
+Join our friendly community on [Discord](https://discord.gg/aMkJaHHH), or write us an
+[email](mailto:erfan.seidipoor@gmail.com).
 
 ## Issues and Bug Reports
 

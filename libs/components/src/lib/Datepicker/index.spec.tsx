@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Components from './components';
+import DatePicker from '.';
 
-describe('Components', () => {
+describe('DatePicker Component', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Components />);
+    const { baseElement } = render(<DatePicker />);
     expect(baseElement).toBeTruthy();
   });
 });
