@@ -1,3 +1,4 @@
 export * from './models';
 export * from './entity';
-export * from './base-service';
+export * from './interface';
+export * from './types/mongoose';
