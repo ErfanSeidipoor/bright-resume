@@ -1,25 +1,12 @@
 import { Prop, Schema } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+import { MongooseBaseInterface } from '../interface';
 @Schema()
-export abstract class MongooseBaseEntity extends Document {
-  // @Prop({
-  //   type: Types.ObjectId,
-  //   required: true,
-  //   unique: true,
-  //   get: (v) => v.toString(),
-  // })
-  // _id: Types.ObjectId;
-
-  // @Prop({
-  //   type: Types.ObjectId,
-  //   ref: Collection.USER,
-  // })
-  // owner: PopulatedDoc<User>;
-
-  // @Prop({
-  //   type: Types.ObjectId,
-  //   ref: Collection.USER,
-  // })
-  // updatedBy: PopulatedDoc<User>;
+export abstract class MongooseBaseEntity
+  extends Document
+  implements MongooseBaseInterface
+{
+  id: string;
 
   @Prop({ type: Date })
   deletedAt: Date;

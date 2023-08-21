@@ -29,7 +29,7 @@ async function bootstrap(): Promise<void> {
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}`);
   Logger.log(
-    `🚀 Application documents is running on: http://localhost:${port}/docs`
+    `🚀 Application graphql playground is running on: http://localhost:${port}/graphql`
   );
 }
 

@@ -1,7 +1,10 @@
 import { Field, ObjectType } from '@nestjs/graphql';
+import { MongooseBaseInterface } from '../../interface';
+import { MongooseBaseEntity } from '../../entity';
+import { MongoosePartial } from '../../types';
 
 @ObjectType()
-export class BaseModel {
+export class BaseModel implements MongooseBaseInterface {
   @Field({ nullable: false })
   id: string;
 
@@ -14,5 +17,7 @@ export class BaseModel {
   @Field(() => Date, { nullable: true })
   deletedAt: Date;
 
-  //owner:user
+  constructor(partial: MongoosePartial<MongooseBaseEntity>) {
+    Object.assign(this, partial);
+  }
 }

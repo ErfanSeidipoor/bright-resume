@@ -14,15 +14,16 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ResumeModule } from './api/modules/resume/resume.module';
 import { join } from 'path';
 import { cwd } from 'process';
+import { ApiModule } from './api/api.module';
 
 @Module({
   imports: [
+    ApiModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [LoadConfigs],
       ignoreEnvFile: true,
     }),
-    RouterModule.register(appRoutes),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: true,
