@@ -35,6 +35,12 @@
     width: 100%;
   }
 
+  .label {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
   &.enable__root {
     border: 1px solid var(--primary) !important;
   }

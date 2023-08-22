@@ -13,9 +13,11 @@ export type TextAreaProps =
   React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
     variant?: TypographyVariant;
     rootClassName?: string;
+    label?: string;
   };
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  label?: string;
 };

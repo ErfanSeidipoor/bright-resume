@@ -12,6 +12,7 @@ import classes from "./index.module.scss";
 export const TextField: FC<TextFieldProps> = ({
   variant = "h3",
   rootClassName = "",
+  label = "",
   ...props
 }) => {
   const data = useData();
@@ -31,18 +32,23 @@ export const TextField: FC<TextFieldProps> = ({
 
   const renderInput = () => {
     return (
-      <Typography
-        {...props}
-        component="input"
-        autoFocus
-        className={cls(classes.input, {
-          [props.className || ""]: !!props.className,
-        })}
-        onKeyDown={(event) =>
-          event.key === "Enter" && data.handleDeActiveInput()
-        }
-        variant={variant}
-      />
+      <>
+        <label htmlFor={props.id} className={classes.label}>
+          {label}
+        </label>
+        <Typography
+          {...props}
+          component="input"
+          autoFocus
+          className={cls(classes.input, {
+            [props.className || ""]: !!props.className,
+          })}
+          onKeyDown={(event) =>
+            event.key === "Enter" && data.handleDeActiveInput()
+          }
+          variant={variant}
+        />
+      </>
     );
   };
 
