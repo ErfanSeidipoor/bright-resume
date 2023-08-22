@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof TextField> = (args) => {
     <div id="theme-blue">
       <TextField
         {...args}
+        label="name"
         value={value}
         defaultValue="Position"
         onChange={(e) => setValue(e.target.value)}

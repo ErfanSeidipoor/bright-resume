@@ -41,6 +41,12 @@
     resize: none;
   }
 
+  .label {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
   .disable__input {
     cursor: pointer;
   }

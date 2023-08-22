@@ -9,7 +9,12 @@ const mockedOnChange = jest.fn();
 
 const renderComponent = () => {
   const { baseElement } = render(
-    <TextField id="input-test" onChange={mockedOnChange} variant="h3" />
+    <TextField
+      id="input-test"
+      onChange={mockedOnChange}
+      variant="h3"
+      label="name"
+    />
   );
 
   return { baseElement };
@@ -27,7 +32,9 @@ describe("TextField Component", () => {
     renderComponent();
     const title = screen.getByRole("heading", { level: 3 });
     user.click(title);
-    const input = await screen.findByRole("textbox");
+    const input = await screen.findByRole("textbox", {
+      name: /name/i,
+    });
     expect(input).toBeDefined();
   });
 
@@ -36,12 +43,14 @@ describe("TextField Component", () => {
     renderComponent();
     const title = screen.getByRole("heading", { level: 3 });
     user.click(title);
-    const input = await screen.findByRole("textbox");
+    const input = await screen.findByRole("textbox", {
+      name: /name/i,
+    });
     await user.click(input);
     await user.keyboard(TEXT);
     expect(input).toBeDefined();
-    expect((input as HTMLInputElement).value).toBe(TEXT);
     expect(mockedOnChange).toHaveBeenCalled();
     expect(mockedOnChange).toHaveBeenCalledTimes(TEXT.length);
+    expect((input as HTMLInputElement).value).toBe(TEXT);
   });
 });

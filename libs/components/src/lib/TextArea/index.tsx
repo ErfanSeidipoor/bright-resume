@@ -12,6 +12,7 @@ import classes from "./index.module.scss";
 export const TextArea: FC<TextAreaProps> = ({
   variant = "h6",
   rootClassName = "",
+  label = "",
   ...props
 }) => {
   const data = useData();
@@ -26,21 +27,26 @@ export const TextArea: FC<TextAreaProps> = ({
 
   const renderInput = () => {
     return (
-      <Typography
-        {...props}
-        component="textarea"
-        onFocus={data.handleActiveInput}
-        autoFocus={data.isInputActive}
-        className={cls(classes.input, {
-          [props.className || ""]: !!props.className,
-          [classes.disable__input]: !data.isInputActive,
-        })}
-        onKeyDown={(event) =>
-          event.key === "Escape" && data.handleDeActiveInput()
-        }
-        variant={variant}
-        rows={props.rows || 3}
-      />
+      <>
+        <label htmlFor={props.id} className={classes.label}>
+          {label}
+        </label>
+        <Typography
+          {...props}
+          component="textarea"
+          onFocus={data.handleActiveInput}
+          autoFocus={data.isInputActive}
+          className={cls(classes.input, {
+            [props.className || ""]: !!props.className,
+            [classes.disable__input]: !data.isInputActive,
+          })}
+          onKeyDown={(event) =>
+            event.key === "Escape" && data.handleDeActiveInput()
+          }
+          variant={variant}
+          rows={props.rows || 3}
+        />
+      </>
     );
   };
 
