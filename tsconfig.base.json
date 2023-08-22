@@ -15,12 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bright-resume/api-common": ["libs/api-common/src/index.ts"],
+      "@bright-resume/assets": ["libs/assets/src/index.ts"],
       "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/components": ["libs/components/src/index.ts"],
       "@bright-resume/web": ["apps/web"],
       "@libs/scss": ["libs/components/scss"]
     },
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "exclude": ["node_modules", "tmp"]
 }
