@@ -1,22 +1,23 @@
 import { render, screen } from "@testing-library/react";
+import { faker } from "@faker-js/faker";
 import "@testing-library/jest-dom";
 
 import Typography, { TypographyProps } from "./index";
 
-const identity = "typography text";
+const IDENTITY = faker.word.noun();
 
 const renderComponent = <T extends React.ElementType>({
-  children = identity,
+  children = IDENTITY,
   ...props
 }: TypographyProps<T>) => {
-  const component = render(<Typography {...props}>{identity}</Typography>);
+  const component = render(<Typography {...props}>{IDENTITY}</Typography>);
   return component;
 };
 
 describe("Typography component", () => {
   it("should render", () => {
-    renderComponent({ children: identity });
-    const element = screen.getByText(identity);
+    render(<Typography>{IDENTITY}</Typography>);
+    const element = screen.getByText(IDENTITY);
     expect(element).toBeInTheDocument();
     expect(element.tagName).toBe("P");
   });
@@ -25,7 +26,7 @@ describe("Typography component", () => {
     renderComponent({
       variant: "h3",
     });
-    const element = screen.getByText(identity);
+    const element = screen.getByText(IDENTITY);
     expect(element.tagName).toBe("H3");
     expect(element).toHaveClass("root h3");
   });
@@ -34,7 +35,7 @@ describe("Typography component", () => {
     renderComponent({
       component: "a",
     });
-    const element = screen.getByText(identity);
+    const element = screen.getByText(IDENTITY);
     expect(element.tagName).toBe("A");
   });
 
@@ -43,7 +44,7 @@ describe("Typography component", () => {
       component: "a",
       variant: "h5",
     });
-    const element = screen.getByText(identity);
+    const element = screen.getByText(IDENTITY);
     expect(element.tagName).toBe("A");
     expect(element).toHaveClass("root h5");
   });
@@ -52,7 +53,7 @@ describe("Typography component", () => {
     renderComponent({
       className: "myClass",
     });
-    const element = screen.getByText(identity);
+    const element = screen.getByText(IDENTITY);
     expect(element).toHaveClass("myClass");
   });
 
@@ -61,7 +62,7 @@ describe("Typography component", () => {
       component: "button",
       disabled: true,
     });
-    const element = screen.getByText(identity);
+    const element = screen.getByText(IDENTITY);
     expect(element.tagName).toBe("BUTTON");
     expect(element).toHaveAttribute("disabled");
   });
