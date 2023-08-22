@@ -21,3 +21,17 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   rootClassName?: string;
   label?: string;
 };
+
+export type ExperienceChildProps = {
+  id: string;
+  position: TextFieldProps;
+  company: TextFieldProps;
+  description: TextAreaProps;
+};
+
+export type ExperienceProps = {
+  header: TextFieldProps;
+  items: ExperienceChildProps[];
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};

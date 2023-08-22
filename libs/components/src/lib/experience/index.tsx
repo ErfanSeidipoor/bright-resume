@@ -3,40 +3,31 @@ import cls from "classnames";
 // components
 import { TextArea, TextField } from "@bright-resume/components";
 // types
-import { TextAreaProps, TextFieldProps } from "../types/index.type";
+import { ExperienceChildProps, ExperienceProps } from "../types/index.type";
 // icons
-import { AddCircleRoundedIcon } from "../Icons";
+import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
 import { useData } from "./useData";
 import classes from "./index.module.scss";
 
 /* eslint-disable-next-line */
-type ExperienceChildProps = {
-  id: string;
-  position: TextFieldProps;
-  company: TextFieldProps;
-  description: TextAreaProps;
-};
-
-type ExperienceProps = {
-  header: TextFieldProps;
-  children: ExperienceChildProps[];
-  increase: () => void;
-  decrease: (id: string | number) => void;
-};
 
 export const Experience: FC<ExperienceProps> = ({
   header = { placeholder: "Experience" },
-  children = [
+  items = [
     {
       id: "child-1",
-      position: { placeholder: "Position" },
-      company: { placeholder: "company name" },
-      description: { placeholder: "type here" },
+      position: { placeholder: "Position", label: "position" },
+      company: { placeholder: "company name", label: "company" },
+      description: {
+        label: "description",
+        placeholder:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      },
     },
   ],
-  increase = () => null,
-  decrease = () => null,
+  onIncrease = () => null,
+  onDecrease = () => null,
 }) => {
   const data = useData();
 
@@ -50,23 +41,43 @@ export const Experience: FC<ExperienceProps> = ({
             [header.rootClassName || ""]: !!header.rootClassName,
           })}
         />
-        <AddCircleRoundedIcon className={classes.add__icon} />
+        <AddCircleRoundedIcon
+          width="24px"
+          height="24px"
+          className={classes.add__icon}
+          onMouseEnter={() => data.setIsHoverAddBtn(true)}
+          onMouseLeave={() => data.setIsHoverAddBtn(false)}
+          onClick={() => {
+            data.setIsHoverAddBtn(false);
+            onIncrease();
+          }}
+        />
       </div>
     );
   };
 
-  const renderChild = (child: ExperienceChildProps) => {
+  const renderChild = (child: ExperienceChildProps, index: number) => {
     return (
-      <li key={child.id}>
-        <TextField
-          {...child.position}
-          variant="h4"
-          placeholder={child.position.placeholder}
-          rootClassName={cls(classes.position, {
-            [child.position.rootClassName || ""]:
-              !!child.position.rootClassName,
-          })}
-        />
+      <li key={child.id} className={classes.child__wrapper}>
+        <div className={classes.position__container}>
+          <TextField
+            {...child.position}
+            variant="h4"
+            placeholder={child.position.placeholder}
+            rootClassName={cls(classes.position, {
+              [child.position.rootClassName || ""]:
+                !!child.position.rootClassName,
+            })}
+          />
+          {!!index && (
+            <RemoveCircleRounded
+              width="20px"
+              height="20px"
+              className={classes.remove__icon}
+              onClick={() => onDecrease(child.id)}
+            />
+          )}
+        </div>
         <TextField
           {...child.company}
           variant="h5"
@@ -80,14 +91,31 @@ export const Experience: FC<ExperienceProps> = ({
             [child.description.className || ""]: !!child.description.className,
           })}
         />
+
+        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+          <div className={classes.hover__line}></div>
+        )}
       </li>
     );
   };
 
-  const renderChildren = () => {
+  const renderHoverItems = () => {
+    return renderChild(data.defaultItems, -1);
+  };
+
+  const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {children.map((child) => renderChild(child))}
+        {items.map((child, index) => renderChild(child, index))}
+        <div
+          className={
+            data.isHoverAddBtn
+              ? classes.hover__items_enable
+              : classes.hover__items_disable
+          }
+        >
+          {renderHoverItems()}
+        </div>
       </ul>
     );
   };
@@ -96,7 +124,7 @@ export const Experience: FC<ExperienceProps> = ({
     <div className={classes.container}>
       <div className={classes.wrapper}>
         {renderHeader()}
-        {renderChildren()}
+        {renderItems()}
       </div>
     </div>
   );
