@@ -1,16 +1,22 @@
 @import "../../../../theme/index";
 
 .container {
-  // padding: spacing(5, 5, 5, 15);
-  padding: 20px 20px 20px 60px;
+  padding: spacing(5, 5, 5, 15);
   background-color: var(--light);
   color: var(--dark);
   display: flex;
   flex-direction: column;
-  gap: 50px;
   transition: background-color 0.2s ease-in-out;
   &:hover {
     background-color: var(--light-primary);
+
+    .add__icon {
+      opacity: 1 !important;
+    }
+
+    .remove__icon {
+      opacity: 1 !important;
+    }
   }
 
   .wrapper {
@@ -27,33 +33,72 @@
       margin-right: spacing(2);
     }
 
-    > svg {
-        cursor: pointer;
-    }
-    
-    > svg > g > path {
-      fill: var(--primary);
+    .add__icon {
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+
+      > path {
+        fill: var(--primary);
+      }
     }
   }
 
   .child__container {
-    padding-left: 32px;
+    padding-left: spacing(8);
+    .child__wrapper {
+      position: relative;
 
-    .position {
-      &:before {
-        content: " ";
-        width: 5px;
-        height: 5px;
-        color: var(--dark);
-        background-color: var(--dark);
+      .position__container {
+        display: flex;
+        gap: spacing(2);
+        align-items: center;
+        .position {
+          &:before {
+            content: " ";
+            width: 5px;
+            height: 5px;
+            color: var(--dark);
+            background-color: var(--dark);
+            position: absolute;
+            left: -16px;
+            border-radius: 100%;
+            z-index: 10;
+          }
+        }
+
+        .remove__icon {
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s ease-in-out;
+        }
+      }
+
+      .description {
+        color: var(--grey-600);
+      }
+
+      .hover__line {
         position: absolute;
-        left: 16px;
-        border-radius: 100%;
+        left: -15px;
+        top: 16px;
+        width: 2px;
+        height: 100%;
+        background-color: var(--primary);
       }
     }
 
-    .description {
-      color: var(--grey-600);
+    .hover__items_disable {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+    }
+
+    .hover__items_enable {
+      position: inherit;
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+      width: 100%;
     }
   }
 }
