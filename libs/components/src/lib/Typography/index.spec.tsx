@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { faker } from "@faker-js/faker";
 import "@testing-library/jest-dom";
 
 import Typography, { TypographyProps } from "./index";
 
-const identity = "typography text";
+const identity = faker.word.noun();
 
 const renderComponent = <T extends React.ElementType>({
   children = identity,
@@ -15,7 +16,7 @@ const renderComponent = <T extends React.ElementType>({
 
 describe("Typography component", () => {
   it("should render", () => {
-    renderComponent({ children: identity });
+    render(<Typography component="p">{identity}</Typography>);
     const element = screen.getByText(identity);
     expect(element).toBeInTheDocument();
     expect(element.tagName).toBe("P");
