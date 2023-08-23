@@ -13,6 +13,7 @@ export const TextArea: FC<TextAreaProps> = ({
   variant = "h6",
   rootClassName = "",
   label = "",
+  rows = 3,
   ...props
 }) => {
   const data = useData();
@@ -44,7 +45,7 @@ export const TextArea: FC<TextAreaProps> = ({
             event.key === "Escape" && data.handleDeActiveInput()
           }
           variant={variant}
-          rows={props.rows || 3}
+          rows={rows}
         />
       </>
     );
