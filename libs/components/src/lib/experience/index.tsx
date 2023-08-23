@@ -108,11 +108,10 @@ export const Experience: FC<ExperienceProps> = ({
       <ul className={classes.child__container}>
         {items.map((child, index) => renderChild(child, index))}
         <div
-          className={
-            data.isHoverAddBtn
-              ? classes.hover__items_enable
-              : classes.hover__items_disable
-          }
+          className={cls(classes.hover__items, {
+            [classes.hover__items_enable]: data.isHoverAddBtn,
+            [classes.hover__items_disable]: !data.isHoverAddBtn,
+          })}
         >
           {renderHoverItems()}
         </div>
