@@ -88,17 +88,19 @@
       }
     }
 
+    .hover__items {
+      width: 100%;
+    }
+
     .hover__items_disable {
       position: absolute;
       opacity: 0;
-      width: 100%;
     }
 
     .hover__items_enable {
       position: inherit;
       opacity: 1;
-      transition: opacity 0.2s ease-in-out;
-      width: 100%;
+      transition: opacity 0.3s ease-in-out;
     }
   }
 }
