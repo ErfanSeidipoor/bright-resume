@@ -10,8 +10,6 @@ import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 import { useData } from "./useData";
 import classes from "./index.module.scss";
 
-/* eslint-disable-next-line */
-
 export const Experience: FC<ExperienceProps> = ({
   header = { placeholder: "Experience" },
   items = [
