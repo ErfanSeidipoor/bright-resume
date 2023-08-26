@@ -35,6 +35,7 @@ export const Experience: FC<ExperienceProps> = ({
     return (
       <div className={classes.header__container}>
         <TextField
+          {...header}
           variant="h2"
           placeholder={header.placeholder}
           rootClassName={cls(classes.header, {
