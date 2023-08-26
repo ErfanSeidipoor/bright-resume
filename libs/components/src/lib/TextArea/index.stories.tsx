@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof TextArea> = (args) => {
     <div id="theme-blue">
       <TextArea
         {...args}
+        label="name"
         value={value}
         placeholder="Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         onChange={(e) => setValue(e.target.value)}

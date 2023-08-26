@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cls from "classnames";
 // types
-import { TypographyVariant } from "../types/index.type";
+import { TextFieldProps } from "../types/index.type";
 // components
 import { SolarPenBoldIcon } from "../Icons";
 import Typography from "../Typography";
@@ -9,17 +9,18 @@ import Typography from "../Typography";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 
-type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
-  variant?: TypographyVariant;
-};
-
-export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
+export const TextField: FC<TextFieldProps> = ({
+  variant = "h3",
+  rootClassName = "",
+  label = "",
+  ...props
+}) => {
   const data = useData();
 
   const renderTypography = () => {
     return (
       <>
-        <Typography variant={variant}>
+        <Typography {...props} variant={variant}>
           {props.value || props.defaultValue || props.placeholder}
         </Typography>
         <div className={classes.edit__icon}>
@@ -31,16 +32,23 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
 
   const renderInput = () => {
     return (
-      <Typography
-        component="input"
-        autoFocus
-        className={classes.input}
-        onKeyDown={(event) =>
-          event.key === "Enter" && data.handleDeActiveInput()
-        }
-        variant={variant}
-        {...props}
-      />
+      <>
+        <label htmlFor={props.id} className={classes.label}>
+          {label}
+        </label>
+        <Typography
+          {...props}
+          component="input"
+          autoFocus
+          className={cls(classes.input, {
+            [props.className || ""]: !!props.className,
+          })}
+          onKeyDown={(event) =>
+            event.key === "Enter" && data.handleDeActiveInput()
+          }
+          variant={variant}
+        />
+      </>
     );
   };
 
@@ -52,6 +60,7 @@ export const TextField: FC<TextFieldProps> = ({ variant = "h3", ...props }) => {
   return (
     <div
       className={cls(classes.root, {
+        [rootClassName]: !!rootClassName,
         [classes.enable__root]: !!data.isInputActive,
       })}
       onBlur={data.handleDeActiveInput}
