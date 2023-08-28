@@ -36,7 +36,7 @@ describe("AboutMe Component", () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it("shows input after user clicked", async () => {
+  it("shows input after user clicked on header", async () => {
     renderComponent();
     const title = screen.getByRole("heading", { level: 2 });
     user.click(title);
@@ -44,16 +44,33 @@ describe("AboutMe Component", () => {
     expect(input).toBeDefined();
   });
 
-  it("shows input value after user type something", async () => {
+  it("shows input value after user type something in header", async () => {
     const TEXT = faker.word.noun();
     renderComponent();
     const title = screen.getByRole("heading", { level: 2 });
-    user.click(title);
+    await user.click(title);
 
     const input = await screen.findByPlaceholderText("About Me");
+
     await user.keyboard(TEXT);
+
     expect(input).toBeDefined();
     expect(mockedOnChangeHeader).toHaveBeenCalled();
     expect(mockedOnChangeHeader).toHaveBeenCalledTimes(TEXT.length);
+    expect((input as HTMLInputElement).value).toBe(TEXT);
+  });
+
+  it("shows textarea value after user type something in description", async () => {
+    const TEXT = faker.word.noun();
+    renderComponent();
+    const description = screen.getByRole("textbox");
+    await user.click(description);
+
+    await user.keyboard(TEXT);
+
+    expect(description).toBeDefined();
+    expect(mockedOnChangeDescription).toHaveBeenCalled();
+    expect(mockedOnChangeDescription).toHaveBeenCalledTimes(TEXT.length);
+    expect((description as HTMLTextAreaElement).value).toBe(TEXT);
   });
 });
