@@ -28,7 +28,7 @@ describe("theme hook", () => {
     expect(result.current.fontFamily).toBe("montserrat");
   });
 
-  it("should change font family weight", () => {
+  it("should change font family state", () => {
     const { result } = renderHook(() => useData());
 
     expect(result.current.fontWeight).toBe("medium");
