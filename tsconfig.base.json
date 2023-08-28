@@ -19,6 +19,8 @@
       "@bright-resume/assets": ["libs/assets/src/index.ts"],
       "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/components": ["libs/components/src/index.ts"],
+      "@bright-resume/components/*": ["libs/components/src/lib/*"],
+      "@bright-resume/hooks": ["libs/hooks/src/index.ts"],
       "@bright-resume/web": ["apps/web"],
       "@libs/scss": ["libs/components/scss"]
     },

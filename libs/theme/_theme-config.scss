@@ -1,3 +1,5 @@
+/* ------------------------------- Theme color ------------------------------ */
+
 #theme-blue {
   --primary: #{$blue};
   --dark-primary: #{$dark-blue};
@@ -111,4 +113,36 @@
   --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
+}
+
+/* ------------------------------- Font family ------------------------------ */
+
+#font-family-sans-serif {
+  font-family: sans-serif;
+}
+
+#font-family-sans-montserrat {
+  font-family: monospace;
+}
+
+/* ------------------------------- Font weight ------------------------------ */
+
+#font-weight-bold {
+  font-weight: map-get($font-weight, semi-bold);
+}
+
+#font-weight-semi-bold {
+  font-weight: map-get($font-weight, bold);
+}
+
+#font-weight-medium {
+  font-weight: map-get($font-weight, medium);
+}
+
+#font-weight-regular {
+  font-weight: map-get($font-weight, regular);
+}
+
+#font-weight-light {
+  font-weight: map-get($font-weight, light);
 }
