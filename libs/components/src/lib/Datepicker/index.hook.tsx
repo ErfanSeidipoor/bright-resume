@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export enum MonthEnum {
-  Jan = 'Jan',
-  Feb = 'Feb',
-  Mar = 'Mar',
-  Apr = 'Apr',
-  May = 'May',
-  Jun = 'Jun',
-  Jul = 'Jul',
-  Aug = 'Aug',
-  Sep = 'Sep',
-  Oct = 'Oct',
-  Nov = 'Nov',
-  Dec = 'Dec',
+  Jan = "Jan",
+  Feb = "Feb",
+  Mar = "Mar",
+  Apr = "Apr",
+  May = "May",
+  Jun = "Jun",
+  Jul = "Jul",
+  Aug = "Aug",
+  Sep = "Sep",
+  Oct = "Oct",
+  Nov = "Nov",
+  Dec = "Dec",
 }
 
 export enum DatePickerSectionsEnum {
-  Month = 'Month',
-  Year = 'Year',
+  Month = "Month",
+  Year = "Year",
 }
 
 type useDataProps = {
@@ -44,6 +44,9 @@ export const useData = ({
   );
   const months = Object.values(MonthEnum);
 
+  const currentYear = new Date().getFullYear();
+  const currentMonth = months[new Date().getMonth()];
+
   const [isShowPopup, setPopup] = useState(false);
   const [yearPageIndex, setYearPageIndex] = useState(0);
 
@@ -52,13 +55,15 @@ export const useData = ({
   );
 
   const findYearPageIndex = (year: number) => {
-    const currentYear = new Date().getFullYear();
     const yearPageIndex = (year - currentYear + 12) / 20;
     const roundedYearPageIndex = Math.floor(yearPageIndex); // or Math.ceil(yearPageIndex) for rounding up
     return roundedYearPageIndex;
   };
 
-  const displayDate = (placeholder = '') => {
+  const displayDate = (placeholder = "", notPresent = false) => {
+    if (!notPresent && month === currentMonth && year === currentYear) {
+      return "Present";
+    }
     if (month && year) {
       return `${month} ${year}`;
     }
@@ -76,7 +81,7 @@ export const useData = ({
 
   useEffect(() => {
     if (year && !month) {
-      onChangeMonth(months[new Date().getMonth()]);
+      onChangeMonth(currentMonth);
     }
   }, [month, year, months, onChangeMonth]);
 
@@ -109,5 +114,7 @@ export const useData = ({
     onChangeYear,
     month,
     onChangeMonth,
+    currentMonth,
+    currentYear,
   };
 };
