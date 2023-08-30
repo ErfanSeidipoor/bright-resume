@@ -11,7 +11,6 @@
   align-items: center;
   gap: spacing(1, 1);
   position: relative;
-  cursor: pointer;
   &:hover {
     border: 1px dashed var(--primary);
     .edit__icon {
@@ -24,7 +23,6 @@
 
   .edit__icon {
     display: none;
-    cursor: pointer;
     position: absolute;
     bottom: 4px;
     right: 4px;
@@ -51,8 +49,21 @@
     cursor: pointer;
   }
 
+  .not__allow_input {
+    cursor: not-allowed;
+  }
+
   &.enable__root {
     border: 1px solid var(--primary) !important;
     padding-right: 0 !important;
+  }
+
+  &.disable__root {
+    &:hover {
+      border: 1px solid transparent!important;
+      .edit__icon {
+        display: none!important;
+      }
+    }
   }
 }
