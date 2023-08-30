@@ -43,6 +43,3 @@ const Template: ComponentStory<typeof Experience> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {};
-
-export const Secondary = Template.bind({});
-Secondary.args = {};

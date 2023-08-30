@@ -9,19 +9,15 @@ import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
 import { useData } from "./useData";
 import classes from "./index.module.scss";
-
+// hover doesn't working
 export const Experience: FC<ExperienceProps> = ({
-  header = { placeholder: "Experience" },
+  header = {},
   items = [
     {
       id: "child-1",
-      position: { placeholder: "Position", label: "position" },
-      company: { placeholder: "company name", label: "company" },
-      description: {
-        label: "description",
-        placeholder:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      },
+      position: {},
+      company: {},
+      description: {},
     },
   ],
   onIncrease = () => null,
