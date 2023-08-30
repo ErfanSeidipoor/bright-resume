@@ -22,15 +22,15 @@ const Template: ComponentStory<typeof TextField> = (args) => {
   );
 };
 
-export const headingOne = Template.bind({});
-headingOne.args = {
+export const Normal = Template.bind({});
+Normal.args = {};
+
+export const Variant = Template.bind({});
+Variant.args = {
   variant: "h1",
 };
 
-export const headingTwo = Template.bind({});
-headingTwo.args = {
-  variant: "h2",
+export const disabled = Template.bind({});
+disabled.args = {
+  disabled: true,
 };
-
-export const medium = Template.bind({});
-medium.args = {};

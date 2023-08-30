@@ -62,9 +62,10 @@ export const TextField: FC<TextFieldProps> = ({
       className={cls(classes.root, {
         [rootClassName]: !!rootClassName,
         [classes.enable__root]: !!data.isInputActive,
+        [classes.disable__root]: props.disabled,
       })}
       onBlur={data.handleDeActiveInput}
-      onClick={data.handleActiveInput}
+      onClick={() => !props.disabled && data.handleActiveInput()}
     >
       {renderBody()}
     </div>
