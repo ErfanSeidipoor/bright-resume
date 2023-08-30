@@ -22,7 +22,6 @@
 
   .edit__icon {
     display: none;
-    cursor: pointer;
     > svg > path {
       fill: var(--primary);
     }
@@ -43,5 +42,15 @@
 
   &.enable__root {
     border: 1px solid var(--primary) !important;
+  }
+
+  &.disable__root {
+    cursor: not-allowed!important;
+    &:hover {
+      border: 1px solid transparent!important;
+      .edit__icon {
+        display: none!important;
+      }
+    }
   }
 }
