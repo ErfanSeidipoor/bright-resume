@@ -9,7 +9,7 @@ import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
 import { useData } from "./useData";
 import classes from "./index.module.scss";
-// hover doesn't working
+
 export const Experience: FC<ExperienceProps> = ({
   header = {},
   items = [
