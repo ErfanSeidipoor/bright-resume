@@ -1,12 +1,23 @@
-import { createContext } from "react";
-// locals
-import { Theme } from "./index.type";
+import { createContext, useContext } from "react";
+
+import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+
+export type Theme = {
+  themeColor: ThemeColor;
+  changeThemeColor: (themeColor: ThemeColor) => void;
+  fontFamily: FontFamily;
+  changeFontFamily: (fontFamily: FontFamily) => void;
+  fontWeight: FontWeight;
+  changeFontWeight: (fontWeight: FontWeight) => void;
+};
 
 export const ThemeContext = createContext<Theme>({
-  themeColor: "blue",
+  themeColor: ThemeColor.blue,
   changeThemeColor: () => undefined,
-  fontFamily: "sansSerif",
+  fontFamily: FontFamily.sansSerif,
   changeFontFamily: () => undefined,
-  fontWeight: "medium",
+  fontWeight: FontWeight.medium,
   changeFontWeight: () => undefined,
 });
+
+export const useTheme = () => useContext(ThemeContext);
