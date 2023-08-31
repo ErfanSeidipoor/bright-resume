@@ -128,11 +128,11 @@
 /* ------------------------------- Font weight ------------------------------ */
 
 #bold {
-  font-weight: map-get($font-weight, semi-bold);
+  font-weight: map-get($font-weight, bold);
 }
 
 #semiBold {
-  font-weight: map-get($font-weight, bold);
+  font-weight: map-get($font-weight, semi-bold);
 }
 
 #medium {
