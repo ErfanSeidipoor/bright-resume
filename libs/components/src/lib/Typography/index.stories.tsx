@@ -1,12 +1,12 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import Typography from ".";
 
 export default {
   component: Typography,
   title: "Typography",
-} as ComponentMeta<typeof Typography>;
+} as Meta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (args) => {
+const Template: StoryFn<typeof Typography> = (args) => {
   return <Typography {...args} />;
 };
 

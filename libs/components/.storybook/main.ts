@@ -1,25 +1,34 @@
-import type { StorybookConfig } from '@storybook/core-common';
+import type { StorybookConfig } from "@storybook/react-vite";
 
-import { mergeConfig } from 'vite';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
-  core: { builder: '@storybook/builder-vite' },
+  core: {},
+
   stories: [
-    '../src/lib/**/*.stories.mdx',
-    '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
+    "../src/lib/**/(*.stories|stories).(ts|tsx|js|mdx)",
+    "../src/lib/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: ['@storybook/addon-essentials'],
+
+  addons: ["@storybook/addon-essentials"],
+
   async viteFinal(config: any) {
-    return mergeConfig(config, {
-      plugins: [
-        viteTsConfigPaths({
-          root: '../../../',
-        }),
-      ],
-    });
+    return mergeConfig(config, {});
   },
-} as StorybookConfig;
+
+  framework: {
+    name: "@storybook/react-vite",
+    options: {
+      builder: {
+        viteConfigPath: "libs/components/vite.config.ts",
+      },
+    },
+  },
+
+  docs: {
+    autodocs: "tag",
+  },
+};
 
 module.exports = config;
 

@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import AboutMe from "./";
 
 export default {
   component: AboutMe,
   title: "AboutMe",
-} as ComponentMeta<typeof AboutMe>;
+} as Meta<typeof AboutMe>;
 
-const Template: ComponentStory<typeof AboutMe> = (args) => {
+const Template: StoryFn<typeof AboutMe> = (args) => {
   return (
     <div id="theme-blue">
       <AboutMe {...args} />
@@ -15,8 +15,5 @@ const Template: ComponentStory<typeof AboutMe> = (args) => {
   );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-
-export const Secondary = Template.bind({});
-Secondary.args = {};
+export const Main = Template.bind({});
+Main.args = {};
