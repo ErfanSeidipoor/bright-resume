@@ -1,11 +1,11 @@
 //@ts-check
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withNx } = require('@nrwl/next/plugins/with-nx');
-const path = require('path');
+const { withNx } = require("@nx/next/plugins/with-nx");
+const path = require("path");
 
 /**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
   nx: {
@@ -14,12 +14,12 @@ const nextConfig = {
     svgr: false,
   },
   sassOptions: {
-    includePaths: [path.join('./libs', 'styles')],
+    includePaths: [path.join("./libs", "styles")],
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
     return config;
   },

@@ -20,7 +20,7 @@ export const TextField: FC<TextFieldProps> = ({
   const renderTypography = () => {
     return (
       <>
-        <Typography {...props} variant={variant}>
+        <Typography {...props} variant={variant} className={classes.typography}>
           {props.value || props.defaultValue || props.placeholder}
         </Typography>
         <div className={classes.edit__icon}>
