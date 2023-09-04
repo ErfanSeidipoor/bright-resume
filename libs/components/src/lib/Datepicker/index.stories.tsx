@@ -1,14 +1,14 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import DatePicker from '.';
-import { useState } from 'react';
-import { MonthEnum } from './index.hook';
+import { Meta, StoryFn } from "@storybook/react";
+import DatePicker from ".";
+import { useState } from "react";
+import { MonthEnum } from "./index.hook";
 
 export default {
   component: DatePicker,
-  title: 'DatePicker',
-} as ComponentMeta<typeof DatePicker>;
+  title: "DatePicker",
+} as Meta<typeof DatePicker>;
 
-const Template: ComponentStory<typeof DatePicker> = (args) => {
+const Template: StoryFn<typeof DatePicker> = (args) => {
   const [month, setMonth] = useState<MonthEnum | undefined>(undefined);
   const [year, setYear] = useState<number | undefined>(undefined);
   return (
@@ -26,8 +26,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   month: undefined,
   year: undefined,
-  placeholder: 'Pick your date!',
-  placeholderColor: 'black',
+  placeholder: "Pick your date!",
+  placeholderColor: "black",
 };
 
 export const Secondary = Template.bind({});

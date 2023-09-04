@@ -3,14 +3,13 @@ import { faker } from "@faker-js/faker";
 import "@testing-library/jest-dom";
 
 import Typography, { TypographyProps } from "./index";
-
 const IDENTITY = faker.word.noun();
 
 const renderComponent = <T extends React.ElementType>({
   children = IDENTITY,
   ...props
 }: TypographyProps<T>) => {
-  const component = render(<Typography {...props}>{IDENTITY}</Typography>);
+  const component = render(<Typography {...props}>{children}</Typography>);
   return component;
 };
 

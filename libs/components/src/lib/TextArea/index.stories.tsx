@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { TextArea } from ".";
 
 export default {
   component: TextArea,
   title: "TextArea",
-} as ComponentMeta<typeof TextArea>;
+} as Meta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextArea> = (args) => {
+const Template: StoryFn<typeof TextArea> = (args) => {
   const [value, setValue] = useState<string | undefined>(undefined);
   return (
     <div id="theme-blue">

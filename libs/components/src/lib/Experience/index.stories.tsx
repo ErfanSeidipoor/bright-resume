@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import Experience from ".";
 import { ExperienceChildProps } from "../types/index.type";
@@ -6,9 +6,9 @@ import { ExperienceChildProps } from "../types/index.type";
 export default {
   component: Experience,
   title: "Experience",
-} as ComponentMeta<typeof Experience>;
+} as Meta<typeof Experience>;
 
-const Template: ComponentStory<typeof Experience> = (args) => {
+const Template: StoryFn<typeof Experience> = (args) => {
   const defaultItems: ExperienceChildProps = {
     id: "child-1",
     position: { placeholder: "Position" },
