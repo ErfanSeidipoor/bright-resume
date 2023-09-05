@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import DatePicker from ".";
 import { useState } from "react";
 import { MonthEnum } from "./index.hook";
@@ -6,11 +6,9 @@ import { MonthEnum } from "./index.hook";
 export default {
   component: DatePicker,
   title: "DatePicker",
-} as ComponentMeta<typeof DatePicker>;
+} as Meta<typeof DatePicker>;
 
-// use different situation of the component in every examples. e.g. Primary, Secondary
-
-const Template: ComponentStory<typeof DatePicker> = (args) => {
+const Template: StoryFn<typeof DatePicker> = (args) => {
   const [month, setMonth] = useState<MonthEnum | undefined>(undefined);
   const [year, setYear] = useState<number | undefined>(undefined);
   return (
@@ -26,12 +24,10 @@ const Template: ComponentStory<typeof DatePicker> = (args) => {
   );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Main = Template.bind({});
+Main.args = {
   month: undefined,
   year: undefined,
   placeholder: "Pick your date!",
+  placeholderColor: "black",
 };
-
-export const Secondary = Template.bind({});
-Secondary.args = {};

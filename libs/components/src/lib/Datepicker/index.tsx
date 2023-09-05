@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 import Image from "next/image";
 import { DatePickerSectionsEnum, MonthEnum, useData } from "./index.hook";
 import classes from "./index.module.scss";
