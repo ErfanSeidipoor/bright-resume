@@ -35,3 +35,8 @@ export type ExperienceProps = {
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };
+
+export type AboutMeProps = {
+  header: TextFieldProps;
+  description: TextAreaProps;
+};
