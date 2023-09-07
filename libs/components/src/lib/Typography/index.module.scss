@@ -1,41 +1,41 @@
 @import "../../../../theme/index";
 
-.h1 {
-  @include typography(h1);
-}
-
-.h2 {
-  @include typography(h2);
-}
-
-.h3 {
-  @include typography(h3);
-}
-
-.h4 {
-  @include typography(h4);
-}
-
-.h5 {
-  @include typography(h5);
-}
-
-.h6 {
-  @include typography(h6);
-}
-
-.h7 {
-  @include typography(h7);
-}
-
-.h8 {
-  @include typography(h8);
-}
-
-.h9 {
-  @include typography(h9);
-}
-
-.container {
+.root {
   @include flexbox(row, flex-start, center, 1);
+
+  .h1 {
+    @include typography(h1);
+  }
+
+  .h2 {
+    @include typography(h2);
+  }
+
+  .h3 {
+    @include typography(h3);
+  }
+
+  .h4 {
+    @include typography(h4);
+  }
+
+  .h5 {
+    @include typography(h5);
+  }
+
+  .h6 {
+    @include typography(h6);
+  }
+
+  .h7 {
+    @include typography(h7);
+  }
+
+  .h8 {
+    @include typography(h8);
+  }
+
+  .h9 {
+    @include typography(h9);
+  }
 }

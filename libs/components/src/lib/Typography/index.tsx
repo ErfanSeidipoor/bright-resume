@@ -31,7 +31,7 @@ export const Typography = <T extends React.ElementType = "p">({
 
   const Component = getComponent();
 
-  const rootClasses = cls(className, {
+  const rootClasses = cls(classes.root, className, {
     [classes.h1]: variant === "h1",
     [classes.h2]: variant === "h2",
     [classes.h3]: variant === "h3",
@@ -55,11 +55,9 @@ export const Typography = <T extends React.ElementType = "p">({
 
   return (
     <Component className={rootClasses}>
-      <div className={classes.container}>
-        {renderStartAdornment()}
-        {children}
-        {renderEndAdornment()}
-      </div>
+      {renderStartAdornment()}
+      {children}
+      {renderEndAdornment()}
     </Component>
   );
 };
