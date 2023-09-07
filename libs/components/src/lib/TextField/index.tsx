@@ -20,7 +20,7 @@ export const TextField: FC<TextFieldProps> = ({
   const renderTypography = () => {
     return (
       <>
-        <Typography {...props} variant={variant}>
+        <Typography {...props} variant={variant} className={classes.typography}>
           {props.value || props.defaultValue || props.placeholder}
         </Typography>
         <div className={classes.edit__icon}>
@@ -62,9 +62,10 @@ export const TextField: FC<TextFieldProps> = ({
       className={cls(classes.root, {
         [rootClassName]: !!rootClassName,
         [classes.enable__root]: !!data.isInputActive,
+        [classes.disable__root]: props.disabled,
       })}
       onBlur={data.handleDeActiveInput}
-      onClick={data.handleActiveInput}
+      onClick={() => !props.disabled && data.handleActiveInput()}
     >
       {renderBody()}
     </div>

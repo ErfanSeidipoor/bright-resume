@@ -1,12 +1,12 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import Image from 'next/image';
-import { DatePickerSectionsEnum, MonthEnum, useData } from './index.hook';
-import classes from './index.module.scss';
-import classNames from 'classnames';
+/* eslint-disable @nx/enforce-module-boundaries */
+import Image from "next/image";
+import { DatePickerSectionsEnum, MonthEnum, useData } from "./index.hook";
+import classes from "./index.module.scss";
+import classNames from "classnames";
 
-import ArrowDropDownLeft from '../../../../assets/src/svg/arrow-dropdown-left-datePicker.svg';
-import ArrowRight from '../../../../assets/src/svg/arrow-right-datePicker.svg';
-import ArrowLeft from '../../../../assets/src/svg/arrow-left-datePicker.svg';
+import ArrowDropDownLeft from "../../../../assets/src/svg/arrow-dropdown-left-datePicker.svg";
+import ArrowRight from "../../../../assets/src/svg/arrow-right-datePicker.svg";
+import ArrowLeft from "../../../../assets/src/svg/arrow-left-datePicker.svg";
 
 export interface DatePickerProps {
   month: MonthEnum | undefined;
@@ -22,8 +22,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   year = undefined,
   onChangeMonth,
   onChangeYear,
-  placeholder = 'Pick your date!',
-  placeholderColor = 'black',
+  placeholder = "Pick your date!",
+  placeholderColor = "black",
 }) => {
   const data = useData({ month, year, onChangeMonth, onChangeYear });
 
@@ -42,14 +42,14 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               width={24}
               height={24}
             />
-            <p className={classes.text}>{data.displayDate('Select a year')}</p>
+            <p className={classes.text}>{data.displayDate("Select a year")}</p>
           </div>
           <div className={classes.actions}>
             <Image
               src={ArrowLeft}
               className={classNames(
                 classes.image,
-                data.isThereBeforeYearsAvailable ? classes.disableImage : ''
+                data.isThereBeforeYearsAvailable ? classes.disableImage : ""
               )}
               alt="arrow-right"
               width={24}
@@ -63,7 +63,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               src={ArrowRight}
               className={classNames(
                 classes.image,
-                data.isTherePastYearsAvailable ? classes.disableImage : ''
+                data.isTherePastYearsAvailable ? classes.disableImage : ""
               )}
               alt="arrow-right"
               width={24}
@@ -82,7 +82,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               <span
                 className={classNames(
                   classes.item,
-                  year === yearValue ? classes.selectedItem : ''
+                  year === yearValue ? classes.selectedItem : ""
                 )}
                 onClick={() => data.onChangeYear(yearValue)}
               >
@@ -106,7 +106,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             <span
               className={classNames(
                 classes.itemMonth,
-                month === monthValue ? classes.selectedItemMonth : ''
+                month === monthValue ? classes.selectedItemMonth : ""
               )}
               onClick={() => {
                 data.setDatePickerTab(DatePickerSectionsEnum.Year);

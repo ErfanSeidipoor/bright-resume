@@ -21,7 +21,7 @@ export const ThemeProvider: React.FC<ThemeProps> = ({
   return (
     <ThemeContext.Provider value={data}>
       <div id={data.themeColor}>
-        <div id={data.fontWeight}>
+        <div id={data.fontFamily}>
           <div id={data.fontWeight}>{children}</div>
         </div>
       </div>

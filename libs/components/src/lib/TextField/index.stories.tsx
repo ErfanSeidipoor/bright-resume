@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { TextField } from ".";
 
 export default {
   component: TextField,
   title: "TextField",
-} as ComponentMeta<typeof TextField>;
+} as Meta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextField> = (args) => {
+const Template: StoryFn<typeof TextField> = (args) => {
   const [value, setValue] = useState<string | undefined>(undefined);
   return (
     <div id="theme-blue">
@@ -22,15 +22,15 @@ const Template: ComponentStory<typeof TextField> = (args) => {
   );
 };
 
-export const headingOne = Template.bind({});
-headingOne.args = {
+export const Normal = Template.bind({});
+Normal.args = {};
+
+export const Variant = Template.bind({});
+Variant.args = {
   variant: "h1",
 };
 
-export const headingTwo = Template.bind({});
-headingTwo.args = {
-  variant: "h2",
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
 };
-
-export const medium = Template.bind({});
-medium.args = {};

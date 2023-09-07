@@ -5,17 +5,18 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/assets",
         "main": "libs/assets/src/index.ts",
         "tsConfig": "libs/assets/tsconfig.lib.json",
-        "assets": ["libs/assets/*.md"]
+        "assets": ["libs/assets/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/assets/**/*.ts"]
