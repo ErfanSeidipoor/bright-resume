@@ -3,23 +3,32 @@ import cls from "classnames";
 // components
 import { TextArea, TextField } from "@bright-resume/components";
 // types
-import { ExperienceChildProps, ExperienceProps } from "../types/index.type";
+import {
+  BackgroundInfoChildProps,
+  BackgroundInfoProps,
+} from "../types/index.type";
 // icons
 import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
 import { useData } from "./useData";
 import classes from "./index.module.scss";
 
-export const Experience: FC<ExperienceProps> = ({
+export const BackgroundInfo: FC<BackgroundInfoProps> = ({
   header = {},
   items = [
     {
-      id: "child-1",
-      position: {},
-      company: {},
+      id: "item-1",
+      title: {},
+      subtitle: {},
       description: {},
     },
   ],
+  hoverItem = {
+    id: "hover-item",
+    title: {},
+    subtitle: {},
+    description: {},
+  },
   onIncrease = () => null,
   onDecrease = () => null,
 }) => {
@@ -51,17 +60,16 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderChild = (child: ExperienceChildProps, index: number) => {
+  const renderChild = (child: BackgroundInfoChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
-        <div className={classes.position__container}>
+        <div className={classes.title__container}>
           <TextField
-            {...child.position}
+            {...child.title}
             variant="h4"
-            placeholder={child.position.placeholder}
-            rootClassName={cls(classes.position, {
-              [child.position.rootClassName || ""]:
-                !!child.position.rootClassName,
+            placeholder={child.title.placeholder}
+            rootClassName={cls(classes.title, {
+              [child.title.rootClassName || ""]: !!child.title.rootClassName,
             })}
           />
           {!!index && (
@@ -73,19 +81,24 @@ export const Experience: FC<ExperienceProps> = ({
             />
           )}
         </div>
-        <TextField
-          {...child.company}
-          variant="h5"
-          placeholder={child.company.placeholder}
-        />
-        <TextArea
-          {...child.description}
-          variant="h7"
-          placeholder={child.description.placeholder}
-          className={cls(classes.description, {
-            [child.description.className || ""]: !!child.description.className,
-          })}
-        />
+        {child.subtitle && (
+          <TextField
+            {...child.subtitle}
+            variant="h5"
+            placeholder={child.subtitle.placeholder}
+          />
+        )}
+        {child.description && (
+          <TextArea
+            {...child.description}
+            variant="h7"
+            placeholder={child.description.placeholder}
+            className={cls(classes.description, {
+              [child.description.className || ""]:
+                !!child.description.className,
+            })}
+          />
+        )}
 
         {data.handleIsLastItemOnHover(items.length, index + 1) && (
           <div className={classes.hover__line}></div>
@@ -95,7 +108,7 @@ export const Experience: FC<ExperienceProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderChild(data.defaultItems, -1);
+    return renderChild(hoverItem, -1);
   };
 
   const renderItems = () => {
@@ -124,4 +137,4 @@ export const Experience: FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default BackgroundInfo;

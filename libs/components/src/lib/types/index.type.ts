@@ -22,16 +22,19 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export type ExperienceChildProps = {
+export type BackgroundInfoChildKeys = "title" | "subtitle" | "description";
+
+export type BackgroundInfoChildProps = {
   id: string;
-  position: TextFieldProps;
-  company: TextFieldProps;
-  description: TextAreaProps;
+  title: TextFieldProps;
+  subtitle?: TextFieldProps;
+  description?: TextAreaProps;
 };
 
-export type ExperienceProps = {
+export type BackgroundInfoProps = {
   header: TextFieldProps;
-  items: ExperienceChildProps[];
+  items: BackgroundInfoChildProps[];
+  hoverItem?: BackgroundInfoChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };

@@ -35,7 +35,7 @@
 
     .add__icon {
       cursor: pointer;
-      opacity: 0;
+      opacity: 1;
       transition: opacity 0.2s ease-in-out;
 
       > path {
@@ -50,11 +50,12 @@
     .child__wrapper {
       position: relative;
 
-      .position__container {
+      .title__container {
         display: flex;
         gap: spacing(2);
         align-items: center;
-        .position {
+        .title {
+          width: 100%;
           &:before {
             content: " ";
             width: 5px;
