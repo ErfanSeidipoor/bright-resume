@@ -38,3 +38,29 @@ export type BackgroundInfoProps = {
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };
+
+export type AboutMeProps = {
+  header: TextFieldProps;
+  description: TextAreaProps;
+};
+
+export enum ThemeColor {
+  blue = "blue",
+  green = "green",
+  purple = "purple",
+  gold = "gold",
+  grey = "grey",
+}
+
+export enum FontWeight {
+  semiBold = "semiBold",
+  bold = "bold",
+  regular = "regular",
+  medium = "medium",
+  light = "light",
+}
+
+export enum FontFamily {
+  sansSerif = "sansSerif",
+  montserrat = "montserrat",
+}

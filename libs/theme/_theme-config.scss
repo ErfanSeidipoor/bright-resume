@@ -1,4 +1,6 @@
-#theme-blue {
+/* ------------------------------- Theme color ------------------------------ */
+
+#blue {
   --primary: #{$blue};
   --dark-primary: #{$dark-blue};
   --light-primary: #{$light-blue};
@@ -21,7 +23,7 @@
   --dark: #{$dark};
 }
 
-#theme-green {
+#green {
   --primary: #{$green};
   --dark-primary: #{$dark-green};
   --light-primary: #{$light-green};
@@ -44,7 +46,7 @@
   --dark: #{$dark};
 }
 
-#theme-purple {
+#purple {
   --primary: #{$purple};
   --dark-primary: #{$dark-purple};
   --light-primary: #{$light-purple};
@@ -67,7 +69,7 @@
   --dark: #{$dark};
 }
 
-#theme-gold {
+#gold {
   --primary: #{$gold};
   --dark-primary: #{$dark-gold};
   --light-primary: #{$light-gold};
@@ -90,7 +92,7 @@
   --dark: #{$dark};
 }
 
-#theme-grey {
+#grey {
   --primary: #{$grey-300};
   --dark-primary: #{$grey-500};
   --light-primary: #{$grey-100};
@@ -111,4 +113,36 @@
   --grey-600: #{$grey-600};
   --light: #{$light};
   --dark: #{$dark};
+}
+
+/* ------------------------------- Font family ------------------------------ */
+
+#sansSerif {
+  font-family: sans-serif;
+}
+
+#montserrat {
+  font-family: monospace;
+}
+
+/* ------------------------------- Font weight ------------------------------ */
+
+#bold {
+  font-weight: map-get($font-weight, bold);
+}
+
+#semiBold {
+  font-weight: map-get($font-weight, semi-bold);
+}
+
+#medium {
+  font-weight: map-get($font-weight, medium);
+}
+
+#regular {
+  font-weight: map-get($font-weight, regular);
+}
+
+#light {
+  font-weight: map-get($font-weight, light);
 }

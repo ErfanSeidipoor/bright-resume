@@ -2,39 +2,31 @@ import { FC } from "react";
 
 import { TextArea } from "../TextArea";
 import { TextField } from "../TextField";
+import { AboutMeProps } from "../types/index.type";
 import classes from "./index.module.scss";
 
 /* eslint-disable-next-line */
-export interface AboutMeProps {
-  headerValue: string;
-  onChangeHeaderValue: (value: string) => void;
-  bodyValue: string;
-  onChangeBodyValue: (value: string) => void;
-}
 
 export const AboutMe: FC<AboutMeProps> = ({
-  headerValue,
-  onChangeHeaderValue,
-  bodyValue,
-  onChangeBodyValue,
+  header = { label: "header", placeholder: "About Me" },
+  description = {
+    label: "description",
+    placeholder:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
 }) => {
   const renderHeader = () => {
     return (
-      <TextField
-        value={headerValue}
-        onChange={(e) => onChangeHeaderValue(e.target.value)}
-        variant="h1"
-        defaultValue="About Me"
-      />
+      <TextField {...header} variant="h2" placeholder={header.placeholder} />
     );
   };
 
   const renderBody = () => {
     return (
       <TextArea
-        value={bodyValue}
-        onChange={(e) => onChangeBodyValue(e.target.value)}
-        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        {...description}
+        variant="h7"
+        placeholder={description.placeholder}
       />
     );
   };
