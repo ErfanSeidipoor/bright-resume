@@ -36,6 +36,11 @@ export type ExperienceProps = {
   onDecrease: (id: string) => void;
 };
 
+export type AboutMeProps = {
+  header: TextFieldProps;
+  description: TextAreaProps;
+};
+
 export enum ThemeColor {
   blue = "blue",
   green = "green",
