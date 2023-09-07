@@ -7,6 +7,8 @@ import classes from "./index.module.scss";
 export type TypographyProps<T extends React.ElementType> = {
   component?: T;
   variant?: TypographyVariant;
+  startAdornment?: React.ReactNode;
+  endAdornment?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
 } & React.ComponentPropsWithoutRef<T>;
@@ -14,6 +16,8 @@ export type TypographyProps<T extends React.ElementType> = {
 export const Typography = <T extends React.ElementType = "p">({
   variant = "h7",
   component,
+  startAdornment,
+  endAdornment,
   children,
   className,
   ...props
@@ -39,9 +43,21 @@ export const Typography = <T extends React.ElementType = "p">({
     [classes.h9]: variant === "h9",
   });
 
+  const renderStartAdornment = () => {
+    if (!startAdornment) return;
+    return startAdornment;
+  };
+
+  const renderEndAdornment = () => {
+    if (!endAdornment) return;
+    return endAdornment;
+  };
+
   return (
-    <Component className={rootClasses} {...props}>
+    <Component className={rootClasses}>
+      {renderStartAdornment()}
       {children}
+      {renderEndAdornment()}
     </Component>
   );
 };
