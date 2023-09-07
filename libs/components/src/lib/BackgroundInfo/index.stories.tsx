@@ -1,11 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import BackgroundInfo from ".";
 import {
   BackgroundInfoChildKeys,
   BackgroundInfoChildProps,
   TextFieldProps,
 } from "../types/index.type";
+
+import BackgroundInfo from ".";
+import { texts } from "./texts";
 
 export default {
   component: BackgroundInfo,
@@ -67,11 +69,10 @@ const onChangeItems = ({
 const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
   const defaultExperienceItems: BackgroundInfoChildProps = {
     id: "item-1",
-    title: { placeholder: "Position" },
-    subtitle: { placeholder: "Company" },
+    title: { placeholder: texts.position },
+    subtitle: { placeholder: texts.company },
     description: {
-      placeholder:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      placeholder: texts.lorem_ipsum,
     },
   };
 
@@ -153,8 +154,8 @@ const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
 const EducationTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
   const defaultEducationItems: BackgroundInfoChildProps = {
     id: "item-1",
-    title: { placeholder: "Degree" },
-    subtitle: { placeholder: "University" },
+    title: { placeholder: texts.degree },
+    subtitle: { placeholder: texts.university },
   };
 
   const [educationItems, setEducationItems] = useState<
@@ -226,9 +227,9 @@ const EducationTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
 const AchievementTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
   const defaultAchievementItems: BackgroundInfoChildProps = {
     id: "item-1",
-    title: { placeholder: "Degree" },
+    title: { placeholder: texts.achievement_number_one },
     description: {
-      placeholder: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      placeholder: texts.lorem_ipsum,
     },
   };
 
@@ -301,9 +302,9 @@ const AchievementTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
 const SkillTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
   const defaultSkillItems: BackgroundInfoChildProps = {
     id: "item-1",
-    title: { placeholder: "Skill 1" },
+    title: { placeholder: texts.skill_number_one },
     description: {
-      placeholder: "Some Skills",
+      placeholder: texts.some_skills,
     },
   };
 
@@ -375,20 +376,20 @@ const SkillTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
 
 export const Experience = ExperienceTemplate.bind({});
 Experience.args = {
-  header: { placeholder: "Experience" },
+  header: { placeholder: texts.experience },
 };
 
 export const Education = EducationTemplate.bind({});
 Education.args = {
-  header: { placeholder: "Education" },
+  header: { placeholder: texts.education },
 };
 
 export const Achievement = AchievementTemplate.bind({});
 Achievement.args = {
-  header: { placeholder: "Achievements" },
+  header: { placeholder: texts.achievements },
 };
 
 export const Skill = SkillTemplate.bind({});
 Skill.args = {
-  header: { placeholder: "Skills" },
+  header: { placeholder: texts.skills },
 };

@@ -10,8 +10,9 @@ import {
 // icons
 import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
-import { useData } from "./useData";
+import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { texts } from "./texts";
 
 export const BackgroundInfo: FC<BackgroundInfoProps> = ({
   header = {},
