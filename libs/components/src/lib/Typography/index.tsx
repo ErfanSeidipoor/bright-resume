@@ -54,11 +54,13 @@ export const Typography = <T extends React.ElementType = "p">({
   };
 
   return (
-    <Component className={rootClasses}>
+    <>
+      <Component className={rootClasses} {...props}>
+        {children}
+      </Component>
       {renderStartAdornment()}
-      {children}
       {renderEndAdornment()}
-    </Component>
+    </>
   );
 };
 
