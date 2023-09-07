@@ -5,3 +5,4 @@ export * from "./lib/TextField";
 export * from "./lib/Experience";
 export * from "./lib/Icons";
 export * from "./lib/Typography";
+export * from "./lib/Theme";
