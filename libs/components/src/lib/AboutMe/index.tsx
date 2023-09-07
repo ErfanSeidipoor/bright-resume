@@ -8,12 +8,8 @@ import classes from "./index.module.scss";
 /* eslint-disable-next-line */
 
 export const AboutMe: FC<AboutMeProps> = ({
-  header = { label: "header", placeholder: "About Me" },
-  description = {
-    label: "description",
-    placeholder:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
+  header = {},
+  description = {},
 }) => {
   const renderHeader = () => {
     return (

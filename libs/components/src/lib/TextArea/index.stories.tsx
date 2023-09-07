@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { TextArea } from ".";
+import { texts } from "./texts";
 
 export default {
   component: TextArea,
@@ -13,17 +14,17 @@ const Template: StoryFn<typeof TextArea> = (args) => {
     <div id="theme-blue">
       <TextArea
         {...args}
-        label="name"
+        label={texts.name}
         value={value}
-        placeholder="Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+        placeholder={texts.lorem_ipsum}
         onChange={(e) => setValue(e.target.value)}
       />
     </div>
   );
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Main = Template.bind({});
+Main.args = {};
 
 export const Variant = Template.bind({});
 Variant.args = {

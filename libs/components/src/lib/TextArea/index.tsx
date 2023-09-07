@@ -37,6 +37,7 @@ export const TextArea: FC<TextAreaProps> = ({
           component="textarea"
           onFocus={data.handleActiveInput}
           autoFocus={data.isInputActive}
+          rootClassName={cls(classes.input__container)}
           className={cls(classes.input, {
             [props.className || ""]: !!props.className,
             [classes.disable__input]: !props.disabled && !data.isInputActive,
