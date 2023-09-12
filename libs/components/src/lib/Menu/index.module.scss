@@ -7,7 +7,6 @@
   left: spacing(1);
   right: spacing(1);
   width: 100%;
-
   .container {
     @include flexbox(row, flex-start, center);
     @include shadow(2);
