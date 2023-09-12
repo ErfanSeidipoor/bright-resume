@@ -53,6 +53,6 @@ export enum FontWeight {
 }
 
 export enum FontFamily {
-  sansSerif = "sansSerif",
+  arial = "arial",
   montserrat = "montserrat",
 }

@@ -13,7 +13,7 @@ export type ThemeProps = {
 export const ThemeProvider: React.FC<ThemeProps> = ({
   children,
   themeColor = ThemeColor.blue,
-  fontFamily = FontFamily.sansSerif,
+  fontFamily = FontFamily.montserrat,
   fontWeight = FontWeight.medium,
 }) => {
   const data = useData({ themeColor, fontFamily, fontWeight });

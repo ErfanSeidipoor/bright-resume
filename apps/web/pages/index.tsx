@@ -1,13 +1,17 @@
 import { NextPage } from "next";
 // components
-import { LogoIcon, Typography } from "@bright-resume/components";
+import {
+  LogoIcon,
+  Typography,
+  Menu,
+  ThemeProvider,
+} from "@bright-resume/components";
 
 const HomePage: NextPage = () => {
   return (
-    <div>
-      <Typography variant="h5" component="input" />
-      <LogoIcon width={20} />
-    </div>
+    <ThemeProvider>
+      <Menu />
+    </ThemeProvider>
   );
 };
 

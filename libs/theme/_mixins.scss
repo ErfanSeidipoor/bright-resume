@@ -61,3 +61,7 @@
   align-items: $align;
   gap: spacing($gap);
 }
+
+@mixin shadow($shadow-key) {
+  box-shadow: map-get($shadow, $shadow-key);
+}

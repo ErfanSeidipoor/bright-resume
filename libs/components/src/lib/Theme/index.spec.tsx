@@ -6,7 +6,7 @@ import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
 
 const initialProps = {
   themeColor: ThemeColor.blue,
-  fontFamily: FontFamily.sansSerif,
+  fontFamily: FontFamily.montserrat,
   fontWeight: FontWeight.medium,
 };
 

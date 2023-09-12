@@ -1,0 +1,54 @@
+@import "../../../../theme/index";
+
+.root {
+  @include flexbox(row, center, center);
+  position: fixed;
+  bottom: spacing(6);
+  left: spacing(1);
+  right: spacing(1);
+  width: 100%;
+
+  .container {
+    @include flexbox(row, flex-start, center);
+    @include shadow(2);
+    border-radius: 18px;
+    min-width: 960px;
+    max-width: 1280px;
+    background-color: var(--light);
+    height: 78px;
+
+    & > div {
+      @include flexbox(column, center, center);
+      height: 50%;
+      font-size: 14px;
+      flex: auto;
+    }
+
+    & > div {
+      position: relative;
+    }
+
+    & > div:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 80%;
+      right: spacing(0);
+      top: spacing(0.5);
+      background-color: var(--grey-200);
+    }
+
+    .text {
+      margin-top: spacing(0.5);
+    }
+
+    .select {
+      margin-bottom: spacing(4);
+    }
+
+    .person {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
