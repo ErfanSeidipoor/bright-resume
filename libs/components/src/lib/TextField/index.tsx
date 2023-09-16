@@ -1,9 +1,11 @@
 import { FC } from "react";
+
 import cls from "classnames";
-// types
-import { TextFieldProps } from "../types/index.type";
+
 // components
 import { SolarPenBoldIcon } from "../Icons";
+// types
+import { TextFieldProps } from "../types/index.type";
 import Typography from "../Typography";
 // locals
 import { useData } from "./index.hook";

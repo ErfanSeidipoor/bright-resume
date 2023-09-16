@@ -1,60 +1,72 @@
 @import "../../../../theme/index";
-// use palette for colors
-// use spacing for spacing(margin, padding, gap & ...)
-// remove font family anf font size
+
 .wrapper {
   width: 440px;
-  height: auto;
-  background-color: white;
   margin: spacing(2);
-  // spacing refactor
-  padding: 10px;
-  .titleWrapper {
+  padding: spacing(2);
+  &:hover {
+    .proficiency__wrapper {
+      display: grid !important;
+    }
+    .proficiency__value {
+      display: none !important;
+    }
+    .add__icon {
+      opacity: 1 !important;
+    }
+    .remove__icon {
+      opacity: 1 !important;
+    }
+  }
+  .title__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .header {
-      width: 145px;
       height: 30px;
       color: var(--grey-400);
     }
     .add__icon {
-      width: 70px;
-      height: 30px;
-      display: inline-flex;
+      display: flex;
+      opacity: 0;
+      gap: spacing(2);
       align-items: center;
-      gap: 10px;
-      border: none;
-      background-color: var(--light);
       cursor: pointer;
-    }
-    .wrapperItems {
-      width: 265px;
-      height: 150px;
-      .language {
-        height: 24px;
-        width: 80px;
-        color: #666;
-        font-family: Montserrat;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        margin-bottom: 25px;
+      transition: 0.2s ease-in-out;
+      .add__text {
+        margin: 0;
       }
+    }
+  }
+  .wrapper__items {
+    margin: spacing(7, 0);
+    .language__container {
+      display: flex;
+      gap: spacing(3);
+      align-items: center;
+      .remove__icon {
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+      }
+    }
+    .proficiency__value {
+      display: block;
+    }
+    .language {
+      width: 100%;
+      color: var(--grey-400);
+    }
+    .proficiency__wrapper {
+      display: none;
+      grid-template-columns: 50% 50%;
+      width: 265px;
+      margin-top: spacing(4);
+
       .proficiency {
-        color: #666;
-        font-family: Montserrat;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        .proficiencyWrapper {
-          display: flex;
-          .proficiencyTitle {
-            width: 80px;
-            height: 20px;
-          }
+        color: var(--grey-400);
+        .proficiencyTitle {
+          width: 80px;
+          height: 20px;
         }
       }
     }

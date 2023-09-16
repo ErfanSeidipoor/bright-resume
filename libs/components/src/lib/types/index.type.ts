@@ -43,11 +43,13 @@ export type LanguageChildProps = {
   id: string;
   language: TextFieldProps;
   proficiency: ProficiencyEnum;
+  onChangeProficiency: (id: string, proficiency: ProficiencyEnum) => void;
 };
 
 export type LanguageProps = {
-  header: TextFieldProps;
   items: LanguageChildProps[];
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
 };
 
 export type AboutMeProps = {

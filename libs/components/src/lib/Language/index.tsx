@@ -1,117 +1,87 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
+
+// components
+import { RadioButton, TextField } from "@bright-resume/components";
 
 // icons
-import { AddCircleRoundedIcon } from "../Icons";
-import { TextField } from "../TextField";
-import { LanguageProps } from "../types/index.type";
+import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
+// types
+import {
+  LanguageChildProps,
+  LanguageProps,
+  ProficiencyEnum,
+} from "../types/index.type";
 import Typography from "../Typography";
 // locals
 import classes from "./index.module.scss";
 import { texts } from "./texts";
 
 export const Language: FC<LanguageProps> = ({
-  header = { defaultValue: texts.languages },
   items = [],
+  onDecrease,
+  onIncrease,
 }) => {
-  const [language, setLanguage] = useState("");
-  const [proficiency, setProficiency] = useState("");
-
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLanguage(event.target.value);
-  };
-
-  const handleProficiencyChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setProficiency(event.target.value);
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Language:", language);
-    console.log("Proficiency:", proficiency);
-  };
-
   const renderHeader = () => {
     return (
-      <div className={classes.titleWrapper}>
-        <TextField className={classes.header} {...header} variant="h2" />
-        <div className={classes.add__icon}>
+      <div className={classes.title__wrapper}>
+        <Typography className={classes.header} variant="h2">
+          {texts.languages}
+        </Typography>
+        <div className={classes.add__icon} onClick={onIncrease}>
           <AddCircleRoundedIcon />
-          <Typography variant="h7">{texts.add}</Typography>
-        </div>
-      </div>
-    );
-  };
-  const renderItem = () => {
-    return (
-      <div className={classes.wrapperItems}>
-        <input
-          className={classes.language}
-          type="text"
-          value={language}
-          onChange={handleLanguageChange}
-          placeholder="English"
-        />
-        <div className={classes.proficiencyWrapper}>
-          <div className={classes.proficiency}>
-            <input
-              type="radio"
-              id="beginner"
-              name={language}
-              value="Beginner"
-              checked={proficiency === "Beginner"}
-              onChange={handleProficiencyChange}
-            />
-            <label className={classes.proficiencyTitle} htmlFor="beginner">
-              Beginner
-            </label>
-          </div>
-          <div className={classes.proficiency}>
-            <input
-              type="radio"
-              id="intermediate"
-              name={language}
-              value="Intermediate"
-              checked={proficiency === "Intermediate"}
-              onChange={handleProficiencyChange}
-            />
-            <label className={classes.proficiencyTitle} htmlFor="intermediate">
-              Intermediate
-            </label>
-          </div>
-        </div>
-        <div className={classes.proficiencyWrapper}>
-          <div className={classes.proficiency}>
-            <input
-              type="radio"
-              id="advanced"
-              name={language}
-              value="Advanced"
-              checked={proficiency === "Advanced"}
-              onChange={handleProficiencyChange}
-            />
-            <label className={classes.proficiencyTitle} htmlFor="advanced">
-              Advanced
-            </label>
-          </div>
-          <div className={classes.proficiency}>
-            <input
-              type="radio"
-              id="native"
-              name={language}
-              value="Native"
-              checked={proficiency === "Native"}
-              onChange={handleProficiencyChange}
-            />
-            <label className={classes.proficiencyTitle} htmlFor="native">
-              Native
-            </label>
-          </div>
+          <Typography className={classes.add__text} variant="h7">
+            {texts.add}
+          </Typography>
         </div>
       </div>
     );
   };
 
-  return <div className={classes.wrapper}>{renderHeader()}</div>;
+  const renderItem = (item: LanguageChildProps) => {
+    return (
+      <div key={item.id} className={classes.wrapper__items}>
+        <div className={classes.language__container}>
+          <TextField
+            rootClassName={classes.language}
+            {...item.language}
+            variant="h4"
+          />
+          <RemoveCircleRounded
+            className={classes.remove__icon}
+            onClick={() => onDecrease(item.id)}
+          />
+        </div>
+        <Typography className={classes.proficiency__value} variant="h9">
+          {item.proficiency}
+        </Typography>
+        <div className={classes.proficiency__wrapper}>
+          {Object.values(ProficiencyEnum).map((proficiency) => (
+            <div key={`level-${proficiency}`} className={classes.proficiency}>
+              <RadioButton
+                value={proficiency}
+                checked={item.proficiency === proficiency}
+                onChange={(e) =>
+                  e.target.checked &&
+                  item.onChangeProficiency(item.id, proficiency)
+                }
+              >
+                {proficiency}
+              </RadioButton>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const renderItems = () => {
+    return <div>{items.map((item) => renderItem(item))}</div>;
+  };
+
+  return (
+    <div className={classes.wrapper}>
+      {renderHeader()}
+      {renderItems()}
+    </div>
+  );
 };
