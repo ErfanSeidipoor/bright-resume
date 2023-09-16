@@ -1,5 +1,7 @@
 @import "../../../../theme/index";
-
+// use palette for colors
+// use spacing for spacing(margin, padding, gap & ...)
+// remove font family anf font size
 .wrapper {
   width: 440px;
   height: auto;
@@ -14,13 +16,7 @@
     .header {
       width: 145px;
       height: 30px;
-      color: rgba(102, 102, 102, 1);
-      font-family: Montserrat;
-      // font size & font family cancel
-      font-size: 25px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+      color: var(--grey-400);
     }
     .add__icon {
       width: 70px;
@@ -29,7 +25,7 @@
       align-items: center;
       gap: 10px;
       border: none;
-      background-color: white;
+      background-color: var(--light);
       cursor: pointer;
     }
     .wrapperItems {

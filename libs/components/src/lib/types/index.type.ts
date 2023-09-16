@@ -42,15 +42,12 @@ export type BackgroundInfoProps = {
 export type LanguageChildProps = {
   id: string;
   language: TextFieldProps;
-  proficiency: TextFieldProps;
+  proficiency: ProficiencyEnum;
 };
 
 export type LanguageProps = {
   header: TextFieldProps;
   items: LanguageChildProps[];
-  hoverItem?: LanguageChildProps;
-  onIncrease: (language: TextFieldProps, proficiency: Proficiency ) => void;
-  onDecrease: (id: string) => void;
 };
 
 export type AboutMeProps = {
@@ -78,7 +75,7 @@ export enum FontFamily {
   sansSerif = "sansSerif",
   montserrat = "montserrat",
 }
-export enum Proficiency {
+export enum ProficiencyEnum {
   beginner = "Beginner",
   intermediate = "Intermediate",
   advanced = "Advanced",

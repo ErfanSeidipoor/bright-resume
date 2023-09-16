@@ -1,5 +1,7 @@
 export const texts = {
   language: "Language",
+  languages: "Languages",
+  add: "Add",
   english: "English",
   persian: "Persian",
   arabic: "Arabic",
