@@ -1,0 +1,66 @@
+@import "../../../../theme/index";
+
+.wrapper {
+  width: 440px;
+  height: auto;
+  background-color: white;
+  margin: spacing(2);
+  // spacing refactor
+  padding: 10px;
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header {
+      width: 145px;
+      height: 30px;
+      color: rgba(102, 102, 102, 1);
+      font-family: Montserrat;
+      // font size & font family cancel
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .add__icon {
+      width: 70px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+    }
+    .wrapperItems {
+      width: 265px;
+      height: 150px;
+      .language {
+        height: 24px;
+        width: 80px;
+        color: #666;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 25px;
+      }
+      .proficiency {
+        color: #666;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        .proficiencyWrapper {
+          display: flex;
+          .proficiencyTitle {
+            width: 80px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
