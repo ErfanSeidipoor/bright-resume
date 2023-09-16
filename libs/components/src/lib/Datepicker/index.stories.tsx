@@ -12,13 +12,15 @@ const Template: StoryFn<typeof DatePicker> = (args) => {
   const [month, setMonth] = useState<MonthEnum | undefined>(undefined);
   const [year, setYear] = useState<number | undefined>(undefined);
   return (
-    <DatePicker
-      {...args}
-      month={month}
-      year={year}
-      onChangeMonth={setMonth}
-      onChangeYear={setYear}
-    />
+    <div id="theme-grey">
+      <DatePicker
+        {...args}
+        month={month}
+        year={year}
+        onChangeMonth={setMonth}
+        onChangeYear={setYear}
+      />
+    </div>
   );
 };
 
