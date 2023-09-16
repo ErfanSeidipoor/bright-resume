@@ -7,6 +7,7 @@
   @include transition(all, 150ms);
   padding: spacing(0, 1);
   margin: spacing(2);
+  color: var(--primary);
 }
 
 .content {
@@ -16,6 +17,7 @@
   border-radius: 4px;
   background: #FFF;
   box-shadow: 0px 4px 18px 3px rgba(46, 50, 52, 0.08), 0px 1px 6px 0px rgba(11, 60, 93, 0.12);
+  color: black;
 }
 
 .header {
