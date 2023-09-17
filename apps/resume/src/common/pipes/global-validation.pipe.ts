@@ -1,7 +1,7 @@
-import { UnprocessableEntityException, ValidationPipe } from '@nestjs/common';
-import { ValidationError } from 'class-validator';
-import { ClassTransformOptions } from 'class-transformer';
-import { serializerOptions } from '../constant/serializer-options.constant';
+import { UnprocessableEntityException, ValidationPipe } from "@nestjs/common";
+import { ValidationError } from "class-validator";
+import { ClassTransformOptions } from "class-transformer";
+import { serializerOptions } from "../constant/serializer-options.constant";
 
 function handleError(error: ValidationError): ValidationError[] {
   if (!error.children || error.children.length === 0) {
