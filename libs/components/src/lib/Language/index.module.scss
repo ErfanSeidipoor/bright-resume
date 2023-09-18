@@ -1,0 +1,74 @@
+@import "../../../../theme/index";
+
+.wrapper {
+  width: 440px;
+  margin: spacing(2);
+  padding: spacing(2);
+  &:hover {
+    .proficiency__wrapper {
+      display: grid !important;
+    }
+    .proficiency__value {
+      display: none !important;
+    }
+    .add__icon {
+      opacity: 1 !important;
+    }
+    .remove__icon {
+      opacity: 1 !important;
+    }
+  }
+  .title__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header {
+      height: 30px;
+      color: var(--grey-400);
+    }
+    .add__icon {
+      display: flex;
+      opacity: 0;
+      gap: spacing(2);
+      align-items: center;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      .add__text {
+        margin: 0;
+      }
+    }
+  }
+  .wrapper__items {
+    margin: spacing(7, 0);
+    .language__container {
+      display: flex;
+      gap: spacing(3);
+      align-items: center;
+      .remove__icon {
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+      }
+    }
+    .proficiency__value {
+      display: block;
+    }
+    .language {
+      width: 100%;
+      color: var(--grey-400);
+    }
+    .proficiency__wrapper {
+      display: none;
+      grid-template-columns: 50% 50%;
+      width: 265px;
+      margin-top: spacing(4);
+
+      .proficiency {
+        color: var(--grey-400);
+        .proficiencyTitle {
+          width: 80px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

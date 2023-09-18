@@ -39,6 +39,19 @@ export type BackgroundInfoProps = {
   onDecrease: (id: string) => void;
 };
 
+export type LanguageChildProps = {
+  id: string;
+  language: TextFieldProps;
+  proficiency: ProficiencyEnum;
+  onChangeProficiency: (id: string, proficiency: ProficiencyEnum) => void;
+};
+
+export type LanguageProps = {
+  items: LanguageChildProps[];
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
 export type AboutMeProps = {
   header: TextFieldProps;
   description: TextAreaProps;
@@ -63,4 +76,10 @@ export enum FontWeight {
 export enum FontFamily {
   sansSerif = "sansSerif",
   montserrat = "montserrat",
+}
+export enum ProficiencyEnum {
+  beginner = "Beginner",
+  intermediate = "Intermediate",
+  advanced = "Advanced",
+  native = "Native",
 }
