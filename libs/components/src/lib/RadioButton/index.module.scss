@@ -1,9 +1,5 @@
 @import '../../../../theme/index';
 
-input {
-  display: none;
-}
-
 .root {
   width: fit-content;
   display: flex;
@@ -14,41 +10,7 @@ input {
   height: 24px;
   padding: 2px 4px;
   position: relative;
-}
-
-
-.root span:before,
-.root span:after {
-  content: '';
-}
-
-.root span:before {
-  border: 2px solid black;
-  border-radius: 3px;
-  width: 10px;
-  height: 10px;
-  padding: 5px;
-  display: inline-block;
-  vertical-align: top;
-  margin-top: 5px;
-  margin-right: 4px;
-}
-
-.root span:after {
-  background: #3A86FF;
-  width: 11px;
-  height: 11px;
-  position: absolute;
-  top: 6.5px;
-  left: 5.5px;
-  transition: 300ms;
-  opacity: 0;
-}
-
-.root input:checked+span:after {
-  opacity: 1;
-}
-
-.root input:checked+span:before {
-  border: 2px solid #3A86FF;
+  .input {
+    display: none;
+  }
 }

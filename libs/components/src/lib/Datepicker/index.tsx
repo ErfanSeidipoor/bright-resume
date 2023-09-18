@@ -116,9 +116,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               data.onChangeMonth(data.currentMonth);
               data.setDatePickerTab(DatePickerSectionsEnum.Year);
             }}
-          >
-            Present
-          </RadioButton>
+            label="Present"
+          />
         </div>
         <div className={classes.itemsMonth}>
           {data.months.map((monthValue) => (
