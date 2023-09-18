@@ -83,3 +83,11 @@ export enum ProficiencyEnum {
   advanced = "Advanced",
   native = "Native",
 }
+
+export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 // components
 import { RadioButton, TextField } from "@bright-resume/components";
@@ -16,7 +16,7 @@ import Typography from "../Typography";
 import classes from "./index.module.scss";
 import { texts } from "./texts";
 
-export const Language: FC<LanguageProps> = ({
+export const Language: React.FC<LanguageProps> = ({
   items = [],
   onDecrease,
   onIncrease,
@@ -46,10 +46,12 @@ export const Language: FC<LanguageProps> = ({
             {...item.language}
             variant="h4"
           />
-          <RemoveCircleRounded
-            className={classes.remove__icon}
-            onClick={() => onDecrease(item.id)}
-          />
+          {items.length > 1 && (
+            <RemoveCircleRounded
+              className={classes.remove__icon}
+              onClick={() => onDecrease(item.id)}
+            />
+          )}
         </div>
         <Typography className={classes.proficiency__value} variant="h9">
           {item.proficiency}
@@ -59,14 +61,14 @@ export const Language: FC<LanguageProps> = ({
             <div key={`level-${proficiency}`} className={classes.proficiency}>
               <RadioButton
                 value={proficiency}
+                id={`${proficiency}-${item.id}`}
                 checked={item.proficiency === proficiency}
                 onChange={(e) =>
                   e.target.checked &&
                   item.onChangeProficiency(item.id, proficiency)
                 }
-              >
-                {proficiency}
-              </RadioButton>
+                label={proficiency}
+              />
             </div>
           ))}
         </div>

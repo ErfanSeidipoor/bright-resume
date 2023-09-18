@@ -15,6 +15,16 @@ export default {
 } as Meta<typeof Language>;
 
 const Template: StoryFn<typeof Language> = (args) => {
+  const defaultItem: LanguageChildProps = {
+    id: "language-1",
+    language: {
+      placeholder: "English",
+    },
+    proficiency: ProficiencyEnum.native,
+    onChangeProficiency: () => null,
+  };
+  const [items, setItems] = useState<LanguageChildProps[]>([defaultItem]);
+
   const handleChangeProficiency = (
     selectedId: string,
     selectedProficiency: ProficiencyEnum
@@ -23,6 +33,8 @@ const Template: StoryFn<typeof Language> = (args) => {
     const selectedItemIndex = allItems.findIndex(
       (item) => item.id === selectedId
     );
+    console.log("selectedId", selectedId);
+    console.log("selectedItemIndex", selectedItemIndex);
     if (selectedItemIndex < 0) return;
     allItems[selectedItemIndex] = {
       ...allItems[selectedItemIndex],
@@ -30,16 +42,6 @@ const Template: StoryFn<typeof Language> = (args) => {
     };
     setItems(allItems);
   };
-
-  const defaultItem: LanguageChildProps = {
-    id: "language-1",
-    language: {
-      placeholder: "English",
-    },
-    proficiency: ProficiencyEnum.native,
-    onChangeProficiency: handleChangeProficiency,
-  };
-  const [items, setItems] = useState<LanguageChildProps[]>([defaultItem]);
 
   const onDecrease = (selectedId: string) => {
     const newItems = items.filter((item) => item.id !== selectedId);
@@ -67,6 +69,7 @@ const Template: StoryFn<typeof Language> = (args) => {
         value: languageValue,
       },
     };
+    setItems(allItems);
   };
 
   return (
@@ -79,6 +82,7 @@ const Template: StoryFn<typeof Language> = (args) => {
             ...item.language,
             onChange: (e) => onChangeLanguage(item.id, e.target.value),
           },
+          onChangeProficiency: handleChangeProficiency,
         }))}
         onIncrease={onIncrease}
         onDecrease={onDecrease}

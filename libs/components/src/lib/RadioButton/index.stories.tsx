@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import RadioButton from ".";
 
 import "../../../../theme/_index.scss";
@@ -6,9 +6,9 @@ import "../../../../theme/_index.scss";
 export default {
   component: RadioButton,
   title: "RadioButton",
-} as ComponentMeta<typeof RadioButton>;
+} as Meta<typeof RadioButton>;
 
-const Template: ComponentStory<typeof RadioButton> = (args) => {
+const Template: StoryFn<typeof RadioButton> = (args) => {
   return (
     <div className="theme-grey">
       <RadioButton {...args} />
@@ -17,4 +17,4 @@ const Template: ComponentStory<typeof RadioButton> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = { children: "Present" };
+Primary.args = { label: "Present" };

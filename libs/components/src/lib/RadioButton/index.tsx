@@ -1,20 +1,32 @@
 import cls from "classnames";
 
 import classes from "./index.module.scss";
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface RadioButtonProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+import Typography from "../Typography";
+import { RadioButtonProps } from "../types/index.type";
+import { EmptyRadioCircleIcon, CheckedRadioCircleIcon } from "../Icons";
 
 export const RadioButton: React.FC<RadioButtonProps> = ({
-  children,
-  className,
+  icon = <EmptyRadioCircleIcon />,
+  checkedIcon = <CheckedRadioCircleIcon />,
+  rootClassName,
+  labelVariant = "h9",
+  label = "",
   ...props
 }) => {
+  const renderIcon = () => {
+    return !props.checked ? icon : checkedIcon;
+  };
+
   return (
-    <label className={cls(classes.root, className)}>
-      <input type="radio" name="radio" {...props} />
-      <span>{children}</span>
+    <label className={cls(classes.root, rootClassName)}>
+      {renderIcon()}
+      <input
+        className={cls(classes.input)}
+        type="radio"
+        name="radio"
+        {...props}
+      />
+      <Typography variant={labelVariant}>{label}</Typography>
     </label>
   );
 };
