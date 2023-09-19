@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./MainLayout.module.scss";
 import { MainNav } from "./MainNav";
 
-interface Props {
+type Props = {
   children: React.ReactNode;
 }
 
