@@ -2,83 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Experience {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Project {
-  role: String
-  title: String
-  company: String
-  location: String
-  url: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Education {
-  degree: String
-  institute: String
-  location: String
-  gpa: String
-  fromYear: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Certification {
-  name: String
-  institute: String
-  year: String
-  points: [String!]
-}
-
-type CourseWork {
-  title: String
-  name: String
-  institute: String
-  year: String
-  skills: String
-  points: [String!]
-}
-
-type Involvement {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Skill {
-  points: [String!]
-}
-
-type Language {
-  points: [String!]
-}
-
-type Hobby {
-  points: [String!]
-}
-
 type Resume {
   userId: ID!
   name: String
@@ -117,6 +40,83 @@ type Resume {
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Certification {
+  name: String
+  institute: String
+  year: String
+  points: [String!]
+}
+
+type CourseWork {
+  title: String
+  name: String
+  institute: String
+  year: String
+  skills: String
+  points: [String!]
+}
+
+type Education {
+  degree: String
+  institute: String
+  location: String
+  gpa: String
+  fromYear: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Experience {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Hobby {
+  points: [String!]
+}
+
+type Involvement {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Language {
+  points: [String!]
+}
+
+type Project {
+  role: String
+  title: String
+  company: String
+  location: String
+  url: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Skill {
+  points: [String!]
+}
 
 type Query {
   getResumes: [Resume!]!
