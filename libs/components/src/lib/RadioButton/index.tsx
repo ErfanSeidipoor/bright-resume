@@ -7,7 +7,7 @@ import { EmptyRadioCircleIcon, CheckedRadioCircleIcon } from "../Icons";
 
 export const RadioButton: React.FC<RadioButtonProps> = ({
   icon = <EmptyRadioCircleIcon />,
-  checkedIcon = <CheckedRadioCircleIcon />,
+  checkedIcon = <CheckedRadioCircleIcon className={classes.checked__icon} />,
   rootClassName,
   labelVariant = "h9",
   label = "",
