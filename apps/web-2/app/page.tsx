@@ -9,9 +9,12 @@ export default async function Index() {
    */
   return (
     <div className={styles.page}>
-      <div className={styles.hero} />
+      <div className={styles.page__hero} />
       <Features />
       <FAQ />
+      <div className={styles.page__footer}>
+        ©2023 Bright Résumé Co.
+      </div>
     </div>
   );
 }

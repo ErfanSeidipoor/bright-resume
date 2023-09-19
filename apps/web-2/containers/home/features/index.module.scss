@@ -1,3 +1,5 @@
+@import "../../../../../libs/theme/index";
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -62,8 +64,8 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        fill: #3a86ff;
-        stroke: #3a86ff;
+        fill: $blue;
+        stroke: $blue;
       }
     }
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgComponent = (props: any) => (
+export const InternationalIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M30 55C43.8075 55 55 43.8075 55 30C55 16.1925 43.8075 5 30 5C16.1925 5 5 16.1925 5 30C5 43.8075 16.1925 55 30 55Z"
@@ -15,4 +15,3 @@ const SvgComponent = (props: any) => (
     />
   </svg>
 );
-export default SvgComponent;

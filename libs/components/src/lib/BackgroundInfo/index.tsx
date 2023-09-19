@@ -1,5 +1,5 @@
-import { FC } from "react";
 import cls from "classnames";
+import { FC } from "react";
 // components
 import { TextArea, TextField } from "@bright-resume/components";
 // types
@@ -12,7 +12,6 @@ import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-import { texts } from "./texts";
 
 export const BackgroundInfo: FC<BackgroundInfoProps> = ({
   header = {},

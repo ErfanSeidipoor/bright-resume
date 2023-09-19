@@ -1,32 +1,35 @@
-import Cloud from "@bright-resume/assets/icons/cloud";
-import International from "@bright-resume/assets/icons/international";
-import Rocket from "@bright-resume/assets/icons/rocket";
+import {
+  CloudIcon,
+  InternationalIcon,
+  RocketIcon,
+} from "@bright-resume/components/Icons";
+
 import { FC } from "react";
 import styles from "./index.module.scss";
 
 const featureList = [
   {
-    icon: <Rocket className={styles.icon} />,
+    icon: <RocketIcon className={styles.icon} />,
     title: "Speedy",
   },
   {
-    icon: <Cloud className={styles.icon} />,
+    icon: <CloudIcon className={styles.icon} />,
     title: "Cloud-base Saving",
   },
   {
-    icon: <International className={styles.icon} />,
+    icon: <InternationalIcon className={styles.icon} />,
     title: "International standard",
   },
   {
-    icon: <Cloud className={styles.icon} />,
+    icon: <CloudIcon className={styles.icon} />,
     title: "Speedy",
   },
   {
-    icon: <Rocket className={styles.icon} />,
+    icon: <RocketIcon className={styles.icon} />,
     title: "Cloud-base Saving",
   },
   {
-    icon: <International className={styles.icon} />,
+    icon: <InternationalIcon className={styles.icon} />,
     title: "International standard",
   },
 ];
@@ -41,9 +44,7 @@ const Features: FC = () => {
         <div className={styles.featureGrid}>
           {featureList.map((feature, i) => (
             <div key={i} className={styles.feature}>
-              <div className={styles.featureIcon}>
-                {feature.icon}
-              </div>
+              <div className={styles.featureIcon}>{feature.icon}</div>
               <div className={styles.featureTitle}>{feature.title}</div>
             </div>
           ))}
