@@ -20,7 +20,8 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   return (
     <label className={cls(classes.root, rootClassName)}>
       {renderIcon()}
-      <input
+      <Typography
+        component="input"
         className={cls(classes.input)}
         type="radio"
         name="radio"
