@@ -1,0 +1,74 @@
+@import "../../../../theme/index";
+
+.root {
+  width: 100%;
+  background-color: transparent;
+  color: var(--dark);
+  border-radius: spacing(1, 1);
+  border: 1px solid transparent;
+  padding: spacing(0.5, 0.5);
+  display: flex;
+  align-items: center;
+  gap: spacing(1, 1);
+  position: relative;
+  &:hover {
+    border: 1px dashed var(--primary);
+    .edit__icon {
+      display: block;
+    }
+  }
+  &:focus {
+    border: 1px solid var(--primary);
+  }
+
+  .edit__icon {
+    display: none;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    > svg > path {
+      fill: var(--primary);
+    }
+  }
+
+  .input__container {
+    width: 100%
+  }
+
+  .input {
+    background-color: transparent;
+    color: var(--dark);
+    outline: none;
+    border: none;
+    width: 100%;
+    resize: none;
+  }
+
+  .label {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .disable__input {
+    cursor: pointer;
+  }
+
+  .not__allow_input {
+    cursor: not-allowed;
+  }
+
+  &.enable__root {
+    border: 1px solid var(--primary) !important;
+    padding-right: 0 !important;
+  }
+
+  &.disable__root {
+    &:hover {
+      border: 1px solid transparent!important;
+      .edit__icon {
+        display: none!important;
+      }
+    }
+  }
+}
