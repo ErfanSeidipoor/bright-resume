@@ -1,5 +1,5 @@
 import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
-import { ThemeContext } from "./index.context";
+
 // locals
 import { useData } from "./index.hook";
 
@@ -19,13 +19,13 @@ export const ThemeProvider: React.FC<ThemeProps> = ({
   const data = useData({ themeColor, fontFamily, fontWeight });
 
   return (
-    <ThemeContext.Provider value={data}>
+    
       <div id={data.themeColor}>
         <div id={data.fontFamily}>
           <div id={data.fontWeight}>{children}</div>
         </div>
       </div>
-    </ThemeContext.Provider>
+    
   );
 };
 

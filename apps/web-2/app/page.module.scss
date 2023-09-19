@@ -1,0 +1,17 @@
+.page {
+  background-color: #fff;
+  border-radius: 4px;
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 986px;
+    width: 100%;
+    background-image: url("../../../libs/assets/src/image/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
