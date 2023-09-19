@@ -10,7 +10,14 @@
   height: 24px;
   padding: spacing(0.5, 1);
   position: relative;
+
   .input {
     display: none;
+  }
+
+  .checked__icon {
+    > path {
+      fill: var(--primary);
+    }
   }
 }
