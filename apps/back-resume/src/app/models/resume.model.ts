@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Paginated } from "@bright-resume/back-common/model";
 import { Document } from "mongoose";
 import {
   Certification,
@@ -166,3 +167,6 @@ ResumeSchema.pre("save", function (next) {
   this.updatedAt = new Date();
   next();
 });
+
+@ObjectType()
+export class PaginatedResume extends Paginated(Resume) {}

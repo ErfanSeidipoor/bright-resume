@@ -2,6 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type PageInfo {
+  totalEdges: Float!
+  edgeCount: Float
+  edgesPerPage: Float!
+  totalPages: Float!
+  currentPage: Float!
+}
+
 type Resume {
   userId: ID!
   name: String
@@ -40,6 +48,11 @@ type Resume {
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type PaginatedResume {
+  edges: [Resume!]!
+  pageInfo: PageInfo!
+}
 
 type Certification {
   name: String
@@ -119,9 +132,34 @@ type Skill {
 }
 
 type Query {
-  getResumes: [Resume!]!
+  getResumesAdmin(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
+  getResumeById(resumeId: String!): Resume!
+}
+
+input PaginationArgsGQL {
+  limit: Int = 10
+  page: Int = 1
+}
+
+input GetResumesArgsGQL {
+  name: String = ""
 }
 
 type Mutation {
-  createResume: Resume!
+  deleteResume(deleteResumeInputs: DeleteResumeInputsGQL!): Resume!
+  createResume(createResumeInputs: CreateResumeInputsGQL!): Resume!
+  updateResume(updateResumeInputs: UpdateResumeInputsGQL!): Resume!
+}
+
+input DeleteResumeInputsGQL {
+  resumeId: String!
+}
+
+input CreateResumeInputsGQL {
+  name: String!
+}
+
+input UpdateResumeInputsGQL {
+  resumeId: String!
+  name: String!
 }
