@@ -14,32 +14,48 @@ type Resume {
   userId: ID!
   name: String
   role: String
+  isShowPhoneNumber: Boolean
   phoneNumber: String
+  isShowLinkedin: Boolean
   linkedin: String
+  isShowWebsite: Boolean
   website: String
+  isShowEmail: Boolean
   email: String
+  isShowLocation: Boolean
   location: String
+  isShowBirthDay: Boolean
   birthDay: String
+  isShowSummary: Boolean
   summaryLabel: String
   summary: String
+  isShowExperience: Boolean
   experienceLabel: String
   experiences: [Experience!]
+  isShowProject: Boolean
   projectLabel: String
   projects: [Project!]
+  isShowEducation: Boolean
   educationLabel: String
   educations: [Education!]
+  isShowCertification: Boolean
   certificationLabel: String
   certifications: [Certification!]
+  isShowCourseWork: Boolean
   courseWorkLabel: String
   courseWorks: [CourseWork!]
+  isShowInvolvement: Boolean
   involvementLabel: String
   involvements: [Involvement!]
+  isShowSkill: Boolean
   skillLabel: String
-  skills: [Skill!]
+  skills: [String!]
+  isShowLanguage: Boolean
   languageLabel: String
   languages: [Language!]
   hobbyLabel: String
-  hobbies: [Hobby!]
+  hobbies: [String!]
+  isShowHobby: Boolean
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -75,8 +91,8 @@ type Education {
   institute: String
   location: String
   gpa: String
-  fromYear: String
-  toYear: String
+  from: String
+  to: String
   untilNow: Boolean
   points: [String!]
 }
@@ -93,10 +109,6 @@ type Experience {
   points: [String!]
 }
 
-type Hobby {
-  points: [String!]
-}
-
 type Involvement {
   role: String
   company: String
@@ -110,7 +122,8 @@ type Involvement {
 }
 
 type Language {
-  points: [String!]
+  name: String
+  level: String
 }
 
 type Project {
@@ -124,10 +137,6 @@ type Project {
   toMonth: String
   toYear: String
   untilNow: Boolean
-  points: [String!]
-}
-
-type Skill {
   points: [String!]
 }
 
@@ -156,7 +165,120 @@ input DeleteResumeInputsGQL {
 }
 
 input CreateResumeInputsGQL {
-  name: String!
+  name: String
+  role: String
+  isShowPhoneNumber: Boolean
+  phoneNumber: String
+  isShowLinkedin: Boolean
+  linkedin: String
+  isShowWebsite: Boolean
+  website: String
+  isShowEmail: Boolean
+  email: String
+  isShowLocation: Boolean
+  location: String
+  isShowBirthDay: Boolean
+  birthDay: String
+  isShowSummary: Boolean
+  summaryLabel: String
+  summary: String
+  isShowExperience: Boolean
+  experienceLabel: String
+  experiences: [CreateResumeExperienceItemInputsGQL!]
+  isShowProject: Boolean
+  projectLabel: String
+  projects: [CreateResumeProjectItemInputsGQL!]
+  isShowEducation: Boolean
+  educationLabel: String
+  educations: [CreateResumeEducationItemInputsGQL!]
+  isShowCertification: Boolean
+  certificationLabel: String
+  certifications: [CreateResumeCertificationItemInputsGQL!]
+  isShowCourseWork: Boolean
+  courseWorkLabel: String
+  courseWorks: [CreateResumeCourseWorkItemInputsGQL!]
+  isShowInvolvement: Boolean
+  involvementLabel: String
+  involvements: [CreateResumeInvolvementItemInputsGQL!]
+  isShowSkill: Boolean
+  skillLabel: String
+  skills: [String!]
+  isShowLanguage: Boolean
+  languageLabel: String
+  languages: [CreateResumeLanguageItemInputsGQL!]
+  hobbyLabel: String
+  hobbies: [String!]
+  isShowHobby: Boolean
+}
+
+input CreateResumeExperienceItemInputsGQL {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeProjectItemInputsGQL {
+  role: String
+  title: String
+  company: String
+  location: String
+  url: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeEducationItemInputsGQL {
+  degree: String
+  institute: String
+  location: String
+  gpa: String
+  from: String
+  to: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeCertificationItemInputsGQL {
+  name: String
+  institute: String
+  year: String
+  points: [String!]
+}
+
+input CreateResumeCourseWorkItemInputsGQL {
+  title: String
+  name: String
+  institute: String
+  year: String
+  skills: String
+  points: [String!]
+}
+
+input CreateResumeInvolvementItemInputsGQL {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeLanguageItemInputsGQL {
+  name: String
+  level: String
 }
 
 input UpdateResumeInputsGQL {

@@ -1,12 +1,7 @@
 import { IsUUID } from "class-validator";
-import { IsString, MaxLength, MinLength } from "class-validator";
+import { CreateResumeInputs } from "./create-resume.inputs";
 
-export class UpdateResumeInputs {
+export class UpdateResumeInputs extends CreateResumeInputs {
   @IsUUID()
   resumeId: string;
-
-  @IsString()
-  @MinLength(10)
-  @MaxLength(50)
-  name: string;
 }

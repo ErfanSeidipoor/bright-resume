@@ -23,11 +23,11 @@ export class Education extends Document {
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, reqßuired: false })
-  fromYear: string;
+  from: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  toYear: string;
+  to: string;
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })

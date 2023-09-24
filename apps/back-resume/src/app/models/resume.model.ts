@@ -7,20 +7,16 @@ import {
   CourseWork,
   Education,
   Experience,
-  Hobby,
   Involvement,
   Language,
   Project,
-  Skill,
   certificationSchema,
   courseWorkSchema,
   educationSchema,
   experienceSchema,
-  hobbySchema,
   involvementSchema,
   languageSchema,
   projectSchema,
-  skillSchema,
 } from ".";
 
 @Schema({
@@ -48,29 +44,57 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   role: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowPhoneNumber: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   phoneNumber: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLinkedin: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   linkedin: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowWebsite: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   website: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowEmail: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   email: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLocation: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   location: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowBirthDay: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   birthDay: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowSummary: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
@@ -80,6 +104,10 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   summary: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowExperience: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   experienceLabel: string;
@@ -87,6 +115,10 @@ export class Resume extends Document {
   @Field(() => [Experience], { nullable: true })
   @Prop({ type: [experienceSchema], required: false })
   experiences: Experience[];
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowProject: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
@@ -96,6 +128,10 @@ export class Resume extends Document {
   @Prop({ type: [projectSchema], required: false })
   projects: Project[];
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowEducation: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   educationLabel: string;
@@ -103,6 +139,10 @@ export class Resume extends Document {
   @Field(() => [Education], { nullable: true })
   @Prop({ type: [educationSchema], required: false })
   educations: Education[];
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowCertification: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
@@ -112,6 +152,10 @@ export class Resume extends Document {
   @Prop({ type: [certificationSchema], required: false })
   certifications: Certification[];
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowCourseWork: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   courseWorkLabel: string;
@@ -119,6 +163,10 @@ export class Resume extends Document {
   @Field(() => [CourseWork], { nullable: true })
   @Prop({ type: [courseWorkSchema], required: false })
   courseWorks: CourseWork[];
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowInvolvement: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
@@ -128,13 +176,21 @@ export class Resume extends Document {
   @Prop({ type: [involvementSchema], required: false })
   involvements: Involvement[];
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowSkill: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   skillLabel: string;
 
-  @Field(() => [Skill], { nullable: true })
-  @Prop({ type: [skillSchema], required: false })
-  skills: Skill[];
+  @Field(() => [String], { nullable: true })
+  @Prop({ type: [String], required: false })
+  skills: string[];
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLanguage: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
@@ -148,9 +204,13 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   hobbyLabel: string;
 
-  @Field(() => [Hobby], { nullable: true })
-  @Prop({ type: [hobbySchema], required: false })
-  hobbies: Hobby[];
+  @Field(() => [String], { nullable: true })
+  @Prop({ type: [String], required: false })
+  hobbies: string[];
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowHobby: boolean;
 
   @Field(() => Date, { nullable: false })
   @Prop({ type: Date, default: Date.now })
