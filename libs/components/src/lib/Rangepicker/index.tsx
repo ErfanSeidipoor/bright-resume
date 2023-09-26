@@ -1,4 +1,3 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 
@@ -19,6 +18,7 @@ export interface RangePickerProps {
   toYear: number | undefined;
   onChangeToMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
   onChangeToYear: React.Dispatch<React.SetStateAction<number | undefined>>;
+  disabled?: boolean;
 }
 
 export const RangePicker: React.FC<RangePickerProps> = ({
@@ -32,11 +32,15 @@ export const RangePicker: React.FC<RangePickerProps> = ({
   toYear = undefined,
   onChangeToMonth,
   onChangeToYear,
+  disabled = false,
 }) => {
   const data = useData({ fromMonth, fromYear });
 
   return (
-    <div id={id} className={cls(classes.root, className)}>
+    <div
+      id={id}
+      className={cls(classes.root, className, disabled ? classes.disabled : "")}
+    >
       <DatePicker
         month={fromMonth}
         year={fromYear}
@@ -44,6 +48,7 @@ export const RangePicker: React.FC<RangePickerProps> = ({
         onChangeYear={onChangeFromYear}
         placeholder="From"
         ref={data.fromRef}
+        disabled={disabled}
       />
       -
       <DatePicker
@@ -53,6 +58,7 @@ export const RangePicker: React.FC<RangePickerProps> = ({
         onChangeYear={onChangeToYear}
         placeholder="Until"
         ref={data.toRef}
+        disabled={disabled}
       />
     </div>
   );

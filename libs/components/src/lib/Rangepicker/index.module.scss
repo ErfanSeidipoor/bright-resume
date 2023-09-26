@@ -1,5 +1,11 @@
 @import '../../../../theme/index';
 
 .root {
+  display: flex;
+  flex-direction: row;
   color: var(--primary);
+}
+
+.disabled {
+  color: #575757 !important;
 }

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { MonthEnum } from "../Datepicker/index.hook";
 import RangePicker from ".";
@@ -6,15 +6,15 @@ import RangePicker from ".";
 export default {
   component: RangePicker,
   title: "RangePicker",
-} as ComponentMeta<typeof RangePicker>;
+} as Meta<typeof RangePicker>;
 
-const Template: ComponentStory<typeof RangePicker> = (args) => {
+const Template: StoryFn<typeof RangePicker> = (args) => {
   const [fromMonth, setFromMonth] = useState<MonthEnum | undefined>(undefined);
   const [toMonth, setToMonth] = useState<MonthEnum | undefined>(undefined);
   const [fromYear, setFromYear] = useState<number | undefined>(undefined);
   const [toYear, setToYear] = useState<number | undefined>(undefined);
   return (
-    <div className="theme-purple">
+    <div className="theme-blue">
       <RangePicker
         {...args}
         fromMonth={fromMonth}
@@ -30,10 +30,10 @@ const Template: ComponentStory<typeof RangePicker> = (args) => {
   );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-  id: "theme-purple",
-};
+export const Main = Template.bind({});
+Main.args = {};
 
-export const Secondary = Template.bind({});
-Secondary.args = {};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};

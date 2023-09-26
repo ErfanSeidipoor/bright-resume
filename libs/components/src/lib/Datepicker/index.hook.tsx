@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export enum MonthEnum {
   Jan = "Jan",
@@ -77,12 +77,14 @@ export const useData = ({
     } else {
       setYearPageIndex(findYearPageIndex(new Date().getFullYear()));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isShowPopup]);
 
   useEffect(() => {
     if (year && !month) {
       onChangeMonth(currentMonth);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [month, year, months, onChangeMonth]);
 
   const isThereBeforeYearsAvailable =
@@ -96,6 +98,34 @@ export const useData = ({
   const filterYearsInCurrentPageHandler = (item: number) =>
     item > new Date().getFullYear() + yearPageIndex * 20 - 12 &&
     item < new Date().getFullYear() + yearPageIndex * 20 + 9;
+
+  const [buttonPositionClass, setButtonPositionClass] = useState<
+    "right" | "left" | ""
+  >("");
+
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    const setButtonPosition = () => {
+      if (buttonRef.current) {
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        const isButtonOnLeft = buttonRect.left < window.innerWidth / 2;
+
+        if (isButtonOnLeft) {
+          setButtonPositionClass("left");
+        } else {
+          setButtonPositionClass("right");
+        }
+      }
+    };
+
+    setButtonPosition();
+    window.addEventListener("resize", setButtonPosition);
+
+    return () => {
+      window.removeEventListener("resize", setButtonPosition);
+    };
+  }, []);
 
   return {
     isShowPopup,
@@ -116,5 +146,7 @@ export const useData = ({
     onChangeMonth,
     currentMonth,
     currentYear,
+    buttonPositionClass,
+    buttonRef,
   };
 };
