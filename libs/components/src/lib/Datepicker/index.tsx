@@ -12,6 +12,7 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 import React from "react";
+import { texts } from "./texts";
 
 export interface DatePickerProps {
   month: MonthEnum | undefined;
@@ -46,7 +47,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           >
             <ArrowDropdownLeftDatePicker />
             <Typography className={classes.text} component={"p"}>
-              {data.displayDate("Select a year", true)}
+              {data.displayDate(texts.select_a_year, true)}
             </Typography>
           </div>
           <div className={classes.actions}>
@@ -99,7 +100,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       <>
         <div className={classes.header}>
           <Typography className={classes.text} component={"p"}>
-            Select a month
+            {texts.select_a_month}
           </Typography>
           <RadioButton
             checked={
@@ -110,7 +111,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               data.onChangeMonth(data.currentMonth);
               data.setDatePickerTab(DatePickerSectionsEnum.Year);
             }}
-            label="Present"
+            label={texts.present}
           />
         </div>
         <div className={classes.itemsMonth}>

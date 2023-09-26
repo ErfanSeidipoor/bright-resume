@@ -4,6 +4,7 @@ import classes from "./index.module.scss";
 import DatePicker from "../Datepicker";
 import { MonthEnum } from "../Datepicker/index.hook";
 import cls from "classnames";
+import { texts } from "./texts";
 
 export interface RangePickerProps {
   id?: string;
@@ -46,7 +47,7 @@ export const RangePicker: React.FC<RangePickerProps> = ({
         year={fromYear}
         onChangeMonth={onChangeFromMonth}
         onChangeYear={onChangeFromYear}
-        placeholder="From"
+        placeholder={texts.from}
         ref={data.fromRef}
         disabled={disabled}
       />
@@ -56,7 +57,7 @@ export const RangePicker: React.FC<RangePickerProps> = ({
         year={toYear}
         onChangeMonth={onChangeToMonth}
         onChangeYear={onChangeToYear}
-        placeholder="Until"
+        placeholder={texts.until}
         ref={data.toRef}
         disabled={disabled}
       />

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { texts } from "./texts";
 
 export enum MonthEnum {
   Jan = "Jan",
@@ -62,7 +63,7 @@ export const useData = ({
 
   const displayDate = (placeholder = "", notPresent = false) => {
     if (!notPresent && month === currentMonth && year === currentYear) {
-      return "Present";
+      return texts.present;
     }
     if (month && year) {
       return `${month} ${year}`;
