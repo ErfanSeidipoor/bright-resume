@@ -61,9 +61,10 @@ export class ResumeService {
   }
 
   async create(inputs: CreateResumeInputs): Promise<Resume> {
-    const { name } = inputs;
-
-    const resume = await this.resumeModel.create({ name });
+    const resume = await this.resumeModel.create({
+      userId: "userId",
+      ...inputs,
+    });
 
     await resume.save();
 

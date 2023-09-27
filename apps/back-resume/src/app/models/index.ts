@@ -10,6 +10,7 @@ export * from "./involvement.model";
 export * from "./language.model";
 export * from "./project.model";
 export * from "./resume.model";
+
 export const models: ModelDefinition[] = [
   { name: Resume.name, schema: ResumeSchema },
 ];

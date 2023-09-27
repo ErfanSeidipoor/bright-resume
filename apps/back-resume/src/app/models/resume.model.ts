@@ -32,6 +32,10 @@ import {
 })
 @ObjectType()
 export class Resume extends Document {
+  @Field(() => ID, { nullable: true })
+  @Prop({ type: String, required: false, name: "_id" })
+  id: string;
+
   @Field(() => ID, { nullable: false })
   @Prop({ type: String, required: true })
   userId: string;
@@ -225,6 +229,7 @@ export const ResumeSchema = SchemaFactory.createForClass(Resume);
 
 ResumeSchema.pre("save", function (next) {
   this.updatedAt = new Date();
+  this.id = this._id;
   next();
 });
 
