@@ -22,7 +22,7 @@ export class Experience extends Document {
   fromMonth: string;
 
   @Field(() => String, { nullable: true })
-  @Prop({ type: String, reqßuired: false })
+  @Prop({ type: String, required: false })
   fromYear: string;
 
   @Field(() => String, { nullable: true })

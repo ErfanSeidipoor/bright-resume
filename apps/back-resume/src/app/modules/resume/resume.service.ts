@@ -1,9 +1,8 @@
 import { Model } from "mongoose";
-
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
-import { Resume } from "../../models/resume.model";
+import { CustomError, RESUME_NOT_FOUND } from "@bright-resume/errors";
 import {
   CreateResumeInputs,
   DeleteResumeInputs,
@@ -12,6 +11,8 @@ import {
   PaginationArgs,
   UpdateResumeInputs,
 } from "@bright-resume/dto";
+
+import { Resume } from "../../models/resume.model";
 
 @Injectable()
 export class ResumeService {
@@ -35,17 +36,23 @@ export class ResumeService {
 
     const resume = await this.resumeModel.findById(resumeId);
 
+    if (!resume) {
+      throw new CustomError(RESUME_NOT_FOUND);
+    }
+
     return resume;
   }
 
   async update(inputs: UpdateResumeInputs): Promise<Resume> {
-    const { name, resumeId } = inputs;
+    const { resumeId } = inputs;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    let resume = await this.resumeModel.findById(resumeId);
 
-    resume.name = name;
+    if (!resume) {
+      throw new CustomError(RESUME_NOT_FOUND);
+    }
 
-    await resume.save();
+    resume = await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
 
     return resume;
   }
@@ -55,12 +62,18 @@ export class ResumeService {
 
     const resume = await this.resumeModel.findById(resumeId);
 
+    if (!resume) {
+      throw new CustomError(RESUME_NOT_FOUND);
+    }
+
     await resume.deleteOne();
 
     return resume;
   }
 
   async create(inputs: CreateResumeInputs): Promise<Resume> {
+    console.log({ inputs });
+
     const resume = await this.resumeModel.create({
       userId: "userId",
       ...inputs,
