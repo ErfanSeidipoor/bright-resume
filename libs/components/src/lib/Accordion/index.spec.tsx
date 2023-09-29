@@ -1,37 +1,96 @@
-import { render, screen } from "@testing-library/react";
-import user from "@testing-library/user-event";
-import "@testing-library/jest-dom/extend-expect";
 import { faker } from "@faker-js/faker";
+import "@testing-library/jest-dom/extend-expect";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { Accordion } from ".";
+import classes from "./index.module.scss";
 
-import { TextArea } from ".";
+afterEach(cleanup);
 
-const mockedOnChange = jest.fn();
+const items = Array.from({ length: 6 }).map(() => ({
+  title: "Accordion Item",
+  children: <div>{faker.lorem.paragraphs(2)}</div>,
+}));
 
-const renderComponent = () => {
-  const { baseElement } = render(
-    <TextArea id="input-test" onChange={mockedOnChange} />
-  );
-
-  return { baseElement };
-};
-
-describe("TextArea Component", () => {
+describe("Accordion Component", () => {
   it("should render successfully", () => {
-    const { baseElement } = renderComponent();
-    const textArea = screen.getByRole("textbox");
-    expect(textArea).toBeDefined();
-    expect(baseElement).toBeTruthy();
+    render(<Accordion items={items} />);
+
+    const baseElement = screen.getByRole("tablist");
+    expect(baseElement).toBeInTheDocument();
   });
 
-  it("shows input value after user type something", async () => {
-    const TEXT = faker.word.noun();
-    renderComponent();
-    const input = screen.getByRole("textbox");
-    await user.click(input);
-    await user.keyboard(TEXT);
-    expect(input).toBeDefined();
-    expect((input as HTMLInputElement).value).toBe(TEXT);
-    expect(mockedOnChange).toHaveBeenCalled();
-    expect(mockedOnChange).toHaveBeenCalledTimes(TEXT.length);
+  it("should render the correct number of items", () => {
+    render(<Accordion items={items} />);
+    const headings = screen.getAllByRole("heading");
+    expect(headings.length).toBe(items.length);
+  });
+
+  it("should toggle the active state of an item when clicked", () => {
+    render(<Accordion items={items} />);
+    const heading = screen.getAllByRole("heading");
+
+    heading.forEach((head) => {
+      expect(head).toHaveClass(classes.container__item__header);
+    });
+
+    heading.forEach((head) => {
+      fireEvent.click(head);
+      expect(head).toHaveClass(classes.container__item__header__open);
+    });
+  });
+
+  it("should have same title as items object title", () => {
+    render(<Accordion items={items} />);
+    const contents = screen.getAllByRole("contentinfo");
+
+    contents.forEach((content, index) => {
+      expect(content).toHaveTextContent(items[index].title);
+    });
+  });
+
+  it("should have same content as object children", () => {
+    render(<Accordion items={items} />);
+    const children = screen.getAllByRole("list");
+    const heading = screen.getAllByRole("heading");
+
+    children.forEach((child, index) => {
+      const element = items[index].children;
+      fireEvent.click(heading[index]);
+      expect(child.firstChild?.textContent).toEqual(element?.props.children);
+    });
+  });
+
+  it("should adjust height automatically", async () => {
+    userEvent.setup();
+    // Render your component
+    render(<Accordion items={items} />);
+    // Get the element to click on
+    const heading = await screen.findAllByRole("heading");
+    const children = await screen.findAllByRole("list");
+
+    // wait for the element to be in the DOM
+    await waitFor(() => {
+      heading.forEach((h) => expect(h).toBeInTheDocument());
+      children.forEach((c) => expect(c).toBeInTheDocument());
+    });
+
+    children.forEach(async (child, index) => {
+      expect(child).toBeInTheDocument();
+      expect(heading[index]).toBeInTheDocument();
+
+      // Check the element has the class you expect
+      expect(child).toHaveClass(classes.container__item__children);
+      // Click the element
+      await userEvent.click(heading[index]);
+      // Check the element has the class you expect
+      expect(child).toHaveClass(classes.container__item__children__open);
+    });
   });
 });

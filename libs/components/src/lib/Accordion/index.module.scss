@@ -1,73 +1,87 @@
-@import "../../../../theme/index";
+@import "../../../../../libs/theme";
 
-.root {
+.container {
   width: 100%;
-  background-color: transparent;
-  color: var(--dark);
-  border-radius: spacing(1, 1);
-  border: 1px solid transparent;
-  padding: spacing(0.5, 0.5);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: spacing(1, 1);
-  position: relative;
-  &:hover {
-    border: 1px dashed var(--primary);
-    .edit__icon {
-      display: block;
-    }
-  }
-  &:focus {
-    border: 1px solid var(--primary);
-  }
+  justify-content: center;
 
-  .edit__icon {
-    display: none;
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    > svg > path {
-      fill: var(--primary);
-    }
-  }
-
-  .input__container {
-    width: 100%
-  }
-
-  .input {
-    background-color: transparent;
-    color: var(--dark);
-    outline: none;
-    border: none;
+  &__item {
     width: 100%;
-    resize: none;
-  }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 3px solid $grey-200;
+    transition: all 0.3s ease-in-out;
 
-  .label {
-    visibility: hidden;
-    position: absolute;
-    z-index: -1;
-  }
+    &:last-child {
+      border: none;
+    }
 
-  .disable__input {
-    cursor: pointer;
-  }
+    &__header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0 18px 0;
+      cursor: pointer;
 
-  .not__allow_input {
-    cursor: not-allowed;
-  }
+      &__title {
+        font-size: 20px;
+        color: $dark;
+        font-weight: 600;
 
-  &.enable__root {
-    border: 1px solid var(--primary) !important;
-    padding-right: 0 !important;
-  }
+        &__open {
+          color: $blue !important;
+          font-weight: 700;
+        }
+      }
 
-  &.disable__root {
-    &:hover {
-      border: 1px solid transparent!important;
-      .edit__icon {
-        display: none!important;
+      &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+
+        &__open {
+          transform: rotate(135deg);
+        }
+      }
+    }
+
+    &__title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    &__children {
+      width: 100%;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+
+      overflow: hidden;
+      color: $dark;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+
+      &__open {
+        max-height: 1000px; /* or any other large value */
+        overflow: auto;
+        opacity: 1;
+        padding-bottom: 24px;
       }
     }
   }

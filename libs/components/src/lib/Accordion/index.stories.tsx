@@ -1,37 +1,28 @@
+import { faker } from "@faker-js/faker";
 import { Meta, StoryFn } from "@storybook/react";
-import { useState } from "react";
-import { TextArea } from ".";
-import { texts } from "./texts";
+import { Accordion } from "./index";
 
 export default {
-  component: TextArea,
-  title: "TextArea",
-} as Meta<typeof TextArea>;
+  component: Accordion,
+  title: "Accordion",
+} as Meta<typeof Accordion>;
 
-const Template: StoryFn<typeof TextArea> = (args) => {
-  const [value, setValue] = useState<string | undefined>(undefined);
+const Template: StoryFn<typeof Accordion> = (args) => {
   return (
     <div id="theme-blue">
-      <TextArea
-        {...args}
-        label={texts.name}
-        value={value}
-        placeholder={texts.lorem_ipsum}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <Accordion {...args} />
     </div>
   );
 };
 
+// eslint-disable-next-line storybook/prefer-pascal-case
+const accordionSample = faker.datatype.array(4).map(() => ({
+  title: faker.word.adjective(),
+  children: <div>{faker.lorem.paragraph(10)}</div>
+}));
+
+
 export const Main = Template.bind({});
-Main.args = {};
-
-export const Variant = Template.bind({});
-Variant.args = {
-  variant: "h1",
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+Main.args = {
+  items: accordionSample,
 };
