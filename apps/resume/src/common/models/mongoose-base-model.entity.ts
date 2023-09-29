@@ -1,5 +1,5 @@
-import { Document } from 'mongoose';
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Document } from "mongoose";
+import { Prop, Schema } from "@nestjs/mongoose";
 @Schema({ timestamps: true })
 export abstract class MongooseBaseModel extends Document {
   @Prop({ type: Date })
