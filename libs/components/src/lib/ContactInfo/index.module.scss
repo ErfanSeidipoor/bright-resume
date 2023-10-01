@@ -1,0 +1,20 @@
+@import "../../../../theme/index";
+
+.title__wrapper {
+  background-color: var(--primary);
+  color: var(--light);
+  padding-bottom: spacing(8);
+  padding-left: spacing(15);
+  .container {
+    display: flex;
+    gap: spacing(3);
+    align-items: center;
+    padding-bottom: 20px;
+    .item__wrapper {
+      color: var(--light);
+      &::placeholder {
+        color: var(--light);
+      }
+    }
+  }
+}
