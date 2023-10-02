@@ -37,12 +37,12 @@ describe("Accordion Component", () => {
     const heading = screen.getAllByRole("heading");
 
     heading.forEach((head) => {
-      expect(head).toHaveClass(classes.container__item__header);
+      expect(head).toHaveClass(classes.accordion__item__header);
     });
 
     heading.forEach((head) => {
       fireEvent.click(head);
-      expect(head).toHaveClass(classes.container__item__header__open);
+      expect(head).toHaveClass(classes.accordion__item__header__open);
     });
   });
 
@@ -86,11 +86,12 @@ describe("Accordion Component", () => {
       expect(heading[index]).toBeInTheDocument();
 
       // Check the element has the class you expect
-      expect(child).toHaveClass(classes.container__item__children);
+      expect(child).toHaveClass(classes.accordion__item__children);
       // Click the element
       await userEvent.click(heading[index]);
       // Check the element has the class you expect
-      expect(child).toHaveClass(classes.container__item__children__open);
+      expect(child).toHaveClass(classes.accordion__item__children__open);
+      screen.debug()
     });
   });
 });

@@ -2,6 +2,7 @@ import cls from "classnames";
 import { FC, ReactNode, useState } from "react";
 import { PlusIcon } from "../Icons/plus";
 import classes from "./index.module.scss";
+import { useData } from "./index.hook";
 
 interface AccordionItemProps {
   title: string;
@@ -9,17 +10,13 @@ interface AccordionItemProps {
 }
 
 const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const {isOpen, handleToggle} = useData();
 
   return (
-    <div className={classes.container__item} role="button" aria-expanded={isOpen}>
+    <div className={classes.accordion__item} role="button" aria-expanded={isOpen}>
       <div
-        className={cls(classes.container__item__header, {
-          [classes.container__item__header__open]: isOpen,
+        className={cls(classes.accordion__item__header, {
+          [classes.accordion__item__header__open]: isOpen,
         })}
         onClick={handleToggle}
         aria-controls={`accordion-item-${title}`}
@@ -28,16 +25,16 @@ const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
         aria-level={3}
       >
         <span
-          className={cls(classes.container__item__header__title, {
-            [classes.container__item__header__title__open]: isOpen,
+          className={cls(classes.accordion__item__header__title, {
+            [classes.accordion__item__header__title__open]: isOpen,
           })}
           role="contentinfo"
         >
           {title}
         </span>
         <div
-          className={cls(classes.container__item__header__icon, {
-            [classes.container__item__header__icon__open]: isOpen,
+          className={cls(classes.accordion__item__header__icon, {
+            [classes.accordion__item__header__icon__open]: isOpen,
           })}
           id={`accordion-item-${title}`}
         >
@@ -45,8 +42,8 @@ const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
         </div>
       </div>
       <div
-        className={cls(classes.container__item__children, {
-          [classes.container__item__children__open]: isOpen,
+        className={cls(classes.accordion__item__children, {
+          [classes.accordion__item__children__open]: isOpen,
         })}
         role="list"
       >
@@ -62,7 +59,7 @@ interface AccordionProps {
 
 const Accordion: FC<AccordionProps> = ({ items }) => {
   return (
-    <div className={classes.container} role="tablist">
+    <div className={classes.accordion} role="tablist">
       {items?.map((item, index) => (
         <AccordionItem key={index} title={item.title}>
           {item.children}
