@@ -16,20 +16,22 @@ export const ContactInfo: React.FC<ContactInfoProps> = ({
   PhoneNumber = {},
 }) => {
   return (
-    <div className={classes.title__wrapper}>
+    <div className={classes.root}>
       <Typography variant="h2">{texts.contactInfo}</Typography>
-      <div className={classes.container}>
+      <div className={classes.field__container}>
         <EmailAddressIcon />
         <TextField
-          rootClassName={classes.item__wrapper}
+          rootClassName={classes.field}
+          enableRootClassName={classes.enable__field}
           {...EmailAddress}
           variant="h7"
         />
       </div>
-      <div className={classes.container}>
+      <div className={classes.field__container}>
         <PhoneNumberIcon />
         <TextField
-          rootClassName={classes.item__wrapper}
+          rootClassName={classes.field}
+          enableRootClassName={classes.enable__field}
           {...PhoneNumber}
           variant="h7"
           placeholder={PhoneNumber.placeholder}

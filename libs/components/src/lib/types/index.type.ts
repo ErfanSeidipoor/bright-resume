@@ -19,6 +19,7 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  enableRootClassName?: string;
   label?: string;
 };
 
@@ -55,7 +56,7 @@ export type LanguageProps = {
 export type ContactInfoProps = {
   EmailAddress: TextFieldProps;
   PhoneNumber: TextFieldProps;
-}
+};
 
 export type AboutMeProps = {
   header: TextFieldProps;
