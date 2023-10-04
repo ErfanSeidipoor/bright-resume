@@ -28,11 +28,11 @@
 
 .disabled {
   cursor: default;
-  color: #575757;
+  color: #{$grey-500};
 
   .icon {
     > path {
-      fill: #575757;
+      fill: #{$grey-500};
     }
   }
 }

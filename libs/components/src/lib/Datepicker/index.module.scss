@@ -1,4 +1,4 @@
-@import '../../../../theme/index';
+@import "../../../../theme/index";
 
 .root {
   position: relative;
@@ -11,37 +11,35 @@
   @include transition(all, 150ms);
   color: var(--primary);
 
-  background-color: transparent ;
+  background-color: transparent;
 }
-
 
 .disabled {
   cursor: default;
-  color: #575757 ;
+  color: #{$grey-500};
 }
 
 .hidden {
   position: absolute;
-  top: calc(100% + 10px); /* Position below the button with some spacing */
+  top: calc(100% + 10px);
   left: 0;
   right: 0;
   z-index: 10; /* Ensure it's above other content */
   transform-origin: center top;
   transform: scale(0);
   transition: transform 0.2s ease-in-out;
-  
+
   width: min-content;
-  top: calc(100% + 10px); /* Position below the button with some spacing */
+  top: calc(100% + 10px);
   left: 0;
   right: 0;
   z-index: 10;
   border-radius: 4px;
-  background: #FFF;
-  box-shadow: 0px 4px 18px 3px rgba(46, 50, 52, 0.08), 0px 1px 6px 0px rgba(11, 60, 93, 0.12);
+  background: var(--light);
+  box-shadow: 0px 4px 18px 3px rgba(46, 50, 52, 0.08),
+    0px 1px 6px 0px rgba(11, 60, 93, 0.12);
   color: black;
-
 }
-
 
 .popUpCloseZone {
   z-index: 10;
@@ -54,8 +52,8 @@
 
 .content {
   position: absolute;
-  
-  top: calc(100% + 10px); /* Position below the button with some spacing */
+
+  top: calc(100% + 10px);
   left: 0;
   right: 0;
   z-index: 10; /* Ensure it's above other content */
@@ -68,8 +66,9 @@
 
   z-index: 10;
   border-radius: 4px;
-  background: #FFF;
-  box-shadow: 0px 4px 18px 3px rgba(46, 50, 52, 0.08), 0px 1px 6px 0px rgba(11, 60, 93, 0.12);
+  background: var(--light);
+  box-shadow: 0px 4px 18px 3px rgba(46, 50, 52, 0.08),
+    0px 1px 6px 0px rgba(11, 60, 93, 0.12);
   color: black;
 }
 
@@ -132,8 +131,7 @@
 
 .selectedItemMonth {
   color: var(--primary);
-  font-size: 24px;
-  font-weight: bold !important;
+  @include typography(h4);
 }
 
 .itemsMonth {
@@ -151,15 +149,12 @@
 }
 
 .item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  @include flexbox(row, center, center, 0);
   cursor: pointer;
   font-weight: 400;
   width: 72px;
   height: 47px;
-  
+
   span {
     padding: 8px 16px;
   }
@@ -175,7 +170,7 @@
   font-weight: 400;
   width: 57.5px;
   height: 31.5px;
-  
+
   span {
     padding: 4px 16px;
   }

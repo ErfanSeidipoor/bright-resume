@@ -21,6 +21,8 @@ export enum DatePickerSectionsEnum {
   Year = "Year",
 }
 
+export type ButtonPositionClassType = "right" | 'left' | ''
+
 type useDataProps = {
   month: MonthEnum | undefined;
   year: number | undefined;
@@ -101,7 +103,7 @@ export const useData = ({
     item < new Date().getFullYear() + yearPageIndex * 20 + 9;
 
   const [buttonPositionClass, setButtonPositionClass] = useState<
-    "right" | "left" | ""
+  ButtonPositionClassType
   >("");
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
