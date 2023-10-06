@@ -1,5 +1,5 @@
 import cls from "classnames";
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode } from "react";
 import { PlusIcon } from "../Icons/plus";
 import classes from "./index.module.scss";
 import { useData } from "./index.hook";
@@ -9,7 +9,7 @@ interface AccordionItemProps {
   children: ReactNode;
 }
 
-const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
+export const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
   const {isOpen, handleToggle} = useData();
 
   return (
@@ -57,7 +57,7 @@ interface AccordionProps {
   items?: AccordionItemProps[];
 }
 
-const Accordion: FC<AccordionProps> = ({ items }) => {
+export const Accordion: FC<AccordionProps> = ({ items }) => {
   return (
     <div className={classes.accordion} role="tablist">
       {items?.map((item, index) => (
@@ -69,4 +69,3 @@ const Accordion: FC<AccordionProps> = ({ items }) => {
   );
 };
 
-export { Accordion, AccordionItem };
