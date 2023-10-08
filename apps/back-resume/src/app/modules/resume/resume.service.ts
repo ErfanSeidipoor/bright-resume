@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import { FilterQuery, Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
@@ -11,8 +11,9 @@ import {
   PaginationArgs,
   UpdateResumeInputs,
 } from "@bright-resume/dto";
+import { paginate } from "@bright-resume/back-common/pagination";
 
-import { Resume } from "../../models/resume.model";
+import { PaginatedResume, Resume } from "../../models/resume.model";
 
 @Injectable()
 export class ResumeService {
@@ -21,14 +22,17 @@ export class ResumeService {
   async getList(
     paginationArgs: PaginationArgs,
     args: GetResumesArgs
-  ): Promise<Resume[]> {
+  ): Promise<PaginatedResume> {
     const { name } = args;
     const { limit, page } = paginationArgs;
 
-    return await this.resumeModel
-      .find()
-      .limit(limit)
-      .skip((page - 1) * limit);
+    const queryBuilder: FilterQuery<Resume> = {};
+
+    if (name) {
+      queryBuilder.name = name;
+    }
+
+    return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
   async getById(args: GetResumeByIdArgs): Promise<Resume> {
@@ -72,8 +76,6 @@ export class ResumeService {
   }
 
   async create(inputs: CreateResumeInputs): Promise<Resume> {
-    console.log({ inputs });
-
     const resume = await this.resumeModel.create({
       userId: "userId",
       ...inputs,

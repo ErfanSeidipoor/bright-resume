@@ -176,134 +176,134 @@ export class CreateResumeLanguageItemInputsGQL extends CreateResumeLanguageItemI
 @InputType()
 export class CreateResumeInputsGQL extends CreateResumeInputs {
   @Field(() => String, { nullable: true })
-  name: string;
+  name?: string;
 
   @Field(() => String, { nullable: true })
-  role: string;
+  role?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowPhoneNumber: boolean;
+  isShowPhoneNumber?: boolean;
 
   @Field(() => String, { nullable: true })
-  phoneNumber: string;
+  phoneNumber?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowLinkedin: boolean;
+  isShowLinkedin?: boolean;
 
   @Field(() => String, { nullable: true })
-  linkedin: string;
+  linkedin?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowWebsite: boolean;
+  isShowWebsite?: boolean;
 
   @Field(() => String, { nullable: true })
-  website: string;
+  website?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowEmail: boolean;
+  isShowEmail?: boolean;
 
   @Field(() => String, { nullable: true })
-  email: string;
+  email?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowLocation: boolean;
+  isShowLocation?: boolean;
 
   @Field(() => String, { nullable: true })
-  location: string;
+  location?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowBirthDay: boolean;
+  isShowBirthDay?: boolean;
 
   @Field(() => String, { nullable: true })
-  birthDay: string;
+  birthDay?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowSummary: boolean;
+  isShowSummary?: boolean;
 
   @Field(() => String, { nullable: true })
-  summaryLabel: string;
+  summaryLabel?: string;
 
   @Field(() => String, { nullable: true })
-  summary: string;
+  summary?: string;
 
   @Field(() => Boolean, { nullable: true })
-  isShowExperience: boolean;
+  isShowExperience?: boolean;
 
   @Field(() => String, { nullable: true })
-  experienceLabel: string;
+  experienceLabel?: string;
 
   @Field(() => [CreateResumeExperienceItemInputsGQL], { nullable: true })
-  experiences: CreateResumeExperienceItemInputsGQL[];
+  experiences?: CreateResumeExperienceItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowProject: boolean;
+  isShowProject?: boolean;
 
   @Field(() => String, { nullable: true })
-  projectLabel: string;
+  projectLabel?: string;
 
   @Field(() => [CreateResumeProjectItemInputsGQL], { nullable: true })
-  projects: CreateResumeProjectItemInputsGQL[];
+  projects?: CreateResumeProjectItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowEducation: boolean;
+  isShowEducation?: boolean;
 
   @Field(() => String, { nullable: true })
-  educationLabel: string;
+  educationLabel?: string;
 
   @Field(() => [CreateResumeEducationItemInputsGQL], { nullable: true })
-  educations: CreateResumeEducationItemInputsGQL[];
+  educations?: CreateResumeEducationItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowCertification: boolean;
+  isShowCertification?: boolean;
 
   @Field(() => String, { nullable: true })
-  certificationLabel: string;
+  certificationLabel?: string;
 
   @Field(() => [CreateResumeCertificationItemInputsGQL], { nullable: true })
-  certifications: CreateResumeCertificationItemInputsGQL[];
+  certifications?: CreateResumeCertificationItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowCourseWork: boolean;
+  isShowCourseWork?: boolean;
 
   @Field(() => String, { nullable: true })
-  courseWorkLabel: string;
+  courseWorkLabel?: string;
 
   @Field(() => [CreateResumeCourseWorkItemInputsGQL], { nullable: true })
-  courseWorks: CreateResumeCourseWorkItemInputsGQL[];
+  courseWorks?: CreateResumeCourseWorkItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowInvolvement: boolean;
+  isShowInvolvement?: boolean;
 
   @Field(() => String, { nullable: true })
-  involvementLabel: string;
+  involvementLabel?: string;
 
   @Field(() => [CreateResumeInvolvementItemInputsGQL], { nullable: true })
-  involvements: CreateResumeInvolvementItemInputsGQL[];
+  involvements?: CreateResumeInvolvementItemInputsGQL[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowSkill: boolean;
+  isShowSkill?: boolean;
 
   @Field(() => String, { nullable: true })
-  skillLabel: string;
+  skillLabel?: string;
 
   @Field(() => [String], { nullable: true })
-  skills: string[];
+  skills?: string[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowLanguage: boolean;
+  isShowLanguage?: boolean;
 
   @Field(() => String, { nullable: true })
-  languageLabel: string;
+  languageLabel?: string;
 
   @Field(() => [CreateResumeLanguageItemInputsGQL], { nullable: true })
-  languages: CreateResumeLanguageItemInputsGQL[];
+  languages?: CreateResumeLanguageItemInputsGQL[];
 
   @Field(() => String, { nullable: true })
-  hobbyLabel: string;
+  hobbyLabel?: string;
 
   @Field(() => [String], { nullable: true })
-  hobbies: string[];
+  hobbies?: string[];
 
   @Field(() => Boolean, { nullable: true })
-  isShowHobby: boolean;
+  isShowHobby?: boolean;
 }

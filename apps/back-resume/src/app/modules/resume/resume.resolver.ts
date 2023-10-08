@@ -17,7 +17,7 @@ export class ResumeResolver {
   constructor(private resumeService: ResumeService) {}
 
   @Query(() => PaginatedResume, { nullable: false })
-  async getResumesAdmin(
+  async getResumes(
     @Args("paginationArgs") paginationArgs: PaginationArgsGQL,
     @Args("getResumesArgs") args: GetResumesArgsGQL
   ) {

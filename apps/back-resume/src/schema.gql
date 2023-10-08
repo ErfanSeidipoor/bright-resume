@@ -142,7 +142,7 @@ type Project {
 }
 
 type Query {
-  getResumesAdmin(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 

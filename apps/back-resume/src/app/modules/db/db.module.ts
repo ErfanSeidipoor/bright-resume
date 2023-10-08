@@ -5,7 +5,9 @@ import { models } from "../../models";
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URL, { dbName: "resume" }),
+    MongooseModule.forRoot(process.env.MONGO_URL, {
+      dbName: process.env.DATABASE_NAME,
+    }),
     MongooseModule.forFeature(models),
   ],
   providers: [DBService],
