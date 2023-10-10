@@ -5,6 +5,7 @@ export * from "./removeCircleRounded";
 export * from "./arrowTop";
 export * from "./blueCircle";
 export * from "./check";
+export * from "./checkSquare";
 export * from "./downloadCircle";
 export * from "./emptyCircle";
 export * from "./goldCircle";

@@ -7,6 +7,8 @@
   left: spacing(1);
   right: spacing(1);
   width: 100%;
+  user-select: none;
+
   .container {
     @include flexbox(row, flex-start, center);
     @include shadow(2);
@@ -14,17 +16,22 @@
     min-width: 960px;
     max-width: 1280px;
     background-color: var(--light);
-    height: 78px;
+    height: 90px;
 
     & > div {
       @include flexbox(column, center, center);
       height: 50%;
-      font-size: 14px;
       flex: auto;
+      position: relative;
     }
 
-    & > div {
-      position: relative;
+    .menu__content {
+      @include flexbox(column, center, center);
+      cursor: pointer;
+    }
+
+    & p {
+      line-height: 2px;
     }
 
     & > div:not(:last-child)::after {
@@ -37,17 +44,56 @@
       background-color: var(--grey-200);
     }
 
-    .text {
-      margin-top: spacing(0.5);
-    }
-
     .select {
-      margin-bottom: spacing(4);
+      margin: spacing(1, 0, 3, 0);
     }
 
     .person {
       width: 30px;
       height: 30px;
+    }
+
+    .popup {
+      @include shadow(2);
+      @include transition(opacity, 150ms);
+      padding: 15px;
+      border-radius: 10px;
+      background-color: $light;
+      position: absolute;
+      bottom: spacing(16);
+      left: spacing(0);
+    }
+
+    .colors__container {
+      @include flexbox();
+      gap: spacing(7);
+
+      .color__icon_container {
+        position: relative;
+        cursor: pointer;
+
+        .color__icon {
+          position: absolute;
+          top: spacing(2.5);
+          left: spacing(2.5);
+          width: 20px;
+          height: 20px;
+          z-index: 11111;
+        }
+      }
+    }
+
+    .font {
+      width: 120px;
+      cursor: pointer;
+      @include transition(all, 150ms);
+      margin-bottom: spacing(3);
+      &:hover {
+        color: $blue;
+      }
+      &.font__active {
+        color: $blue;
+      }
     }
   }
 }
