@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 
 import AboutMe from "./";
+import { texts } from "./texts";
 
 export default {
   component: AboutMe,
@@ -10,7 +11,14 @@ export default {
 const Template: StoryFn<typeof AboutMe> = (args) => {
   return (
     <div id="theme-blue">
-      <AboutMe {...args} />
+      <AboutMe
+        {...args}
+        header={{ label: texts.header, placeholder: texts.about_me }}
+        description={{
+          label: texts.description,
+          placeholder: texts.lorem_ipsum,
+        }}
+      />
     </div>
   );
 };

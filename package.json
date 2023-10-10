@@ -91,6 +91,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "classnames": "^2.3.2",
+    "express-session": "^1.17.3",
     "graphql": "^16.7.1",
     "js-yaml": "^4.1.0",
     "mongoose-delete": "^1.0.1",

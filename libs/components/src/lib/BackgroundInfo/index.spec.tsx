@@ -4,8 +4,8 @@ import { render, screen } from "@testing-library/react";
 import Experience from ".";
 
 const HEADER_VALUE = faker.word.noun();
-const POSITION_VALUE = faker.word.noun();
-const COMPANY_VALUE = faker.word.noun();
+const TITLE_VALUE = faker.word.noun();
+const SUBTITLE_VALUE = faker.word.noun();
 
 const renderComponent = () => {
   const { baseElement } = render(
@@ -14,8 +14,8 @@ const renderComponent = () => {
       items={[
         {
           id: "child-1",
-          position: { value: POSITION_VALUE },
-          company: { value: COMPANY_VALUE },
+          title: { value: TITLE_VALUE },
+          subtitle: { value: SUBTITLE_VALUE },
           description: { label: "description", id: "description" },
         },
       ]}
@@ -31,15 +31,15 @@ describe("Experience Component", () => {
   it("should render successfully", () => {
     const { baseElement } = renderComponent();
     const header = screen.getByText(HEADER_VALUE);
-    const position = screen.getByText(POSITION_VALUE);
-    const company = screen.getByText(COMPANY_VALUE);
+    const title = screen.getByText(TITLE_VALUE);
+    const subtitle = screen.getByText(SUBTITLE_VALUE);
     const description = screen.getByRole("textbox", {
       name: /description/i,
     });
     expect(baseElement).toBeTruthy();
     expect(header).toBeDefined();
-    expect(position).toBeDefined();
-    expect(company).toBeDefined();
+    expect(title).toBeDefined();
+    expect(subtitle).toBeDefined();
     expect(description).toBeDefined();
   });
 });

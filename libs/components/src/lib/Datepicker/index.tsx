@@ -7,6 +7,7 @@ import classNames from "classnames";
 import ArrowDropDownLeft from "../../../../assets/src/svg/arrow-dropdown-left-datePicker.svg";
 import ArrowRight from "../../../../assets/src/svg/arrow-right-datePicker.svg";
 import ArrowLeft from "../../../../assets/src/svg/arrow-left-datePicker.svg";
+import RadioButton from "../RadioButton";
 
 export interface DatePickerProps {
   month: MonthEnum | undefined;
@@ -14,8 +15,10 @@ export interface DatePickerProps {
   onChangeMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
   onChangeYear: React.Dispatch<React.SetStateAction<number | undefined>>;
   placeholder?: string;
-  placeholderColor?: string;
+  ref?: React.LegacyRef<HTMLButtonElement> | null;
 }
+
+// check if the component will have proper style on the edge of the page
 
 export const DatePicker: React.FC<DatePickerProps> = ({
   month = undefined,
@@ -23,8 +26,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   onChangeMonth,
   onChangeYear,
   placeholder = "Pick your date!",
-  placeholderColor = "black",
+  ref,
 }) => {
+  console.log(ref);
   const data = useData({ month, year, onChangeMonth, onChangeYear });
 
   const renderYearSection = () => {
@@ -42,7 +46,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               width={24}
               height={24}
             />
-            <p className={classes.text}>{data.displayDate("Select a year")}</p>
+            <p className={classes.text}>
+              {data.displayDate("Select a year", true)}
+            </p>
           </div>
           <div className={classes.actions}>
             <Image
@@ -80,6 +86,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             .filter(data.filterYearsInCurrentPageHandler)
             .map((yearValue) => (
               <span
+                key={yearValue}
                 className={classNames(
                   classes.item,
                   year === yearValue ? classes.selectedItem : ""
@@ -100,10 +107,22 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       <>
         <div className={classes.header}>
           <p className={classes.text}>Select a month</p>
+          <RadioButton
+            checked={
+              data.month === data.currentMonth && data.year === data.currentYear
+            }
+            onClick={() => {
+              data.onChangeYear(data.currentYear);
+              data.onChangeMonth(data.currentMonth);
+              data.setDatePickerTab(DatePickerSectionsEnum.Year);
+            }}
+            label="Present"
+          />
         </div>
         <div className={classes.itemsMonth}>
           {data.months.map((monthValue) => (
             <span
+              key={monthValue}
               className={classNames(
                 classes.itemMonth,
                 month === monthValue ? classes.selectedItemMonth : ""
@@ -146,9 +165,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         onClick={(e) => {
           data.setPopup(true);
         }}
-        style={{
-          color: placeholderColor,
-        }}
+        ref={ref}
       >
         {data.displayDate(placeholder)}
       </button>

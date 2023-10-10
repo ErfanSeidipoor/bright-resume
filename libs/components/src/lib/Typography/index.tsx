@@ -11,6 +11,7 @@ export type TypographyProps<T extends React.ElementType> = {
   endAdornment?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  rootClassName?: string;
 } & React.ComponentPropsWithoutRef<T>;
 
 export const Typography = <T extends React.ElementType = "p">({
@@ -20,6 +21,7 @@ export const Typography = <T extends React.ElementType = "p">({
   endAdornment,
   children,
   className,
+  rootClassName = "",
   ...props
 }: TypographyProps<T>) => {
   const getComponent = (): React.ElementType => {
@@ -31,7 +33,7 @@ export const Typography = <T extends React.ElementType = "p">({
 
   const Component = getComponent();
 
-  const rootClasses = cls(classes.root, className, {
+  const rootClasses = cls(className, {
     [classes.h1]: variant === "h1",
     [classes.h2]: variant === "h2",
     [classes.h3]: variant === "h3",
@@ -54,11 +56,17 @@ export const Typography = <T extends React.ElementType = "p">({
   };
 
   return (
-    <Component className={rootClasses}>
+    <div
+      className={cls(classes.root, {
+        [rootClassName]: !!rootClassName,
+      })}
+    >
       {renderStartAdornment()}
-      {children}
+      <Component className={rootClasses} {...props}>
+        {children}
+      </Component>
       {renderEndAdornment()}
-    </Component>
+    </div>
   );
 };
 

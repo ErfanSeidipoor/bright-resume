@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { TextField } from ".";
+import { texts } from "./texts";
 
 export default {
   component: TextField,
@@ -13,17 +14,17 @@ const Template: StoryFn<typeof TextField> = (args) => {
     <div id="theme-blue">
       <TextField
         {...args}
-        label="name"
+        label={texts.name}
         value={value}
-        defaultValue="Position"
+        placeholder={texts.position}
         onChange={(e) => setValue(e.target.value)}
       />
     </div>
   );
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Main = Template.bind({});
+Main.args = {};
 
 export const Variant = Template.bind({});
 Variant.args = {

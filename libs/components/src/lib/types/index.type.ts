@@ -22,18 +22,39 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export type ExperienceChildProps = {
+export type BackgroundInfoChildKeys = "title" | "subtitle" | "description";
+
+export type BackgroundInfoChildProps = {
   id: string;
-  position: TextFieldProps;
-  company: TextFieldProps;
-  description: TextAreaProps;
+  title: TextFieldProps;
+  subtitle?: TextFieldProps;
+  description?: TextAreaProps;
 };
 
-export type ExperienceProps = {
+export type BackgroundInfoProps = {
   header: TextFieldProps;
-  items: ExperienceChildProps[];
+  items: BackgroundInfoChildProps[];
+  hoverItem?: BackgroundInfoChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
+};
+
+export type LanguageChildProps = {
+  id: string;
+  language: TextFieldProps;
+  proficiency: ProficiencyEnum;
+  onChangeProficiency: (id: string, proficiency: ProficiencyEnum) => void;
+};
+
+export type LanguageProps = {
+  items: LanguageChildProps[];
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type AboutMeProps = {
+  header: TextFieldProps;
+  description: TextAreaProps;
 };
 
 export enum ThemeColor {
@@ -56,3 +77,17 @@ export enum FontFamily {
   arial = "arial",
   montserrat = "montserrat",
 }
+export enum ProficiencyEnum {
+  beginner = "Beginner",
+  intermediate = "Intermediate",
+  advanced = "Advanced",
+  native = "Native",
+}
+
+export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};
