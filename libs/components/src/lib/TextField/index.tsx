@@ -14,6 +14,7 @@ import classes from "./index.module.scss";
 export const TextField: FC<TextFieldProps> = ({
   variant = "h3",
   rootClassName = "",
+  enableRootClassName = "",
   label = "",
   ...props
 }) => {
@@ -70,6 +71,7 @@ export const TextField: FC<TextFieldProps> = ({
       className={cls(classes.root, {
         [rootClassName]: !!rootClassName,
         [classes.enable__root]: !!data.isInputActive,
+        [enableRootClassName]: !!data.isInputActive && !!enableRootClassName,
         [classes.disable__root]: props.disabled,
       })}
       onBlur={data.handleDeActiveInput}
