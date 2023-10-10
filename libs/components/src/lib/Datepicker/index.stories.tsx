@@ -3,6 +3,8 @@ import DatePicker from ".";
 import { useState } from "react";
 import { MonthEnum } from "./index.hook";
 
+import "../../../../theme/_index.scss";
+
 export default {
   component: DatePicker,
   title: "DatePicker",
@@ -12,7 +14,7 @@ const Template: StoryFn<typeof DatePicker> = (args) => {
   const [month, setMonth] = useState<MonthEnum | undefined>(undefined);
   const [year, setYear] = useState<number | undefined>(undefined);
   return (
-    <div id="theme-grey">
+    <div id="theme-green">
       <DatePicker
         {...args}
         month={month}
@@ -28,6 +30,17 @@ export const Main = Template.bind({});
 Main.args = {
   month: undefined,
   year: undefined,
+  onChangeMonth: () => null,
+  onChangeYear: () => null,
   placeholder: "Pick your date!",
-  placeholderColor: "black",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  month: undefined,
+  year: undefined,
+  onChangeMonth: () => null,
+  onChangeYear: () => null,
+  placeholder: "Pick your date!",
 };

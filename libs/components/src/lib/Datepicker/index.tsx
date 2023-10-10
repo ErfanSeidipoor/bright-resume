@@ -1,13 +1,18 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import Image from "next/image";
+// import Image from "next/image";
 import { DatePickerSectionsEnum, MonthEnum, useData } from "./index.hook";
 import classes from "./index.module.scss";
 import classNames from "classnames";
 
-import ArrowDropDownLeft from "../../../../assets/src/svg/arrow-dropdown-left-datePicker.svg";
-import ArrowRight from "../../../../assets/src/svg/arrow-right-datePicker.svg";
-import ArrowLeft from "../../../../assets/src/svg/arrow-left-datePicker.svg";
 import RadioButton from "../RadioButton";
+import {
+  ArrowDropdownLeftDatePicker,
+  ArrowLeftDatePicker,
+  ArrowRightDatePicker,
+} from "../Icons";
+import Typography from "../Typography";
+import React from "react";
+import { texts } from "./texts";
 
 export interface DatePickerProps {
   month: MonthEnum | undefined;
@@ -15,7 +20,8 @@ export interface DatePickerProps {
   onChangeMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
   onChangeYear: React.Dispatch<React.SetStateAction<number | undefined>>;
   placeholder?: string;
-  ref?: React.LegacyRef<HTMLButtonElement> | null;
+  ref?: React.RefObject<HTMLButtonElement> | null;
+  disabled?: boolean;
 }
 
 // check if the component will have proper style on the edge of the page
@@ -26,9 +32,8 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   onChangeMonth,
   onChangeYear,
   placeholder = "Pick your date!",
-  ref,
+  disabled = false,
 }) => {
-  console.log(ref);
   const data = useData({ month, year, onChangeMonth, onChangeYear });
 
   const renderYearSection = () => {
@@ -40,40 +45,27 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             className={classes.title}
             onClick={() => data.setDatePickerTab(DatePickerSectionsEnum.Month)}
           >
-            <Image
-              src={ArrowDropDownLeft}
-              alt="arrow-right"
-              width={24}
-              height={24}
-            />
-            <p className={classes.text}>
-              {data.displayDate("Select a year", true)}
-            </p>
+            <ArrowDropdownLeftDatePicker />
+            <Typography className={classes.text} component={"p"}>
+              {data.displayDate(texts.select_a_year, true)}
+            </Typography>
           </div>
           <div className={classes.actions}>
-            <Image
-              src={ArrowLeft}
+            <ArrowLeftDatePicker
               className={classNames(
                 classes.image,
                 data.isThereBeforeYearsAvailable ? classes.disableImage : ""
               )}
-              alt="arrow-right"
-              width={24}
-              height={24}
               onClick={() =>
                 !data.isThereBeforeYearsAvailable &&
                 data.setYearPageIndex((prevYearPage) => prevYearPage - 1)
               }
             />
-            <Image
-              src={ArrowRight}
+            <ArrowRightDatePicker
               className={classNames(
                 classes.image,
                 data.isTherePastYearsAvailable ? classes.disableImage : ""
               )}
-              alt="arrow-right"
-              width={24}
-              height={24}
               onClick={() =>
                 !data.isTherePastYearsAvailable &&
                 data.setYearPageIndex((prevYearPage) => prevYearPage + 1)
@@ -85,16 +77,17 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           {data.years
             .filter(data.filterYearsInCurrentPageHandler)
             .map((yearValue) => (
-              <span
+              <Typography
                 key={yearValue}
                 className={classNames(
-                  classes.item,
                   year === yearValue ? classes.selectedItem : ""
                 )}
+                rootClassName={classes.item}
+                component={"span"}
                 onClick={() => data.onChangeYear(yearValue)}
               >
                 {yearValue}
-              </span>
+              </Typography>
             ))}
         </div>
       </>
@@ -106,7 +99,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     return (
       <>
         <div className={classes.header}>
-          <p className={classes.text}>Select a month</p>
+          <Typography className={classes.text} component={"p"}>
+            {texts.select_a_month}
+          </Typography>
           <RadioButton
             checked={
               data.month === data.currentMonth && data.year === data.currentYear
@@ -116,24 +111,25 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               data.onChangeMonth(data.currentMonth);
               data.setDatePickerTab(DatePickerSectionsEnum.Year);
             }}
-            label="Present"
+            label={texts.present}
           />
         </div>
         <div className={classes.itemsMonth}>
           {data.months.map((monthValue) => (
-            <span
+            <Typography
               key={monthValue}
               className={classNames(
                 classes.itemMonth,
                 month === monthValue ? classes.selectedItemMonth : ""
               )}
+              component={"span"}
               onClick={() => {
                 data.setDatePickerTab(DatePickerSectionsEnum.Year);
                 data.onChangeMonth(monthValue);
               }}
             >
               {monthValue}
-            </span>
+            </Typography>
           ))}
         </div>
       </>
@@ -141,16 +137,22 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   const renderPopUp = () => {
-    if (!data.isShowPopup) return;
     return (
       <>
+        {data.isShowPopup && (
+          <div
+            className={classes.popUpCloseZone}
+            onClick={() => {
+              data.setPopup(false);
+            }}
+          />
+        )}
         <div
-          className={classes.popUpCloseZone}
-          onClick={() => {
-            data.setPopup(false);
-          }}
-        />
-        <div className={classes.content}>
+          className={classNames(
+            !data.isShowPopup ? classes.hidden : classes.content,
+            classes?.[data.buttonPositionClass]
+          )}
+        >
           {renderYearSection()}
           {renderMonthSection()}
         </div>
@@ -159,19 +161,18 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <>
+    <div className={classNames(classes.root)}>
       <button
-        className={classes.root}
-        onClick={(e) => {
-          data.setPopup(true);
+        className={classNames(classes.button, disabled ? classes.disabled : "")}
+        onClick={() => {
+          !disabled && data.setPopup(true);
         }}
-        ref={ref}
+        ref={data.buttonRef}
       >
         {data.displayDate(placeholder)}
       </button>
-
       {renderPopUp()}
-    </>
+    </div>
   );
 };
 

@@ -96,7 +96,6 @@ describe("DatePicker Component", () => {
         onChangeMonth={jest.fn()}
         onChangeYear={jest.fn()}
         placeholder={customPlaceholder}
-        placeholderColor={customColor}
       />
     );
 

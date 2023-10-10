@@ -1,6 +1,6 @@
-import cls from 'classnames';
+import cls from "classnames";
 
-import classes from './index.module.scss';
+import classes from "./index.module.scss";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ButtonProps

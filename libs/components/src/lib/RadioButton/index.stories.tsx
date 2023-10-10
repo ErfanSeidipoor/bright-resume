@@ -22,5 +22,8 @@ const Template: StoryFn<typeof RadioButton> = (args) => {
   );
 };
 
-export const Primary = Template.bind({});
-Primary.args = { label: "Present" };
+export const Main = Template.bind({});
+Main.args = { label: "Present" };
+
+export const Disabled = Template.bind({});
+Disabled.args = { label: "Disabled", disabled: true };
