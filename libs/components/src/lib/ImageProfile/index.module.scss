@@ -1,21 +1,18 @@
 @import "../../../../theme/index";
 
 .container {
+    @include flexbox(column, center, center, 0);
     position: relative;
     width: 250px;
     height: 250px;
     background-color: var(--grey-50);
     border-radius: 100%;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     cursor: pointer;
 
     .text__wrapper {
         h6 {
-            margin: 0;
+            margin: spacing(0);
         }
     }
 
