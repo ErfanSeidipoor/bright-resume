@@ -8,18 +8,18 @@ export const ImageProfile = () => {
   const { inputRef, profileImage, handleChange, uploadHandler } = useData();
 
   const renderImage = () => {
-    if (!profileImage) {
-      return (
-        <>
-          <ProfileImageIcon />
-          <Typography variant="h6" rootClassName={classes.text__wrapper}>
-            {texts.yourPicture}
-          </Typography>
-        </>
-      );
-    } else {
-      return <img src="" alt="profile-img" />;
-    }
+     if (!profileImage) {
+       return (
+         <>
+           <ProfileImageIcon />
+           <Typography variant="h6" rootClassName={classes.text__wrapper}>
+             {texts.yourPicture}
+           </Typography>
+         </>
+       );
+     } else {
+       return <img src={URL.createObjectURL(profileImage)} alt="profile-img" />;
+     }
   };
 
   return (

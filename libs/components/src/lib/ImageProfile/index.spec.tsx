@@ -9,6 +9,7 @@ const renderComponent = () => {
 };
 
 describe("ImageProfile Component", () => {
+  global.URL.createObjectURL = jest.fn();
   it("should render successfully", () => {
     const { baseElement } = renderComponent();
     const text = screen.getByRole("heading", { level: 6 });
