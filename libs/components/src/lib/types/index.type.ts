@@ -19,6 +19,7 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  enableRootClassName?: string;
   label?: string;
 };
 
@@ -37,6 +38,24 @@ export type BackgroundInfoProps = {
   hoverItem?: BackgroundInfoChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
+};
+
+export type LanguageChildProps = {
+  id: string;
+  language: TextFieldProps;
+  proficiency: ProficiencyEnum;
+  onChangeProficiency: (id: string, proficiency: ProficiencyEnum) => void;
+};
+
+export type LanguageProps = {
+  items: LanguageChildProps[];
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type ContactInfoProps = {
+  EmailAddress: TextFieldProps;
+  PhoneNumber: TextFieldProps;
 };
 
 export type AboutMeProps = {
@@ -64,3 +83,17 @@ export enum FontFamily {
   sansSerif = "sansSerif",
   montserrat = "montserrat",
 }
+export enum ProficiencyEnum {
+  beginner = "Beginner",
+  intermediate = "Intermediate",
+  advanced = "Advanced",
+  native = "Native",
+}
+
+export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};

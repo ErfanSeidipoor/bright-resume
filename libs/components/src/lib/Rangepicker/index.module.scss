@@ -1,0 +1,11 @@
+@import '../../../../theme/index';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  color: var(--primary);
+}
+
+.disabled {
+  color: #{$grey-500} !important;
+}
