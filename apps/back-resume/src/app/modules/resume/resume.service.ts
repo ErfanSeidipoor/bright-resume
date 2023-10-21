@@ -1,4 +1,4 @@
-import { Model } from "mongoose";
+import { FilterQuery, Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
@@ -11,24 +11,32 @@ import {
   PaginationArgs,
   UpdateResumeInputs,
 } from "@bright-resume/dto";
+import { paginate } from "@bright-resume/back-common/pagination";
 
-import { Resume } from "../../models/resume.model";
+import { PaginatedResume, Resume } from "../../models/resume.model";
+import { Experience } from "../../models";
 
 @Injectable()
 export class ResumeService {
-  constructor(@InjectModel(Resume.name) private resumeModel: Model<Resume>) {}
+  constructor(
+    @InjectModel(Resume.name) private resumeModel: Model<Resume>,
+    @InjectModel(Experience.name) private experienceModel: Model<Experience>
+  ) {}
 
   async getList(
     paginationArgs: PaginationArgs,
     args: GetResumesArgs
-  ): Promise<Resume[]> {
+  ): Promise<PaginatedResume> {
     const { name } = args;
     const { limit, page } = paginationArgs;
 
-    return await this.resumeModel
-      .find()
-      .limit(limit)
-      .skip((page - 1) * limit);
+    const queryBuilder: FilterQuery<Resume> = {};
+
+    if (name) {
+      queryBuilder.name = name;
+    }
+
+    return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
   async getById(args: GetResumeByIdArgs): Promise<Resume> {
@@ -72,12 +80,16 @@ export class ResumeService {
   }
 
   async create(inputs: CreateResumeInputs): Promise<Resume> {
-    console.log({ inputs });
-
-    const resume = await this.resumeModel.create({
+    const resume = new this.resumeModel({
       userId: "userId",
-      ...inputs,
+      name: inputs.name,
     });
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    resume.experiences.splice(0, resume.experiences.length);
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+
+    console.log({ resume });
 
     await resume.save();
 
