@@ -13,164 +13,164 @@ import {
 @InputType()
 export class CreateResumeExperienceItemInputsGQL extends CreateResumeExperienceItemInputs {
   @Field(() => String, { nullable: true })
-  role: string;
+  role?: string;
 
   @Field(() => String, { nullable: true })
-  company: string;
+  company?: string;
 
   @Field(() => String, { nullable: true })
-  location: string;
+  location?: string;
 
   @Field(() => String, { nullable: true })
-  fromMonth: string;
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
-  fromYear: string;
+  fromYear?: string;
 
   @Field(() => String, { nullable: true })
-  toMonth: string;
+  toMonth?: string;
 
   @Field(() => String, { nullable: true })
-  toYear: string;
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
-  untilNow: boolean;
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 @InputType()
 export class CreateResumeProjectItemInputsGQL extends CreateResumeProjectItemInputs {
   @Field(() => String, { nullable: true })
-  role: string;
+  role?: string;
 
   @Field(() => String, { nullable: true })
-  title: string;
+  title?: string;
 
   @Field(() => String, { nullable: true })
-  company: string;
+  company?: string;
 
   @Field(() => String, { nullable: true })
-  location: string;
+  location?: string;
 
   @Field(() => String, { nullable: true })
-  url: string;
+  url?: string;
 
   @Field(() => String, { nullable: true })
-  fromMonth: string;
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
-  fromYear: string;
+  fromYear?: string;
 
   @Field(() => String, { nullable: true })
-  toMonth: string;
+  toMonth?: string;
 
   @Field(() => String, { nullable: true })
-  toYear: string;
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
-  untilNow: boolean;
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 @InputType()
 export class CreateResumeCourseWorkItemInputsGQL extends CreateResumeCourseWorkItemInputs {
   @Field(() => String, { nullable: true })
-  title: string;
+  title?: string;
 
   @Field(() => String, { nullable: true })
-  name: string;
+  name?: string;
 
   @Field(() => String, { nullable: true })
-  institute: string;
+  institute?: string;
 
   @Field(() => String, { nullable: true })
-  year: string;
+  year?: string;
 
   @Field(() => String, { nullable: true })
-  skills: string;
+  skills?: string;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 @InputType()
 export class CreateResumeEducationItemInputsGQL extends CreateResumeEducationItemInputs {
   @Field(() => String, { nullable: true })
-  degree: string;
+  degree?: string;
 
   @Field(() => String, { nullable: true })
-  institute: string;
+  institute?: string;
 
   @Field(() => String, { nullable: true })
-  location: string;
+  location?: string;
 
   @Field(() => String, { nullable: true })
-  gpa: string;
+  gpa?: string;
 
   @Field(() => String, { nullable: true })
-  from: string;
+  from?: string;
 
   @Field(() => String, { nullable: true })
-  to: string;
+  to?: string;
 
   @Field(() => Boolean, { nullable: true })
-  untilNow: boolean;
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 @InputType()
 export class CreateResumeInvolvementItemInputsGQL extends CreateResumeInvolvementItemInputs {
   @Field(() => String, { nullable: true })
-  role: string;
+  role?: string;
 
   @Field(() => String, { nullable: true })
-  company: string;
+  company?: string;
 
   @Field(() => String, { nullable: true })
-  location: string;
+  location?: string;
 
   @Field(() => String, { nullable: true })
-  fromMonth: string;
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
-  fromYear: string;
+  fromYear?: string;
 
   @Field(() => String, { nullable: true })
-  toMonth: string;
+  toMonth?: string;
 
   @Field(() => String, { nullable: true })
-  toYear: string;
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
-  untilNow: boolean;
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 @InputType()
 export class CreateResumeCertificationItemInputsGQL extends CreateResumeCertificationItemInputs {
   @Field(() => String, { nullable: true })
-  name: string;
+  name?: string;
 
   @Field(() => String, { nullable: true })
-  institute: string;
+  institute?: string;
 
   @Field(() => String, { nullable: true })
-  year: string;
+  year?: string;
 
   @Field(() => [String], { nullable: true })
-  points: string[];
+  points?: string[];
 }
 
 @InputType()
 export class CreateResumeLanguageItemInputsGQL extends CreateResumeLanguageItemInputs {
   @Field(() => String, { nullable: true })
-  name: string;
+  name?: string;
 
   @Field(() => String, { nullable: true })
-  level: string;
+  level?: string;
 }
 
 @InputType()
@@ -301,9 +301,9 @@ export class CreateResumeInputsGQL extends CreateResumeInputs {
   @Field(() => String, { nullable: true })
   hobbyLabel?: string;
 
-  @Field(() => [String], { nullable: true })
-  hobbies?: string[];
-
   @Field(() => Boolean, { nullable: true })
   isShowHobby?: boolean;
+
+  @Field(() => [String], { nullable: true })
+  hobbies?: string[];
 }

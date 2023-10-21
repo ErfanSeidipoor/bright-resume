@@ -14,10 +14,14 @@ import {
 import { paginate } from "@bright-resume/back-common/pagination";
 
 import { PaginatedResume, Resume } from "../../models/resume.model";
+import { Experience } from "../../models";
 
 @Injectable()
 export class ResumeService {
-  constructor(@InjectModel(Resume.name) private resumeModel: Model<Resume>) {}
+  constructor(
+    @InjectModel(Resume.name) private resumeModel: Model<Resume>,
+    @InjectModel(Experience.name) private experienceModel: Model<Experience>
+  ) {}
 
   async getList(
     paginationArgs: PaginationArgs,
@@ -76,10 +80,16 @@ export class ResumeService {
   }
 
   async create(inputs: CreateResumeInputs): Promise<Resume> {
-    const resume = await this.resumeModel.create({
+    const resume = new this.resumeModel({
       userId: "userId",
-      ...inputs,
+      name: inputs.name,
     });
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    resume.experiences.splice(0, resume.experiences.length);
+    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+
+    console.log({ resume });
 
     await resume.save();
 
