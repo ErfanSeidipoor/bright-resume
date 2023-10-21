@@ -89,8 +89,6 @@ export class ResumeService {
     resume.experiences.splice(0, resume.experiences.length);
     resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
 
-    console.log({ resume });
-
     await resume.save();
 
     return resume;

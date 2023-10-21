@@ -7,11 +7,11 @@ import { setupApp } from "./setup-app";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   setupApp(app);
-  const port = 4001;
-  app.setGlobalPrefix("resume");
+  const port = 4003;
+  app.setGlobalPrefix("auth");
   await app.listen(port);
   Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/graphql and http://localhost:${port}/resume`
+    `🚀 Application is running on: http://localhost:${port}/graphql and http://localhost:${port}/auth`
   );
 }
 
