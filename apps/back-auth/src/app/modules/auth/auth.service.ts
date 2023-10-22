@@ -16,16 +16,18 @@ import {
 } from "../../helpers";
 import { User } from "../../models";
 import { EnvironmentVariableTypeEnum } from "../../enums";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
-export class UserService {
+export class AuthService {
   constructor(
     private jwtService: JwtService,
-    @InjectModel(User.name) private userModel: Model<User>
+    @InjectModel(User.name) private userModel: Model<User>,
+    private readonly configService: ConfigService
   ) {}
 
-  async profile(): Promise<User> {
-    const user = await this.userModel.findOne();
+  async getById(userId: string): Promise<User> {
+    const user = await this.userModel.findById(userId);
 
     if (!user) {
       throw new CustomError(USER_NOT_FOUND);
@@ -45,17 +47,13 @@ export class UserService {
 
     const isVerify = await verifyPassword(user.password, password);
 
-    console.log({ isVerify });
-
     if (!isVerify) {
       throw new CustomError(USERNAME_OR_PASSWORD_IS_INCORRECT);
     }
 
     const token = await this.jwtService.signAsync(generateUserToken(user), {
-      secret: configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
+      secret: this.configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
     });
-
-    console.log({ token });
 
     user.token = token;
 
@@ -77,7 +75,9 @@ export class UserService {
       password: await generateHashPassword(password),
     });
 
-    const token = this.jwtService.sign(generateUserToken(user));
+    const token = this.jwtService.sign(generateUserToken(newUser), {
+      secret: this.configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
+    });
 
     await newUser.save();
     newUser.token = token;

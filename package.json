@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "resume:dev": "nx serve back-resume",
-    "resume:test": "nx test back-resume"
+    "resume:test": "nx test back-resume",
+    "auth:dev": "nx serve back-auth"
   },
   "private": true,
   "devDependencies": {

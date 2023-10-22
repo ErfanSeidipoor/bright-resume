@@ -1,13 +1,10 @@
+import { EnvironmentVariableTypeEnum } from "./app/enums";
+
 export const checkEnv = () => {
-  if (!process.env.MONGO_URL) {
-    throw new Error("MONGO_URL must be Defined");
-  }
-
-  if (!process.env.DATABASE_NAME) {
-    throw new Error("DATABASE_NAME must be Defined");
-  }
-
-  if (!process.env.JWT_SECRET) {
-    throw new Error("JWT_SECRET must be Defined");
+  for (const key of Object.keys(EnvironmentVariableTypeEnum)) {
+    if (!process.env[key]) {
+      console.log({ key });
+      throw new Error("must be Defined");
+    }
   }
 };
