@@ -6,14 +6,15 @@ import {
 
 export const useData = () => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [profileImage, setProfileImage] = useState<string>("");
+  const [profileImage, setProfileImage] = useState<File | null>(null);
 
   const uploadHandler = () => {
     inputRef.current?.click?.();
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.target.files && setProfileImage(URL.createObjectURL(e.target.files[0]));
+    if (!e.target.files) return;
+    return setProfileImage(e.target.files[0]);
   };
 
   return {

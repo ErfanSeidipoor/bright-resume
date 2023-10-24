@@ -10,6 +10,10 @@ export class DBService {
     @InjectModel(Resume.name) public resumeModel: Model<Resume>
   ) {}
 
+  getConnection(): Connection {
+    return this.connection;
+  }
+
   async transaction(fn: () => Promise<void>) {
     const session = await this.resumeModel.db.startSession();
 

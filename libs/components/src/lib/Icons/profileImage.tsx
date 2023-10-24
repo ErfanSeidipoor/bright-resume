@@ -2,12 +2,12 @@ import { SVGProps } from "react";
 
 export const ProfileImageIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    {...props}
     width="50"
     height="50"
     viewBox="0 0 50 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <path
       d="M25 31.25C28.4518 31.25 31.25 28.4518 31.25 25C31.25 21.5482 28.4518 18.75 25 18.75C21.5482 18.75 18.75 21.5482 18.75 25C18.75 28.4518 21.5482 31.25 25 31.25Z"

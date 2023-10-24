@@ -71,6 +71,18 @@ type PaginatedResume {
   pageInfo: PageInfo!
 }
 
+type Experience {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
 type Certification {
   name: String
   institute: String
@@ -94,18 +106,6 @@ type Education {
   gpa: String
   from: String
   to: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Experience {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
   untilNow: Boolean
   points: [String!]
 }
@@ -142,7 +142,7 @@ type Project {
 }
 
 type Query {
-  getResumesAdmin(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 
@@ -208,8 +208,8 @@ input CreateResumeInputsGQL {
   languageLabel: String
   languages: [CreateResumeLanguageItemInputsGQL!]
   hobbyLabel: String
-  hobbies: [String!]
   isShowHobby: Boolean
+  hobbies: [String!]
 }
 
 input CreateResumeExperienceItemInputsGQL {
