@@ -97,3 +97,22 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   rootClassName?: string;
   label?: string;
 };
+
+export enum ButtonVariant {
+  normal = "normal",
+  bordered = "bordered",
+  rounded = "rounded",
+}
+
+export enum PositionIcon {
+  left = "left",
+  right = "right",
+}
+
+export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  text?: string;
+  positionIcon?: PositionIcon;
+  icon?: React.ReactNode;
+  onClick?: () => void;
+};

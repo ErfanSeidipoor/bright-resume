@@ -1,0 +1,92 @@
+@import "../../../../theme/index";
+
+.root {
+  border-radius: 0.5rem;
+  border: none;
+  height: 2rem;
+  padding: spacing(0, 1);
+  cursor: pointer;
+  min-width: 5rem;
+  @include transition(all, 150ms);
+}
+
+.iconRightClassName {
+  @include flexbox(row-reverse, center, center, 1);
+}
+
+.iconLeftClassName {
+  @include flexbox(row, center, center, 1);
+}
+
+.normal {
+  background-color: #{$transparent};
+  color: var(--primary);
+  path {
+    fill: var(--primary);
+  }
+
+  &:hover {
+    background-color: #{$light-blue};
+  }
+
+  &:disabled {
+    cursor: default;
+    color: #{$grey-200};
+    background-color: #{$transparent};
+    path {
+      fill: #{$grey-200};
+    }
+  }
+}
+
+.bordered {
+  border: 1px solid #{$grey-300};
+  background-color: #{$transparent};
+  color: #{$grey-500};
+  path {
+    fill: #{$grey-500};
+  }
+
+  &:hover {
+    background-color: #{$grey-50};
+  }
+
+  &:disabled {
+    cursor: default;
+    border-color: #{$grey-200};
+    color: #{$grey-200};
+    background-color: #{$transparent};
+    path {
+      fill: #{$grey-200};
+    }
+  }
+}
+
+.rounded {
+  border: 1px solid var(--primary);
+  border-radius: 100px;
+  background-color: #{$light-blue};
+  color: var(--primary);
+  path {
+    fill: var(--primary);
+  }
+
+  &:hover {
+    border-color: #{$dark-blue};
+    background-color: #{$blue-300};
+    color: #{$dark-blue};
+    path {
+      fill: #{$dark-blue};
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    border-color: #{$grey-200};
+    color: #{$grey-200};
+    background-color: #{$grey-100};
+    path {
+      fill: #{$grey-200};
+    }
+  }
+}
