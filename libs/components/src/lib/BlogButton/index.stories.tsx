@@ -32,7 +32,11 @@ const Template: StoryFn<typeof BlogButton> = (args) => {
     console.log("Click!");
   };
 
-  return <BlogButton {...args} icon={icon} onClick={onClick} />;
+  return (
+    <div className="theme-blue">
+      <BlogButton {...args} icon={icon} onClick={onClick} />
+    </div>
+  );
 };
 
 export const Main = Template.bind({});

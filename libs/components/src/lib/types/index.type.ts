@@ -116,3 +116,10 @@ export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: React.ReactNode;
   onClick?: () => void;
 };
+
+export type NavigationButtonProps = BlogButtonProps & {
+  hasPrevPage?: boolean;
+  hasNextPage?: boolean;
+  onPrevPage?: () => void;
+  onNextPage?: () => void;
+};

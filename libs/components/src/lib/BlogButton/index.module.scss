@@ -11,11 +11,11 @@
 }
 
 .iconRightClassName {
-  @include flexbox(row-reverse, center, center, 1);
+  @include flexbox(row-reverse, center, center, 2);
 }
 
 .iconLeftClassName {
-  @include flexbox(row, center, center, 1);
+  @include flexbox(row, center, center, 2);
 }
 
 .normal {
@@ -59,6 +59,16 @@
     path {
       fill: #{$grey-200};
     }
+  }
+}
+
+.navigation-button {
+  @extend .bordered;
+  &:first-of-type {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+  &:last-of-type {
+    border-radius: 0 0.5rem 0.5rem 0;
   }
 }
 
