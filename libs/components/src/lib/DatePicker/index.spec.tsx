@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import DatePicker from ".";
-import { MonthEnum } from "./index.hook";
+import { DatePicker } from ".";
+import { MonthEnum } from "@bright-resume/components";
 import "@testing-library/jest-dom/extend-expect";
 import { faker } from "@faker-js/faker";
 

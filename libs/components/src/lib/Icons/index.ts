@@ -4,6 +4,10 @@ export * from "./addCircleRounded";
 export * from "./removeCircleRounded";
 export * from "./checkedRadioCircle";
 export * from "./emptyRadioCircle";
-export * from "./arrowDropdownLeftDatePicker"
-export * from "./arrowRightDatePicker"
-export * from "./arrowLeftDatePicker"
+export * from "./arrowDropdownLeftDatePicker";
+export * from "./arrowRightDatePicker";
+export * from "./arrowLeftDatePicker";
+export * from "./emailAddress";
+export * from "./phoneNumber";
+export * from "./plus";
+export * from "./profileImage";
