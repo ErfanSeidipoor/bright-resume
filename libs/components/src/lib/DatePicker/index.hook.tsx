@@ -9,8 +9,8 @@ import {
 type useDataProps = {
   month: MonthEnum | undefined;
   year: number | undefined;
-  onChangeMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
-  onChangeYear: React.Dispatch<React.SetStateAction<number | undefined>>;
+  onChangeMonth: (month: MonthEnum) => void;
+  onChangeYear: (year: number) => void;
 };
 
 export const useData = ({

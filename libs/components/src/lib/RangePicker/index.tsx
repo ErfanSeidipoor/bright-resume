@@ -1,24 +1,8 @@
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-import { MonthEnum, DatePicker } from "@bright-resume/components";
+import { DatePicker, RangePickerProps } from "@bright-resume/components";
 import cls from "classnames";
 import { texts } from "./texts";
-
-export interface RangePickerProps {
-  id?: string;
-  className?: string;
-  fromMonth: MonthEnum | undefined;
-  fromYear: number | undefined;
-  onChangeFromMonth: React.Dispatch<
-    React.SetStateAction<MonthEnum | undefined>
-  >;
-  onChangeFromYear: React.Dispatch<React.SetStateAction<number | undefined>>;
-  toMonth: MonthEnum | undefined;
-  toYear: number | undefined;
-  onChangeToMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
-  onChangeToYear: React.Dispatch<React.SetStateAction<number | undefined>>;
-  disabled?: boolean;
-}
 
 export const RangePicker: React.FC<RangePickerProps> = ({
   id = "",

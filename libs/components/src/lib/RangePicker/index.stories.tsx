@@ -13,6 +13,7 @@ const Template: StoryFn<typeof RangePicker> = (args) => {
   const [toMonth, setToMonth] = useState<MonthEnum | undefined>(undefined);
   const [fromYear, setFromYear] = useState<number | undefined>(undefined);
   const [toYear, setToYear] = useState<number | undefined>(undefined);
+
   return (
     <div className="theme-blue">
       <RangePicker
