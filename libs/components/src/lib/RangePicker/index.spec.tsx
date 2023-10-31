@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import RangePicker from ".";
+import { RangePicker } from ".";
 import "@testing-library/jest-dom/extend-expect";
 
 describe("RangePicker Component", () => {

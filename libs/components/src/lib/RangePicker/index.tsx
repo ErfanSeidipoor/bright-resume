@@ -1,8 +1,6 @@
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
-
-import DatePicker from "../Datepicker";
-import { MonthEnum } from "../Datepicker/index.hook";
+import { MonthEnum, DatePicker } from "@bright-resume/components";
 import cls from "classnames";
 import { texts } from "./texts";
 
@@ -64,5 +62,3 @@ export const RangePicker: React.FC<RangePickerProps> = ({
     </div>
   );
 };
-
-export default RangePicker;

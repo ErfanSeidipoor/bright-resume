@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import { MonthEnum } from "../Datepicker/index.hook";
-import RangePicker from ".";
+import { MonthEnum } from "@bright-resume/components";
+import { RangePicker } from ".";
 
 export default {
   component: RangePicker,

@@ -1,6 +1,5 @@
-/* eslint-disable @nx/enforce-module-boundaries */
-// import Image from "next/image";
-import { DatePickerSectionsEnum, MonthEnum, useData } from "./index.hook";
+import { MonthEnum, DatePickerSectionsEnum } from "@bright-resume/components";
+import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import classNames from "classnames";
 
@@ -175,5 +174,3 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     </div>
   );
 };
-
-export default DatePicker;

@@ -97,3 +97,25 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   rootClassName?: string;
   label?: string;
 };
+
+export enum MonthEnum {
+  Jan = "Jan",
+  Feb = "Feb",
+  Mar = "Mar",
+  Apr = "Apr",
+  May = "May",
+  Jun = "Jun",
+  Jul = "Jul",
+  Aug = "Aug",
+  Sep = "Sep",
+  Oct = "Oct",
+  Nov = "Nov",
+  Dec = "Dec",
+}
+
+export enum DatePickerSectionsEnum {
+  Month = "Month",
+  Year = "Year",
+}
+
+export type ButtonPositionClassType = "right" | "left" | "";

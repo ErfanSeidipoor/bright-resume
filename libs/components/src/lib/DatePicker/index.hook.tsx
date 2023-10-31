@@ -1,27 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { texts } from "./texts";
-
-export enum MonthEnum {
-  Jan = "Jan",
-  Feb = "Feb",
-  Mar = "Mar",
-  Apr = "Apr",
-  May = "May",
-  Jun = "Jun",
-  Jul = "Jul",
-  Aug = "Aug",
-  Sep = "Sep",
-  Oct = "Oct",
-  Nov = "Nov",
-  Dec = "Dec",
-}
-
-export enum DatePickerSectionsEnum {
-  Month = "Month",
-  Year = "Year",
-}
-
-export type ButtonPositionClassType = "right" | 'left' | ''
+import {
+  MonthEnum,
+  DatePickerSectionsEnum,
+  ButtonPositionClassType,
+} from "@bright-resume/components";
 
 type useDataProps = {
   month: MonthEnum | undefined;
@@ -102,9 +85,8 @@ export const useData = ({
     item > new Date().getFullYear() + yearPageIndex * 20 - 12 &&
     item < new Date().getFullYear() + yearPageIndex * 20 + 9;
 
-  const [buttonPositionClass, setButtonPositionClass] = useState<
-  ButtonPositionClassType
-  >("");
+  const [buttonPositionClass, setButtonPositionClass] =
+    useState<ButtonPositionClassType>("");
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
