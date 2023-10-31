@@ -52,19 +52,24 @@
 
       .title__container {
         display: flex;
-        gap: spacing(2);
         align-items: center;
-        .title {
-          &:before {
-            content: " ";
-            width: 5px;
-            height: 5px;
-            color: var(--dark);
-            background-color: var(--dark);
-            position: absolute;
-            left: -16px;
-            border-radius: 100%;
-            z-index: 10;
+        justify-content: space-between;
+        .title__wrapper {
+          display: flex;
+          gap: spacing(2);
+          align-items: center;
+          .title {
+            &:before {
+              content: " ";
+              width: 5px;
+              height: 5px;
+              color: var(--dark);
+              background-color: var(--dark);
+              position: absolute;
+              left: -16px;
+              border-radius: 100%;
+              z-index: 10;
+            }
           }
         }
 

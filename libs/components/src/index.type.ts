@@ -23,13 +23,24 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export type BackgroundInfoChildKeys = "title" | "subtitle" | "description";
+export type BackgroundInfoChildKeys =
+  | "title"
+  | "subtitle"
+  | "description"
+  | "rangeDate";
+
+export type BackgroundInfoRangeDateChildKeys =
+  | "fromMonth"
+  | "fromYear"
+  | "toMonth"
+  | "toYear";
 
 export type BackgroundInfoChildProps = {
   id: string;
   title: TextFieldProps;
   subtitle?: TextFieldProps;
   description?: TextAreaProps;
+  rangeDate?: RangePickerProps;
 };
 
 export type BackgroundInfoProps = {
@@ -119,3 +130,27 @@ export enum DatePickerSectionsEnum {
 }
 
 export type ButtonPositionClassType = "right" | "left" | "";
+
+export interface DatePickerProps {
+  month: MonthEnum | undefined;
+  year: number | undefined;
+  onChangeMonth: (month: MonthEnum) => void;
+  onChangeYear: (year: number) => void;
+  placeholder?: string;
+  ref?: React.RefObject<HTMLButtonElement> | null;
+  disabled?: boolean;
+}
+
+export interface RangePickerProps {
+  id?: string;
+  className?: string;
+  fromMonth: MonthEnum | undefined;
+  fromYear: number | undefined;
+  onChangeFromMonth: (month: MonthEnum) => void;
+  onChangeFromYear: (year: number) => void;
+  toMonth: MonthEnum | undefined;
+  toYear: number | undefined;
+  onChangeToMonth: (month: MonthEnum) => void;
+  onChangeToYear: (year: number) => void;
+  disabled?: boolean;
+}
