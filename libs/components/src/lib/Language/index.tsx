@@ -1,16 +1,16 @@
 import React from "react";
 
 // components
-import { RadioButton, TextField } from "@bright-resume/components";
-
-// icons
-import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
-// types
 import {
+  RadioButton,
+  TextField,
   LanguageChildProps,
   LanguageProps,
   ProficiencyEnum,
-} from "../types/index.type";
+} from "@bright-resume/components";
+
+// icons
+import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 import Typography from "../Typography";
 // locals
 import classes from "./index.module.scss";

@@ -4,7 +4,7 @@ import {
   BackgroundInfoChildKeys,
   BackgroundInfoChildProps,
   TextFieldProps,
-} from "../types/index.type";
+} from "@bright-resume/components";
 
 import BackgroundInfo from ".";
 import { texts } from "./texts";

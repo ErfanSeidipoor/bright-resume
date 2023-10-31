@@ -1,12 +1,12 @@
 import { FC } from "react";
 import cls from "classnames";
 // components
-import { TextArea, TextField } from "@bright-resume/components";
-// types
 import {
   BackgroundInfoChildProps,
   BackgroundInfoProps,
-} from "../types/index.type";
+  TextArea,
+  TextField,
+} from "@bright-resume/components";
 // icons
 import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
