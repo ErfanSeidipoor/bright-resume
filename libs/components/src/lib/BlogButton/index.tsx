@@ -1,11 +1,7 @@
 import cls from "classnames";
 
 import classes from "./index.module.scss";
-import {
-  BlogButtonProps,
-  ButtonVariant,
-  PositionIcon,
-} from "../types/index.type";
+import { BlogButtonProps, ButtonVariant, PositionIcon } from "../../index.type";
 
 export const BlogButton: React.FC<BlogButtonProps> = ({
   variant = ButtonVariant.normal,

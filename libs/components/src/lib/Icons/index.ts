@@ -8,3 +8,7 @@ export * from "./arrowDropdownLeftDatePicker";
 export * from "./arrowRightDatePicker";
 export * from "./arrowLeftDatePicker";
 export * from "./arrowBack";
+export * from "./emailAddress";
+export * from "./phoneNumber";
+export * from "./plus";
+export * from "./profileImage";

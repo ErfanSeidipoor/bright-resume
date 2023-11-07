@@ -2,7 +2,7 @@ import { act } from "react-dom/test-utils";
 import { renderHook } from "@testing-library/react";
 // locals
 import { useData } from "./index.hook";
-import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+import { FontFamily, FontWeight, ThemeColor } from "@bright-resume/components";
 
 const initialProps = {
   themeColor: ThemeColor.blue,

@@ -1,4 +1,4 @@
-import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+import { FontFamily, FontWeight, ThemeColor } from "@bright-resume/components";
 import { ThemeContext } from "./index.context";
 // locals
 import { useData } from "./index.hook";

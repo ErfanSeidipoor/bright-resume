@@ -3,7 +3,7 @@ import BlogButton from ".";
 
 import "../../../../theme/_index.scss";
 import { ArrowBack, ArrowLeftDatePicker } from "../Icons";
-import { ButtonVariant } from "../types/index.type";
+import { ButtonVariant } from "../../index.type";
 
 const ICONS = {
   ArrowBack: <ArrowBack />,

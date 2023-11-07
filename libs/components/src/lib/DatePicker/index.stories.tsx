@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
-import DatePicker from ".";
+import { DatePicker } from ".";
 import { useState } from "react";
-import { MonthEnum } from "./index.hook";
+import { MonthEnum } from "@bright-resume/components";
 
 import "../../../../theme/_index.scss";
 

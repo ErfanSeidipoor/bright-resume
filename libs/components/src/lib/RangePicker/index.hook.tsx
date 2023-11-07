@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { MonthEnum } from "../Datepicker/index.hook";
+import { MonthEnum } from "@bright-resume/components";
 
 type useDataProps = {
   fromMonth: MonthEnum | undefined;

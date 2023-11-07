@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import BlogButton from ".";
-import { ButtonVariant } from "../types/index.type";
+import { ButtonVariant } from "../../index.type";
 import classes from "./index.module.scss";
 
 afterEach(cleanup);

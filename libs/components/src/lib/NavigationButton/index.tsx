@@ -6,7 +6,7 @@ import {
   ButtonVariant,
   NavigationButtonProps,
   PositionIcon,
-} from "../types/index.type";
+} from "../../index.type";
 import BlogButton from "../BlogButton";
 import { texts } from "./text";
 import { ChevronLeft } from "../Icons/chevronLeft";
