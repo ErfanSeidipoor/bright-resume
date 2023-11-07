@@ -1,8 +1,6 @@
 import { FC } from "react";
 
-import { TextArea } from "../TextArea";
-import { TextField } from "../TextField";
-import { AboutMeProps } from "../types/index.type";
+import { AboutMeProps, TextField, TextArea } from "@bright-resume/components";
 import classes from "./index.module.scss";
 
 /* eslint-disable-next-line */

@@ -1,9 +1,8 @@
 import { FC } from "react";
 import cls from "classnames";
-// types
-import { TextAreaProps } from "../types/index.type";
 // components
-import Typography from "../Typography";
+import { TextAreaProps, Typography } from "@bright-resume/components";
+// icons
 import { SolarPenBoldIcon } from "../Icons";
 // locals
 import { useData } from "./index.hook";

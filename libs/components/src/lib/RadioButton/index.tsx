@@ -1,8 +1,7 @@
 import cls from "classnames";
 
 import classes from "./index.module.scss";
-import Typography from "../Typography";
-import { RadioButtonProps } from "../types/index.type";
+import { RadioButtonProps, Typography } from "@bright-resume/components";
 import { EmptyRadioCircleIcon, CheckedRadioCircleIcon } from "../Icons";
 
 export const RadioButton: React.FC<RadioButtonProps> = ({

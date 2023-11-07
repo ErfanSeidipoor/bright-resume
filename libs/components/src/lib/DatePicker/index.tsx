@@ -1,6 +1,8 @@
-/* eslint-disable @nx/enforce-module-boundaries */
-// import Image from "next/image";
-import { DatePickerSectionsEnum, MonthEnum, useData } from "./index.hook";
+import {
+  DatePickerSectionsEnum,
+  DatePickerProps,
+} from "@bright-resume/components";
+import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import classNames from "classnames";
 
@@ -13,18 +15,6 @@ import {
 import Typography from "../Typography";
 import React from "react";
 import { texts } from "./texts";
-
-export interface DatePickerProps {
-  month: MonthEnum | undefined;
-  year: number | undefined;
-  onChangeMonth: React.Dispatch<React.SetStateAction<MonthEnum | undefined>>;
-  onChangeYear: React.Dispatch<React.SetStateAction<number | undefined>>;
-  placeholder?: string;
-  ref?: React.RefObject<HTMLButtonElement> | null;
-  disabled?: boolean;
-}
-
-// check if the component will have proper style on the edge of the page
 
 export const DatePicker: React.FC<DatePickerProps> = ({
   month = undefined,
@@ -175,5 +165,3 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     </div>
   );
 };
-
-export default DatePicker;
