@@ -7,7 +7,7 @@ import { setupApp } from "./setup-app";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   setupApp(app);
-  const port = 4001;
+  const port = 4002;
   app.setGlobalPrefix("resume");
   await app.listen(port);
   Logger.log(

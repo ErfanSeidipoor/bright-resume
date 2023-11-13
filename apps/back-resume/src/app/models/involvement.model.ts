@@ -42,4 +42,4 @@ export class Involvement extends Document {
   points: string[];
 }
 
-export const involvementSchema = SchemaFactory.createForClass(Involvement);
+export const InvolvementSchema = SchemaFactory.createForClass(Involvement);

@@ -14,4 +14,4 @@ export class Language extends Document {
   level: string;
 }
 
-export const languageSchema = SchemaFactory.createForClass(Language);
+export const LanguageSchema = SchemaFactory.createForClass(Language);

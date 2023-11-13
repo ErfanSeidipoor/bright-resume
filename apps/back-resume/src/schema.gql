@@ -10,6 +10,76 @@ type PageInfo {
   currentPage: Float!
 }
 
+type Language {
+  name: String
+  level: String
+}
+
+type Involvement {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type CourseWork {
+  title: String
+  name: String
+  institute: String
+  year: String
+  skills: String
+  points: [String!]
+}
+
+type Certification {
+  name: String
+  institute: String
+  year: String
+  points: [String!]
+}
+
+type Education {
+  degree: String
+  institute: String
+  location: String
+  gpa: String
+  from: String
+  to: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Project {
+  role: String
+  title: String
+  company: String
+  location: String
+  url: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Experience {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
 type Resume {
   id: ID
   userId: ID!
@@ -69,76 +139,6 @@ scalar DateTime
 type PaginatedResume {
   edges: [Resume!]!
   pageInfo: PageInfo!
-}
-
-type Experience {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Certification {
-  name: String
-  institute: String
-  year: String
-  points: [String!]
-}
-
-type CourseWork {
-  title: String
-  name: String
-  institute: String
-  year: String
-  skills: String
-  points: [String!]
-}
-
-type Education {
-  degree: String
-  institute: String
-  location: String
-  gpa: String
-  from: String
-  to: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Involvement {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Language {
-  name: String
-  level: String
-}
-
-type Project {
-  role: String
-  title: String
-  company: String
-  location: String
-  url: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
 }
 
 type Query {

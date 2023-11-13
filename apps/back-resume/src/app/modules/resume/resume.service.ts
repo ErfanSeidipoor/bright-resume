@@ -84,10 +84,10 @@ export class ResumeService {
       userId: "userId",
       name: inputs.name,
     });
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    resume.experiences.splice(0, resume.experiences.length);
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    // resume.experiences.splice(0, resume.experiences.length);
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
 
     await resume.save();
 
