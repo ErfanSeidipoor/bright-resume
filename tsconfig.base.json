@@ -20,6 +20,7 @@
       "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/back-common/*": ["libs/back-common/src/*"],
       "@bright-resume/back-resume/*": ["apps/back-resume/src/*"],
+      "@bright-resume/back-auth/*": ["apps/back-auth/src/*"],
       "@bright-resume/components": ["libs/components/src/index.ts"],
       "@bright-resume/components/*": ["libs/components/src/lib/*"],
       "@bright-resume/dto": ["libs/dto/src/index.ts"],
