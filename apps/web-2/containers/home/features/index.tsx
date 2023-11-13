@@ -17,7 +17,7 @@ const featureList = [
     title: "Cloud-base Saving",
   },
   {
-    icon: <InternationalIcon className={styles.icon} />,
+    icon: <InternationalIcon className={styles.icon_international} />,
     title: "International standard",
   },
   {
@@ -29,14 +29,14 @@ const featureList = [
     title: "Cloud-base Saving",
   },
   {
-    icon: <InternationalIcon className={styles.icon} />,
+    icon: <InternationalIcon className={styles.icon_international} />,
     title: "International standard",
   },
 ];
 
 const Features: FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="feature-section">
       <div className={styles.wrapper}>
         <div className={styles.text}>Top Features of Bright Resumes</div>
       </div>
