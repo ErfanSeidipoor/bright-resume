@@ -5,7 +5,10 @@
   "scripts": {
     "resume:dev": "nx serve back-resume",
     "resume:test": "nx test back-resume",
-    "auth:dev": "nx serve back-auth"
+    "auth:dev": "nx serve back-auth",
+    "components": "nx run components:storybook",
+    "web": "nx run web:serve",
+    "web:build": "nx run web:build"
   },
   "private": true,
   "devDependencies": {
