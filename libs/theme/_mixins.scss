@@ -1,3 +1,39 @@
+@import "./variables/breakpoints"; // Small devices
+
+@mixin sm {
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: map-get($grid-breakpoints, "lg")) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: map-get($grid-breakpoints, "xl")) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($breakpoints) {
+  @media (min-width: map-get($grid-breakpoints, $breakpoints)) {
+    @content;
+  }
+}
+
 @mixin maxWidth($property) {
   @media screen and (max-width: map-get($grid-breakpoints, $property)) {
     @content;

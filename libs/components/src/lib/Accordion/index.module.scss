@@ -9,7 +9,7 @@
     width: 100%;
 
     @include flexbox(column, center, center);
-    @include transition(all, 0.3s, ease-in-out);
+    // @include transition(all, 0.3s, ease-in-out);
 
     border-bottom: 3px solid $grey-200;
 
@@ -19,13 +19,14 @@
 
     .accordion__item__header {
       width: 100%;
+      min-height: 73px;
       @include flexbox(row, space-between, center);
 
       padding: spacing(2, 3);
       cursor: pointer;
 
       .accordion__item__header__title {
-        @include typography(h4);
+        @include typography(h5);
         color: $dark;
 
         &__open {
@@ -34,11 +35,11 @@
         }
       }
 
-      .accordion__item__icon {
+      .accordion__item__header__icon {
         @include flexbox(center, center, center);
-        @include transition(all, 0.3s, ease-in-out);
+        @include transition(transform, 0.3s, ease-in-out);
 
-        .accordion__item__icon__open {
+        &__open {
           transform: rotate(135deg);
         }
       }
@@ -53,25 +54,19 @@
     .accordion__item__children {
       width: 100%;
       @include typography(h8);
-
-      @include flexbox(column, center, center);
-      max-height: 0;
-      opacity: 0;
-
-      @include transition(all, 0.3s, ease-in-out);
-
       overflow: hidden;
       color: $dark;
-      font-family: Montserrat;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
+      @include typography(h9);
+      height: 1px;
+      opacity: 0;
+
+      transition: height 0.5s, opacity 0.1s;
 
       &__open {
-        max-height: 800px;
         overflow: auto;
         opacity: 1;
-        padding: spacing(6);
+        padding: spacing(2, 0);
+        transition: height 0.5s, opacity 0.2s 0.3s;
       }
     }
   }
