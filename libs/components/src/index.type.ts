@@ -110,8 +110,9 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export enum ButtonVariant {
-  normal = "normal",
-  bordered = "bordered",
+  text = "text",
+  outlined = "outlined",
+  contained = "contained",
   rounded = "rounded",
 }
 
@@ -122,6 +123,7 @@ export enum PositionIcon {
 
 export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
+  rootClassName?: string;
   text?: string;
   positionIcon?: PositionIcon;
   icon?: React.ReactNode;

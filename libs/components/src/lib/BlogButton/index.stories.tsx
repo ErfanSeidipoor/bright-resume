@@ -41,7 +41,7 @@ const Template: StoryFn<typeof BlogButton> = (args) => {
 
 export const Main = Template.bind({});
 Main.args = {
-  variant: ButtonVariant.normal,
+  variant: ButtonVariant.text,
   text: "Button",
   icon: null,
   positionIcon: undefined,

@@ -4,7 +4,8 @@ import classes from "./index.module.scss";
 import { BlogButtonProps, ButtonVariant, PositionIcon } from "../../index.type";
 
 export const BlogButton: React.FC<BlogButtonProps> = ({
-  variant = ButtonVariant.normal,
+  variant = ButtonVariant.text,
+  rootClassName = "",
   text,
   positionIcon = undefined,
   icon,
@@ -20,6 +21,7 @@ export const BlogButton: React.FC<BlogButtonProps> = ({
   return (
     <button
       className={cls(classes.root, className ? classes[className] : "", {
+        [rootClassName]: !!rootClassName,
         [classes[variant]]: variant,
         [classes.iconRightClassName]: positionIcon === PositionIcon.right,
         [classes.iconLeftClassName]: positionIcon === PositionIcon.left,

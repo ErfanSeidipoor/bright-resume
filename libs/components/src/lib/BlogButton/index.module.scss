@@ -18,7 +18,7 @@
   @include flexbox(row, center, center, 2);
 }
 
-.normal {
+.text {
   background-color: #{$transparent};
   color: var(--primary);
   path {
@@ -39,7 +39,7 @@
   }
 }
 
-.bordered {
+.outlined {
   border: 1px solid #{$grey-300};
   background-color: #{$transparent};
   color: #{$grey-500};
@@ -62,8 +62,29 @@
   }
 }
 
+.contained {
+  background-color: #{$blue};
+  color: #{$light};
+  path {
+    fill: #{$light};
+  }
+
+  &:hover {
+    background-color: #{$dark-blue};
+  }
+
+  &:disabled {
+    cursor: default;
+    color: #{$grey-200};
+    background-color: #{$light-blue};
+    path {
+      fill: #{$grey-200};
+    }
+  }
+}
+
 .navigation-button {
-  @extend .bordered;
+  @extend .outlined;
   &:first-of-type {
     border-radius: 0.5rem 0 0 0.5rem;
   }
