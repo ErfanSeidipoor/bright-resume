@@ -6,6 +6,7 @@
     "resume:dev": "nx serve back-resume",
     "resume:test": "nx test back-resume",
     "auth:dev": "nx serve back-auth",
+    "gateway:dev": "nx serve back-gateway",
     "components": "nx run components:storybook",
     "web": "nx run web:serve",
     "web:build": "nx run web:build"
@@ -85,7 +86,9 @@
     "webpack": "^5.88.1"
   },
   "dependencies": {
+    "@apollo/gateway": "^2.5.6",
     "@apollo/server": "^4.9.1",
+    "@apollo/subgraph": "^2.5.6",
     "@nestjs/apollo": "^12.0.7",
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^3.0.0",
@@ -102,10 +105,12 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "classnames": "^2.3.2",
+    "express": "^4.18.2",
     "express-session": "^1.17.3",
     "graphql": "^16.7.1",
     "js-yaml": "^4.1.0",
     "moment": "^2.29.4",
+    "mongoose": "^8.0.1",
     "mongoose-delete": "^1.0.1",
     "mongoose-paginate-v2": "^1.7.23",
     "next": "13.3.0",
