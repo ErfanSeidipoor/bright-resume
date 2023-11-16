@@ -22,4 +22,4 @@ export class Certification extends Document {
   points: string[];
 }
 
-export const certificationSchema = SchemaFactory.createForClass(Certification);
+export const CertificationSchema = SchemaFactory.createForClass(Certification);

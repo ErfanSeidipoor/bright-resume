@@ -1,0 +1,50 @@
+{
+  "name": "back-gateway",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/back-gateway/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/back-gateway",
+        "main": "apps/back-gateway/src/main.ts",
+        "tsConfig": "apps/back-gateway/tsconfig.app.json",
+        "assets": ["apps/back-gateway/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/back-gateway/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "back-gateway:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "back-gateway:build:development"
+        },
+        "production": {
+          "buildTarget": "back-gateway:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/back-gateway/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
