@@ -116,17 +116,12 @@ export enum ButtonVariant {
   rounded = "rounded",
 }
 
-export enum PositionIcon {
-  left = "left",
-  right = "right",
-}
-
 export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
   rootClassName?: string;
   text?: string;
-  positionIcon?: PositionIcon;
-  icon?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconLeft?: React.ReactNode;
   onClick?: () => void;
 };
 

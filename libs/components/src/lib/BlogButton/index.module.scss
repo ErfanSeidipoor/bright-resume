@@ -8,14 +8,15 @@
   cursor: pointer;
   min-width: 5rem;
   @include transition(all, 150ms);
-}
-
-.iconRightClassName {
-  @include flexbox(row-reverse, center, center, 2);
-}
-
-.iconLeftClassName {
   @include flexbox(row, center, center, 2);
+
+  .iconRightClassName {
+    @include flexbox(row-reverse, center, center);
+  }
+
+  .iconLeftClassName {
+    @include flexbox(row, center, center);
+  }
 }
 
 .text {

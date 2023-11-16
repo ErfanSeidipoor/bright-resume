@@ -14,7 +14,6 @@ const renderComponent = () => {
       id="blog-button"
       variant={undefined}
       text="Button"
-      positionIcon={undefined}
       className={buttonVariant.join(" ")}
     />
   );

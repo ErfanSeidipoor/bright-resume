@@ -1,21 +1,23 @@
 import cls from "classnames";
 
 import classes from "./index.module.scss";
-import { BlogButtonProps, ButtonVariant, PositionIcon } from "../../index.type";
+import { BlogButtonProps, ButtonVariant } from "../../index.type";
 
 export const BlogButton: React.FC<BlogButtonProps> = ({
   variant = ButtonVariant.text,
   rootClassName = "",
   text,
-  positionIcon = undefined,
-  icon,
+  iconRight,
+  iconLeft,
   className,
   onClick = () => null,
   ...props
 }) => {
-  const renderIcon = () => {
-    if (positionIcon === undefined) return;
-    return icon;
+  const renderIconRight = () => {
+    return <div className={classes.iconRightClassName}>{iconRight}</div>;
+  };
+  const renderIconLeft = () => {
+    return <div className={classes.iconLeftClassName}>{iconLeft}</div>;
   };
 
   return (
@@ -23,14 +25,13 @@ export const BlogButton: React.FC<BlogButtonProps> = ({
       className={cls(classes.root, className ? classes[className] : "", {
         [rootClassName]: !!rootClassName,
         [classes[variant]]: variant,
-        [classes.iconRightClassName]: positionIcon === PositionIcon.right,
-        [classes.iconLeftClassName]: positionIcon === PositionIcon.left,
       })}
       onClick={onClick}
       {...props}
     >
-      {renderIcon()}
+      {renderIconRight()}
       {text}
+      {renderIconLeft()}
     </button>
   );
 };
