@@ -12,3 +12,5 @@ export * from "./emailAddress";
 export * from "./phoneNumber";
 export * from "./plus";
 export * from "./profileImage";
+export * from "./chevronRight";
+export * from "./chevronLeft";

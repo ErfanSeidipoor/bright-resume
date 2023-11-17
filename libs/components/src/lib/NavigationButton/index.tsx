@@ -2,12 +2,8 @@ import cls from "classnames";
 
 import classes from "./index.module.scss";
 
-import {
-  ButtonVariant,
-  NavigationButtonProps,
-  PositionIcon,
-} from "../../index.type";
-import BlogButton from "../BlogButton";
+import { ButtonVariant, NavigationButtonProps } from "../../index.type";
+import Button from "../Button";
 import { texts } from "./text";
 import { ChevronLeft } from "../Icons/chevronLeft";
 import { ChevronRight } from "../Icons/chevronRight";
@@ -22,21 +18,19 @@ export const NavigationButton: React.FC<NavigationButtonProps> = ({
 }) => {
   return (
     <div className={cls(classes.root)}>
-      <BlogButton
-        variant={ButtonVariant.bordered}
+      <Button
+        variant={ButtonVariant.outlined}
         text={texts.previous}
-        icon={<ChevronLeft />}
-        positionIcon={PositionIcon.left}
+        iconLeft={<ChevronLeft />}
         onClick={onPrevPage}
         className={className}
         disabled={hasPrevPage}
         {...props}
       />
-      <BlogButton
-        variant={ButtonVariant.bordered}
+      <Button
+        variant={ButtonVariant.outlined}
         text={texts.next}
-        icon={<ChevronRight />}
-        positionIcon={PositionIcon.right}
+        iconRight={<ChevronRight />}
         onClick={onNextPage}
         className={className}
         disabled={hasNextPage}

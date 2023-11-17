@@ -116,7 +116,7 @@ export enum ButtonVariant {
   rounded = "rounded",
 }
 
-export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
   rootClassName?: string;
   text?: string;
@@ -125,7 +125,7 @@ export type BlogButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick?: () => void;
 };
 
-export type NavigationButtonProps = BlogButtonProps & {
+export type NavigationButtonProps = ButtonProps & {
   hasPrevPage?: boolean;
   hasNextPage?: boolean;
   onPrevPage?: () => void;
