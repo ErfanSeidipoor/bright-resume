@@ -5,6 +5,7 @@ import { ButtonProps, ButtonVariant } from "../../index.type";
 
 export const Button: React.FC<ButtonProps> = ({
   variant = ButtonVariant.text,
+  color = "blue",
   rootClassName = "",
   text,
   iconRight,
@@ -22,6 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      id={color}
       className={cls(classes.root, className ? classes[className] : "", {
         [rootClassName]: !!rootClassName,
         [classes[variant]]: variant,

@@ -19,6 +19,10 @@ export default {
       control: "select",
       options: Object.keys(ButtonVariant),
     },
+    color: {
+      control: "select",
+      options: ["blue", "green", "purple", "gold", "grey"],
+    },
     iconRight: {
       control: "select",
       options: Object.keys(ICONS),
@@ -53,6 +57,7 @@ const Template: StoryFn<typeof Button> = (args) => {
 export const Main = Template.bind({});
 Main.args = {
   variant: ButtonVariant.text,
+  color: "blue",
   text: "Button",
   iconRight: null,
   iconLeft: null,
