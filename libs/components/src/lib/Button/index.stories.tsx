@@ -14,6 +14,7 @@ const ICONS = {
 export default {
   component: Button,
   title: "Button",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
@@ -62,4 +63,29 @@ Main.args = {
   iconRight: null,
   iconLeft: null,
   disabled: false,
+};
+
+export const Variant = Template.bind({});
+Variant.args = {
+  variant: ButtonVariant.text,
+  text: "Button",
+};
+
+export const Color = Template.bind({});
+Color.args = {
+  color: "green",
+  text: "Button",
+};
+
+export const Icons = Template.bind({});
+Icons.args = {
+  iconRight: "ChevronRight",
+  iconLeft: "ChevronLeft",
+  text: "Button",
+};
+
+export const Disable = Template.bind({});
+Disable.args = {
+  disabled: true,
+  text: "Button",
 };
