@@ -4,7 +4,7 @@ import { DBModule } from "./modules/db/db.module";
 import { JWTModule } from "./modules/jwt/jwt.module";
 import { GraphQLModule } from "./modules/graphql/graphql.module";
 import { AuthModule } from "./modules/auth/auth.module";
-import { JWTStrategy } from "./strategies/jwt.strategy";
+import { JWTStrategy } from "@back-common/strategies";
 import { PassportModule } from "@nestjs/passport";
 import { MongooseModule } from "@nestjs/mongoose";
 import { models } from "./models";

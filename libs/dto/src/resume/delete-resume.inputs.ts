@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class DeleteResumeInputs {
+export class DeleteResumeResumeInputs {
   @IsString()
   resumeId: string;
 }

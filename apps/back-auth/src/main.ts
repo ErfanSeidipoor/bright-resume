@@ -9,7 +9,7 @@ async function bootstrap() {
   checkEnv();
   const app = await NestFactory.create(AppModule);
   setupApp(app);
-  const port = 4003;
+  const port = 4001;
   app.setGlobalPrefix("auth");
   await app.listen(port);
   Logger.log(

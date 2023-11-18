@@ -5,7 +5,7 @@ import { ConfigModule } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 
 import { AppController } from "./app.controller";
-import { EnvironmentVariableTypeEnum } from "./enums";
+import { EnvironmentVariablesEnum } from "./enums";
 
 @Module({
   imports: [
@@ -17,11 +17,11 @@ import { EnvironmentVariableTypeEnum } from "./enums";
           subgraphs: [
             {
               name: "auth",
-              url: process.env[EnvironmentVariableTypeEnum.AUTH_URL],
+              url: process.env[EnvironmentVariablesEnum.AUTH_URL],
             },
             {
               name: "resume",
-              url: process.env[EnvironmentVariableTypeEnum.RESUME_URL],
+              url: process.env[EnvironmentVariablesEnum.RESUME_URL],
             },
           ],
         }),
