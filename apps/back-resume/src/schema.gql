@@ -142,10 +142,7 @@ type PaginatedResume {
 }
 
 type Query {
-  getResumes(
-    paginationArgs: PaginationArgsGQL!
-    getResumesArgs: GetResumesArgsGQL!
-  ): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, GetResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 
@@ -154,21 +151,21 @@ input PaginationArgsGQL {
   page: Int = 1
 }
 
-input GetResumesArgsGQL {
+input GetResumesResumeArgsGQL {
   name: String = ""
 }
 
 type Mutation {
-  deleteResume(deleteResumeInputs: DeleteResumeInputsGQL!): Resume!
-  createResume(createResumeInputs: CreateResumeInputsGQL!): Resume!
-  updateResume(updateResumeInputs: UpdateResumeInputsGQL!): Resume!
+  deleteResume(DeleteResumeResumeInputs: DeleteResumeResumeInputsGQL!): Resume!
+  createResume(CreateResumeResumeInputs: CreateResumeResumeInputsGQL!): Resume!
+  updateResume(UpdateResumeResumeInputs: UpdateResumeResumeInputsGQL!): Resume!
 }
 
-input DeleteResumeInputsGQL {
+input DeleteResumeResumeInputsGQL {
   resumeId: String!
 }
 
-input CreateResumeInputsGQL {
+input CreateResumeResumeInputsGQL {
   name: String
   role: String
   isShowPhoneNumber: Boolean
@@ -188,7 +185,7 @@ input CreateResumeInputsGQL {
   summary: String
   isShowExperience: Boolean
   experienceLabel: String
-  experiences: [CreateResumeExperienceItemInputsGQL!]
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
   isShowProject: Boolean
   projectLabel: String
   projects: [CreateResumeProjectItemInputsGQL!]
@@ -215,7 +212,7 @@ input CreateResumeInputsGQL {
   hobbies: [String!]
 }
 
-input CreateResumeExperienceItemInputsGQL {
+input CreateResumeExperienceItemResumeInputsGQL {
   role: String
   company: String
   location: String
@@ -285,7 +282,7 @@ input CreateResumeLanguageItemInputsGQL {
   level: String
 }
 
-input UpdateResumeInputsGQL {
+input UpdateResumeResumeInputsGQL {
   resumeId: String!
   name: String
   role: String
@@ -306,7 +303,7 @@ input UpdateResumeInputsGQL {
   summary: String
   isShowExperience: Boolean
   experienceLabel: String
-  experiences: [CreateResumeExperienceItemInputsGQL!]
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
   isShowProject: Boolean
   projectLabel: String
   projects: [CreateResumeProjectItemInputsGQL!]

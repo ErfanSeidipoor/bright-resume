@@ -2,7 +2,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
 import { PassportModule } from "@nestjs/passport";
 import { Module } from "@nestjs/common";
-import { EnvironmentVariableTypeEnum } from "../../enums";
+import { EnvironmentVariablesEnum } from "../../enums";
 
 @Module({
   imports: [
@@ -12,7 +12,7 @@ import { EnvironmentVariableTypeEnum } from "../../enums";
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         return {
-          secret: configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
+          secret: configService.get(EnvironmentVariablesEnum.JWT_SECRET),
           signOptions: { expiresIn: 30 * 24 * 60 * 60 + "s" }, // one month
         };
       },

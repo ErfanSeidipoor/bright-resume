@@ -1,4 +1,4 @@
-import { SignInAuthInputs, SignUpAuthInputs } from "@bright-resume/dto";
+import { SignInAuthInputs, SignUpAuthInputs } from "@dto";
 import { JwtService } from "@nestjs/jwt";
 import {
   CustomError,
@@ -13,9 +13,9 @@ import {
   generateHashPassword,
   generateUserToken,
   verifyPassword,
-} from "../../helpers";
+} from "../../../../../../libs/back-common/src/helpers";
 import { User } from "../../models";
-import { EnvironmentVariableTypeEnum } from "../../enums";
+import { EnvironmentVariablesEnum } from "../../enums";
 import { ConfigService } from "@nestjs/config";
 
 @Injectable()
@@ -52,7 +52,7 @@ export class AuthService {
     }
 
     const token = await this.jwtService.signAsync(generateUserToken(user), {
-      secret: this.configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
+      secret: this.configService.get(EnvironmentVariablesEnum.JWT_SECRET),
     });
 
     user.token = token;
@@ -76,7 +76,7 @@ export class AuthService {
     });
 
     const token = this.jwtService.sign(generateUserToken(newUser), {
-      secret: this.configService.get(EnvironmentVariableTypeEnum.JWT_SECRET),
+      secret: this.configService.get(EnvironmentVariablesEnum.JWT_SECRET),
     });
 
     await newUser.save();

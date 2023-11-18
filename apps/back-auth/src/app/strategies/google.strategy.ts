@@ -4,7 +4,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { PassportStrategy } from "@nestjs/passport";
 import { Model } from "mongoose";
 import { Strategy } from "passport-google-oauth20";
-import { EnvironmentVariableTypeEnum } from "../enums";
+import { EnvironmentVariablesEnum } from "../enums";
 import { User } from "../models";
 
 @Injectable()
@@ -14,12 +14,12 @@ export class GoogleStrategy extends PassportStrategy(Strategy, "google") {
     private readonly configService: ConfigService
   ) {
     super({
-      clientID: configService.get(EnvironmentVariableTypeEnum.GOOGLE_CLIENT_ID),
+      clientID: configService.get(EnvironmentVariablesEnum.GOOGLE_CLIENT_ID),
       clientSecret: configService.get(
-        EnvironmentVariableTypeEnum.GOOGLE_CLIENT_SECRET
+        EnvironmentVariablesEnum.GOOGLE_CLIENT_SECRET
       ),
       callbackURL:
-        configService.get(EnvironmentVariableTypeEnum.SERVER_URL) +
+        configService.get(EnvironmentVariablesEnum.SERVER_URL) +
         "/auth/login/google/callback",
       scope: ["email", "profile"],
     });

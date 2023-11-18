@@ -9,7 +9,7 @@ import {
   ValidateNested,
 } from "class-validator";
 
-export class CreateResumeExperienceItemInputs {
+export class CreateResumeExperienceItemResumeInputs {
   @IsOptional()
   @IsString()
   @MaxLength(50)
@@ -276,7 +276,7 @@ export class CreateResumeLanguageItemInputs {
   level?: string;
 }
 
-export class CreateResumeInputs {
+export class CreateResumeResumeInputs {
   @IsOptional()
   @IsString()
   @MaxLength(50)
@@ -362,10 +362,10 @@ export class CreateResumeInputs {
   @IsOptional()
   @ValidateNested({ each: true })
   @Expose()
-  @Type(() => CreateResumeExperienceItemInputs)
+  @Type(() => CreateResumeExperienceItemResumeInputs)
   @IsArray()
   @ArrayMaxSize(20)
-  experiences?: CreateResumeExperienceItemInputs[];
+  experiences?: CreateResumeExperienceItemResumeInputs[];
 
   @IsOptional()
   @IsBoolean()
