@@ -49,4 +49,13 @@ export class MinioService {
       return undefined;
     }
   }
+
+  async uploadFile(input: { fileId: string; path: string }): Promise<void> {
+    const { fileId, path } = input;
+    await this.minioService.client.fPutObject(
+      this.configService.get(EnvironmentVariablesEnum.MINIO_BUCKET),
+      fileId,
+      path
+    );
+  }
 }

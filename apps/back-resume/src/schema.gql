@@ -142,10 +142,7 @@ type PaginatedResume {
 }
 
 type Query {
-  getResumes(
-    paginationArgs: PaginationArgsGQL!
-    GetResumesResumeArgs: GetResumesResumeArgsGQL!
-  ): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, GetResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 

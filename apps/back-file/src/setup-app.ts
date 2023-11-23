@@ -1,8 +1,9 @@
 import { INestApplication, ValidationPipe } from "@nestjs/common";
-import { checkEnv } from "./checkEnv";
+import { checkEnv } from "@back-common/check-env";
+import { EnvironmentVariablesEnum } from "./app/enums";
 
 export const setupApp = async (app: INestApplication) => {
-  checkEnv();
+  checkEnv(EnvironmentVariablesEnum);
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

@@ -4,6 +4,8 @@
 dist
 tmp
 /out-tsc
+files/*
+!files/.gitkeep
 apps/resume/src/assets/config.yml
 # dependencies
 node_modules

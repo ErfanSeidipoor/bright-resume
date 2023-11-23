@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectQueue } from "@nestjs/bull";
 import { Queue } from "bull";
 import { GENERATE_PDF_OF_RESUME_QUEUE } from "./constants";
-import { GeneratePdfOfResumeFileInputs } from "@dto";
+import { AddToGeneratePdfOfResumeQueueBullRequest } from "./dto";
 
 @Injectable()
 export class BullService {
@@ -12,12 +12,8 @@ export class BullService {
   ) {}
 
   async addToGeneratePdfOfResumeQueue(
-    userId: string,
-    input: GeneratePdfOfResumeFileInputs
+    inputs: AddToGeneratePdfOfResumeQueueBullRequest
   ) {
-    await this.generatePdfOfResumeQueue.add({
-      userId,
-      input,
-    });
+    await this.generatePdfOfResumeQueue.add(inputs);
   }
 }

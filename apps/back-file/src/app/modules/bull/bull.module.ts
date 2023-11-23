@@ -5,6 +5,11 @@ import { EnvironmentVariablesEnum } from "@@back-file/app/enums";
 import { GeneratePdfOfResumeConsumer } from "./generate-pdf.consumer";
 import { BullService } from "./bull.service";
 import { GENERATE_PDF_OF_RESUME_QUEUE } from "./constants";
+import { PdfModule } from "../pdf/pdf.module";
+import { MinioModule } from "../minio/minio.module";
+import { DBModule } from "../db/db.module";
+import { models } from "@@back-file/app/models";
+import { MongooseModule } from "@nestjs/mongoose";
 
 @Module({
   imports: [
@@ -21,6 +26,10 @@ import { GENERATE_PDF_OF_RESUME_QUEUE } from "./constants";
     BullModuleOriginal.registerQueue({
       name: GENERATE_PDF_OF_RESUME_QUEUE,
     }),
+    MongooseModule.forFeature(models),
+    PdfModule,
+    MinioModule,
+    DBModule,
   ],
   providers: [GeneratePdfOfResumeConsumer, BullService],
   exports: [BullService],
