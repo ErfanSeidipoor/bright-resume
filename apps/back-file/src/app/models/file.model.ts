@@ -2,7 +2,11 @@ import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Paginated } from "@back-common/model";
 import { Document } from "mongoose";
-import { FileReasonEnum, FileTypeEnum } from "@@back-file/app/enums";
+import {
+  FileReasonEnum,
+  FileStatusEnum,
+  FileTypeEnum,
+} from "@@back-file/app/enums";
 
 @Schema({
   collection: "files",
@@ -40,6 +44,10 @@ export class File extends Document {
   @Field(() => FileReasonEnum, { nullable: true })
   @Prop({ type: String, enum: FileReasonEnum, required: false })
   reason: FileReasonEnum;
+
+  @Field(() => FileStatusEnum, { nullable: true })
+  @Prop({ type: String, enum: FileStatusEnum, required: false })
+  status: FileStatusEnum;
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })

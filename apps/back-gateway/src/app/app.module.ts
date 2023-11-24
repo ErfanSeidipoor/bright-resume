@@ -23,6 +23,10 @@ import { EnvironmentVariablesEnum } from "./enums";
               name: "resume",
               url: process.env[EnvironmentVariablesEnum.RESUME_URL],
             },
+            {
+              name: "file",
+              url: process.env[EnvironmentVariablesEnum.FILE_URL],
+            },
           ],
         }),
       },

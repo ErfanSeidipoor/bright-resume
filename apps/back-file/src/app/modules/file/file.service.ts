@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { FilterQuery, Model } from "mongoose";
 
-import { File, PaginatedFile } from "@@back-file/app/models/file.model";
+import { File, PaginatedFile } from "@@back-file/app/models";
 import { MinioService } from "@@back-file/app/modules/minio/minio.service";
 import { DBService } from "@@back-file/app/modules/db/db.service";
 import { paginate } from "@back-common/pagination";
@@ -21,14 +21,16 @@ import {
   THE_FILE_HAS_ALREADY_BEEN_APPROVED,
   THE_FILE_HAS_NOT_BEEN_UPLOADED_YET,
 } from "@errors";
-import { FileReasonEnum, FileTypeEnum } from "@enums";
+import { FileReasonEnum, FileStatusEnum, FileTypeEnum } from "@enums";
 import { BullService } from "../bull/bull.service";
+import { PdfService } from "../pdf/pdf.service";
 
 @Injectable()
 export class FileService {
   constructor(
     @InjectModel(File.name) private fileModel: Model<File>,
     private minioService: MinioService,
+    private pdfService: PdfService,
     private dbService: DBService,
     private bullService: BullService
   ) {}
@@ -103,7 +105,25 @@ export class FileService {
     userId: string,
     inputs: GeneratePdfOfResumeFileInputs
   ): Promise<string> {
-    await this.bullService.addToGeneratePdfOfResumeQueue(userId, inputs);
+    const { resumeId } = inputs;
+
+    const file = await this.fileModel.create({
+      resumeId,
+      userId,
+      isVerified: false,
+      type: FileTypeEnum.PDF,
+      reason: FileReasonEnum.resume_PDF,
+      status: FileStatusEnum.waiting,
+    });
+
+    await this.dbService.transaction(async () => {
+      await file.save();
+      await this.bullService.addToGeneratePdfOfResumeQueue({
+        fileId: file.id,
+        inputs,
+      });
+    });
+
     return "";
   }
 

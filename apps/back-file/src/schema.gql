@@ -17,6 +17,7 @@ type File {
   path: String
   type: FileTypeEnum
   reason: FileReasonEnum
+  status: FileStatusEnum
   isVerified: Boolean
   size: Float
   hash: String
@@ -34,6 +35,12 @@ enum FileTypeEnum {
 enum FileReasonEnum {
   resume_profile_image
   resume_PDF
+}
+
+enum FileStatusEnum {
+  waiting
+  error
+  uploaded
 }
 
 """

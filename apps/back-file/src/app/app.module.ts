@@ -7,6 +7,7 @@ import { AppController } from "./app.controller";
 import { JWTStrategy } from "@back-common/strategies";
 import { ConfigModule } from "@nestjs/config";
 import { BullModule } from "./modules/bull/bull.module";
+import { PdfModule } from "./modules/pdf/pdf.module";
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { BullModule } from "./modules/bull/bull.module";
     DBModule,
     FileModule,
     BullModule,
+    PdfModule,
   ],
   controllers: [AppController],
   providers: [JWTStrategy],
