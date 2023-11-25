@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 import request from "supertest-graphql";
 import moment from "moment";
 
-import { CreateResumeInputsGQL } from "@bright-resume/back-resume/app/modules/resume/dto";
+import { CreateResumeResumeInputsGQL } from "@bright-resume/back-resume/app/modules/resume/dto";
 import { Resume } from "@bright-resume/back-resume/app/models/resume.model";
 
 import { IntegrationTestManager } from "../IntegrationTestManager";
@@ -30,19 +30,19 @@ describe("microservice:resume CreateResume", () => {
   it("creates a resume with valid inputs", async () => {
     const { data } = await request<
       { createResume: Resume },
-      { createResumeInputs: CreateResumeInputsGQL }
+      { CreateResumeResumeInputs: CreateResumeResumeInputsGQL }
     >(integrationTestManager.httpServer)
       .mutate(
         gql`
-          mutation ($createResumeInputs: CreateResumeInputsGQL!) {
-            createResume(createResumeInputs: $createResumeInputs) {
+          mutation ($CreateResumeResumeInputs: CreateResumeResumeInputsGQL!) {
+            createResume(CreateResumeResumeInputs: $CreateResumeResumeInputs) {
               name
             }
           }
         `
       )
       .variables({
-        createResumeInputs: {
+        CreateResumeResumeInputs: {
           name: faker.person.fullName(),
           role: faker.person.jobTitle(),
           isShowPhoneNumber: faker.datatype.boolean(),

@@ -1,12 +1,13 @@
 import cls from "classnames";
 import { FC } from "react";
 // components
-import { TextArea, TextField } from "@bright-resume/components";
-// types
 import {
   BackgroundInfoChildProps,
   BackgroundInfoProps,
-} from "../types/index.type";
+  RangePicker,
+  TextArea,
+  TextField,
+} from "@bright-resume/components";
 // icons
 import { AddCircleRoundedIcon, RemoveCircleRounded } from "../Icons";
 // locals
@@ -21,6 +22,7 @@ export const BackgroundInfo: FC<BackgroundInfoProps> = ({
       title: {},
       subtitle: {},
       description: {},
+      rangeDate: undefined,
     },
   ],
   hoverItem = {
@@ -64,22 +66,25 @@ export const BackgroundInfo: FC<BackgroundInfoProps> = ({
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
-          <TextField
-            {...child.title}
-            variant="h4"
-            placeholder={child.title.placeholder}
-            rootClassName={cls(classes.title, {
-              [child.title.rootClassName || ""]: !!child.title.rootClassName,
-            })}
-          />
-          {!!index && (
-            <RemoveCircleRounded
-              width="20px"
-              height="20px"
-              className={classes.remove__icon}
-              onClick={() => onDecrease(child.id)}
+          <div className={classes.title__wrapper}>
+            <TextField
+              {...child.title}
+              variant="h4"
+              placeholder={child.title.placeholder}
+              rootClassName={cls(classes.title, {
+                [child.title.rootClassName || ""]: !!child.title.rootClassName,
+              })}
             />
-          )}
+            {!!index && (
+              <RemoveCircleRounded
+                width="20px"
+                height="20px"
+                className={classes.remove__icon}
+                onClick={() => onDecrease(child.id)}
+              />
+            )}
+          </div>
+          {child.rangeDate && <RangePicker {...child.rangeDate} />}
         </div>
         {child.subtitle && (
           <TextField

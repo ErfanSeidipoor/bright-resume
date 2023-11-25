@@ -8,3 +8,7 @@ export * from "./lib/Typography";
 export * from "./lib/Theme";
 export * from "./lib/RadioButton";
 export * from "./lib/ImageProfile";
+export * from "./lib/DatePicker";
+export * from "./lib/RangePicker";
+
+export * from "./index.type";

@@ -1,7 +1,7 @@
-import { IsString } from "class-validator";
-import { CreateResumeInputs } from "./create-resume.inputs";
+import { IsMongoId } from "class-validator";
+import { CreateResumeResumeInputs } from "./create-resume.inputs";
 
-export class UpdateResumeInputs extends CreateResumeInputs {
-  @IsString()
+export class UpdateResumeResumeInputs extends CreateResumeResumeInputs {
+  @IsMongoId()
   resumeId: string;
 }
