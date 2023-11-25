@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_metas",
+  "info": {
+    "singularName": "post-meta",
+    "pluralName": "post-metas",
+    "displayName": "postMeta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "ket": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "post_metas"
+    }
+  }
+}
