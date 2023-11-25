@@ -1,5 +1,3 @@
-"use client";
-import Image from "next/image";
 import { FAQ } from "../containers/home/faq";
 import { Features } from "../containers/home/features";
 import classes from "./page.module.scss";

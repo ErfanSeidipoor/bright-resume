@@ -1,8 +1,7 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
-
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -12,18 +11,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-
-    "../../apps/web-2/.next/types/**/*.ts",
-    "../../dist/apps/web-2/.next/types/**/*.ts",
-
-    "next-env.d.ts"
+    "../apps/web-2/.next/types/**/*.ts",
+    "../dist/apps/web-2/.next/types/**/*.ts",
+    "next-env.d.ts",
+    "../web/.next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,7 +1,7 @@
 {
   "name": "web-2",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/web-2",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "web",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/web-2",
+        "outputPath": "dist/web",
         "assets": [
           {
             "input": "libs/assets/src",
@@ -20,7 +20,7 @@
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/web-2"
+          "outputPath": "web"
         },
         "production": {}
       }
@@ -53,7 +53,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/web-2/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["web/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
