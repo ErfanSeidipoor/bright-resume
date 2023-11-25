@@ -6,6 +6,7 @@
     "resume:dev": "nx serve back-resume",
     "resume:test": "nx test back-resume",
     "auth:dev": "nx serve back-auth",
+    "cms:dev": "nx serve back-cms",
     "gateway:dev": "nx serve back-gateway",
     "file:dev": "nx serve back-file",
     "components": "nx run components:storybook",

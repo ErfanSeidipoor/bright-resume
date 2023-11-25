@@ -677,6 +677,156 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: "categories";
+  info: {
+    singularName: "category";
+    pluralName: "categories";
+    displayName: "category";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    metaTitle: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
+    content: Attribute.RichText;
+    posts: Attribute.Relation<
+      "api::category.category",
+      "manyToMany",
+      "api::post.post"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::category.category",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::category.category",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: "posts";
+  info: {
+    singularName: "post";
+    pluralName: "posts";
+    displayName: "post";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    metaTitle: Attribute.String & Attribute.Unique;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
+    sammary: Attribute.Text & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+    coverImage: Attribute.Media & Attribute.Required;
+    tags: Attribute.Relation<"api::post.post", "manyToMany", "api::tag.tag">;
+    post_metas: Attribute.Relation<
+      "api::post.post",
+      "oneToMany",
+      "api::post-meta.post-meta"
+    >;
+    categories: Attribute.Relation<
+      "api::post.post",
+      "manyToMany",
+      "api::category.category"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::post.post", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::post.post", "oneToOne", "admin::user"> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostMetaPostMeta extends Schema.CollectionType {
+  collectionName: "post_metas";
+  info: {
+    singularName: "post-meta";
+    pluralName: "post-metas";
+    displayName: "postMeta";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.Text & Attribute.Required;
+    ket: Attribute.String & Attribute.Required & Attribute.Unique;
+    post: Attribute.Relation<
+      "api::post-meta.post-meta",
+      "manyToOne",
+      "api::post.post"
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::post-meta.post-meta",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::post-meta.post-meta",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: "tags";
+  info: {
+    singularName: "tag";
+    pluralName: "tags";
+    displayName: "tag";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    metaTitle: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.String & Attribute.Required & Attribute.Unique;
+    posts: Attribute.Relation<"api::tag.tag", "manyToMany", "api::post.post">;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::tag.tag", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::tag.tag", "oneToOne", "admin::user"> &
+      Attribute.Private;
+  };
+}
+
 declare module "@strapi/types" {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +843,10 @@ declare module "@strapi/types" {
       "plugin::users-permissions.permission": PluginUsersPermissionsPermission;
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
+      "api::category.category": ApiCategoryCategory;
+      "api::post.post": ApiPostPost;
+      "api::post-meta.post-meta": ApiPostMetaPostMeta;
+      "api::tag.tag": ApiTagTag;
     }
   }
 }
