@@ -716,6 +716,33 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: "faqs";
+  info: {
+    singularName: "faq";
+    pluralName: "faqs";
+    displayName: "faq";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 1000;
+      }>;
+    answer: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::faq.faq", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::faq.faq", "oneToOne", "admin::user"> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: "posts";
   info: {
@@ -844,6 +871,7 @@ declare module "@strapi/types" {
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "api::category.category": ApiCategoryCategory;
+      "api::faq.faq": ApiFaqFaq;
       "api::post.post": ApiPostPost;
       "api::post-meta.post-meta": ApiPostMetaPostMeta;
       "api::tag.tag": ApiTagTag;
