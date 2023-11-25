@@ -22,7 +22,7 @@
       min-height: 73px;
       @include flexbox(row, space-between, center);
 
-      padding: spacing(2, 3);
+      padding: spacing(4, 3);
       cursor: pointer;
 
       .accordion__item__header__title {
