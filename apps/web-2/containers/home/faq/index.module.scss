@@ -1,21 +1,17 @@
-@import "../../../../../libs//theme/mixins";
+@import "../../../../../libs/theme";
 
 .container {
   display: flex;
   justify-content: center;
 
-  @include maxWidth(1200px);
-
-  margin: 5rem auto;
-  padding: 2rem 2rem;
+  padding: 7rem 2rem;
   gap: 10%;
 
-  @include lg {
+  @include xl {
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    margin: 0;
     gap: 0;
   }
 
@@ -32,9 +28,9 @@
     height: 100%;
     max-width: 560px;
 
-    @include md {
-      width: 100%;
-      height: 100%;
+    .items__title {
+      @include typography(h1);
+      margin-bottom: 2rem;
     }
   }
 }

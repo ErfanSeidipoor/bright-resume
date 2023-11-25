@@ -8,10 +8,7 @@ interface Props {
 export default async function Index({ children }: Props) {
   return (
     <html lang="en">
-      <body
-        suppressHydrationWarning={true}
-        style={{ fontFamily: "sans-serif" }}
-      >
+      <body suppressHydrationWarning={true} style={{ fontFamily: "Helvetica" }}>
         <MainLayout>
           <main className="app">{children}</main>
         </MainLayout>
