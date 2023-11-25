@@ -4,13 +4,13 @@ import { InjectModel } from "@nestjs/mongoose";
 
 import { CustomError, RESUME_NOT_FOUND } from "@bright-resume/errors";
 import {
-  CreateResumeInputs,
-  DeleteResumeInputs,
-  GetResumeByIdArgs,
-  GetResumesArgs,
+  CreateResumeResumeInputs,
+  DeleteResumeResumeInputs,
+  GetResumeByIdResumeArgs,
+  GetResumesResumeArgs,
   PaginationArgs,
-  UpdateResumeInputs,
-} from "@bright-resume/dto";
+  UpdateResumeResumeInputs,
+} from "@dto";
 import { paginate } from "@bright-resume/back-common/pagination";
 
 import { PaginatedResume, Resume } from "../../models/resume.model";
@@ -25,7 +25,7 @@ export class ResumeService {
 
   async getList(
     paginationArgs: PaginationArgs,
-    args: GetResumesArgs
+    args: GetResumesResumeArgs
   ): Promise<PaginatedResume> {
     const { name } = args;
     const { limit, page } = paginationArgs;
@@ -39,7 +39,7 @@ export class ResumeService {
     return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
-  async getById(args: GetResumeByIdArgs): Promise<Resume> {
+  async getById(args: GetResumeByIdResumeArgs): Promise<Resume> {
     const { resumeId } = args;
 
     const resume = await this.resumeModel.findById(resumeId);
@@ -51,7 +51,7 @@ export class ResumeService {
     return resume;
   }
 
-  async update(inputs: UpdateResumeInputs): Promise<Resume> {
+  async update(inputs: UpdateResumeResumeInputs): Promise<Resume> {
     const { resumeId } = inputs;
 
     let resume = await this.resumeModel.findById(resumeId);
@@ -65,7 +65,7 @@ export class ResumeService {
     return resume;
   }
 
-  async delete(inputs: DeleteResumeInputs): Promise<Resume> {
+  async delete(inputs: DeleteResumeResumeInputs): Promise<Resume> {
     const { resumeId } = inputs;
 
     const resume = await this.resumeModel.findById(resumeId);
@@ -79,17 +79,15 @@ export class ResumeService {
     return resume;
   }
 
-  async create(inputs: CreateResumeInputs): Promise<Resume> {
+  async create(inputs: CreateResumeResumeInputs): Promise<Resume> {
     const resume = new this.resumeModel({
       userId: "userId",
       name: inputs.name,
     });
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    resume.experiences.splice(0, resume.experiences.length);
-    resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-
-    console.log({ resume });
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
+    // resume.experiences.splice(0, resume.experiences.length);
+    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
 
     await resume.save();
 

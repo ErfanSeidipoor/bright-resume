@@ -42,4 +42,4 @@ export class Experience extends Document {
   points?: string[];
 }
 
-export const experienceSchema = SchemaFactory.createForClass(Experience);
+export const ExperienceSchema = SchemaFactory.createForClass(Experience);
