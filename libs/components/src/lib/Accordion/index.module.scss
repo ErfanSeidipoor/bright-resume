@@ -7,10 +7,7 @@
 
   .accordion__item {
     width: 100%;
-
     @include flexbox(column, center, center);
-    // @include transition(all, 0.3s, ease-in-out);
-
     border-bottom: 3px solid $grey-200;
 
     &:last-child {
@@ -19,7 +16,7 @@
 
     .accordion__item__header {
       width: 100%;
-      min-height: 73px;
+      min-height: 70px;
       @include flexbox(row, space-between, center);
 
       padding: spacing(4, 3);
