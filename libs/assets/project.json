@@ -9,13 +9,6 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/assets",
-        "assets": [
-          {
-            "input": "libs/assets/src",
-            "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
-            "output": "/assets"
-          }
-        ],
         "main": "libs/assets/src/index.ts",
         "tsConfig": "libs/assets/tsconfig.lib.json",
         "updateBuildableProjectDepsInPackageJson": true
