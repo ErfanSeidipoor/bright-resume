@@ -19,11 +19,13 @@ export const ThemeProvider: React.FC<ThemeProps> = ({
   const data = useData({ themeColor, fontFamily, fontWeight });
 
   return (
-    <div id={data.themeColor}>
-      <div id={data.fontFamily}>
-        <div id={data.fontWeight}>{children}</div>
+    <ThemeContext.Provider value={data}>
+      <div id={data.themeColor}>
+        <div id={data.fontFamily}>
+          <div id={data.fontWeight}>{children}</div>
+        </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 };
 
