@@ -2,6 +2,7 @@
 .env
 # compiled output
 dist
+.nx
 tmp
 /out-tsc
 files/*
