@@ -9,6 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/assets",
+        "assets": ["libs/assets/*.md"],
         "main": "libs/assets/src/index.ts",
         "tsConfig": "libs/assets/tsconfig.lib.json",
         "updateBuildableProjectDepsInPackageJson": true
