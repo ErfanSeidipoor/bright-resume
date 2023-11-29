@@ -30,4 +30,4 @@ export class CourseWork extends Document {
   points: string[];
 }
 
-export const courseWorkSchema = SchemaFactory.createForClass(CourseWork);
+export const CourseWorkSchema = SchemaFactory.createForClass(CourseWork);

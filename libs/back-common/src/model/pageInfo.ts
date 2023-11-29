@@ -1,6 +1,7 @@
-import { ObjectType, Field } from "@nestjs/graphql";
+import { ObjectType, Field, Directive } from "@nestjs/graphql";
 
 @ObjectType()
+@Directive("@shareable")
 export class PageInfo {
   @Field()
   totalEdges: number;

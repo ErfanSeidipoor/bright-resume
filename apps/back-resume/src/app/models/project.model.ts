@@ -50,4 +50,4 @@ export class Project extends Document {
   points: string[];
 }
 
-export const projectSchema = SchemaFactory.createForClass(Project);
+export const ProjectSchema = SchemaFactory.createForClass(Project);
