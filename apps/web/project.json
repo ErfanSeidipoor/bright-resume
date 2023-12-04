@@ -1,5 +1,5 @@
 {
-  "name": "web-2",
+  "name": "web",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "web",
   "projectType": "application",
@@ -16,7 +16,11 @@
             "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
             "output": "/assets"
           }
-        ]
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/theme"]
+        },
+        "extractCss": true
       },
       "configurations": {
         "development": {
@@ -29,16 +33,16 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "web-2:build",
+        "buildTarget": "web:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "web-2:build:development",
+          "buildTarget": "web:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "web-2:build:production",
+          "buildTarget": "web:build:production",
           "dev": false
         }
       }
@@ -46,7 +50,7 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "web-2:build:production"
+        "buildTarget": "web:build:production"
       }
     },
     "lint": {
