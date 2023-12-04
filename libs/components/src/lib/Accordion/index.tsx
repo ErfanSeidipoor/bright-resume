@@ -1,3 +1,4 @@
+"use client";
 import cls from "classnames";
 import { FC, ReactNode } from "react";
 import { PlusIcon } from "../Icons/plus";
@@ -10,10 +11,14 @@ interface AccordionItemProps {
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
-  const {isOpen, handleToggle} = useData();
+  const { isOpen, handleToggle } = useData();
 
   return (
-    <div className={classes.accordion__item} role="button" aria-expanded={isOpen}>
+    <div
+      className={classes.accordion__item}
+      role="button"
+      aria-expanded={isOpen}
+    >
       <div
         className={cls(classes.accordion__item__header, {
           [classes.accordion__item__header__open]: isOpen,
@@ -68,4 +73,3 @@ export const Accordion: FC<AccordionProps> = ({ items }) => {
     </div>
   );
 };
-
