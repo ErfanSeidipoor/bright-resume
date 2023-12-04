@@ -3,10 +3,10 @@ import { faker } from "@faker-js/faker";
 import request from "supertest-graphql";
 import moment from "moment";
 
-import { CreateResumeResumeInputsGQL } from "@bright-resume/back-resume/app/modules/resume/dto";
 import { Resume } from "@bright-resume/back-resume/app/models/resume.model";
 
 import { IntegrationTestManager } from "../IntegrationTestManager";
+import { CreateResumeResumeInputsGQL } from "@back-common/dto";
 
 describe("microservice:resume CreateResume", () => {
   const integrationTestManager = new IntegrationTestManager();
@@ -62,40 +62,40 @@ describe("microservice:resume CreateResume", () => {
           summary: faker.lorem.paragraph(),
           isShowExperience: faker.datatype.boolean(),
           experienceLabel: faker.lorem.word(),
-          // experiences: [
-          //   {
-          //     role: faker.person.jobTitle(),
-          //     company: faker.company.name(),
-          //     location: faker.location.country(),
-          //     fromMonth: moment(faker.date.past()).format("MMMM"),
-          //     fromYear: moment(faker.date.past()).format("YYYY"),
-          //     toMonth: moment(faker.date.recent()).format("MMMM"),
-          //     toYear: moment(faker.date.recent()).format("YYYY"),
-          //     untilNow: faker.datatype.boolean(),
-          //     points: [
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //     ],
-          //   },
-          //   {
-          //     role: faker.person.jobTitle(),
-          //     company: faker.company.name(),
-          //     location: faker.location.country(),
-          //     fromMonth: moment(faker.date.past()).format("MMMM"),
-          //     fromYear: moment(faker.date.past()).format("YYYY"),
-          //     toMonth: moment(faker.date.recent()).format("MMMM"),
-          //     toYear: moment(faker.date.recent()).format("YYYY"),
-          //     untilNow: faker.datatype.boolean(),
-          //     points: [
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //       faker.lorem.paragraph(),
-          //     ],
-          //   },
-          // ],
+          experiences: [
+            {
+              role: faker.person.jobTitle(),
+              company: faker.company.name(),
+              location: faker.location.country(),
+              fromMonth: moment(faker.date.past()).format("MMMM"),
+              fromYear: moment(faker.date.past()).format("YYYY"),
+              toMonth: moment(faker.date.recent()).format("MMMM"),
+              toYear: moment(faker.date.recent()).format("YYYY"),
+              untilNow: faker.datatype.boolean(),
+              points: [
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+              ],
+            },
+            {
+              role: faker.person.jobTitle(),
+              company: faker.company.name(),
+              location: faker.location.country(),
+              fromMonth: moment(faker.date.past()).format("MMMM"),
+              fromYear: moment(faker.date.past()).format("YYYY"),
+              toMonth: moment(faker.date.recent()).format("MMMM"),
+              toYear: moment(faker.date.recent()).format("YYYY"),
+              untilNow: faker.datatype.boolean(),
+              points: [
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+                faker.lorem.paragraph(),
+              ],
+            },
+          ],
           isShowProject: faker.datatype.boolean(),
           projectLabel: faker.lorem.word(),
           projects: [
