@@ -1,5 +1,8 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { PaginationArgsGQL } from "@bright-resume/back-common/dto";
+import { UseGuards } from "@nestjs/common";
+import { UserId } from "@back-common/decorators";
+import { GqlAuthGuard } from "@back-common/guards";
 import { ResumeService } from "./resume.service";
 import { PaginatedResume, Resume } from "../../models";
 
@@ -32,11 +35,13 @@ export class ResumeResolver {
   }
 
   @Mutation(() => Resume)
+  @UseGuards(GqlAuthGuard)
   async createResume(
+    @UserId() userId: string,
     @Args("CreateResumeResumeInputs")
     inputs: CreateResumeResumeInputsGQL
   ): Promise<Resume> {
-    return await this.resumeService.create(inputs);
+    return await this.resumeService.create(userId, inputs);
   }
 
   @Mutation(() => Resume)

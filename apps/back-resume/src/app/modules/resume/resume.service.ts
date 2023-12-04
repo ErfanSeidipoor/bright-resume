@@ -79,9 +79,12 @@ export class ResumeService {
     return resume;
   }
 
-  async create(inputs: CreateResumeResumeInputs): Promise<Resume> {
+  async create(
+    userId: string,
+    inputs: CreateResumeResumeInputs
+  ): Promise<Resume> {
     const resume = await this.resumeModel.create({
-      userId: "userId",
+      userId,
       ...inputs,
     });
 

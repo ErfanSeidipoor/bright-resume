@@ -9,13 +9,25 @@ export class Involvement extends Document {
   @Prop({ type: String, required: false })
   role: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowCompany: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   company: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLocation: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   location: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowDate: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })

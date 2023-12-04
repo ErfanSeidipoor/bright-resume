@@ -1,5 +1,5 @@
 import { INestApplication } from "@nestjs/common";
-import { DBService } from "../modules/db/db.service";
+import { DBService } from "../../modules/db/db.service";
 
 export class HelperDB {
   DBservice: DBService;
