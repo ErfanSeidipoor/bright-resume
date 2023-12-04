@@ -1,0 +1,61 @@
+{
+  "name": "web-2",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "web",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/web",
+        "assets": [
+          {
+            "input": "libs/assets/src",
+            "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+            "output": "/assets"
+          }
+        ]
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "web"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "web-2:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "web-2:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "web-2:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "web-2:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["web/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

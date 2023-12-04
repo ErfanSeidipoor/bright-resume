@@ -37,6 +37,12 @@ pnpm-lock.yaml
 testem.log
 /typings
 
+
+# Lockfiles
+yarn.lock
+package-lock.json
+pnpm-lock.json
+
 # System Files
 .DS_Store
 Thumbs.db
