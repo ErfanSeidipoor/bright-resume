@@ -23,6 +23,7 @@
   --dark-success: #{$dark-green};
   --warning: #{$gold};
   --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
   --grey-100: #{$grey-100};
   --grey-200: #{$grey-200};
   --grey-300: #{$grey-300};
@@ -46,6 +47,7 @@
   --dark-success: #{$dark-blue};
   --warning: #{$gold};
   --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
   --grey-100: #{$grey-100};
   --grey-200: #{$grey-200};
   --grey-300: #{$grey-300};
@@ -69,6 +71,7 @@
   --dark-success: #{$dark-green};
   --warning: #{$gold};
   --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
   --grey-100: #{$grey-100};
   --grey-200: #{$grey-200};
   --grey-300: #{$grey-300};
@@ -92,6 +95,7 @@
   --dark-success: #{$dark-green};
   --warning: #{$blue};
   --dark-warning: #{$dark-blue};
+  --grey-50: #{$grey-50};
   --grey-100: #{$grey-100};
   --grey-200: #{$grey-200};
   --grey-300: #{$grey-300};
@@ -115,6 +119,7 @@
   --dark-success: #{$dark-green};
   --warning: #{$gold};
   --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
   --grey-100: #{$grey-100};
   --grey-200: #{$grey-200};
   --grey-300: #{$grey-300};
@@ -137,24 +142,16 @@
   font-size: 15px;
 }
 
-/* ------------------------------- Font weight ------------------------------ */
+/* -------------------------------- Font size ------------------------------- */
 
-#bold {
-  font-weight: map-get($font-weight, bold);
-}
-
-#semiBold {
-  font-weight: map-get($font-weight, semi-bold);
+#small {
+  font-size: map-get($font-size, h9);
 }
 
 #medium {
-  font-weight: map-get($font-weight, medium);
+  font-size: map-get($font-size, h7);
 }
 
-#regular {
-  font-weight: map-get($font-weight, regular);
-}
-
-#light {
-  font-weight: map-get($font-weight, light);
+#large {
+  font-size: map-get($font-size, h6);
 }

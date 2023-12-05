@@ -9,3 +9,4 @@ export * from "./lib/Menu";
 export * from "./lib/Theme";
 export * from "./lib/Popup";
 export * from "./lib/RadioButton";
+export * from "./lib/ImageProfile";

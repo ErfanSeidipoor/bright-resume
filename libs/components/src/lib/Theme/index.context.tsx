@@ -1,14 +1,14 @@
 import { createContext, useContext } from "react";
 
-import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+import { FontFamily, FonSize, ThemeColor } from "../types/index.type";
 
 export type Theme = {
   themeColor: ThemeColor;
   changeThemeColor: (themeColor: ThemeColor) => void;
   fontFamily: FontFamily;
   changeFontFamily: (fontFamily: FontFamily) => void;
-  fontWeight: FontWeight;
-  changeFontWeight: (fontWeight: FontWeight) => void;
+  fonSize: FonSize;
+  changeFontSize: (fonSize: FonSize) => void;
 };
 
 export const ThemeContext = createContext<Theme>({
@@ -16,8 +16,8 @@ export const ThemeContext = createContext<Theme>({
   changeThemeColor: () => undefined,
   fontFamily: FontFamily.montserrat,
   changeFontFamily: () => undefined,
-  fontWeight: FontWeight.medium,
-  changeFontWeight: () => undefined,
+  fonSize: FonSize.medium,
+  changeFontSize: () => undefined,
 });
 
 export const useTheme = () => useContext(ThemeContext);

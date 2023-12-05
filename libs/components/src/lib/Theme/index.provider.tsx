@@ -1,4 +1,4 @@
-import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+import { FontFamily, FonSize, ThemeColor } from "../types/index.type";
 import { ThemeContext } from "./index.context";
 // locals
 import { useData } from "./index.hook";
@@ -7,22 +7,22 @@ export type ThemeProps = {
   children: React.ReactNode;
   themeColor?: ThemeColor;
   fontFamily?: FontFamily;
-  fontWeight?: FontWeight;
+  fonSize?: FonSize;
 };
 
 export const ThemeProvider: React.FC<ThemeProps> = ({
   children,
   themeColor = ThemeColor.blue,
   fontFamily = FontFamily.montserrat,
-  fontWeight = FontWeight.medium,
+  fonSize = FonSize.medium,
 }) => {
-  const data = useData({ themeColor, fontFamily, fontWeight });
+  const data = useData({ themeColor, fontFamily, fonSize });
 
   return (
     <ThemeContext.Provider value={data}>
       <div id={data.themeColor}>
         <div id={data.fontFamily}>
-          <div id={data.fontWeight}>{children}</div>
+          <div id={data.fonSize}>{children}</div>
         </div>
       </div>
     </ThemeContext.Provider>

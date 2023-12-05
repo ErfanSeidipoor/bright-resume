@@ -87,7 +87,6 @@
       width: 120px;
       cursor: pointer;
       @include transition(all, 150ms);
-      margin-bottom: spacing(3);
       &:hover {
         color: $blue;
       }

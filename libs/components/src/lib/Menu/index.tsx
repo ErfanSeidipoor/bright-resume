@@ -15,7 +15,7 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 // types //TODO => change type path
-import { FontFamily, FontWeight, ThemeColor } from "../types/index.type";
+import { FontFamily, FonSize, ThemeColor } from "../types/index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
@@ -49,21 +49,21 @@ export type MenuProps = {
   onChangeSections: (sections: string[]) => void;
   fontFamily: FontFamily;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
-  fontWeight: FontWeight;
-  onChangeFontWeight: (fontWeight: FontWeight) => void;
+  fonSize: FonSize;
+  onChangeFontSize: (fonSize: FonSize) => void;
 };
 
 export const Menu: React.FC<MenuProps> = ({
   isLoggedIn = true,
-  user,
+  user = { fullName: "", avatar: { src: "", alt: "" } },
   color,
   onChangeColor,
   sections,
   onChangeSections,
   fontFamily,
   onChangeFontFamily,
-  fontWeight,
-  onChangeFontWeight,
+  fonSize,
+  onChangeFontSize,
 }) => {
   const data = useData();
 
@@ -177,14 +177,14 @@ export const Menu: React.FC<MenuProps> = ({
           onClose={data.handleToggleFontFamilyPicker}
         >
           {Object.values(FontFamily).map((currentFontFamily) => (
-            <div
+            <Typography
               className={cls(classes.font, {
                 [classes.font__active]: currentFontFamily === fontFamily,
               })}
               onClick={() => onChangeFontFamily(currentFontFamily)}
             >
               {currentFontFamily}
-            </div>
+            </Typography>
           ))}
         </Popup>
       ),
@@ -196,8 +196,27 @@ export const Menu: React.FC<MenuProps> = ({
 
   const renderSize = () => {
     return renderMenuItem({
+      popup: (
+        <Popup
+          className={classes.popup}
+          isOpen={data.isOpenFontSizePicker}
+          onClose={data.handleToggleFontSizePicker}
+        >
+          {Object.values(FonSize).map((currentFontSize) => (
+            <Typography
+              className={cls(classes.font, {
+                [classes.font__active]: currentFontSize === fonSize,
+              })}
+              onClick={() => onChangeFontSize(currentFontSize)}
+            >
+              {currentFontSize}
+            </Typography>
+          ))}
+        </Popup>
+      ),
       title: <div className={classes.select}>Change</div>,
       text: texts.size,
+      onClick: data.handleToggleFontSizePicker,
     });
   };
 
@@ -221,13 +240,13 @@ export const Menu: React.FC<MenuProps> = ({
       title: (
         <img
           className={classes.person}
-          src="/assets/image/person.png"
+          src={user.avatar.src}
           width="20px"
           height="20px"
-          alt="user"
+          alt={user.avatar.alt}
         />
       ),
-      text: "Simon",
+      text: user.fullName,
     });
   };
 

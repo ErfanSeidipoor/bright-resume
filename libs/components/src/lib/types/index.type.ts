@@ -19,6 +19,7 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  enableRootClassName?: string;
   label?: string;
 };
 
@@ -52,6 +53,11 @@ export type LanguageProps = {
   onDecrease: (id: string) => void;
 };
 
+export type ContactInfoProps = {
+  EmailAddress: TextFieldProps;
+  PhoneNumber: TextFieldProps;
+};
+
 export type AboutMeProps = {
   header: TextFieldProps;
   description: TextAreaProps;
@@ -65,12 +71,10 @@ export enum ThemeColor {
   grey = "grey",
 }
 
-export enum FontWeight {
-  semiBold = "semiBold",
-  bold = "bold",
-  regular = "regular",
+export enum FonSize {
+  small = "small",
   medium = "medium",
-  light = "light",
+  large = "large",
 }
 
 export enum FontFamily {

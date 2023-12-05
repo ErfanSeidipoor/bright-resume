@@ -1,0 +1,78 @@
+@import "../../../../../libs/theme";
+@import "../../../../../libs/theme/mixins";
+
+.accordion {
+  width: 100%;
+  @include flexbox(column, center, center);
+
+  .accordion__item {
+    width: 100%;
+
+    @include flexbox(column, center, center);
+    @include transition(all, 0.3s, ease-in-out);
+
+    border-bottom: 3px solid $grey-200;
+
+    &:last-child {
+      border: none;
+    }
+
+    .accordion__item__header {
+      width: 100%;
+      @include flexbox(row, space-between, center);
+
+      padding: spacing(2, 3);
+      cursor: pointer;
+
+      .accordion__item__header__title {
+        @include typography(h4);
+        color: $dark;
+
+        &__open {
+          color: $blue !important;
+          font-weight: 700;
+        }
+      }
+
+      .accordion__item__icon {
+        @include flexbox(center, center, center);
+        @include transition(all, 0.3s, ease-in-out);
+
+        .accordion__item__icon__open {
+          transform: rotate(135deg);
+        }
+      }
+    }
+
+    .accordion__item__title {
+      width: 100%;
+      @include flexbox(row, center, center);
+      cursor: pointer;
+    }
+
+    .accordion__item__children {
+      width: 100%;
+      @include typography(h8);
+
+      @include flexbox(column, center, center);
+      max-height: 0;
+      opacity: 0;
+
+      @include transition(all, 0.3s, ease-in-out);
+
+      overflow: hidden;
+      color: $dark;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+
+      &__open {
+        max-height: 800px;
+        overflow: auto;
+        opacity: 1;
+        padding: spacing(6);
+      }
+    }
+  }
+}
