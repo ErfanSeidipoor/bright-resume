@@ -1,7 +1,7 @@
 {
   "name": "web",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,22 +9,18 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/web",
+        "outputPath": "dist/apps/web",
         "assets": [
           {
             "input": "libs/assets/src",
             "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
             "output": "/assets"
           }
-        ],
-        "stylePreprocessorOptions": {
-          "includePaths": ["libs/theme"]
-        },
-        "extractCss": true
+        ]
       },
       "configurations": {
         "development": {
-          "outputPath": "web"
+          "outputPath": "apps/web"
         },
         "production": {}
       }
@@ -53,11 +49,25 @@
         "buildTarget": "web:build:production"
       }
     },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

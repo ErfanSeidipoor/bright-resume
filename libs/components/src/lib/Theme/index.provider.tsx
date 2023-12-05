@@ -1,4 +1,5 @@
 import { FontFamily, FontWeight, ThemeColor } from "@bright-resume/components";
+import { ThemeContext } from "./index.context";
 // locals
 import { useData } from "./index.hook";
 
@@ -18,11 +19,13 @@ export const ThemeProvider: React.FC<ThemeProps> = ({
   const data = useData({ themeColor, fontFamily, fontWeight });
 
   return (
-    <div id={data.themeColor}>
-      <div id={data.fontFamily}>
-        <div id={data.fontWeight}>{children}</div>
+    <ThemeContext.Provider value={data}>
+      <div id={data.themeColor}>
+        <div id={data.fontFamily}>
+          <div id={data.fontWeight}>{children}</div>
+        </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 };
 
