@@ -1,5 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 .env
+.nx
+
 # compiled output
 dist
 tmp
@@ -36,6 +38,12 @@ yarn-error.log
 pnpm-lock.yaml
 testem.log
 /typings
+
+
+# Lockfiles
+yarn.lock
+package-lock.json
+pnpm-lock.json
 
 # System Files
 .DS_Store

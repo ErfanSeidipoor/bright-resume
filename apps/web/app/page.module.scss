@@ -1,0 +1,11 @@
+@import "libs/theme";
+
+.page {
+  .page__footer {
+    @include flexbox(row, center, center);
+    height: 35px;
+    width: 100%;
+    background-color: $blue;
+    color: $light;
+  }
+}
