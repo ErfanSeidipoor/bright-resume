@@ -187,7 +187,7 @@ type PaginatedResume {
 }
 
 type Query {
-  getResumes(paginationArgs: PaginationArgsGQL!, GetResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, getResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 
@@ -201,9 +201,9 @@ input GetResumesResumeArgsGQL {
 }
 
 type Mutation {
-  deleteResume(DeleteResumeResumeInputs: DeleteResumeResumeInputsGQL!): Resume!
-  createResume(CreateResumeResumeInputs: CreateResumeResumeInputsGQL!): Resume!
-  updateResume(UpdateResumeResumeInputs: UpdateResumeResumeInputsGQL!): Resume!
+  deleteResume(deleteResumeResumeInputs: DeleteResumeResumeInputsGQL!): Resume!
+  createResume(createResumeResumeInputs: CreateResumeResumeInputsGQL!): Resume!
+  updateResume(updateResumeResumeInputs: UpdateResumeResumeInputsGQL!): Resume!
 }
 
 input DeleteResumeResumeInputsGQL {

@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { DBService } from "./db.service";
+import { DbService } from "./db.service";
 import { models } from "../../models";
 
 @Module({
@@ -10,7 +10,7 @@ import { models } from "../../models";
     }),
     MongooseModule.forFeature(models),
   ],
-  providers: [DBService],
-  exports: [DBService],
+  providers: [DbService],
+  exports: [DbService],
 })
 export class DBModule {}

@@ -2,6 +2,7 @@ import { IToken, generateUserToken } from "@back-common/helpers";
 import { JwtService } from "@nestjs/jwt";
 import { faker } from "@faker-js/faker";
 import { randomUUID } from "crypto";
+import mongoose from "mongoose";
 
 export interface IGenerateAuthorizationHeader {
   username?: string;
@@ -24,7 +25,7 @@ export const generateAuthorizationHeader = ({
 
   const token = generateUserToken({
     createdAt: createdAt || new Date(),
-    id: id || randomUUID(),
+    id: id || new mongoose.Types.ObjectId().toString(),
     username: username || faker.internet.userName(),
     email: email || faker.internet.email(),
   });

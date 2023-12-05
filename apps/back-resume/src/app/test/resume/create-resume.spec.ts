@@ -5,17 +5,17 @@ import { faker } from "@faker-js/faker";
 import gql from "graphql-tag";
 import moment from "moment";
 import request from "supertest-graphql";
-import { IntegrationTestManager } from "../helper";
-import { Model } from "mongoose";
+import { HelperDB, IntegrationTestManager } from "../helper";
 import { CreateResumeResumeInputs } from "@dto";
+import { A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS } from "@bright-resume/errors";
 
 describe("microservice:resume CreateResume", () => {
   const integrationTestManager = new IntegrationTestManager();
-  let resumeModel: Model<Resume>;
+  let helperDB: HelperDB;
 
   beforeAll(async () => {
     await integrationTestManager.beforeAll();
-    resumeModel = integrationTestManager.helperDB.DBservice.resumeModel;
+    helperDB = integrationTestManager.helperDB;
   });
 
   afterEach(async () => {
@@ -30,10 +30,47 @@ describe("microservice:resume CreateResume", () => {
     await integrationTestManager.afterAll();
   });
 
+  it("should return 400 if a user tries to create a resume with a duplicate name", async () => {
+    const authHeader = generateAuthorizationHeader({});
+
+    const resume = await helperDB.createResume({ userId: authHeader.token.id });
+
+    const createResumeResumeInputs: CreateResumeResumeInputs = {
+      name: resume.name,
+    };
+
+    const {
+      errors: [error],
+    } = await request<
+      { createResume: Resume },
+      { createResumeResumeInputs: CreateResumeResumeInputsGQL }
+    >(integrationTestManager.httpServer)
+      .set(authHeader.key, authHeader.value)
+      .mutate(
+        gql`
+          mutation ($createResumeResumeInputs: CreateResumeResumeInputsGQL!) {
+            createResume(createResumeResumeInputs: $createResumeResumeInputs) {
+              id
+              name
+              userId
+            }
+          }
+        `
+      )
+      .variables({
+        createResumeResumeInputs,
+      });
+
+    expect(error).toBeDefined();
+    expect(error.message).toBe(
+      A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS.description
+    );
+  });
+
   it("creates a resume with valid inputs", async () => {
     const authHeader = generateAuthorizationHeader({});
 
-    const CreateResumeResumeInputs: CreateResumeResumeInputs = {
+    const createResumeResumeInputs: CreateResumeResumeInputs = {
       name: faker.person.fullName(),
       role: faker.person.jobTitle(),
       isShowPhoneNumber: faker.datatype.boolean(),
@@ -230,13 +267,13 @@ describe("microservice:resume CreateResume", () => {
 
     const { data } = await request<
       { createResume: Resume },
-      { CreateResumeResumeInputs: CreateResumeResumeInputsGQL }
+      { createResumeResumeInputs: CreateResumeResumeInputsGQL }
     >(integrationTestManager.httpServer)
       .set(authHeader.key, authHeader.value)
       .mutate(
         gql`
-          mutation ($CreateResumeResumeInputs: CreateResumeResumeInputsGQL!) {
-            createResume(CreateResumeResumeInputs: $CreateResumeResumeInputs) {
+          mutation ($createResumeResumeInputs: CreateResumeResumeInputsGQL!) {
+            createResume(createResumeResumeInputs: $createResumeResumeInputs) {
               id
               name
               userId
@@ -245,506 +282,505 @@ describe("microservice:resume CreateResume", () => {
         `
       )
       .variables({
-        CreateResumeResumeInputs,
+        createResumeResumeInputs,
       })
       .expectNoErrors();
 
     const { id: resumeId } = data.createResume;
     const { id: userId } = authHeader.token;
 
-    const resume = await resumeModel.findById(resumeId);
-
-    console.log({ resume });
+    const resume = await helperDB.dbService.resumeModel.findById(resumeId);
 
     expect(resume.id).toBe(resumeId);
     expect(resume.userId).toBe(userId);
 
-    // i want to check all props of resume
+    // i want to check all propes
 
-    expect(CreateResumeResumeInputs.name).toBe(resume.name);
-    expect(CreateResumeResumeInputs.role).toBe(resume.role);
-    expect(CreateResumeResumeInputs.isShowPhoneNumber).toBe(
+    expect(createResumeResumeInputs.name).toBe(resume.name);
+
+    expect(createResumeResumeInputs.role).toBe(resume.role);
+    expect(createResumeResumeInputs.isShowPhoneNumber).toBe(
       resume.isShowPhoneNumber
     );
-    expect(CreateResumeResumeInputs.phoneNumber).toBe(resume.phoneNumber);
-    expect(CreateResumeResumeInputs.isShowLinkedin).toBe(resume.isShowLinkedin);
-    expect(CreateResumeResumeInputs.linkedin).toBe(resume.linkedin);
-    expect(CreateResumeResumeInputs.isShowWebsite).toBe(resume.isShowWebsite);
-    expect(CreateResumeResumeInputs.website).toBe(resume.website);
-    expect(CreateResumeResumeInputs.isShowEmail).toBe(resume.isShowEmail);
-    expect(CreateResumeResumeInputs.email).toBe(resume.email);
-    expect(CreateResumeResumeInputs.isShowLocation).toBe(resume.isShowLocation);
-    expect(CreateResumeResumeInputs.location).toBe(resume.location);
-    expect(CreateResumeResumeInputs.isShowBirthDay).toBe(resume.isShowBirthDay);
-    expect(CreateResumeResumeInputs.birthDay).toBe(resume.birthDay);
-    expect(CreateResumeResumeInputs.isShowSummary).toBe(resume.isShowSummary);
-    expect(CreateResumeResumeInputs.summaryLabel).toBe(resume.summaryLabel);
-    expect(CreateResumeResumeInputs.summary).toBe(resume.summary);
-    expect(CreateResumeResumeInputs.isShowExperience).toBe(
+    expect(createResumeResumeInputs.phoneNumber).toBe(resume.phoneNumber);
+    expect(createResumeResumeInputs.isShowLinkedin).toBe(resume.isShowLinkedin);
+    expect(createResumeResumeInputs.linkedin).toBe(resume.linkedin);
+    expect(createResumeResumeInputs.isShowWebsite).toBe(resume.isShowWebsite);
+    expect(createResumeResumeInputs.website).toBe(resume.website);
+    expect(createResumeResumeInputs.isShowEmail).toBe(resume.isShowEmail);
+    expect(createResumeResumeInputs.email).toBe(resume.email);
+    expect(createResumeResumeInputs.isShowLocation).toBe(resume.isShowLocation);
+    expect(createResumeResumeInputs.location).toBe(resume.location);
+    expect(createResumeResumeInputs.isShowBirthDay).toBe(resume.isShowBirthDay);
+    expect(createResumeResumeInputs.birthDay).toBe(resume.birthDay);
+    expect(createResumeResumeInputs.isShowSummary).toBe(resume.isShowSummary);
+    expect(createResumeResumeInputs.summaryLabel).toBe(resume.summaryLabel);
+    expect(createResumeResumeInputs.summary).toBe(resume.summary);
+    expect(createResumeResumeInputs.isShowExperience).toBe(
       resume.isShowExperience
     );
-    expect(CreateResumeResumeInputs.experienceLabel).toBe(
+    expect(createResumeResumeInputs.experienceLabel).toBe(
       resume.experienceLabel
     );
-    expect(CreateResumeResumeInputs.experienceRoleLabel).toBe(
+    expect(createResumeResumeInputs.experienceRoleLabel).toBe(
       resume.experienceRoleLabel
     );
-    expect(CreateResumeResumeInputs.experienceCompanyLabel).toBe(
+    expect(createResumeResumeInputs.experienceCompanyLabel).toBe(
       resume.experienceCompanyLabel
     );
-    expect(CreateResumeResumeInputs.experienceLocationLabel).toBe(
+    expect(createResumeResumeInputs.experienceLocationLabel).toBe(
       resume.experienceLocationLabel
     );
 
-    expect(CreateResumeResumeInputs.experiences).toHaveLength(
+    expect(createResumeResumeInputs.experiences).toHaveLength(
       resume.experiences.length
     );
 
-    expect(CreateResumeResumeInputs.experiences).toHaveLength(
+    expect(createResumeResumeInputs.experiences).toHaveLength(
       resume.experiences.length
     );
 
     for (let i = 0; i < resume.experiences.length; i++) {
-      expect(CreateResumeResumeInputs.experiences[i].role).toBe(
+      expect(createResumeResumeInputs.experiences[i].role).toBe(
         resume.experiences[i].role
       );
-      expect(CreateResumeResumeInputs.experiences[i].company).toBe(
+      expect(createResumeResumeInputs.experiences[i].company).toBe(
         resume.experiences[i].company
       );
-      expect(CreateResumeResumeInputs.experiences[i].isShowLocation).toBe(
+      expect(createResumeResumeInputs.experiences[i].isShowLocation).toBe(
         resume.experiences[i].isShowLocation
       );
-      expect(CreateResumeResumeInputs.experiences[i].location).toBe(
+      expect(createResumeResumeInputs.experiences[i].location).toBe(
         resume.experiences[i].location
       );
-      expect(CreateResumeResumeInputs.experiences[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.experiences[i].isShowDate).toBe(
         resume.experiences[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.experiences[i].fromMonth).toBe(
+      expect(createResumeResumeInputs.experiences[i].fromMonth).toBe(
         resume.experiences[i].fromMonth
       );
-      expect(CreateResumeResumeInputs.experiences[i].fromYear).toBe(
+      expect(createResumeResumeInputs.experiences[i].fromYear).toBe(
         resume.experiences[i].fromYear
       );
-      expect(CreateResumeResumeInputs.experiences[i].toMonth).toBe(
+      expect(createResumeResumeInputs.experiences[i].toMonth).toBe(
         resume.experiences[i].toMonth
       );
-      expect(CreateResumeResumeInputs.experiences[i].toYear).toBe(
+      expect(createResumeResumeInputs.experiences[i].toYear).toBe(
         resume.experiences[i].toYear
       );
-      expect(CreateResumeResumeInputs.experiences[i].untilNow).toBe(
+      expect(createResumeResumeInputs.experiences[i].untilNow).toBe(
         resume.experiences[i].untilNow
       );
 
-      expect(CreateResumeResumeInputs.experiences[i].points).toHaveLength(
+      expect(createResumeResumeInputs.experiences[i].points).toHaveLength(
         resume.experiences[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.experiences[i].points.length;
+        j < createResumeResumeInputs.experiences[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.experiences[i].points[j]).toBe(
+        expect(createResumeResumeInputs.experiences[i].points[j]).toBe(
           resume.experiences[i].points[j]
         );
       }
     }
 
-    expect(CreateResumeResumeInputs.isShowProject).toBe(resume.isShowProject);
-    expect(CreateResumeResumeInputs.projectLabel).toBe(resume.projectLabel);
-    expect(CreateResumeResumeInputs.projectRoleLabel).toBe(
+    expect(createResumeResumeInputs.isShowProject).toBe(resume.isShowProject);
+    expect(createResumeResumeInputs.projectLabel).toBe(resume.projectLabel);
+    expect(createResumeResumeInputs.projectRoleLabel).toBe(
       resume.projectRoleLabel
     );
-    expect(CreateResumeResumeInputs.projectTitleLabel).toBe(
+    expect(createResumeResumeInputs.projectTitleLabel).toBe(
       resume.projectTitleLabel
     );
-    expect(CreateResumeResumeInputs.projectCompanyLabel).toBe(
+    expect(createResumeResumeInputs.projectCompanyLabel).toBe(
       resume.projectCompanyLabel
     );
-    expect(CreateResumeResumeInputs.projectLocationLabel).toBe(
+    expect(createResumeResumeInputs.projectLocationLabel).toBe(
       resume.projectLocationLabel
     );
-    expect(CreateResumeResumeInputs.projectUrlLabel).toBe(
+    expect(createResumeResumeInputs.projectUrlLabel).toBe(
       resume.projectUrlLabel
     );
-    expect(CreateResumeResumeInputs.projects).toHaveLength(
+    expect(createResumeResumeInputs.projects).toHaveLength(
       resume.projects.length
     );
 
     for (let i = 0; i < resume.projects.length; i++) {
-      expect(CreateResumeResumeInputs.projects[i].title).toBe(
+      expect(createResumeResumeInputs.projects[i].title).toBe(
         resume.projects[i].title
       );
-      expect(CreateResumeResumeInputs.projects[i].isShowRole).toBe(
+      expect(createResumeResumeInputs.projects[i].isShowRole).toBe(
         resume.projects[i].isShowRole
       );
-      expect(CreateResumeResumeInputs.projects[i].role).toBe(
+      expect(createResumeResumeInputs.projects[i].role).toBe(
         resume.projects[i].role
       );
-      expect(CreateResumeResumeInputs.projects[i].isShowCompany).toBe(
+      expect(createResumeResumeInputs.projects[i].isShowCompany).toBe(
         resume.projects[i].isShowCompany
       );
-      expect(CreateResumeResumeInputs.projects[i].company).toBe(
+      expect(createResumeResumeInputs.projects[i].company).toBe(
         resume.projects[i].company
       );
-      expect(CreateResumeResumeInputs.projects[i].isShowLocation).toBe(
+      expect(createResumeResumeInputs.projects[i].isShowLocation).toBe(
         resume.projects[i].isShowLocation
       );
-      expect(CreateResumeResumeInputs.projects[i].location).toBe(
+      expect(createResumeResumeInputs.projects[i].location).toBe(
         resume.projects[i].location
       );
-      expect(CreateResumeResumeInputs.projects[i].isShowUrl).toBe(
+      expect(createResumeResumeInputs.projects[i].isShowUrl).toBe(
         resume.projects[i].isShowUrl
       );
-      expect(CreateResumeResumeInputs.projects[i].url).toBe(
+      expect(createResumeResumeInputs.projects[i].url).toBe(
         resume.projects[i].url
       );
-      expect(CreateResumeResumeInputs.projects[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.projects[i].isShowDate).toBe(
         resume.projects[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.projects[i].fromMonth).toBe(
+      expect(createResumeResumeInputs.projects[i].fromMonth).toBe(
         resume.projects[i].fromMonth
       );
-      expect(CreateResumeResumeInputs.projects[i].fromYear).toBe(
+      expect(createResumeResumeInputs.projects[i].fromYear).toBe(
         resume.projects[i].fromYear
       );
-      expect(CreateResumeResumeInputs.projects[i].toMonth).toBe(
+      expect(createResumeResumeInputs.projects[i].toMonth).toBe(
         resume.projects[i].toMonth
       );
-      expect(CreateResumeResumeInputs.projects[i].toYear).toBe(
+      expect(createResumeResumeInputs.projects[i].toYear).toBe(
         resume.projects[i].toYear
       );
-      expect(CreateResumeResumeInputs.projects[i].untilNow).toBe(
+      expect(createResumeResumeInputs.projects[i].untilNow).toBe(
         resume.projects[i].untilNow
       );
 
-      expect(CreateResumeResumeInputs.projects[i].points).toHaveLength(
+      expect(createResumeResumeInputs.projects[i].points).toHaveLength(
         resume.projects[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.projects[i].points.length;
+        j < createResumeResumeInputs.projects[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.projects[i].points[j]).toBe(
+        expect(createResumeResumeInputs.projects[i].points[j]).toBe(
           resume.projects[i].points[j]
         );
       }
     }
 
-    expect(CreateResumeResumeInputs.isShowEducation).toBe(
+    expect(createResumeResumeInputs.isShowEducation).toBe(
       resume.isShowEducation
     );
 
-    expect(CreateResumeResumeInputs.educationLabel).toBe(resume.educationLabel);
+    expect(createResumeResumeInputs.educationLabel).toBe(resume.educationLabel);
 
-    expect(CreateResumeResumeInputs.educationDegreeLabel).toBe(
+    expect(createResumeResumeInputs.educationDegreeLabel).toBe(
       resume.educationDegreeLabel
     );
 
-    expect(CreateResumeResumeInputs.educationInstituteLabel).toBe(
+    expect(createResumeResumeInputs.educationInstituteLabel).toBe(
       resume.educationInstituteLabel
     );
-    expect(CreateResumeResumeInputs.educationLocationLabel).toBe(
+    expect(createResumeResumeInputs.educationLocationLabel).toBe(
       resume.educationLocationLabel
     );
-    expect(CreateResumeResumeInputs.educationGpaLabel).toBe(
+    expect(createResumeResumeInputs.educationGpaLabel).toBe(
       resume.educationGpaLabel
     );
 
-    expect(CreateResumeResumeInputs.educations).toHaveLength(
+    expect(createResumeResumeInputs.educations).toHaveLength(
       resume.educations.length
     );
 
     for (let i = 0; i < resume.educations.length; i++) {
-      expect(CreateResumeResumeInputs.educations[i].degree).toBe(
+      expect(createResumeResumeInputs.educations[i].degree).toBe(
         resume.educations[i].degree
       );
-      expect(CreateResumeResumeInputs.educations[i].isShowInstitute).toBe(
+      expect(createResumeResumeInputs.educations[i].isShowInstitute).toBe(
         resume.educations[i].isShowInstitute
       );
-      expect(CreateResumeResumeInputs.educations[i].institute).toBe(
+      expect(createResumeResumeInputs.educations[i].institute).toBe(
         resume.educations[i].institute
       );
-      expect(CreateResumeResumeInputs.educations[i].isShowLocation).toBe(
+      expect(createResumeResumeInputs.educations[i].isShowLocation).toBe(
         resume.educations[i].isShowLocation
       );
-      expect(CreateResumeResumeInputs.educations[i].location).toBe(
+      expect(createResumeResumeInputs.educations[i].location).toBe(
         resume.educations[i].location
       );
-      expect(CreateResumeResumeInputs.educations[i].isShowGpa).toBe(
+      expect(createResumeResumeInputs.educations[i].isShowGpa).toBe(
         resume.educations[i].isShowGpa
       );
-      expect(CreateResumeResumeInputs.educations[i].gpa).toBe(
+      expect(createResumeResumeInputs.educations[i].gpa).toBe(
         resume.educations[i].gpa
       );
-      expect(CreateResumeResumeInputs.educations[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.educations[i].isShowDate).toBe(
         resume.educations[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.educations[i].from).toBe(
+      expect(createResumeResumeInputs.educations[i].from).toBe(
         resume.educations[i].from
       );
-      expect(CreateResumeResumeInputs.educations[i].to).toBe(
+      expect(createResumeResumeInputs.educations[i].to).toBe(
         resume.educations[i].to
       );
-      expect(CreateResumeResumeInputs.educations[i].untilNow).toBe(
+      expect(createResumeResumeInputs.educations[i].untilNow).toBe(
         resume.educations[i].untilNow
       );
 
-      expect(CreateResumeResumeInputs.educations[i].points).toHaveLength(
+      expect(createResumeResumeInputs.educations[i].points).toHaveLength(
         resume.educations[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.educations[i].points.length;
+        j < createResumeResumeInputs.educations[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.educations[i].points[j]).toBe(
+        expect(createResumeResumeInputs.educations[i].points[j]).toBe(
           resume.educations[i].points[j]
         );
       }
     }
 
-    expect(CreateResumeResumeInputs.isShowCertification).toBe(
+    expect(createResumeResumeInputs.isShowCertification).toBe(
       resume.isShowCertification
     );
-    expect(CreateResumeResumeInputs.certificationLabel).toBe(
+    expect(createResumeResumeInputs.certificationLabel).toBe(
       resume.certificationLabel
     );
-    expect(CreateResumeResumeInputs.certificationNameLabel).toBe(
+    expect(createResumeResumeInputs.certificationNameLabel).toBe(
       resume.certificationNameLabel
     );
 
-    expect(CreateResumeResumeInputs.certificationInstituteLabel).toBe(
+    expect(createResumeResumeInputs.certificationInstituteLabel).toBe(
       resume.certificationInstituteLabel
     );
-    expect(CreateResumeResumeInputs.certificationYearLabel).toBe(
+    expect(createResumeResumeInputs.certificationYearLabel).toBe(
       resume.certificationYearLabel
     );
 
-    expect(CreateResumeResumeInputs.certifications).toHaveLength(
+    expect(createResumeResumeInputs.certifications).toHaveLength(
       resume.certifications.length
     );
 
     for (let i = 0; i < resume.certifications.length; i++) {
-      expect(CreateResumeResumeInputs.certifications[i].name).toBe(
+      expect(createResumeResumeInputs.certifications[i].name).toBe(
         resume.certifications[i].name
       );
-      expect(CreateResumeResumeInputs.certifications[i].isShowInstitute).toBe(
+      expect(createResumeResumeInputs.certifications[i].isShowInstitute).toBe(
         resume.certifications[i].isShowInstitute
       );
-      expect(CreateResumeResumeInputs.certifications[i].institute).toBe(
+      expect(createResumeResumeInputs.certifications[i].institute).toBe(
         resume.certifications[i].institute
       );
-      expect(CreateResumeResumeInputs.certifications[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.certifications[i].isShowDate).toBe(
         resume.certifications[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.certifications[i].year).toBe(
+      expect(createResumeResumeInputs.certifications[i].year).toBe(
         resume.certifications[i].year
       );
 
-      expect(CreateResumeResumeInputs.certifications[i].points).toHaveLength(
+      expect(createResumeResumeInputs.certifications[i].points).toHaveLength(
         resume.certifications[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.certifications[i].points.length;
+        j < createResumeResumeInputs.certifications[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.certifications[i].points[j]).toBe(
+        expect(createResumeResumeInputs.certifications[i].points[j]).toBe(
           resume.certifications[i].points[j]
         );
       }
     }
 
-    expect(CreateResumeResumeInputs.isShowCourseWork).toBe(
+    expect(createResumeResumeInputs.isShowCourseWork).toBe(
       resume.isShowCourseWork
     );
 
-    expect(CreateResumeResumeInputs.courseWorkLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkLabel).toBe(
       resume.courseWorkLabel
     );
-    expect(CreateResumeResumeInputs.courseWorkTitleLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkTitleLabel).toBe(
       resume.courseWorkTitleLabel
     );
-    expect(CreateResumeResumeInputs.courseWorkNameLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkNameLabel).toBe(
       resume.courseWorkNameLabel
     );
 
-    expect(CreateResumeResumeInputs.courseWorkInstituteLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkInstituteLabel).toBe(
       resume.courseWorkInstituteLabel
     );
 
-    expect(CreateResumeResumeInputs.courseWorkYearLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkYearLabel).toBe(
       resume.courseWorkYearLabel
     );
-    expect(CreateResumeResumeInputs.courseWorkSkillsLabel).toBe(
+    expect(createResumeResumeInputs.courseWorkSkillsLabel).toBe(
       resume.courseWorkSkillsLabel
     );
 
-    expect(CreateResumeResumeInputs.courseWorks).toHaveLength(
+    expect(createResumeResumeInputs.courseWorks).toHaveLength(
       resume.courseWorks.length
     );
 
     for (let i = 0; i < resume.courseWorks.length; i++) {
-      expect(CreateResumeResumeInputs.courseWorks[i].name).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].name).toBe(
         resume.courseWorks[i].name
       );
-      expect(CreateResumeResumeInputs.courseWorks[i].isShowInstitute).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].isShowInstitute).toBe(
         resume.courseWorks[i].isShowInstitute
       );
-      expect(CreateResumeResumeInputs.courseWorks[i].institute).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].institute).toBe(
         resume.courseWorks[i].institute
       );
-      expect(CreateResumeResumeInputs.courseWorks[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].isShowDate).toBe(
         resume.courseWorks[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.courseWorks[i].isShowSkills).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].isShowSkills).toBe(
         resume.courseWorks[i].isShowSkills
       );
-      expect(CreateResumeResumeInputs.courseWorks[i].year).toBe(
+      expect(createResumeResumeInputs.courseWorks[i].year).toBe(
         resume.courseWorks[i].year
       );
 
-      expect(CreateResumeResumeInputs.courseWorks[i].points).toHaveLength(
+      expect(createResumeResumeInputs.courseWorks[i].points).toHaveLength(
         resume.courseWorks[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.courseWorks[i].points.length;
+        j < createResumeResumeInputs.courseWorks[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.courseWorks[i].points[j]).toBe(
+        expect(createResumeResumeInputs.courseWorks[i].points[j]).toBe(
           resume.courseWorks[i].points[j]
         );
       }
     }
 
-    expect(CreateResumeResumeInputs.isShowInvolvement).toBe(
+    expect(createResumeResumeInputs.isShowInvolvement).toBe(
       resume.isShowInvolvement
     );
-    expect(CreateResumeResumeInputs.involvementLabel).toBe(
+    expect(createResumeResumeInputs.involvementLabel).toBe(
       resume.involvementLabel
     );
-    expect(CreateResumeResumeInputs.involvementRoleLabel).toBe(
+    expect(createResumeResumeInputs.involvementRoleLabel).toBe(
       resume.involvementRoleLabel
     );
-    expect(CreateResumeResumeInputs.involvementCompanyLabel).toBe(
+    expect(createResumeResumeInputs.involvementCompanyLabel).toBe(
       resume.involvementCompanyLabel
     );
-    expect(CreateResumeResumeInputs.involvementLocationLabel).toBe(
+    expect(createResumeResumeInputs.involvementLocationLabel).toBe(
       resume.involvementLocationLabel
     );
 
-    expect(CreateResumeResumeInputs.involvements).toHaveLength(
+    expect(createResumeResumeInputs.involvements).toHaveLength(
       resume.involvements.length
     );
 
     for (let i = 0; i < resume.involvements.length; i++) {
-      expect(CreateResumeResumeInputs.involvements[i].role).toBe(
+      expect(createResumeResumeInputs.involvements[i].role).toBe(
         resume.involvements[i].role
       );
-      expect(CreateResumeResumeInputs.involvements[i].isShowCompany).toBe(
+      expect(createResumeResumeInputs.involvements[i].isShowCompany).toBe(
         resume.involvements[i].isShowCompany
       );
-      expect(CreateResumeResumeInputs.involvements[i].company).toBe(
+      expect(createResumeResumeInputs.involvements[i].company).toBe(
         resume.involvements[i].company
       );
-      expect(CreateResumeResumeInputs.involvements[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.involvements[i].isShowDate).toBe(
         resume.involvements[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.involvements[i].isShowLocation).toBe(
+      expect(createResumeResumeInputs.involvements[i].isShowLocation).toBe(
         resume.involvements[i].isShowLocation
       );
-      expect(CreateResumeResumeInputs.involvements[i].location).toBe(
+      expect(createResumeResumeInputs.involvements[i].location).toBe(
         resume.involvements[i].location
       );
-      expect(CreateResumeResumeInputs.involvements[i].isShowDate).toBe(
+      expect(createResumeResumeInputs.involvements[i].isShowDate).toBe(
         resume.involvements[i].isShowDate
       );
-      expect(CreateResumeResumeInputs.involvements[i].fromMonth).toBe(
+      expect(createResumeResumeInputs.involvements[i].fromMonth).toBe(
         resume.involvements[i].fromMonth
       );
-      expect(CreateResumeResumeInputs.involvements[i].fromYear).toBe(
+      expect(createResumeResumeInputs.involvements[i].fromYear).toBe(
         resume.involvements[i].fromYear
       );
-      expect(CreateResumeResumeInputs.involvements[i].toMonth).toBe(
+      expect(createResumeResumeInputs.involvements[i].toMonth).toBe(
         resume.involvements[i].toMonth
       );
-      expect(CreateResumeResumeInputs.involvements[i].toYear).toBe(
+      expect(createResumeResumeInputs.involvements[i].toYear).toBe(
         resume.involvements[i].toYear
       );
-      expect(CreateResumeResumeInputs.involvements[i].untilNow).toBe(
+      expect(createResumeResumeInputs.involvements[i].untilNow).toBe(
         resume.involvements[i].untilNow
       );
 
-      expect(CreateResumeResumeInputs.involvements[i].points).toHaveLength(
+      expect(createResumeResumeInputs.involvements[i].points).toHaveLength(
         resume.involvements[i].points.length
       );
 
       for (
         let j = 0;
-        j < CreateResumeResumeInputs.involvements[i].points.length;
+        j < createResumeResumeInputs.involvements[i].points.length;
         j++
       ) {
-        expect(CreateResumeResumeInputs.involvements[i].points[j]).toBe(
+        expect(createResumeResumeInputs.involvements[i].points[j]).toBe(
           resume.involvements[i].points[j]
         );
       }
     }
-    expect(CreateResumeResumeInputs.isShowSkill).toBe(resume.isShowSkill);
-    expect(CreateResumeResumeInputs.involvementLabel).toBe(
+    expect(createResumeResumeInputs.isShowSkill).toBe(resume.isShowSkill);
+    expect(createResumeResumeInputs.involvementLabel).toBe(
       resume.involvementLabel
     );
-    expect(CreateResumeResumeInputs.skillLabel).toBe(resume.skillLabel);
+    expect(createResumeResumeInputs.skillLabel).toBe(resume.skillLabel);
 
-    expect(CreateResumeResumeInputs.skills).toHaveLength(resume.skills.length);
+    expect(createResumeResumeInputs.skills).toHaveLength(resume.skills.length);
 
-    expect(CreateResumeResumeInputs.skills).toHaveLength(resume.skills.length);
+    expect(createResumeResumeInputs.skills).toHaveLength(resume.skills.length);
 
     for (let i = 0; i < resume.skills.length; i++) {
-      expect(CreateResumeResumeInputs.skills[i]).toBe(resume.skills[i]);
+      expect(createResumeResumeInputs.skills[i]).toBe(resume.skills[i]);
     }
 
-    expect(CreateResumeResumeInputs.isShowLanguage).toBe(resume.isShowLanguage);
-    expect(CreateResumeResumeInputs.languageLabel).toBe(resume.languageLabel);
-    expect(CreateResumeResumeInputs.languageNameLabel).toBe(
+    expect(createResumeResumeInputs.isShowLanguage).toBe(resume.isShowLanguage);
+    expect(createResumeResumeInputs.languageLabel).toBe(resume.languageLabel);
+    expect(createResumeResumeInputs.languageNameLabel).toBe(
       resume.languageNameLabel
     );
-    expect(CreateResumeResumeInputs.languageLevelLabel).toBe(
+    expect(createResumeResumeInputs.languageLevelLabel).toBe(
       resume.languageLevelLabel
     );
 
-    expect(CreateResumeResumeInputs.languages).toHaveLength(
+    expect(createResumeResumeInputs.languages).toHaveLength(
       resume.languages.length
     );
 
     for (let i = 0; i < resume.languages.length; i++) {
-      expect(CreateResumeResumeInputs.languages[i].name).toBe(
+      expect(createResumeResumeInputs.languages[i].name).toBe(
         resume.languages[i].name
       );
-      expect(CreateResumeResumeInputs.languages[i].level).toBe(
+      expect(createResumeResumeInputs.languages[i].level).toBe(
         resume.languages[i].level
       );
-      expect(CreateResumeResumeInputs.languages[i].isShowLevel).toBe(
+      expect(createResumeResumeInputs.languages[i].isShowLevel).toBe(
         resume.languages[i].isShowLevel
       );
     }
 
-    expect(CreateResumeResumeInputs.hobbyLabel).toBe(resume.hobbyLabel);
-    expect(CreateResumeResumeInputs.isShowHobby).toBe(resume.isShowHobby);
+    expect(createResumeResumeInputs.hobbyLabel).toBe(resume.hobbyLabel);
+    expect(createResumeResumeInputs.isShowHobby).toBe(resume.isShowHobby);
 
-    expect(CreateResumeResumeInputs.hobbies).toHaveLength(
+    expect(createResumeResumeInputs.hobbies).toHaveLength(
       resume.hobbies.length
     );
 
     for (let i = 0; i < resume.hobbies.length; i++) {
-      expect(CreateResumeResumeInputs.hobbies[i]).toBe(resume.hobbies[i]);
+      expect(createResumeResumeInputs.hobbies[i]).toBe(resume.hobbies[i]);
     }
   });
 });

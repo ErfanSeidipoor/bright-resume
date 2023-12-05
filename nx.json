@@ -3,16 +3,16 @@
   "npmScope": "bright-resume",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      // "runner": "nx-cloud",
       "options": {
         "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "build-storybook"
-        ],
-        "accessToken": "YWI4MmJmYzYtMzE5Mi00ODg5LTkzYWUtZWUzYzljYWJlZWRkfHJlYWQtd3JpdGU="
+          // "build",
+          // "lint",
+          // "test",
+          // "e2e",
+          // "build-storybook"
+        ]
+        // "accessToken": "YWI4MmJmYzYtMzE5Mi00ODg5LTkzYWUtZWUzYzljYWJlZWRkfHJlYWQtd3JpdGU="
       }
     }
   },

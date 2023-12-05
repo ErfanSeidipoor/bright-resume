@@ -19,41 +19,50 @@ export class ResumeResolver {
   constructor(private resumeService: ResumeService) {}
 
   @Query(() => PaginatedResume, { nullable: false })
+  @UseGuards(GqlAuthGuard)
   async getResumes(
     @Args("paginationArgs") paginationArgs: PaginationArgsGQL,
-    @Args("GetResumesResumeArgs") args: GetResumesResumeArgsGQL
+    @Args("getResumesResumeArgs") args: GetResumesResumeArgsGQL
   ) {
     return this.resumeService.getList(paginationArgs, args);
   }
 
   @Mutation(() => Resume)
+  @UseGuards(GqlAuthGuard)
   async deleteResume(
-    @Args("DeleteResumeResumeInputs")
+    @UserId() userId: string,
+    @Args("deleteResumeResumeInputs")
     inputs: DeleteResumeResumeInputsGQL
   ): Promise<Resume> {
-    return await this.resumeService.delete(inputs);
+    return await this.resumeService.delete(userId, inputs);
   }
 
   @Mutation(() => Resume)
   @UseGuards(GqlAuthGuard)
   async createResume(
     @UserId() userId: string,
-    @Args("CreateResumeResumeInputs")
+    @Args("createResumeResumeInputs")
     inputs: CreateResumeResumeInputsGQL
   ): Promise<Resume> {
     return await this.resumeService.create(userId, inputs);
   }
 
   @Mutation(() => Resume)
+  @UseGuards(GqlAuthGuard)
   async updateResume(
-    @Args("UpdateResumeResumeInputs")
+    @UserId() userId: string,
+    @Args("updateResumeResumeInputs")
     inputs: UpdateResumeResumeInputsGQL
   ): Promise<Resume> {
     return await this.resumeService.update(inputs);
   }
 
   @Query(() => Resume, { nullable: false })
-  async getResumeById(@Args() getProductByIdArgs: GetResumeByIdResumeArgsGQL) {
+  @UseGuards(GqlAuthGuard)
+  async getResumeById(
+    @UserId() userId: string,
+    @Args() getProductByIdArgs: GetResumeByIdResumeArgsGQL
+  ) {
     return this.resumeService.getById(getProductByIdArgs);
   }
 }

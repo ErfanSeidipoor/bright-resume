@@ -368,7 +368,7 @@ export class CreateResumeResumeInputs {
 
   @IsOptional()
   @IsString()
-  @MaxLength(20)
+  @MaxLength(30)
   phoneNumber?: string;
 
   @IsOptional()
