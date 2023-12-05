@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PageInfo {
+  totalEdges: Float!
+  edgeCount: Float
+  edgesPerPage: Float!
+  totalPages: Float!
+  currentPage: Float!
+}
+
+type User {
+  id: ID
+  name: String
+  username: String
+  email: String
+  token: String
+  picture: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getProfile: User!
+}
+
+type Mutation {
+  signUp(SignUpAuthInputs: SignUpAuthInputsGQL!): User!
+  signIn(SignInAuthInputs: SignInAuthInputsGQL!): User!
+}
+
+input SignUpAuthInputsGQL {
+  name: String!
+  username: String!
+  password: String!
+}
+
+input SignInAuthInputsGQL {
+  username: String!
+  password: String!
+}

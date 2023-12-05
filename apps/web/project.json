@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/web",
   "projectType": "application",
   "targets": {
@@ -16,7 +16,11 @@
             "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
             "output": "/assets"
           }
-        ]
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/theme"]
+        },
+        "extractCss": true
       },
       "configurations": {
         "development": {
@@ -47,20 +51,6 @@
       "executor": "@nx/next:export",
       "options": {
         "buildTarget": "web:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/web/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
       }
     },
     "lint": {

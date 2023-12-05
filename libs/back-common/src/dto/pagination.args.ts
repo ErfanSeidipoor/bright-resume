@@ -1,5 +1,5 @@
 import { Field, InputType, Int } from "@nestjs/graphql";
-import { PaginationArgs } from "@bright-resume/dto";
+import { PaginationArgs } from "@dto";
 
 @InputType()
 export class PaginationArgsGQL extends PaginationArgs {

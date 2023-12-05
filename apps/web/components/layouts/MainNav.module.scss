@@ -1,0 +1,60 @@
+@import "libs/theme";
+
+.container {
+  @include flexbox(row, space-between, center);
+  height: 100px;
+  position: sticky;
+  top: 0;
+  bottom: 100px;
+  padding: 0 8%;
+  background-color: $light;
+  z-index: 1000;
+}
+
+.tabs {
+  @include flexbox(row, space-between, center);
+  width: 100%;
+  max-width: 300px;
+
+  .links {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $light;
+      color: $blue;
+    }
+  }
+}
+
+.logo {
+  width: 10rem;
+  height: 100%;
+  object-fit: contain;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.login_button {
+  height: 34px;
+  font-weight: map-get($font-weight, bold);
+  padding: spacing(0, 4);
+  border: 1px solid $blue;
+  border-radius: 5px;
+
+  @include flexbox(row, center, center);
+  cursor: pointer;
+  color: $blue;
+
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $blue;
+    color: $light;
+  }
+}
