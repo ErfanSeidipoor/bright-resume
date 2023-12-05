@@ -80,16 +80,10 @@ export class ResumeService {
   }
 
   async create(inputs: CreateResumeResumeInputs): Promise<Resume> {
-    const resume = new this.resumeModel({
+    const resume = await this.resumeModel.create({
       userId: "userId",
-      name: inputs.name,
+      ...inputs,
     });
-    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-    // resume.experiences.splice(0, resume.experiences.length);
-    // resume.experiences.push(new this.experienceModel(inputs.experiences[0]));
-
-    await resume.save();
 
     return resume;
   }
