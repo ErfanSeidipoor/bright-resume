@@ -1,5 +1,5 @@
-import { FC } from "react";
 import cls from "classnames";
+import { FC } from "react";
 // components
 import {
   BackgroundInfoChildProps,
