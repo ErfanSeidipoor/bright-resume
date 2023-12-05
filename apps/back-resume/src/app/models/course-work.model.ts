@@ -27,6 +27,10 @@ export class CourseWork extends Document {
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })
+  isShowSkills: boolean;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
   isSkills: boolean;
 
   @Field(() => String, { nullable: true })

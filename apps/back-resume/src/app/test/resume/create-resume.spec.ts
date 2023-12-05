@@ -300,6 +300,10 @@ describe("microservice:resume CreateResume", () => {
       resume.experiences.length
     );
 
+    expect(CreateResumeResumeInputs.experiences).toHaveLength(
+      resume.experiences.length
+    );
+
     for (let i = 0; i < resume.experiences.length; i++) {
       expect(CreateResumeResumeInputs.experiences[i].role).toBe(
         resume.experiences[i].role
@@ -364,6 +368,9 @@ describe("microservice:resume CreateResume", () => {
     expect(CreateResumeResumeInputs.projectUrlLabel).toBe(
       resume.projectUrlLabel
     );
+    expect(CreateResumeResumeInputs.projects).toHaveLength(
+      resume.projects.length
+    );
 
     for (let i = 0; i < resume.projects.length; i++) {
       expect(CreateResumeResumeInputs.projects[i].title).toBe(
@@ -412,6 +419,10 @@ describe("microservice:resume CreateResume", () => {
         resume.projects[i].untilNow
       );
 
+      expect(CreateResumeResumeInputs.projects[i].points).toHaveLength(
+        resume.projects[i].points.length
+      );
+
       for (
         let j = 0;
         j < CreateResumeResumeInputs.projects[i].points.length;
@@ -441,6 +452,10 @@ describe("microservice:resume CreateResume", () => {
     );
     expect(CreateResumeResumeInputs.educationGpaLabel).toBe(
       resume.educationGpaLabel
+    );
+
+    expect(CreateResumeResumeInputs.educations).toHaveLength(
+      resume.educations.length
     );
 
     for (let i = 0; i < resume.educations.length; i++) {
@@ -478,6 +493,10 @@ describe("microservice:resume CreateResume", () => {
         resume.educations[i].untilNow
       );
 
+      expect(CreateResumeResumeInputs.educations[i].points).toHaveLength(
+        resume.educations[i].points.length
+      );
+
       for (
         let j = 0;
         j < CreateResumeResumeInputs.educations[i].points.length;
@@ -506,6 +525,10 @@ describe("microservice:resume CreateResume", () => {
       resume.certificationYearLabel
     );
 
+    expect(CreateResumeResumeInputs.certifications).toHaveLength(
+      resume.certifications.length
+    );
+
     for (let i = 0; i < resume.certifications.length; i++) {
       expect(CreateResumeResumeInputs.certifications[i].name).toBe(
         resume.certifications[i].name
@@ -522,6 +545,11 @@ describe("microservice:resume CreateResume", () => {
       expect(CreateResumeResumeInputs.certifications[i].year).toBe(
         resume.certifications[i].year
       );
+
+      expect(CreateResumeResumeInputs.certifications[i].points).toHaveLength(
+        resume.certifications[i].points.length
+      );
+
       for (
         let j = 0;
         j < CreateResumeResumeInputs.certifications[i].points.length;
@@ -533,8 +561,190 @@ describe("microservice:resume CreateResume", () => {
       }
     }
 
-    // expect(CreateResumeResumeInputs.).toBe(resume.);
-    // expect(CreateResumeResumeInputs.).toBe(resume.);
-    // expect(CreateResumeResumeInputs.).toBe(resume.);
+    expect(CreateResumeResumeInputs.isShowCourseWork).toBe(
+      resume.isShowCourseWork
+    );
+
+    expect(CreateResumeResumeInputs.courseWorkLabel).toBe(
+      resume.courseWorkLabel
+    );
+    expect(CreateResumeResumeInputs.courseWorkTitleLabel).toBe(
+      resume.courseWorkTitleLabel
+    );
+    expect(CreateResumeResumeInputs.courseWorkNameLabel).toBe(
+      resume.courseWorkNameLabel
+    );
+
+    expect(CreateResumeResumeInputs.courseWorkInstituteLabel).toBe(
+      resume.courseWorkInstituteLabel
+    );
+
+    expect(CreateResumeResumeInputs.courseWorkYearLabel).toBe(
+      resume.courseWorkYearLabel
+    );
+    expect(CreateResumeResumeInputs.courseWorkSkillsLabel).toBe(
+      resume.courseWorkSkillsLabel
+    );
+
+    expect(CreateResumeResumeInputs.courseWorks).toHaveLength(
+      resume.courseWorks.length
+    );
+
+    for (let i = 0; i < resume.courseWorks.length; i++) {
+      expect(CreateResumeResumeInputs.courseWorks[i].name).toBe(
+        resume.courseWorks[i].name
+      );
+      expect(CreateResumeResumeInputs.courseWorks[i].isShowInstitute).toBe(
+        resume.courseWorks[i].isShowInstitute
+      );
+      expect(CreateResumeResumeInputs.courseWorks[i].institute).toBe(
+        resume.courseWorks[i].institute
+      );
+      expect(CreateResumeResumeInputs.courseWorks[i].isShowDate).toBe(
+        resume.courseWorks[i].isShowDate
+      );
+      expect(CreateResumeResumeInputs.courseWorks[i].isShowSkills).toBe(
+        resume.courseWorks[i].isShowSkills
+      );
+      expect(CreateResumeResumeInputs.courseWorks[i].year).toBe(
+        resume.courseWorks[i].year
+      );
+
+      expect(CreateResumeResumeInputs.courseWorks[i].points).toHaveLength(
+        resume.courseWorks[i].points.length
+      );
+
+      for (
+        let j = 0;
+        j < CreateResumeResumeInputs.courseWorks[i].points.length;
+        j++
+      ) {
+        expect(CreateResumeResumeInputs.courseWorks[i].points[j]).toBe(
+          resume.courseWorks[i].points[j]
+        );
+      }
+    }
+
+    expect(CreateResumeResumeInputs.isShowInvolvement).toBe(
+      resume.isShowInvolvement
+    );
+    expect(CreateResumeResumeInputs.involvementLabel).toBe(
+      resume.involvementLabel
+    );
+    expect(CreateResumeResumeInputs.involvementRoleLabel).toBe(
+      resume.involvementRoleLabel
+    );
+    expect(CreateResumeResumeInputs.involvementCompanyLabel).toBe(
+      resume.involvementCompanyLabel
+    );
+    expect(CreateResumeResumeInputs.involvementLocationLabel).toBe(
+      resume.involvementLocationLabel
+    );
+
+    expect(CreateResumeResumeInputs.involvements).toHaveLength(
+      resume.involvements.length
+    );
+
+    for (let i = 0; i < resume.involvements.length; i++) {
+      expect(CreateResumeResumeInputs.involvements[i].role).toBe(
+        resume.involvements[i].role
+      );
+      expect(CreateResumeResumeInputs.involvements[i].isShowCompany).toBe(
+        resume.involvements[i].isShowCompany
+      );
+      expect(CreateResumeResumeInputs.involvements[i].company).toBe(
+        resume.involvements[i].company
+      );
+      expect(CreateResumeResumeInputs.involvements[i].isShowDate).toBe(
+        resume.involvements[i].isShowDate
+      );
+      expect(CreateResumeResumeInputs.involvements[i].isShowLocation).toBe(
+        resume.involvements[i].isShowLocation
+      );
+      expect(CreateResumeResumeInputs.involvements[i].location).toBe(
+        resume.involvements[i].location
+      );
+      expect(CreateResumeResumeInputs.involvements[i].isShowDate).toBe(
+        resume.involvements[i].isShowDate
+      );
+      expect(CreateResumeResumeInputs.involvements[i].fromMonth).toBe(
+        resume.involvements[i].fromMonth
+      );
+      expect(CreateResumeResumeInputs.involvements[i].fromYear).toBe(
+        resume.involvements[i].fromYear
+      );
+      expect(CreateResumeResumeInputs.involvements[i].toMonth).toBe(
+        resume.involvements[i].toMonth
+      );
+      expect(CreateResumeResumeInputs.involvements[i].toYear).toBe(
+        resume.involvements[i].toYear
+      );
+      expect(CreateResumeResumeInputs.involvements[i].untilNow).toBe(
+        resume.involvements[i].untilNow
+      );
+
+      expect(CreateResumeResumeInputs.involvements[i].points).toHaveLength(
+        resume.involvements[i].points.length
+      );
+
+      for (
+        let j = 0;
+        j < CreateResumeResumeInputs.involvements[i].points.length;
+        j++
+      ) {
+        expect(CreateResumeResumeInputs.involvements[i].points[j]).toBe(
+          resume.involvements[i].points[j]
+        );
+      }
+    }
+    expect(CreateResumeResumeInputs.isShowSkill).toBe(resume.isShowSkill);
+    expect(CreateResumeResumeInputs.involvementLabel).toBe(
+      resume.involvementLabel
+    );
+    expect(CreateResumeResumeInputs.skillLabel).toBe(resume.skillLabel);
+
+    expect(CreateResumeResumeInputs.skills).toHaveLength(resume.skills.length);
+
+    expect(CreateResumeResumeInputs.skills).toHaveLength(resume.skills.length);
+
+    for (let i = 0; i < resume.skills.length; i++) {
+      expect(CreateResumeResumeInputs.skills[i]).toBe(resume.skills[i]);
+    }
+
+    expect(CreateResumeResumeInputs.isShowLanguage).toBe(resume.isShowLanguage);
+    expect(CreateResumeResumeInputs.languageLabel).toBe(resume.languageLabel);
+    expect(CreateResumeResumeInputs.languageNameLabel).toBe(
+      resume.languageNameLabel
+    );
+    expect(CreateResumeResumeInputs.languageLevelLabel).toBe(
+      resume.languageLevelLabel
+    );
+
+    expect(CreateResumeResumeInputs.languages).toHaveLength(
+      resume.languages.length
+    );
+
+    for (let i = 0; i < resume.languages.length; i++) {
+      expect(CreateResumeResumeInputs.languages[i].name).toBe(
+        resume.languages[i].name
+      );
+      expect(CreateResumeResumeInputs.languages[i].level).toBe(
+        resume.languages[i].level
+      );
+      expect(CreateResumeResumeInputs.languages[i].isShowLevel).toBe(
+        resume.languages[i].isShowLevel
+      );
+    }
+
+    expect(CreateResumeResumeInputs.hobbyLabel).toBe(resume.hobbyLabel);
+    expect(CreateResumeResumeInputs.isShowHobby).toBe(resume.isShowHobby);
+
+    expect(CreateResumeResumeInputs.hobbies).toHaveLength(
+      resume.hobbies.length
+    );
+
+    for (let i = 0; i < resume.hobbies.length; i++) {
+      expect(CreateResumeResumeInputs.hobbies[i]).toBe(resume.hobbies[i]);
+    }
   });
 });
