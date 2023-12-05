@@ -1,9 +1,9 @@
 "use client";
 import cls from "classnames";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import { PlusIcon } from "../Icons/plus";
 import classes from "./index.module.scss";
-import { useData } from "./index.hook";
+import { useAnimation, useData } from "./index.hook";
 
 interface AccordionItemProps {
   title: string;
@@ -11,7 +11,10 @@ interface AccordionItemProps {
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
+  useAnimation({ classes });
   const { isOpen, handleToggle } = useData();
+
+  const slug = () => title.toLowerCase().replace(/ /g, "-");
 
   return (
     <div
@@ -41,7 +44,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({ title, children }) => {
           className={cls(classes.accordion__item__header__icon, {
             [classes.accordion__item__header__icon__open]: isOpen,
           })}
-          id={`accordion-item-${title}`}
+          id={`accordion-item-${slug}`}
         >
           <PlusIcon />
         </div>

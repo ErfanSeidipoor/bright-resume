@@ -1,6 +1,4 @@
-import { FontFamily } from "@bright-resume/components/types/index.type";
 import { MainLayout } from "../components/layouts/MainLayout";
-// import "./global.css";
 
 interface Props {
   children: React.ReactNode;
