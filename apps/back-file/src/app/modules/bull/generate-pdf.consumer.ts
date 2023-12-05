@@ -5,7 +5,7 @@ import { GENERATE_PDF_OF_RESUME_QUEUE } from "./constants";
 import { AddToGeneratePdfOfResumeQueueBullRequest } from "./dto";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { DBService } from "../db/db.service";
+import { DbService } from "../db/db.service";
 import { PdfService } from "../pdf/pdf.service";
 import { MinioService } from "../minio/minio.service";
 import { CustomError, FILE_NOT_FOUND } from "@bright-resume/errors";
@@ -18,7 +18,7 @@ export class GeneratePdfOfResumeConsumer {
     @InjectModel(File.name) private fileModel: Model<File>,
     private minioService: MinioService,
     private pdfService: PdfService,
-    private dbService: DBService
+    private dbService: DbService
   ) {}
 
   private readonly logger = new Logger(GeneratePdfOfResumeConsumer.name);

@@ -8,6 +8,7 @@ export const UserId = createParamDecorator(
     }
 
     const ctx = GqlExecutionContext.create(context);
+
     return ctx.getContext().req.user.id;
   }
 );

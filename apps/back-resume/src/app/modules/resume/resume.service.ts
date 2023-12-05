@@ -2,7 +2,11 @@ import { FilterQuery, Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
-import { CustomError, RESUME_NOT_FOUND } from "@bright-resume/errors";
+import {
+  A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS,
+  CustomError,
+  RESUME_NOT_FOUND,
+} from "@bright-resume/errors";
 import {
   CreateResumeResumeInputs,
   DeleteResumeResumeInputs,
@@ -65,10 +69,13 @@ export class ResumeService {
     return resume;
   }
 
-  async delete(inputs: DeleteResumeResumeInputs): Promise<Resume> {
+  async delete(
+    userId: string,
+    inputs: DeleteResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -79,9 +86,20 @@ export class ResumeService {
     return resume;
   }
 
-  async create(inputs: CreateResumeResumeInputs): Promise<Resume> {
+  async create(
+    userId: string,
+    inputs: CreateResumeResumeInputs
+  ): Promise<Resume> {
+    const nameDuplication = await this.resumeModel.findOne({
+      name: inputs.name,
+    });
+
+    if (nameDuplication) {
+      throw new CustomError(A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS);
+    }
+
     const resume = await this.resumeModel.create({
-      userId: "userId",
+      userId,
       ...inputs,
     });
 

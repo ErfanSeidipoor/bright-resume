@@ -4,7 +4,7 @@ import { FilterQuery, Model } from "mongoose";
 
 import { File, PaginatedFile } from "@@back-file/app/models";
 import { MinioService } from "@@back-file/app/modules/minio/minio.service";
-import { DBService } from "@@back-file/app/modules/db/db.service";
+import { DbService } from "@@back-file/app/modules/db/db.service";
 import { paginate } from "@back-common/pagination";
 import {
   GetFileByIdFileArgs,
@@ -31,7 +31,7 @@ export class FileService {
     @InjectModel(File.name) private fileModel: Model<File>,
     private minioService: MinioService,
     private pdfService: PdfService,
-    private dbService: DBService,
+    private dbService: DbService,
     private bullService: BullService
   ) {}
 
