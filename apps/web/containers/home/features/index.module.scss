@@ -1,0 +1,125 @@
+@import "libs/theme";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+  margin: auto;
+  gap: 10%;
+
+  @include xl {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    gap: 0;
+  }
+
+  .wrapper {
+    height: 100%;
+    align-self: start;
+
+    @include xl {
+      align-self: center;
+    }
+  }
+}
+
+.featureGrid {
+  display: grid;
+  grid-row-gap: 3rem;
+  grid-column-gap: 3rem;
+  padding: 3rem 0;
+  // responsive grid
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  place-items: center;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include sm {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .feature {
+    height: 10em;
+    width: 10em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+
+    &:hover {
+      background-color: #3a86ff;
+
+      .icon {
+        fill: #fff !important;
+        stroke: #fff !important;
+      }
+      .featureTitle {
+        color: #fff !important;
+      }
+    }
+
+    .featureIcon {
+      width: 4rem;
+      height: 4rem;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        fill: $blue;
+        stroke: $blue;
+      }
+
+      .icon_international {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        fill: $light;
+        stroke: $blue;
+      }
+    }
+  }
+
+  .featureTitle {
+    font-size: 1.3rem;
+    color: #3a86ff;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+.text {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: 1rem;
+  text-align: left;
+
+  height: 100%;
+  padding: 2.5rem 0;
+
+  @include xl {
+    padding-top: 5rem;
+  }
+}
+
+.description {
+  @include typography(h6);
+  margin-top: 1rem;
+  width: 100%;
+  padding: spacing(0, 2);
+  max-width: 30rem;
+}
