@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-import { FontFamily, FonSize, ThemeColor } from "../types/index.type";
+import { FontFamily, FonSize, ThemeColor } from "@bright-resume/components";
 
 export type Theme = {
   themeColor: ThemeColor;

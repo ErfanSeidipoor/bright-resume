@@ -10,6 +10,76 @@ type PageInfo {
   currentPage: Float!
 }
 
+type Language {
+  name: String
+  level: String
+}
+
+type Involvement {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type CourseWork {
+  title: String
+  name: String
+  institute: String
+  year: String
+  skills: String
+  points: [String!]
+}
+
+type Certification {
+  name: String
+  institute: String
+  year: String
+  points: [String!]
+}
+
+type Education {
+  degree: String
+  institute: String
+  location: String
+  gpa: String
+  from: String
+  to: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Project {
+  role: String
+  title: String
+  company: String
+  location: String
+  url: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+type Experience {
+  role: String
+  company: String
+  location: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
 type Resume {
   id: ID
   userId: ID!
@@ -71,78 +141,8 @@ type PaginatedResume {
   pageInfo: PageInfo!
 }
 
-type Certification {
-  name: String
-  institute: String
-  year: String
-  points: [String!]
-}
-
-type CourseWork {
-  title: String
-  name: String
-  institute: String
-  year: String
-  skills: String
-  points: [String!]
-}
-
-type Education {
-  degree: String
-  institute: String
-  location: String
-  gpa: String
-  from: String
-  to: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Experience {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Involvement {
-  role: String
-  company: String
-  location: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
-type Language {
-  name: String
-  level: String
-}
-
-type Project {
-  role: String
-  title: String
-  company: String
-  location: String
-  url: String
-  fromMonth: String
-  fromYear: String
-  toMonth: String
-  toYear: String
-  untilNow: Boolean
-  points: [String!]
-}
-
 type Query {
-  getResumesAdmin(paginationArgs: PaginationArgsGQL!, getResumesArgs: GetResumesArgsGQL!): PaginatedResume!
+  getResumes(paginationArgs: PaginationArgsGQL!, GetResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
   getResumeById(resumeId: String!): Resume!
 }
 
@@ -151,21 +151,21 @@ input PaginationArgsGQL {
   page: Int = 1
 }
 
-input GetResumesArgsGQL {
+input GetResumesResumeArgsGQL {
   name: String = ""
 }
 
 type Mutation {
-  deleteResume(deleteResumeInputs: DeleteResumeInputsGQL!): Resume!
-  createResume(createResumeInputs: CreateResumeInputsGQL!): Resume!
-  updateResume(updateResumeInputs: UpdateResumeInputsGQL!): Resume!
+  deleteResume(DeleteResumeResumeInputs: DeleteResumeResumeInputsGQL!): Resume!
+  createResume(CreateResumeResumeInputs: CreateResumeResumeInputsGQL!): Resume!
+  updateResume(UpdateResumeResumeInputs: UpdateResumeResumeInputsGQL!): Resume!
 }
 
-input DeleteResumeInputsGQL {
+input DeleteResumeResumeInputsGQL {
   resumeId: String!
 }
 
-input CreateResumeInputsGQL {
+input CreateResumeResumeInputsGQL {
   name: String
   role: String
   isShowPhoneNumber: Boolean
@@ -185,7 +185,7 @@ input CreateResumeInputsGQL {
   summary: String
   isShowExperience: Boolean
   experienceLabel: String
-  experiences: [CreateResumeExperienceItemInputsGQL!]
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
   isShowProject: Boolean
   projectLabel: String
   projects: [CreateResumeProjectItemInputsGQL!]
@@ -208,11 +208,11 @@ input CreateResumeInputsGQL {
   languageLabel: String
   languages: [CreateResumeLanguageItemInputsGQL!]
   hobbyLabel: String
-  hobbies: [String!]
   isShowHobby: Boolean
+  hobbies: [String!]
 }
 
-input CreateResumeExperienceItemInputsGQL {
+input CreateResumeExperienceItemResumeInputsGQL {
   role: String
   company: String
   location: String
@@ -282,7 +282,7 @@ input CreateResumeLanguageItemInputsGQL {
   level: String
 }
 
-input UpdateResumeInputsGQL {
+input UpdateResumeResumeInputsGQL {
   resumeId: String!
   name: String
   role: String
@@ -303,7 +303,7 @@ input UpdateResumeInputsGQL {
   summary: String
   isShowExperience: Boolean
   experienceLabel: String
-  experiences: [CreateResumeExperienceItemInputsGQL!]
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
   isShowProject: Boolean
   projectLabel: String
   projects: [CreateResumeProjectItemInputsGQL!]

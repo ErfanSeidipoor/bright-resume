@@ -7,39 +7,39 @@ import { Document } from "mongoose";
 export class Experience extends Document {
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  role: string;
+  role?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  company: string;
+  company?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  location: string;
+  location?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  fromMonth: string;
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  fromYear: string;
+  fromYear?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  toMonth: string;
+  toMonth?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  toYear: string;
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })
-  untilNow: boolean;
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })
-  points: string[];
+  points?: string[];
 }
 
-export const experienceSchema = SchemaFactory.createForClass(Experience);
+export const ExperienceSchema = SchemaFactory.createForClass(Experience);

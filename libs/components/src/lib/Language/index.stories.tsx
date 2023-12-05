@@ -6,7 +6,7 @@ import {
   LanguageChildProps,
   ProficiencyEnum,
   TextFieldProps,
-} from "../types/index.type";
+} from "@bright-resume/components";
 import { Language } from "./";
 
 export default {

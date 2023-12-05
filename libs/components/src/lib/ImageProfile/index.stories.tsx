@@ -3,7 +3,7 @@ import {
   StoryFn,
 } from "@storybook/react";
 
-import ImageProfile from "./";
+import { ImageProfile } from "./";
 
 export default {
   component: ImageProfile,
