@@ -1,7 +1,7 @@
 {
   "name": "web",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "web",
+  "sourceRoot": "apps/web",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/web",
+        "outputPath": "dist/apps/web",
         "assets": [
           {
             "input": "libs/assets/src",
@@ -24,7 +24,7 @@
       },
       "configurations": {
         "development": {
-          "outputPath": "web"
+          "outputPath": "apps/web"
         },
         "production": {}
       }
@@ -57,7 +57,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/web/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
