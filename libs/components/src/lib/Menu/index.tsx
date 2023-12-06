@@ -15,7 +15,7 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 // types //TODO => change type path
-import { FontFamily, FonSize, ThemeColor } from "../types/index.type";
+import { FontFamily, FonSize, ThemeColor } from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
