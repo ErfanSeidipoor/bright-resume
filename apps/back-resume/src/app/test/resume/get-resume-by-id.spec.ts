@@ -29,7 +29,7 @@ describe("microservice:resume getResumeById", () => {
     await integrationTestManager.afterAll();
   });
 
-  it.only("Should return RESUME_NOT_FOUND if a user attempts to get a resume that does not belong to it", async () => {
+  it("Should return RESUME_NOT_FOUND if a user attempts to get a resume that does not belong to it", async () => {
     const authHeader = generateAuthorizationHeader({});
 
     const resume = await helperDB.createResume({});
@@ -40,7 +40,7 @@ describe("microservice:resume getResumeById", () => {
       integrationTestManager.httpServer
     )
       .set(authHeader.key, authHeader.value)
-      .mutate(
+      .query(
         gql`
           query ($resumeId: String!) {
             getResumeById(resumeId: $resumeId) {
@@ -59,68 +59,53 @@ describe("microservice:resume getResumeById", () => {
   it("Should return RESUME_NOT_FOUND if a user attempts to get a resume but the ID is wrong", async () => {
     const authHeader = generateAuthorizationHeader({});
 
-    const resume = await helperDB.createResume({});
-
-    const deleteResumeResumeInputs: DeleteResumeResumeInputs = {
-      resumeId: new mongoose.Types.ObjectId().toString(),
-    };
+    await helperDB.createResume({ userId: authHeader.token.id });
 
     const {
       errors: [error],
-    } = await request<
-      { deleteResume: Resume },
-      { deleteResumeResumeInputs: DeleteResumeResumeInputsGQL }
-    >(integrationTestManager.httpServer)
+    } = await request<{ getResumeById: Resume }, { resumeId: string }>(
+      integrationTestManager.httpServer
+    )
       .set(authHeader.key, authHeader.value)
-      .mutate(
+      .query(
         gql`
-          mutation ($deleteResumeResumeInputs: DeleteResumeResumeInputsGQL!) {
-            deleteResume(deleteResumeResumeInputs: $deleteResumeResumeInputs) {
+          query ($resumeId: String!) {
+            getResumeById(resumeId: $resumeId) {
               id
+              userId
             }
           }
         `
       )
-      .variables({
-        deleteResumeResumeInputs,
-      });
+      .variables({ resumeId: new mongoose.Types.ObjectId().toString() });
 
     expect(error).toBeDefined();
     expect(error.message).toBe(RESUME_NOT_FOUND.description);
   });
 
-  it("deletes a resume with valid inputs", async () => {
+  it("gets a resume with valid id", async () => {
     const authHeader = generateAuthorizationHeader({});
 
     const resume = await helperDB.createResume({ userId: authHeader.token.id });
 
-    const deleteResumeResumeInputs: DeleteResumeResumeInputs = {
-      resumeId: resume.id,
-    };
-
-    await request<
-      { deleteResume: Resume },
-      { deleteResumeResumeInputs: DeleteResumeResumeInputsGQL }
+    const { data } = await request<
+      { getResumeById: Resume },
+      { resumeId: string }
     >(integrationTestManager.httpServer)
       .set(authHeader.key, authHeader.value)
-      .mutate(
+      .query(
         gql`
-          mutation ($deleteResumeResumeInputs: DeleteResumeResumeInputsGQL!) {
-            deleteResume(deleteResumeResumeInputs: $deleteResumeResumeInputs) {
+          query ($resumeId: String!) {
+            getResumeById(resumeId: $resumeId) {
               id
+              userId
             }
           }
         `
       )
-      .variables({
-        deleteResumeResumeInputs,
-      })
+      .variables({ resumeId: resume.id })
       .expectNoErrors();
 
-    const deletedResume = await helperDB.dbService.resumeModel.findById(
-      resume.id
-    );
-
-    expect(deletedResume).toBeNull();
+    expect(data.getResumeById.id).toBe(resume.id);
   });
 });

@@ -21,10 +21,11 @@ export class ResumeResolver {
   @Query(() => PaginatedResume, { nullable: false })
   @UseGuards(GqlAuthGuard)
   async getResumes(
+    @UserId() userId: string,
     @Args("paginationArgs") paginationArgs: PaginationArgsGQL,
     @Args("getResumesResumeArgs") args: GetResumesResumeArgsGQL
   ) {
-    return this.resumeService.getList(paginationArgs, args);
+    return this.resumeService.getResumes(userId, paginationArgs, args);
   }
 
   @Mutation(() => Resume)
@@ -54,7 +55,7 @@ export class ResumeResolver {
     @Args("updateResumeResumeInputs")
     inputs: UpdateResumeResumeInputsGQL
   ): Promise<Resume> {
-    return await this.resumeService.update(inputs);
+    return await this.resumeService.update(userId, inputs);
   }
 
   @Query(() => Resume, { nullable: false })
@@ -63,6 +64,6 @@ export class ResumeResolver {
     @UserId() userId: string,
     @Args() getProductByIdArgs: GetResumeByIdResumeArgsGQL
   ) {
-    return this.resumeService.getById(getProductByIdArgs);
+    return this.resumeService.getById(userId, getProductByIdArgs);
   }
 }
