@@ -27,7 +27,8 @@ export class ResumeService {
     @InjectModel(Experience.name) private experienceModel: Model<Experience>
   ) {}
 
-  async getList(
+  async getResumes(
+    userId: string,
     paginationArgs: PaginationArgs,
     args: GetResumesResumeArgs
   ): Promise<PaginatedResume> {
@@ -36,6 +37,8 @@ export class ResumeService {
 
     const queryBuilder: FilterQuery<Resume> = {};
 
+    queryBuilder.userId = userId;
+
     if (name) {
       queryBuilder.name = name;
     }
@@ -43,10 +46,15 @@ export class ResumeService {
     return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
-  async getById(args: GetResumeByIdResumeArgs): Promise<Resume> {
+  async getById(
+    userId: string,
+    args: GetResumeByIdResumeArgs
+  ): Promise<Resume> {
     const { resumeId } = args;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ userId, id: resumeId });
+
+    console.log({ resume });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -55,18 +63,19 @@ export class ResumeService {
     return resume;
   }
 
-  async update(inputs: UpdateResumeResumeInputs): Promise<Resume> {
+  async update(
+    userId: string,
+    inputs: UpdateResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    let resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
     }
 
-    resume = await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
-
-    return resume;
+    return await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
   }
 
   async delete(

@@ -232,4 +232,17 @@ export class HelperDB {
 
     return resume;
   }
+
+  async createMultipleResumes(
+    count: number,
+    inputs: { userId?: string }
+  ): Promise<Resume[]> {
+    const resumes = [];
+
+    for (let i = 0; i < count; i++) {
+      resumes.push(await this.createResume(inputs));
+    }
+
+    return resumes;
+  }
 }
