@@ -29,5 +29,5 @@
     $context: $context * 1px;
   }
 
-  @return $pixels / $context * 1em;
+  @return calc($pixels / $context) * 1em;
 }
