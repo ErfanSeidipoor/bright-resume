@@ -1,40 +1,60 @@
-import { Model } from "mongoose";
+import { FilterQuery, Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
-import { CustomError, RESUME_NOT_FOUND } from "@bright-resume/errors";
 import {
-  CreateResumeInputs,
-  DeleteResumeInputs,
-  GetResumeByIdArgs,
-  GetResumesArgs,
+  A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS,
+  CustomError,
+  RESUME_NOT_FOUND,
+} from "@bright-resume/errors";
+import {
+  CreateResumeResumeInputs,
+  DeleteResumeResumeInputs,
+  GetResumeByIdResumeArgs,
+  GetResumesResumeArgs,
   PaginationArgs,
-  UpdateResumeInputs,
-} from "@bright-resume/dto";
+  UpdateResumeResumeInputs,
+} from "@dto";
+import { paginate } from "@bright-resume/back-common/pagination";
 
-import { Resume } from "../../models/resume.model";
+import { PaginatedResume, Resume } from "../../models/resume.model";
+import { Experience } from "../../models";
 
 @Injectable()
 export class ResumeService {
-  constructor(@InjectModel(Resume.name) private resumeModel: Model<Resume>) {}
+  constructor(
+    @InjectModel(Resume.name) private resumeModel: Model<Resume>,
+    @InjectModel(Experience.name) private experienceModel: Model<Experience>
+  ) {}
 
-  async getList(
+  async getResumes(
+    userId: string,
     paginationArgs: PaginationArgs,
-    args: GetResumesArgs
-  ): Promise<Resume[]> {
+    args: GetResumesResumeArgs
+  ): Promise<PaginatedResume> {
     const { name } = args;
     const { limit, page } = paginationArgs;
 
-    return await this.resumeModel
-      .find()
-      .limit(limit)
-      .skip((page - 1) * limit);
+    const queryBuilder: FilterQuery<Resume> = {};
+
+    queryBuilder.userId = userId;
+
+    if (name) {
+      queryBuilder.name = name;
+    }
+
+    return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
-  async getById(args: GetResumeByIdArgs): Promise<Resume> {
+  async getById(
+    userId: string,
+    args: GetResumeByIdResumeArgs
+  ): Promise<Resume> {
     const { resumeId } = args;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ userId, id: resumeId });
+
+    console.log({ resume });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -43,24 +63,28 @@ export class ResumeService {
     return resume;
   }
 
-  async update(inputs: UpdateResumeInputs): Promise<Resume> {
+  async update(
+    userId: string,
+    inputs: UpdateResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    let resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
     }
 
-    resume = await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
-
-    return resume;
+    return await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
   }
 
-  async delete(inputs: DeleteResumeInputs): Promise<Resume> {
+  async delete(
+    userId: string,
+    inputs: DeleteResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -71,15 +95,22 @@ export class ResumeService {
     return resume;
   }
 
-  async create(inputs: CreateResumeInputs): Promise<Resume> {
-    console.log({ inputs });
-
-    const resume = await this.resumeModel.create({
-      userId: "userId",
-      ...inputs,
+  async create(
+    userId: string,
+    inputs: CreateResumeResumeInputs
+  ): Promise<Resume> {
+    const nameDuplication = await this.resumeModel.findOne({
+      name: inputs.name,
     });
 
-    await resume.save();
+    if (nameDuplication) {
+      throw new CustomError(A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS);
+    }
+
+    const resume = await this.resumeModel.create({
+      userId,
+      ...inputs,
+    });
 
     return resume;
   }

@@ -7,39 +7,47 @@ import { Document } from "mongoose";
 export class Experience extends Document {
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  role: string;
+  role?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  company: string;
-
-  @Field(() => String, { nullable: true })
-  @Prop({ type: String, required: false })
-  location: string;
-
-  @Field(() => String, { nullable: true })
-  @Prop({ type: String, required: false })
-  fromMonth: string;
-
-  @Field(() => String, { nullable: true })
-  @Prop({ type: String, required: false })
-  fromYear: string;
-
-  @Field(() => String, { nullable: true })
-  @Prop({ type: String, required: false })
-  toMonth: string;
-
-  @Field(() => String, { nullable: true })
-  @Prop({ type: String, required: false })
-  toYear: string;
+  company?: string;
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })
-  untilNow: boolean;
+  isShowLocation: boolean;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  location?: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowDate: boolean;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  fromMonth?: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  fromYear?: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  toMonth?: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  toYear?: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  untilNow?: boolean;
 
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })
-  points: string[];
+  points?: string[];
 }
 
-export const experienceSchema = SchemaFactory.createForClass(Experience);
+export const ExperienceSchema = SchemaFactory.createForClass(Experience);

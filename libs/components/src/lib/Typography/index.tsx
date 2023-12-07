@@ -1,6 +1,6 @@
 import cls from "classnames";
 
-import { TypographyVariant } from "../types/index.type";
+import { TypographyVariant } from "@bright-resume/components";
 
 import classes from "./index.module.scss";
 

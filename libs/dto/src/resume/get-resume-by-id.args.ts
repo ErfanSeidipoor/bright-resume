@@ -1,6 +1,6 @@
 import { IsString } from "class-validator";
 
-export class GetResumeByIdArgs {
+export class GetResumeByIdResumeArgs {
   @IsString()
   resumeId: string;
 }

@@ -2,22 +2,14 @@ import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Paginated } from "@bright-resume/back-common/model";
 import { Document } from "mongoose";
-import {
-  Certification,
-  CourseWork,
-  Education,
-  Experience,
-  Involvement,
-  Language,
-  Project,
-  certificationSchema,
-  courseWorkSchema,
-  educationSchema,
-  experienceSchema,
-  involvementSchema,
-  languageSchema,
-  projectSchema,
-} from ".";
+
+import { Language, LanguageSchema } from "./language.model";
+import { Involvement, InvolvementSchema } from "./involvement.model";
+import { CourseWork, CourseWorkSchema } from "./course-work.model";
+import { Certification, CertificationSchema } from "./certification.model";
+import { Education, EducationSchema } from "./education.model";
+import { Project, ProjectSchema } from "./project.model";
+import { Experience, ExperienceSchema } from "./experience.model";
 
 @Schema({
   collection: "resumes",
@@ -116,8 +108,20 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   experienceLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  experienceRoleLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  experienceCompanyLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  experienceLocationLabel: string;
+
   @Field(() => [Experience], { nullable: true })
-  @Prop({ type: [experienceSchema], required: false })
+  @Prop({ type: [ExperienceSchema], required: false })
   experiences: Experience[];
 
   @Field(() => Boolean, { nullable: true })
@@ -128,8 +132,28 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   projectLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  projectRoleLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  projectTitleLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  projectCompanyLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  projectLocationLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  projectUrlLabel: string;
+
   @Field(() => [Project], { nullable: true })
-  @Prop({ type: [projectSchema], required: false })
+  @Prop({ type: [ProjectSchema], required: false })
   projects: Project[];
 
   @Field(() => Boolean, { nullable: true })
@@ -140,8 +164,24 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   educationLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  educationDegreeLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  educationInstituteLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  educationLocationLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  educationGpaLabel: string;
+
   @Field(() => [Education], { nullable: true })
-  @Prop({ type: [educationSchema], required: false })
+  @Prop({ type: [EducationSchema], required: false })
   educations: Education[];
 
   @Field(() => Boolean, { nullable: true })
@@ -152,8 +192,20 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   certificationLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  certificationNameLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  certificationInstituteLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  certificationYearLabel: string;
+
   @Field(() => [Certification], { nullable: true })
-  @Prop({ type: [certificationSchema], required: false })
+  @Prop({ type: [CertificationSchema], required: false })
   certifications: Certification[];
 
   @Field(() => Boolean, { nullable: true })
@@ -164,8 +216,28 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   courseWorkLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  courseWorkTitleLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  courseWorkNameLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  courseWorkInstituteLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  courseWorkYearLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  courseWorkSkillsLabel: string;
+
   @Field(() => [CourseWork], { nullable: true })
-  @Prop({ type: [courseWorkSchema], required: false })
+  @Prop({ type: [CourseWorkSchema], required: false })
   courseWorks: CourseWork[];
 
   @Field(() => Boolean, { nullable: true })
@@ -176,8 +248,20 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   involvementLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  involvementRoleLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  involvementCompanyLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  involvementLocationLabel: string;
+
   @Field(() => [Involvement], { nullable: true })
-  @Prop({ type: [involvementSchema], required: false })
+  @Prop({ type: [InvolvementSchema], required: false })
   involvements: Involvement[];
 
   @Field(() => Boolean, { nullable: true })
@@ -200,8 +284,16 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   languageLabel: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  languageNameLabel: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  languageLevelLabel: string;
+
   @Field(() => [Language], { nullable: true })
-  @Prop({ type: [languageSchema], required: false })
+  @Prop({ type: [LanguageSchema], required: false })
   languages: Language[];
 
   @Field(() => String, { nullable: true })

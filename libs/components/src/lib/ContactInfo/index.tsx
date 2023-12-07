@@ -1,12 +1,13 @@
 import React from "react";
 
 // icons
-import { EmailAddressIcon } from "../Icons/emailAddress";
-import { PhoneNumberIcon } from "../Icons/phoneNumber";
-import { TextField } from "../TextField";
-// types
-import { ContactInfoProps } from "../types/index.type";
-import Typography from "../Typography";
+import { EmailAddressIcon, PhoneNumberIcon } from "../Icons";
+// components
+import {
+  ContactInfoProps,
+  Typography,
+  TextField,
+} from "@bright-resume/components";
 // locals
 import classes from "./index.module.scss";
 import { texts } from "./texts";

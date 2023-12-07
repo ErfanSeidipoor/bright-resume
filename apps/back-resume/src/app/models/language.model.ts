@@ -9,9 +9,13 @@ export class Language extends Document {
   @Prop({ type: String, required: false })
   name: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLevel: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   level: string;
 }
 
-export const languageSchema = SchemaFactory.createForClass(Language);
+export const LanguageSchema = SchemaFactory.createForClass(Language);

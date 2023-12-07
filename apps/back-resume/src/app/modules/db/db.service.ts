@@ -4,11 +4,15 @@ import { Resume } from "../../models";
 import { Connection, Model } from "mongoose";
 
 @Injectable()
-export class DBService {
+export class DbService {
   constructor(
     @InjectConnection() public readonly connection: Connection,
     @InjectModel(Resume.name) public resumeModel: Model<Resume>
   ) {}
+
+  getConnection(): Connection {
+    return this.connection;
+  }
 
   async transaction(fn: () => Promise<void>) {
     const session = await this.resumeModel.db.startSession();

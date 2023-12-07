@@ -2,11 +2,10 @@ import { FC } from "react";
 
 import cls from "classnames";
 
-// components
+// Icons
 import { SolarPenBoldIcon } from "../Icons";
-// types
-import { TextFieldProps } from "../types/index.type";
-import Typography from "../Typography";
+// components
+import { TextFieldProps, Typography } from "@bright-resume/components";
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";

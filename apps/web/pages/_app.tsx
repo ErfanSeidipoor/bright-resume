@@ -3,11 +3,10 @@ import Head from "next/head";
 // styles
 import "../theme/index.scss";
 import Image from "next/image";
-import { ThemeProvider } from "@bright-resume/components";
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
+    <div>
       <Head>
         <title>Welcome to web! </title>
       </Head>
@@ -20,7 +19,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <main className="app">
         <Component {...pageProps} />
       </main>
-    </ThemeProvider>
+    </div>
   );
 }
 

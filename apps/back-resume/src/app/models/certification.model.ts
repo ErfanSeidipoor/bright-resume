@@ -9,9 +9,17 @@ export class Certification extends Document {
   @Prop({ type: String, required: false })
   name: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowInstitute: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   institute: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowDate: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, reqßuired: false })
@@ -22,4 +30,4 @@ export class Certification extends Document {
   points: string[];
 }
 
-export const certificationSchema = SchemaFactory.createForClass(Certification);
+export const CertificationSchema = SchemaFactory.createForClass(Certification);

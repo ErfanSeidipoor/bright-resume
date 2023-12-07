@@ -3,8 +3,10 @@ import { useState } from "react";
 import {
   BackgroundInfoChildKeys,
   BackgroundInfoChildProps,
+  BackgroundInfoRangeDateChildKeys,
+  MonthEnum,
   TextFieldProps,
-} from "../types/index.type";
+} from "@bright-resume/components";
 
 import BackgroundInfo from ".";
 import { texts } from "./texts";
@@ -14,14 +16,60 @@ export default {
   title: "BackgroundInfo",
 } as Meta<typeof BackgroundInfo>;
 
+const renderChangedDateValue = ({
+  item,
+  changeItemKey,
+  changeItemMonth,
+  changeItemYear,
+}: {
+  item: BackgroundInfoChildProps;
+  changeItemKey?: BackgroundInfoRangeDateChildKeys;
+  changeItemMonth?: MonthEnum;
+  changeItemYear?: number;
+}): BackgroundInfoChildProps => {
+  if (item.rangeDate) {
+    switch (changeItemKey) {
+      case "fromMonth":
+        return {
+          ...item,
+          rangeDate: { ...item.rangeDate, fromMonth: changeItemMonth },
+        };
+      case "toMonth":
+        return {
+          ...item,
+          rangeDate: { ...item.rangeDate, toMonth: changeItemMonth },
+        };
+      case "fromYear":
+        return {
+          ...item,
+          rangeDate: { ...item.rangeDate, fromYear: changeItemYear },
+        };
+      case "toYear":
+        return {
+          ...item,
+          rangeDate: { ...item.rangeDate, toYear: changeItemYear },
+        };
+      default:
+        return { ...item };
+    }
+  }
+  return { ...item };
+};
+
 const renderChangedValue = ({
   item,
   changeItemKey,
   changeItemValue,
+  changeItemDateKey,
+  changeItemMonth,
+  changeItemYear,
 }: {
   item: BackgroundInfoChildProps;
   changeItemKey: BackgroundInfoChildKeys;
-  changeItemValue: TextFieldProps["value"];
+  changeItemValue?: TextFieldProps["value"];
+  changeItemDateKey?: BackgroundInfoRangeDateChildKeys;
+  changeItemMonth?: MonthEnum;
+  changeItemYear?: number;
 }): BackgroundInfoChildProps => {
   switch (changeItemKey) {
     case "title":
@@ -39,6 +87,15 @@ const renderChangedValue = ({
         ...item,
         description: { ...item.description, value: changeItemValue },
       };
+    case "rangeDate":
+      return renderChangedDateValue({
+        item,
+        changeItemKey: changeItemDateKey,
+        changeItemMonth,
+        changeItemYear,
+      });
+    default:
+      return { ...item };
   }
 };
 
@@ -48,12 +105,18 @@ const onChangeItems = ({
   defaultItemId,
   changeItemKey,
   changeItemValue,
+  changeItemDateKey,
+  changeItemMonth,
+  changeItemYear,
 }: {
   defaultItems: BackgroundInfoChildProps[];
   setItems: React.Dispatch<React.SetStateAction<BackgroundInfoChildProps[]>>;
   defaultItemId: string;
   changeItemKey: BackgroundInfoChildKeys;
-  changeItemValue: TextFieldProps["value"];
+  changeItemValue?: TextFieldProps["value"];
+  changeItemDateKey?: BackgroundInfoRangeDateChildKeys;
+  changeItemMonth?: MonthEnum;
+  changeItemYear?: number;
 }) => {
   const itemIndex = defaultItems.findIndex(
     (defaultItem) => defaultItem.id === defaultItemId
@@ -61,7 +124,15 @@ const onChangeItems = ({
   const items = [...defaultItems];
   const item = items[itemIndex];
 
-  const newItem = renderChangedValue({ item, changeItemKey, changeItemValue });
+  const newItem = changeItemDateKey
+    ? renderChangedValue({
+        item,
+        changeItemKey,
+        changeItemDateKey,
+        changeItemMonth,
+        changeItemYear,
+      })
+    : renderChangedValue({ item, changeItemKey, changeItemValue });
   items[itemIndex] = newItem;
   setItems(items);
 };
@@ -73,6 +144,16 @@ const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
     subtitle: { placeholder: texts.company },
     description: {
       placeholder: texts.lorem_ipsum,
+    },
+    rangeDate: {
+      fromMonth: undefined,
+      fromYear: undefined,
+      toMonth: undefined,
+      toYear: undefined,
+      onChangeFromMonth: () => undefined,
+      onChangeToMonth: () => undefined,
+      onChangeToYear: () => undefined,
+      onChangeFromYear: () => undefined,
     },
   };
 
@@ -95,10 +176,16 @@ const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
     experienceId,
     changeItemKey,
     changeItemValue,
+    changeItemDateKey,
+    changeItemMonth,
+    changeItemYear,
   }: {
     experienceId: string;
     changeItemKey: BackgroundInfoChildKeys;
-    changeItemValue: TextFieldProps["value"];
+    changeItemValue?: TextFieldProps["value"];
+    changeItemDateKey?: BackgroundInfoRangeDateChildKeys;
+    changeItemMonth?: MonthEnum;
+    changeItemYear?: number;
   }) => {
     onChangeItems({
       defaultItems: experienceItems,
@@ -106,6 +193,9 @@ const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
       defaultItemId: experienceId,
       changeItemKey,
       changeItemValue,
+      changeItemDateKey,
+      changeItemMonth,
+      changeItemYear,
     });
   };
 
@@ -140,6 +230,40 @@ const ExperienceTemplate: StoryFn<typeof BackgroundInfo> = (args) => {
                 experienceId: item.id,
                 changeItemKey: "description",
                 changeItemValue: e.target.value,
+              }),
+          },
+          rangeDate: {
+            fromMonth: item?.rangeDate?.fromMonth,
+            toMonth: item?.rangeDate?.toMonth,
+            fromYear: item?.rangeDate?.fromYear,
+            toYear: item?.rangeDate?.toYear,
+            onChangeFromMonth: (month) =>
+              onChangeExperienceItems({
+                experienceId: item.id,
+                changeItemKey: "rangeDate",
+                changeItemDateKey: "fromMonth",
+                changeItemMonth: month,
+              }),
+            onChangeToMonth: (month) =>
+              onChangeExperienceItems({
+                experienceId: item.id,
+                changeItemKey: "rangeDate",
+                changeItemDateKey: "toMonth",
+                changeItemMonth: month,
+              }),
+            onChangeFromYear: (year) =>
+              onChangeExperienceItems({
+                experienceId: item.id,
+                changeItemKey: "rangeDate",
+                changeItemDateKey: "fromYear",
+                changeItemYear: year,
+              }),
+            onChangeToYear: (year) =>
+              onChangeExperienceItems({
+                experienceId: item.id,
+                changeItemKey: "rangeDate",
+                changeItemDateKey: "toYear",
+                changeItemYear: year,
               }),
           },
         }))}

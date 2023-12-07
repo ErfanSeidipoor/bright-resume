@@ -1,0 +1,64 @@
+@import "libs/theme";
+
+.hero {
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .hero__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .hero__title__wrapper {
+    @include typography(h1);
+    font-weight: map-get($font-weight, regular);
+    position: relative;
+    top: 5rem;
+    max-width: 400px;
+    text-align: center;
+    z-index: 1;
+
+    .message {
+      @include typography(h1);
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 20px;
+      .blue {
+        color: $blue;
+      }
+    }
+
+    button {
+      z-index: 1;
+      height: 50px;
+      width: 160px;
+      background-color: $blue;
+      color: $light;
+      border-radius: 5px;
+      border: none;
+      @include typography(h8);
+      font-weight: map-get($font-weight, bold);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $light;
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}

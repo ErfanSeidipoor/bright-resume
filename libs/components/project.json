@@ -46,7 +46,14 @@
       "executor": "@nx/storybook:storybook",
       "options": {
         "port": 4400,
-        "configDir": "libs/components/.storybook"
+        "configDir": "libs/components/.storybook",
+        "assets": [
+          {
+            "input": "../assets/src",
+            "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+            "output": "/assets"
+          }
+        ]
       },
       "configurations": {
         "ci": {
