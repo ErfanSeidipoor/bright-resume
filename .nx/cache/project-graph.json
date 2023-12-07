@@ -1,0 +1,1329 @@
+{
+  "nodes": {
+    "components-e2e": {
+      "name": "components-e2e",
+      "type": "e2e",
+      "data": {
+        "root": "apps/components-e2e",
+        "name": "components-e2e",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/components-e2e/src",
+        "projectType": "application",
+        "targets": {
+          "e2e": {
+            "inputs": [
+              "default",
+              "^production"
+            ],
+            "executor": "@nx/cypress:cypress",
+            "options": {
+              "cypressConfig": "apps/components-e2e/cypress.config.ts",
+              "devServerTarget": "components:storybook",
+              "testingType": "e2e"
+            },
+            "configurations": {
+              "ci": {
+                "devServerTarget": "components:storybook:ci"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/components-e2e/**/*.{js,ts}"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": [
+          "components"
+        ]
+      }
+    },
+    "back-gateway": {
+      "name": "back-gateway",
+      "type": "app",
+      "data": {
+        "root": "apps/back-gateway",
+        "name": "back-gateway",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/back-gateway/src",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/webpack:webpack",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "target": "node",
+              "compiler": "tsc",
+              "outputPath": "dist/apps/back-gateway",
+              "main": "apps/back-gateway/src/main.ts",
+              "tsConfig": "apps/back-gateway/tsconfig.app.json",
+              "assets": [
+                "apps/back-gateway/src/assets"
+              ],
+              "isolatedConfig": true,
+              "webpackConfig": "apps/back-gateway/webpack.config.js"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "back-gateway:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "back-gateway:build:development"
+              },
+              "production": {
+                "buildTarget": "back-gateway:build:production"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/back-gateway/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "back-common": {
+      "name": "back-common",
+      "type": "lib",
+      "data": {
+        "root": "libs/back-common",
+        "name": "back-common",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/back-common/src",
+        "projectType": "library",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/back-common/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "back-resume": {
+      "name": "back-resume",
+      "type": "app",
+      "data": {
+        "root": "apps/back-resume",
+        "name": "back-resume",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/back-resume/src",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/webpack:webpack",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "target": "node",
+              "compiler": "tsc",
+              "outputPath": "dist/apps/back-resume",
+              "main": "apps/back-resume/src/main.ts",
+              "tsConfig": "apps/back-resume/tsconfig.app.json",
+              "assets": [
+                "apps/back-resume/src/assets"
+              ],
+              "isolatedConfig": true,
+              "webpackConfig": "apps/back-resume/webpack.config.js"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "back-resume:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "back-resume:build:development"
+              },
+              "production": {
+                "buildTarget": "back-resume:build:production"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/back-resume/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/back-resume/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "api-common": {
+      "name": "api-common",
+      "type": "lib",
+      "data": {
+        "root": "libs/api-common",
+        "name": "api-common",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/api-common/src",
+        "projectType": "library",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/api-common/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "libs/api-common/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "components": {
+      "name": "components",
+      "type": "lib",
+      "data": {
+        "root": "libs/components",
+        "name": "components",
+        "targets": {
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/components/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          },
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/vite:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/libs/components"
+            },
+            "configurations": {
+              "development": {
+                "mode": "development"
+              },
+              "production": {
+                "mode": "production"
+              }
+            }
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "libs/components/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          },
+          "storybook": {
+            "executor": "@nx/storybook:storybook",
+            "options": {
+              "port": 4400,
+              "configDir": "libs/components/.storybook",
+              "assets": [
+                {
+                  "input": "../assets/src",
+                  "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+                  "output": "/assets"
+                }
+              ]
+            },
+            "configurations": {
+              "ci": {
+                "quiet": true
+              }
+            }
+          },
+          "build-storybook": {
+            "inputs": [
+              "default",
+              "^production",
+              "{projectRoot}/.storybook/**/*",
+              "{projectRoot}/tsconfig.storybook.json"
+            ],
+            "executor": "@nx/storybook:build",
+            "outputs": [
+              "{options.outputDir}"
+            ],
+            "options": {
+              "outputDir": "dist/storybook/components",
+              "configDir": "libs/components/.storybook"
+            },
+            "configurations": {
+              "ci": {
+                "quiet": true
+              }
+            }
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/components/src",
+        "projectType": "library",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "resume-e2e": {
+      "name": "resume-e2e",
+      "type": "lib",
+      "data": {
+        "root": "apps/resume-e2e",
+        "name": "resume-e2e",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "implicitDependencies": [
+          "resume"
+        ],
+        "targets": {
+          "e2e": {
+            "inputs": [
+              "default",
+              "^production"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{e2eProjectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/resume-e2e/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/resume-e2e/**/*.{js,ts}"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": []
+      }
+    },
+    "back-auth": {
+      "name": "back-auth",
+      "type": "app",
+      "data": {
+        "root": "apps/back-auth",
+        "name": "back-auth",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/back-auth/src",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/webpack:webpack",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "target": "node",
+              "compiler": "tsc",
+              "outputPath": "dist/apps/back-auth",
+              "main": "apps/back-auth/src/main.ts",
+              "tsConfig": "apps/back-auth/tsconfig.app.json",
+              "assets": [
+                "apps/back-auth/src/assets"
+              ],
+              "isolatedConfig": true,
+              "webpackConfig": "apps/back-auth/webpack.config.js"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "back-auth:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "back-auth:build:development"
+              },
+              "production": {
+                "buildTarget": "back-auth:build:production"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/back-auth/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/back-auth/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "back-file": {
+      "name": "back-file",
+      "type": "app",
+      "data": {
+        "root": "apps/back-file",
+        "name": "back-file",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/back-file/src",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/webpack:webpack",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "target": "node",
+              "compiler": "tsc",
+              "outputPath": "dist/apps/back-file",
+              "main": "apps/back-file/src/main.ts",
+              "tsConfig": "apps/back-file/tsconfig.app.json",
+              "assets": [
+                "apps/back-file/src/assets"
+              ],
+              "isolatedConfig": true,
+              "webpackConfig": "apps/back-file/webpack.config.js"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "back-file:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "back-file:build:development"
+              },
+              "production": {
+                "buildTarget": "back-file:build:production"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/back-file/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/back-file/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "back-cms": {
+      "name": "back-cms",
+      "type": "app",
+      "data": {
+        "root": "apps/back-cms",
+        "name": "back-cms",
+        "targets": {
+          "develop": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "develop"
+            },
+            "configurations": {}
+          },
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "configurations": {}
+          },
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx-extend/strapi:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/apps/back-cms",
+              "tsConfig": "apps/back-cms/tsConfig.json"
+            },
+            "configurations": {
+              "production": {
+                "production": true
+              }
+            }
+          },
+          "strapi": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "strapi"
+            },
+            "configurations": {}
+          },
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          },
+          "serve": {
+            "executor": "@nx-extend/strapi:serve",
+            "options": {},
+            "configurations": {}
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "projectType": "application",
+        "sourceRoot": "apps/back-cms/src",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "assets": {
+      "name": "assets",
+      "type": "lib",
+      "data": {
+        "root": "libs/assets",
+        "name": "assets",
+        "targets": {
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          },
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/libs/assets",
+              "assets": [
+                {
+                  "input": "libs/assets/src",
+                  "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+                  "output": "/assets"
+                }
+              ],
+              "main": "libs/assets/src/index.ts",
+              "tsConfig": "libs/assets/tsconfig.lib.json",
+              "updateBuildableProjectDepsInPackageJson": true
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/assets/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/assets/src",
+        "projectType": "library",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "errors": {
+      "name": "errors",
+      "type": "lib",
+      "data": {
+        "root": "libs/errors",
+        "name": "errors",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/errors/src",
+        "projectType": "library",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/errors/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "resume": {
+      "name": "resume",
+      "type": "app",
+      "data": {
+        "root": "apps/resume",
+        "name": "resume",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/resume/src",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/webpack:webpack",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "target": "node",
+              "compiler": "tsc",
+              "outputPath": "dist/apps/resume",
+              "main": "apps/resume/src/main.ts",
+              "tsConfig": "apps/resume/tsconfig.app.json",
+              "assets": [
+                "apps/resume/src/assets"
+              ],
+              "isolatedConfig": true,
+              "webpackConfig": "apps/resume/webpack.config.js"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "resume:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "resume:build:development"
+              },
+              "production": {
+                "buildTarget": "resume:build:production"
+              }
+            }
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/resume/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "apps/resume/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "enums": {
+      "name": "enums",
+      "type": "lib",
+      "data": {
+        "root": "libs/enums",
+        "name": "enums",
+        "targets": {
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          },
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/libs/enums",
+              "main": "libs/enums/src/index.ts",
+              "tsConfig": "libs/enums/tsconfig.lib.json",
+              "assets": [
+                "libs/enums/*.md"
+              ]
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/enums/**/*.ts",
+                "libs/enums/package.json"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/enums/src",
+        "projectType": "library",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "utils": {
+      "name": "utils",
+      "type": "lib",
+      "data": {
+        "root": "libs/utils",
+        "name": "utils",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/utils/src",
+        "projectType": "library",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/utils/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          },
+          "test": {
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}/jest.preset.js"
+            ],
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "libs/utils/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "dto": {
+      "name": "dto",
+      "type": "lib",
+      "data": {
+        "root": "libs/dto",
+        "name": "dto",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/dto/src",
+        "projectType": "library",
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/dto/**/*.ts"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "web": {
+      "name": "web",
+      "type": "app",
+      "data": {
+        "root": "apps/web",
+        "name": "web",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/web",
+        "projectType": "application",
+        "targets": {
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/next:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/apps/web",
+              "assets": [
+                {
+                  "input": "libs/assets/src",
+                  "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+                  "output": "/assets"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "libs/theme"
+                ]
+              },
+              "extractCss": true
+            },
+            "configurations": {
+              "development": {
+                "outputPath": "apps/web"
+              },
+              "production": {}
+            }
+          },
+          "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "web:build",
+              "dev": true
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "web:build:development",
+                "dev": true
+              },
+              "production": {
+                "buildTarget": "web:build:production",
+                "dev": false
+              }
+            }
+          },
+          "export": {
+            "executor": "@nx/next:export",
+            "options": {
+              "buildTarget": "web:build:production"
+            },
+            "configurations": {}
+          },
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "apps/web/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          }
+        },
+        "tags": [],
+        "implicitDependencies": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "components-e2e": [
+      {
+        "source": "components-e2e",
+        "target": "components",
+        "type": "implicit"
+      }
+    ],
+    "back-gateway": [
+      {
+        "source": "back-gateway",
+        "target": "back-common",
+        "type": "static"
+      }
+    ],
+    "back-common": [
+      {
+        "source": "back-common",
+        "target": "dto",
+        "type": "static"
+      },
+      {
+        "source": "back-common",
+        "target": "enums",
+        "type": "static"
+      }
+    ],
+    "back-resume": [
+      {
+        "source": "back-resume",
+        "target": "back-common",
+        "type": "static"
+      },
+      {
+        "source": "back-resume",
+        "target": "enums",
+        "type": "static"
+      },
+      {
+        "source": "back-resume",
+        "target": "errors",
+        "type": "static"
+      },
+      {
+        "source": "back-resume",
+        "target": "dto",
+        "type": "static"
+      }
+    ],
+    "api-common": [],
+    "components": [],
+    "resume-e2e": [
+      {
+        "source": "resume-e2e",
+        "target": "resume",
+        "type": "implicit"
+      }
+    ],
+    "back-auth": [
+      {
+        "source": "back-auth",
+        "target": "back-common",
+        "type": "static"
+      },
+      {
+        "source": "back-auth",
+        "target": "dto",
+        "type": "static"
+      },
+      {
+        "source": "back-auth",
+        "target": "errors",
+        "type": "static"
+      }
+    ],
+    "back-file": [
+      {
+        "source": "back-file",
+        "target": "back-common",
+        "type": "static"
+      },
+      {
+        "source": "back-file",
+        "target": "enums",
+        "type": "static"
+      },
+      {
+        "source": "back-file",
+        "target": "dto",
+        "type": "static"
+      },
+      {
+        "source": "back-file",
+        "target": "errors",
+        "type": "static"
+      },
+      {
+        "source": "back-file",
+        "target": "back-resume",
+        "type": "static"
+      }
+    ],
+    "back-cms": [],
+    "assets": [],
+    "errors": [],
+    "resume": [
+      {
+        "source": "resume",
+        "target": "api-common",
+        "type": "static"
+      }
+    ],
+    "enums": [],
+    "utils": [],
+    "dto": [
+      {
+        "source": "dto",
+        "target": "enums",
+        "type": "static"
+      }
+    ],
+    "web": [
+      {
+        "source": "web",
+        "target": "assets",
+        "type": "static"
+      },
+      {
+        "source": "web",
+        "target": "components",
+        "type": "static"
+      }
+    ]
+  },
+  "version": "6.0"
+}
