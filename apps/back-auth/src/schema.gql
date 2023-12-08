@@ -31,8 +31,8 @@ type Query {
 }
 
 type Mutation {
-  signUp(SignUpAuthInputs: SignUpAuthInputsGQL!): User!
-  signIn(SignInAuthInputs: SignInAuthInputsGQL!): User!
+  signUp(signUpAuthInputs: SignUpAuthInputsGQL!): User!
+  signIn(signInAuthInputs: SignInAuthInputsGQL!): User!
 }
 
 input SignUpAuthInputsGQL {

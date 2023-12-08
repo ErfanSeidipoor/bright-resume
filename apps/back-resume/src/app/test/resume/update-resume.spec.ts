@@ -320,9 +320,6 @@ describe("microservice:resume UpdateResume", () => {
       .variables({
         updateResumeResumeInputs,
       });
-    // .expectNoErrors();
-
-    console.log({ errors, data });
 
     const { id: resumeId } = data.updateResume;
     const { id: userId } = authHeader.token;

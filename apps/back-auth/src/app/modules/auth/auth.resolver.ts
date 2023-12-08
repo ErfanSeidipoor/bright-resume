@@ -18,7 +18,7 @@ export class AuthResolver {
 
   @Mutation(() => User)
   async signUp(
-    @Args("SignUpAuthInputs")
+    @Args("signUpAuthInputs")
     inputs: SignUpAuthInputsGQL
   ): Promise<User> {
     return await this.authService.signUp(inputs);
@@ -26,7 +26,7 @@ export class AuthResolver {
 
   @Mutation(() => User)
   async signIn(
-    @Args("SignInAuthInputs")
+    @Args("signInAuthInputs")
     inputs: SignInAuthInputsGQL
   ): Promise<User> {
     return await this.authService.signIn(inputs);
