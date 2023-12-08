@@ -54,8 +54,6 @@ export class ResumeService {
 
     const resume = await this.resumeModel.findOne({ userId, id: resumeId });
 
-    console.log({ resume });
-
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
     }

@@ -80,8 +80,6 @@ describe("microservice:resume getResumes", () => {
       })
       .expectNoErrors();
 
-    console.log({ pageInfo: data.getResumes.pageInfo });
-
     expect(data.getResumes.edges).toHaveLength(COUNT);
     expect(data.getResumes.pageInfo.currentPage).toBe(PAGE);
     expect(data.getResumes.pageInfo.edgeCount).toBe(COUNT);

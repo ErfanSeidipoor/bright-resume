@@ -9,9 +9,11 @@ import { PassportModule } from "@nestjs/passport";
 import { MongooseModule } from "@nestjs/mongoose";
 import { models } from "./models";
 import { GoogleStrategy } from "./strategies";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     GraphQLModule,
     PassportModule,
     JWTModule,

@@ -4,10 +4,12 @@
   "license": "MIT",
   "scripts": {
     "resume:dev": "nx serve back-resume",
-    "resume:test": "nx test back-resume",
+    "resume:test": "nx test back-resume --runInBand",
     "auth:dev": "nx serve back-auth",
+    "auth:test": "nx test back-auth --runInBand",
     "cms:dev": "nx serve back-cms",
     "gateway:dev": "nx serve back-gateway",
+    "auth:test:file": "nx serve back-auth --testFile=<file-name>",
     "file:dev": "nx serve back-file",
     "components": "nx run components:storybook",
     "web": "nx run web:serve",
