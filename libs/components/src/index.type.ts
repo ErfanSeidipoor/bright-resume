@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 export type TypographyVariant =
   | "h1"
   | "h2"
@@ -152,3 +154,13 @@ export interface RangePickerProps {
   onChangeToYear: (year: number) => void;
   disabled?: boolean;
 }
+export type Option<T = any, K = any> = {
+  label: T;
+  value: K;
+};
+
+export type SliderProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  rootClassName?: string;
+  label?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};
