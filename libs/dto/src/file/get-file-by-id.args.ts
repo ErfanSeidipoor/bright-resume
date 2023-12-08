@@ -1,6 +1,6 @@
 import { IsMongoId } from "class-validator";
 
-export class GetFileByIdFileArgs {
+export class GetFileByIdFileInputs {
   @IsMongoId()
   fileId: string;
 }

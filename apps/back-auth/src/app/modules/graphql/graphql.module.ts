@@ -12,7 +12,6 @@ import { GraphQLModule as OriginalGraphQLModule } from "@nestjs/graphql";
     ConfigModule.forRoot({ isGlobal: true }),
     OriginalGraphQLModule.forRoot<ApolloFederationDriverConfig>({
       plugins: [ApolloServerPluginInlineTraceDisabled()],
-
       driver: ApolloFederationDriver,
       autoSchemaFile: {
         federation: 2,

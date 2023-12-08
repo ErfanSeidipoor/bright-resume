@@ -54,9 +54,9 @@ type PaginatedFile {
 }
 
 type Query {
-  getFiles(PaginationArgs: PaginationArgsGQL!, GetFilesFileArgs: GetFilesFileArgsGQL!): PaginatedFile!
-  getFileById(GetFileByIdFileArgs: GetFileByIdFileArgsGQL!): File!
-  getDownloadLink(GetDownloadLinkFileArgs: GetDownloadLinkFileArgsGQL!): String!
+  getFiles(paginationArgs: PaginationArgsGQL!, getFilesFileInputs: GetFilesFileInputsGQL!): PaginatedFile!
+  getFileById(getFileByIdFileInputs: GetFileByIdFileInputsGQL!): File!
+  getDownloadLink(getDownloadLinkFileInputs: GetDownloadLinkFileInputsGQL!): String!
 }
 
 input PaginationArgsGQL {
@@ -64,23 +64,23 @@ input PaginationArgsGQL {
   page: Int = 1
 }
 
-input GetFilesFileArgsGQL {
+input GetFilesFileInputsGQL {
   resumeId: String = ""
   reason: FileReasonEnum
 }
 
-input GetFileByIdFileArgsGQL {
+input GetFileByIdFileInputsGQL {
   fileId: String!
 }
 
-input GetDownloadLinkFileArgsGQL {
+input GetDownloadLinkFileInputsGQL {
   fileId: String!
 }
 
 type Mutation {
-  verifyUploadedFile(VerifyUploadedFileFileInputs: VerifyUploadedFileFileInputsGQL!): File!
-  getUploadLinkForProfileImage(GetUploadLinkForProfileImageFileInputs: GetUploadLinkForProfileImageFileInputsGQL!): File!
-  generatePdfOfResume(GeneratePdfOfResumeFileInputs: GeneratePdfOfResumeFileInputsGQL!): String!
+  verifyUploadedFile(verifyUploadedFileFileInputs: VerifyUploadedFileFileInputsGQL!): File!
+  getUploadLinkForProfileImage(getUploadLinkForProfileImageFileInputs: GetUploadLinkForProfileImageFileInputsGQL!): File!
+  generatePdfOfResume(generatePdfOfResumeFileInputs: GeneratePdfOfResumeFileInputsGQL!): String!
 }
 
 input VerifyUploadedFileFileInputsGQL {
@@ -93,4 +93,162 @@ input GetUploadLinkForProfileImageFileInputsGQL {
 
 input GeneratePdfOfResumeFileInputsGQL {
   resumeId: String!
+  name: String
+  role: String
+  isShowPhoneNumber: Boolean
+  phoneNumber: String
+  isShowLinkedin: Boolean
+  linkedin: String
+  isShowWebsite: Boolean
+  website: String
+  isShowEmail: Boolean
+  email: String
+  isShowLocation: Boolean
+  location: String
+  isShowBirthDay: Boolean
+  birthDay: String
+  isShowSummary: Boolean
+  summaryLabel: String
+  summary: String
+  isShowExperience: Boolean
+  experienceLabel: String
+  experienceRoleLabel: String
+  experienceCompanyLabel: String
+  experienceLocationLabel: String
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
+  isShowProject: Boolean
+  projectLabel: String
+  projectRoleLabel: String
+  projectTitleLabel: String
+  projectCompanyLabel: String
+  projectLocationLabel: String
+  projectUrlLabel: String
+  projects: [CreateResumeProjectItemInputsGQL!]
+  isShowEducation: Boolean
+  educationLabel: String
+  educationDegreeLabel: String
+  educationInstituteLabel: String
+  educationLocationLabel: String
+  educationGpaLabel: String
+  educations: [CreateResumeEducationItemInputsGQL!]
+  isShowCertification: Boolean
+  certificationLabel: String
+  certificationNameLabel: String
+  certificationInstituteLabel: String
+  certificationYearLabel: String
+  certifications: [CreateResumeCertificationItemInputsGQL!]
+  isShowCourseWork: Boolean
+  courseWorkLabel: String
+  courseWorkTitleLabel: String
+  courseWorkNameLabel: String
+  courseWorkInstituteLabel: String
+  courseWorkYearLabel: String
+  courseWorkSkillsLabel: String
+  courseWorks: [CreateResumeCourseWorkItemInputsGQL!]
+  isShowInvolvement: Boolean
+  involvementLabel: String
+  involvementRoleLabel: String
+  involvementCompanyLabel: String
+  involvementLocationLabel: String
+  involvements: [CreateResumeInvolvementItemInputsGQL!]
+  isShowSkill: Boolean
+  skillLabel: String
+  skills: [String!]
+  isShowLanguage: Boolean
+  languageLabel: String
+  languageNameLabel: String
+  languageLevelLabel: String
+  languages: [CreateResumeLanguageItemInputsGQL!]
+  hobbyLabel: String
+  isShowHobby: Boolean
+  hobbies: [String!]
+}
+
+input CreateResumeExperienceItemResumeInputsGQL {
+  role: String
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeProjectItemInputsGQL {
+  title: String
+  isShowRole: Boolean
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowUrl: Boolean
+  url: String
+  isShowDate: Boolean
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeEducationItemInputsGQL {
+  degree: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowLocation: Boolean
+  location: String
+  isShowGpa: Boolean
+  gpa: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeCertificationItemInputsGQL {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  points: [String!]
+}
+
+input CreateResumeCourseWorkItemInputsGQL {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  isShowSkills: Boolean
+  skills: String
+  points: [String!]
+}
+
+input CreateResumeInvolvementItemInputsGQL {
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
+  untilNow: Boolean
+  points: [String!]
+}
+
+input CreateResumeLanguageItemInputsGQL {
+  name: String
+  isShowLevel: Boolean
+  level: String
 }

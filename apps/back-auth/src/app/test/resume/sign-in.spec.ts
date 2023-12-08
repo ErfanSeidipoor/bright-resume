@@ -3,7 +3,7 @@ import request from "supertest-graphql";
 import gql from "graphql-tag";
 import { HelperDB, IntegrationTestManager } from "../helper";
 import { SignInAuthInputs } from "@dto";
-import { fa, faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 import { USERNAME_OR_PASSWORD_IS_INCORRECT } from "@bright-resume/errors";
 
 describe("microservice:auth SignIn", () => {
@@ -37,11 +37,10 @@ describe("microservice:auth SignIn", () => {
       password,
     };
 
-    const {
-      errors: [error],
-    } = await request<{ signIn: User }, { signInAuthInputs: SignInAuthInputs }>(
-      integrationTestManager.httpServer
-    )
+    const { errors } = await request<
+      { signIn: User },
+      { signInAuthInputs: SignInAuthInputs }
+    >(integrationTestManager.httpServer)
       .mutate(
         gql`
           mutation ($signInAuthInputs: SignInAuthInputsGQL!) {
@@ -58,8 +57,10 @@ describe("microservice:auth SignIn", () => {
         signInAuthInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(USERNAME_OR_PASSWORD_IS_INCORRECT.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(
+      USERNAME_OR_PASSWORD_IS_INCORRECT.description
+    );
   });
 
   it("should return USERNAME_OR_PASSWORD_IS_INCORRECT if the password is incorrect", async () => {
