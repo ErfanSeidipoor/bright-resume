@@ -1,0 +1,21 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+  }
+
+  option {
+    padding: 0;
+  }
+
+  input[type="range"] {
+    margin: 0;
+  }
+}
