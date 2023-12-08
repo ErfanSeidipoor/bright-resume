@@ -39,9 +39,7 @@ describe("microservice:resume UpdateResume", () => {
       resumeId: resume.id,
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -59,8 +57,8 @@ describe("microservice:resume UpdateResume", () => {
         updateResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("Should return RESUME_NOT_FOUND if a user attempts to delete a resume but the ID is wrong", async () => {
@@ -74,9 +72,7 @@ describe("microservice:resume UpdateResume", () => {
       resumeId: new mongoose.Types.ObjectId().toString(),
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -94,8 +90,8 @@ describe("microservice:resume UpdateResume", () => {
         updateResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("updates a resume with valid inputs", async () => {
@@ -330,8 +326,6 @@ describe("microservice:resume UpdateResume", () => {
 
     expect(updatedResume.id).toBe(resumeId);
     expect(updatedResume.userId).toBe(userId);
-
-    // i want to check all propes
 
     expect(updateResumeResumeInputs.name).toBe(updatedResume.name);
 

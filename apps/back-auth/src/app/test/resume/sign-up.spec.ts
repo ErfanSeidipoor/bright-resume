@@ -36,11 +36,10 @@ describe("microservice:auth SignUp", () => {
       password: faker.internet.password(),
     };
 
-    const {
-      errors: [error],
-    } = await request<{ signUp: User }, { signUpAuthInputs: SignUpAuthInputs }>(
-      integrationTestManager.httpServer
-    )
+    const { errors } = await request<
+      { signUp: User },
+      { signUpAuthInputs: SignUpAuthInputs }
+    >(integrationTestManager.httpServer)
       .mutate(
         gql`
           mutation ($signUpAuthInputs: SignUpAuthInputsGQL!) {
@@ -56,8 +55,8 @@ describe("microservice:auth SignUp", () => {
       .variables({
         signUpAuthInputs,
       });
-    expect(error).toBeDefined();
-    expect(error.message).toBe(
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(
       USER_WITH_THIS_USERNAME_ALREADY_EXISTS.description
     );
   });

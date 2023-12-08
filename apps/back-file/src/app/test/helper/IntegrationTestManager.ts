@@ -1,5 +1,5 @@
-import { AppModule } from "@bright-resume/back-resume/app/app.module";
-import { setupApp } from "@bright-resume/back-resume/setup-app";
+import { AppModule } from "@@back-file/app/app.module";
+import { setupApp } from "@@back-file/setup-app";
 import { INestApplication } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
 import { HelperDB } from "./helper.db";
@@ -33,6 +33,5 @@ export class IntegrationTestManager {
   async afterEach() {
     await this.helperDB.dropAllCollections();
     await this.helperDB.dropDatabase();
-    await this.app.close();
   }
 }

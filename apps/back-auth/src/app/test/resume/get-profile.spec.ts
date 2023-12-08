@@ -63,10 +63,9 @@ describe("microservice:auth GetProfile", () => {
   it("should return USER_NOT_FOUND if user doesn't exist", async () => {
     const authHeader = generateAuthorizationHeader({});
 
-    const {
-      data,
-      errors: [error],
-    } = await request<{ getProfile: User }>(integrationTestManager.httpServer)
+    const { errors } = await request<{ getProfile: User }>(
+      integrationTestManager.httpServer
+    )
       .set(authHeader.key, authHeader.value)
       .query(
         gql`
@@ -82,14 +81,12 @@ describe("microservice:auth GetProfile", () => {
         `
       );
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(USER_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(USER_NOT_FOUND.description);
   });
 
   it("should return UNAuthenticated if user doesn't exist", async () => {
-    const {
-      errors: [error],
-    } = await request<{ getProfile: User }>(
+    const { errors } = await request<{ getProfile: User }>(
       integrationTestManager.httpServer
     ).query(
       gql`
@@ -105,6 +102,7 @@ describe("microservice:auth GetProfile", () => {
       `
     );
 
-    expect(error.extensions.code).toBe("UNAUTHENTICATED");
+    expect(errors).toBeDefined();
+    expect(errors[0].extensions.code).toBe("UNAUTHENTICATED");
   });
 });
