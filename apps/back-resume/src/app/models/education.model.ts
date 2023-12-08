@@ -38,4 +38,4 @@ export class Education extends Document {
   points: string[];
 }
 
-export const educationSchema = SchemaFactory.createForClass(Education);
+export const EducationSchema = SchemaFactory.createForClass(Education);

@@ -69,7 +69,7 @@
     },
     "@nx/next": {
       "application": {
-        "style": "css",
+        "style": "scss",
         "linter": "eslint"
       }
     }

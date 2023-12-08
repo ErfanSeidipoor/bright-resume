@@ -1,0 +1,96 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PageInfo {
+  totalEdges: Float!
+  edgeCount: Float
+  edgesPerPage: Float!
+  totalPages: Float!
+  currentPage: Float!
+}
+
+type File {
+  id: ID
+  userId: ID!
+  resumeId: ID!
+  path: String
+  type: FileTypeEnum
+  reason: FileReasonEnum
+  status: FileStatusEnum
+  isVerified: Boolean
+  size: Float
+  hash: String
+  name: String
+  uploadLink: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum FileTypeEnum {
+  image
+  PDF
+}
+
+enum FileReasonEnum {
+  resume_profile_image
+  resume_PDF
+}
+
+enum FileStatusEnum {
+  waiting
+  error
+  uploaded
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PaginatedFile {
+  edges: [File!]!
+  pageInfo: PageInfo!
+}
+
+type Query {
+  getFiles(PaginationArgs: PaginationArgsGQL!, GetFilesFileArgs: GetFilesFileArgsGQL!): PaginatedFile!
+  getFileById(GetFileByIdFileArgs: GetFileByIdFileArgsGQL!): File!
+  getDownloadLink(GetDownloadLinkFileArgs: GetDownloadLinkFileArgsGQL!): String!
+}
+
+input PaginationArgsGQL {
+  limit: Int = 10
+  page: Int = 1
+}
+
+input GetFilesFileArgsGQL {
+  resumeId: String = ""
+  reason: FileReasonEnum
+}
+
+input GetFileByIdFileArgsGQL {
+  fileId: String!
+}
+
+input GetDownloadLinkFileArgsGQL {
+  fileId: String!
+}
+
+type Mutation {
+  verifyUploadedFile(VerifyUploadedFileFileInputs: VerifyUploadedFileFileInputsGQL!): File!
+  getUploadLinkForProfileImage(GetUploadLinkForProfileImageFileInputs: GetUploadLinkForProfileImageFileInputsGQL!): File!
+  generatePdfOfResume(GeneratePdfOfResumeFileInputs: GeneratePdfOfResumeFileInputsGQL!): String!
+}
+
+input VerifyUploadedFileFileInputsGQL {
+  fileId: String!
+}
+
+input GetUploadLinkForProfileImageFileInputsGQL {
+  resumeId: String!
+}
+
+input GeneratePdfOfResumeFileInputsGQL {
+  resumeId: String!
+}
