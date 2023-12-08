@@ -2,10 +2,10 @@ import { Document, FilterQuery, Model } from "mongoose";
 
 export interface IPaginate<T> {
   edges: T[];
-  meta: {
-    totalItems: number;
-    itemCount: number;
-    itemsPerPage: number;
+  pageInfo: {
+    totalEdges: number;
+    edgeCount: number;
+    edgesPerPage: number;
     totalPages: number;
     currentPage: number;
   };
@@ -24,17 +24,17 @@ export const paginate = async <T extends Document>(
     .limit(limit)
     .exec();
 
-  const totalItems = await model.countDocuments().where(query).exec();
-  const itemCount = items.length;
-  const totalPages = Math.ceil(totalItems / limit);
+  const totalEdges = await model.countDocuments().where(query).exec();
+  const edgeCount = items.length;
+  const totalPages = Math.ceil(totalEdges / limit);
 
-  const meta = {
-    totalItems,
-    itemCount,
-    itemsPerPage: Number(limit),
+  const pageInfo = {
+    totalEdges,
+    edgeCount,
+    edgesPerPage: Number(limit),
     totalPages,
     currentPage: Number(page),
   };
 
-  return { edges: items, meta };
+  return { edges: items, pageInfo };
 };

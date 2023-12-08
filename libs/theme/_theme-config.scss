@@ -1,3 +1,13 @@
+/* ------------------------------- Custom font ------------------------------ */
+
+@font-face {
+  font-family: $montserrat;
+  src: url("../assets/src/fonts/montserrat.eot") format("eot");
+  src: url("../assets/src/fonts/montserrat.ttf") format("ttf");
+  src: url("../assets/src/fonts/montserrat.woff") format("woff");
+  src: url("../assets/src/fonts/montserrat.woff2") format("woff2");
+}
+
 /* ------------------------------- Theme color ------------------------------ */
 
 #blue {
@@ -122,32 +132,26 @@
 
 /* ------------------------------- Font family ------------------------------ */
 
-#sansSerif {
-  font-family: sans-serif;
+#arial {
+  font-family: Arial;
+  font-size: 15px;
 }
 
 #montserrat {
-  font-family: monospace;
+  font-family: $montserrat;
+  font-size: 15px;
 }
 
-/* ------------------------------- Font weight ------------------------------ */
+/* -------------------------------- Font size ------------------------------- */
 
-#bold {
-  font-weight: map-get($font-weight, bold);
-}
-
-#semiBold {
-  font-weight: map-get($font-weight, semi-bold);
+#small {
+  font-size: map-get($font-size, h9);
 }
 
 #medium {
-  font-weight: map-get($font-weight, medium);
+  font-size: map-get($font-size, h7);
 }
 
-#regular {
-  font-weight: map-get($font-weight, regular);
-}
-
-#light {
-  font-weight: map-get($font-weight, light);
+#large {
+  font-size: map-get($font-size, h6);
 }
