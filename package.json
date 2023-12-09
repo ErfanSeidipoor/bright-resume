@@ -5,13 +5,18 @@
   "scripts": {
     "resume:dev": "nx serve back-resume",
     "resume:test": "nx test back-resume --runInBand",
+    "resume:build": "nx build back-resume",
     "auth:dev": "nx serve back-auth",
     "auth:test": "nx test back-auth --runInBand",
-    "cms:dev": "nx serve back-cms",
-    "gateway:dev": "nx serve back-gateway",
+    "auth:build": "nx build back-auth",
     "auth:test:file": "nx serve back-auth --testFile=<file-name>",
+    "cms:dev": "nx serve back-cms",
+    "cms:build": "nx build back-cms",
+    "gateway:dev": "nx serve back-gateway",
+    "gateway:build": "nx build back-gateway",
     "file:dev": "nx serve back-file",
     "file:test": "nx test back-file --runInBand",
+    "file:build": "nx build back-file",
     "components": "nx run components:storybook",
     "web": "nx run web:serve",
     "web:build": "nx run web:build"
@@ -136,7 +141,7 @@
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.6.2",
     "typescript-plugin-css-modules": "^5.0.1"
   }
 }
