@@ -116,8 +116,11 @@ export enum ButtonVariant {
   rounded = "rounded",
 }
 
+export type ButtonColor = "blue" | "green" | "purple" | "gold" | "grey";
+
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
+  color?: ButtonColor;
   rootClassName?: string;
   text?: string;
   iconRight?: React.ReactNode;
