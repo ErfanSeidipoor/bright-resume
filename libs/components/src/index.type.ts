@@ -134,6 +134,16 @@ export type NavigationButtonProps = ButtonProps & {
   onPrevPage?: () => void;
   onNextPage?: () => void;
 };
+
+export type BlogCardProps = {
+  rootClassName?: string;
+  imageWidth?: string | number;
+  imageHeight?: string | number;
+  link?: string;
+  categories?: { name: string }[];
+  isCutOutImage?: boolean;
+};
+
 export enum MonthEnum {
   Jan = "Jan",
   Feb = "Feb",
