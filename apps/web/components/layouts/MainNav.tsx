@@ -16,13 +16,13 @@ const MainNav: FC = () => {
   return (
     <div className={styles.container}>
       <div>
-        <a className={styles.links}>
+        <Link href="/" className={styles.links}>
           <Image
             className={styles.logo}
             src={logo}
             alt="logo-with-typography-horizontal"
           />
-        </a>
+        </Link>
       </div>
 
       <div className={styles.tabs}>

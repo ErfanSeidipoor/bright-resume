@@ -33,6 +33,5 @@ export class IntegrationTestManager {
   async afterEach() {
     await this.helperDB.dropAllCollections();
     await this.helperDB.dropDatabase();
-    await this.app.close();
   }
 }

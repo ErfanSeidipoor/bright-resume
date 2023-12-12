@@ -20,7 +20,7 @@
 }
 
 @mixin typography($type) {
-  font-size: map-get($font-size, $type);
+  font-size: em(map-get($font-size, $type), map-get($font-size, h7));
   line-height: 150%;
   @if ($type == h1) {
     font-weight: map-get($font-weight, semi-bold);
@@ -64,6 +64,10 @@
   align-items: $align;
   gap: spacing($gap);
   flex-wrap: $wrap;
+}
+
+@mixin shadow($shadow-key) {
+  box-shadow: map-get($shadow, $shadow-key);
 }
 
 // Small devices

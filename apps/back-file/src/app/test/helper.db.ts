@@ -1,11 +1,11 @@
 import { INestApplication } from "@nestjs/common";
-import { DBService } from "../modules/db/db.service";
+import { DbService } from "../modules/db/db.service";
 
 export class HelperDB {
-  DBservice: DBService;
+  DBservice: DbService;
 
   constructor(public app: INestApplication) {
-    this.DBservice = app.get<DBService>(DBService);
+    this.DBservice = app.get<DbService>(DbService);
   }
 
   async closeConnection() {

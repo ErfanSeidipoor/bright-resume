@@ -7,23 +7,43 @@ import { Document } from "mongoose";
 export class Project extends Document {
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  role: string;
+  title: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowRole: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  title: string;
+  role: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowCompany: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   company: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLocation: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   location: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowUrl: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   url: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowDate: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
