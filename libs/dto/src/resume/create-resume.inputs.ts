@@ -21,9 +21,17 @@ export class CreateResumeExperienceItemResumeInputs {
   company?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowLocation?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   location?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
 
   @IsOptional()
   @IsString()
@@ -61,12 +69,20 @@ export class CreateResumeProjectItemInputs {
   @IsOptional()
   @IsString()
   @MaxLength(50)
-  role?: string;
+  title?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowRole?: boolean;
 
   @IsOptional()
   @IsString()
   @MaxLength(50)
-  title?: string;
+  role?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowCompany?: boolean;
 
   @IsOptional()
   @IsString()
@@ -74,14 +90,26 @@ export class CreateResumeProjectItemInputs {
   company?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowLocation?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   location?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowUrl?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   url?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
 
   @IsOptional()
   @IsString()
@@ -122,9 +150,17 @@ export class CreateResumeEducationItemInputs {
   degree?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowInstitute?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   institute?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowLocation?: boolean;
 
   @IsOptional()
   @IsString()
@@ -132,9 +168,17 @@ export class CreateResumeEducationItemInputs {
   location?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowGpa?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(20)
   gpa?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
 
   @IsOptional()
   @IsString()
@@ -165,9 +209,17 @@ export class CreateResumeCertificationItemInputs {
   name?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowInstitute?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   institute?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
 
   @IsOptional()
   @IsString()
@@ -186,12 +238,11 @@ export class CreateResumeCourseWorkItemInputs {
   @IsOptional()
   @IsString()
   @MaxLength(100)
-  title?: string;
+  name?: string;
 
   @IsOptional()
-  @IsString()
-  @MaxLength(100)
-  name?: string;
+  @IsBoolean()
+  isShowInstitute?: boolean;
 
   @IsOptional()
   @IsString()
@@ -199,9 +250,17 @@ export class CreateResumeCourseWorkItemInputs {
   institute?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(25)
   year?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowSkills?: boolean;
 
   @IsOptional()
   @IsString()
@@ -223,14 +282,26 @@ export class CreateResumeInvolvementItemInputs {
   role?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowCompany?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   company?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowLocation?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(50)
   location?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowDate?: boolean;
 
   @IsOptional()
   @IsString()
@@ -271,6 +342,10 @@ export class CreateResumeLanguageItemInputs {
   name?: string;
 
   @IsOptional()
+  @IsBoolean()
+  isShowLevel?: boolean;
+
+  @IsOptional()
   @IsString()
   @MaxLength(20)
   level?: string;
@@ -293,7 +368,7 @@ export class CreateResumeResumeInputs {
 
   @IsOptional()
   @IsString()
-  @MaxLength(20)
+  @MaxLength(30)
   phoneNumber?: string;
 
   @IsOptional()
@@ -351,6 +426,11 @@ export class CreateResumeResumeInputs {
   summary?: string;
 
   @IsOptional()
+  @IsString()
+  @MaxLength(2500)
+  summaryLabel?: string;
+
+  @IsOptional()
   @IsBoolean()
   isShowExperience?: boolean;
 
@@ -358,6 +438,21 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   experienceLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  experienceRoleLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  experienceCompanyLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  experienceLocationLabel?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })
@@ -377,6 +472,31 @@ export class CreateResumeResumeInputs {
   projectLabel?: string;
 
   @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  projectTitleLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  projectRoleLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  projectCompanyLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  projectLocationLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  projectUrlLabel?: string;
+
+  @IsOptional()
   @ValidateNested({ each: true })
   @Expose()
   @Type(() => CreateResumeProjectItemInputs)
@@ -392,6 +512,26 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   educationLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  educationDegreeLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  educationInstituteLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  educationLocationLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  educationGpaLabel?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })
@@ -411,6 +551,21 @@ export class CreateResumeResumeInputs {
   certificationLabel?: string;
 
   @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  certificationNameLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  certificationInstituteLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  certificationYearLabel?: string;
+
+  @IsOptional()
   @ValidateNested({ each: true })
   @Expose()
   @Type(() => CreateResumeCertificationItemInputs)
@@ -428,6 +583,31 @@ export class CreateResumeResumeInputs {
   courseWorkLabel?: string;
 
   @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  courseWorkTitleLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  courseWorkNameLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  courseWorkInstituteLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  courseWorkYearLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  courseWorkSkillsLabel?: string;
+
+  @IsOptional()
   @ValidateNested({ each: true })
   @Expose()
   @Type(() => CreateResumeCourseWorkItemInputs)
@@ -443,6 +623,21 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   involvementLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  involvementRoleLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  involvementCompanyLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  involvementLocationLabel?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })
@@ -476,6 +671,16 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   languageLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  languageNameLabel?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  languageLevelLabel?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })

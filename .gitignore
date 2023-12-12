@@ -36,6 +36,7 @@ node_modules
 npm-debug.log
 yarn-error.log
 pnpm-lock.yaml
+yarn.lock
 testem.log
 /typings
 
@@ -51,3 +52,4 @@ Thumbs.db
 
 # Next.js
 .next
+

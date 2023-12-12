@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 export type TypographyVariant =
   | "h1"
   | "h2"
@@ -82,16 +84,14 @@ export enum ThemeColor {
   grey = "grey",
 }
 
-export enum FontWeight {
-  semiBold = "semiBold",
-  bold = "bold",
-  regular = "regular",
+export enum FonSize {
+  small = "small",
   medium = "medium",
-  light = "light",
+  large = "large",
 }
 
 export enum FontFamily {
-  sansSerif = "sansSerif",
+  arial = "arial",
   montserrat = "montserrat",
 }
 export enum ProficiencyEnum {
@@ -176,3 +176,13 @@ export interface RangePickerProps {
   onChangeToYear: (year: number) => void;
   disabled?: boolean;
 }
+export type Option<T = any, K = any> = {
+  label: T;
+  value: K;
+};
+
+export type SliderProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  rootClassName?: string;
+  label?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};

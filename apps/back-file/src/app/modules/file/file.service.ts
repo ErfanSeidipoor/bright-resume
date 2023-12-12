@@ -3,35 +3,33 @@ import { InjectModel } from "@nestjs/mongoose";
 import { FilterQuery, Model } from "mongoose";
 
 import { File, PaginatedFile } from "@@back-file/app/models";
+import { DbService } from "@@back-file/app/modules/db/db.service";
 import { MinioService } from "@@back-file/app/modules/minio/minio.service";
-import { DBService } from "@@back-file/app/modules/db/db.service";
 import { paginate } from "@back-common/pagination";
 import {
-  GetFileByIdFileArgs,
-  GetFilesFileArgs,
+  GeneratePdfOfResumeFileInputs,
+  GetDownloadLinkFileInputs,
+  GetFileByIdFileInputs,
+  GetFilesFileInputs,
   GetUploadLinkForProfileImageFileInputs,
   PaginationArgs,
   VerifyUploadedFileFileInputs,
-  GetDownloadLinkFileArgs,
-  GeneratePdfOfResumeFileInputs,
 } from "@dto";
+import { FileReasonEnum, FileStatusEnum, FileTypeEnum } from "@enums";
 import {
   CustomError,
   FILE_NOT_FOUND,
   THE_FILE_HAS_ALREADY_BEEN_APPROVED,
   THE_FILE_HAS_NOT_BEEN_UPLOADED_YET,
 } from "@errors";
-import { FileReasonEnum, FileStatusEnum, FileTypeEnum } from "@enums";
 import { BullService } from "../bull/bull.service";
-import { PdfService } from "../pdf/pdf.service";
 
 @Injectable()
 export class FileService {
   constructor(
     @InjectModel(File.name) private fileModel: Model<File>,
     private minioService: MinioService,
-    private pdfService: PdfService,
-    private dbService: DBService,
+    private dbService: DbService,
     private bullService: BullService
   ) {}
 
@@ -89,12 +87,14 @@ export class FileService {
     }
 
     const status = await this.minioService.getStatus(fileId);
+
     if (!status) {
       throw new CustomError(THE_FILE_HAS_NOT_BEEN_UPLOADED_YET);
     }
 
     file.isVerified = true;
     file.size = status.size;
+    file.status = FileStatusEnum.uploaded;
 
     await file.save();
 
@@ -107,17 +107,16 @@ export class FileService {
   ): Promise<string> {
     const { resumeId } = inputs;
 
-    const file = await this.fileModel.create({
-      resumeId,
-      userId,
-      isVerified: false,
-      type: FileTypeEnum.PDF,
-      reason: FileReasonEnum.resume_PDF,
-      status: FileStatusEnum.waiting,
-    });
-
     await this.dbService.transaction(async () => {
-      await file.save();
+      const file = await this.fileModel.create({
+        resumeId,
+        userId,
+        isVerified: false,
+        type: FileTypeEnum.PDF,
+        reason: FileReasonEnum.resume_PDF,
+        status: FileStatusEnum.waiting,
+      });
+
       await this.bullService.addToGeneratePdfOfResumeQueue({
         fileId: file.id,
         inputs,
@@ -129,7 +128,7 @@ export class FileService {
 
   async getDownloadLink(
     userId: string,
-    args: GetDownloadLinkFileArgs
+    args: GetDownloadLinkFileInputs
   ): Promise<string> {
     const { fileId } = args;
 
@@ -137,6 +136,7 @@ export class FileService {
       id: fileId,
       userId,
       isVerified: true,
+      status: FileStatusEnum.uploaded,
     });
 
     if (!file) {
@@ -148,7 +148,7 @@ export class FileService {
 
   async getList(
     userId: string,
-    args: GetFilesFileArgs,
+    args: GetFilesFileInputs,
     paginationArgs: PaginationArgs
   ): Promise<PaginatedFile> {
     const { resumeId, reason } = args;
@@ -170,7 +170,7 @@ export class FileService {
     return paginate(this.fileModel, queryBuilder, page, limit);
   }
 
-  async getById(userId: string, args: GetFileByIdFileArgs): Promise<File> {
+  async getById(userId: string, args: GetFileByIdFileInputs): Promise<File> {
     const { fileId } = args;
 
     const file = await this.fileModel.findOne({

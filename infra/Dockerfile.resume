@@ -1,0 +1,24 @@
+FROM node:20-alpine as build
+
+WORKDIR /app
+
+ADD package.json /app/package.json
+
+RUN npm i -g pnpm
+RUN pnpm install
+
+ADD . /app
+
+RUN npm run resume:build
+
+FROM node:20-alpine
+WORKDIR /app
+
+RUN npm i -g pnpm
+ADD package.json /app/package.json
+
+COPY --from=build app/dist/apps/back-resume /app
+
+RUN pnpm install -P
+
+CMD ["node", "main.js"]

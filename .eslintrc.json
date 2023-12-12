@@ -10,7 +10,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@bright-resume/*", "@@back*"],
+            "allow": ["@*", "@bright-resume/*", "@@back*"],
             "depConstraints": [
               {
                 "sourceTag": "*",

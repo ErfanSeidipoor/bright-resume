@@ -1,0 +1,98 @@
+@import "../../../../theme/index";
+
+.root {
+  @include flexbox(row, center, center);
+  position: fixed;
+  bottom: spacing(6);
+  left: spacing(1);
+  right: spacing(1);
+  width: 100%;
+  user-select: none;
+
+  .container {
+    @include flexbox(row, flex-start, center);
+    @include shadow(2);
+    border-radius: 18px;
+    min-width: 960px;
+    max-width: 1280px;
+    background-color: var(--light);
+    height: 90px;
+
+    & > div {
+      @include flexbox(column, center, center);
+      height: 50%;
+      flex: auto;
+      position: relative;
+    }
+
+    .menu__content {
+      @include flexbox(column, center, center);
+      cursor: pointer;
+    }
+
+    & p {
+      line-height: 2px;
+    }
+
+    & > div:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 80%;
+      right: spacing(0);
+      top: spacing(0.5);
+      background-color: var(--grey-200);
+    }
+
+    .select {
+      margin: spacing(1, 0, 3, 0);
+    }
+
+    .person {
+      width: 30px;
+      height: 30px;
+    }
+
+    .popup {
+      @include shadow(2);
+      @include transition(opacity, 150ms);
+      padding: 15px;
+      border-radius: 10px;
+      background-color: $light;
+      position: absolute;
+      bottom: spacing(16);
+      left: spacing(0);
+    }
+
+    .colors__container {
+      @include flexbox();
+      gap: spacing(7);
+
+      .color__icon_container {
+        position: relative;
+        cursor: pointer;
+
+        .color__icon {
+          position: absolute;
+          top: spacing(2.5);
+          left: spacing(2.5);
+          width: 20px;
+          height: 20px;
+          z-index: 11111;
+        }
+      }
+    }
+
+    .font {
+      width: 120px;
+      cursor: pointer;
+      @include transition(all, 150ms);
+      &:hover {
+        color: $blue;
+      }
+      &.font__active {
+        color: $blue;
+      }
+    }
+  }
+}

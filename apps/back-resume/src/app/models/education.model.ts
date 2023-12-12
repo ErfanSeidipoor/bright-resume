@@ -9,17 +9,33 @@ export class Education extends Document {
   @Prop({ type: String, required: false })
   degree: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowInstitute: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   institute: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowLocation: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   location: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowGpa: boolean;
+
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   gpa: string;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowDate: boolean;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, reqßuired: false })

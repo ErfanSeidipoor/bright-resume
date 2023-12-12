@@ -13,7 +13,7 @@ import {
   generateHashPassword,
   generateUserToken,
   verifyPassword,
-} from "../../../../../../libs/back-common/src/helpers";
+} from "@back-common/helpers";
 import { User } from "../../models";
 import { EnvironmentVariablesEnum } from "../../enums";
 import { ConfigService } from "@nestjs/config";

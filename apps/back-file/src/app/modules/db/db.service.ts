@@ -4,7 +4,7 @@ import { File } from "@@back-file/app/models";
 import { Connection, Model } from "mongoose";
 
 @Injectable()
-export class DBService {
+export class DbService {
   constructor(
     @InjectConnection() public readonly connection: Connection,
     @InjectModel(File.name) public fileModel: Model<File>

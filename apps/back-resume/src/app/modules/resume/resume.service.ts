@@ -2,7 +2,11 @@ import { FilterQuery, Model } from "mongoose";
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 
-import { CustomError, RESUME_NOT_FOUND } from "@bright-resume/errors";
+import {
+  A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS,
+  CustomError,
+  RESUME_NOT_FOUND,
+} from "@bright-resume/errors";
 import {
   CreateResumeResumeInputs,
   DeleteResumeResumeInputs,
@@ -23,7 +27,8 @@ export class ResumeService {
     @InjectModel(Experience.name) private experienceModel: Model<Experience>
   ) {}
 
-  async getList(
+  async getResumes(
+    userId: string,
     paginationArgs: PaginationArgs,
     args: GetResumesResumeArgs
   ): Promise<PaginatedResume> {
@@ -32,6 +37,8 @@ export class ResumeService {
 
     const queryBuilder: FilterQuery<Resume> = {};
 
+    queryBuilder.userId = userId;
+
     if (name) {
       queryBuilder.name = name;
     }
@@ -39,10 +46,13 @@ export class ResumeService {
     return paginate(this.resumeModel, queryBuilder, page, limit);
   }
 
-  async getById(args: GetResumeByIdResumeArgs): Promise<Resume> {
+  async getById(
+    userId: string,
+    args: GetResumeByIdResumeArgs
+  ): Promise<Resume> {
     const { resumeId } = args;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ userId, id: resumeId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -51,24 +61,28 @@ export class ResumeService {
     return resume;
   }
 
-  async update(inputs: UpdateResumeResumeInputs): Promise<Resume> {
+  async update(
+    userId: string,
+    inputs: UpdateResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    let resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
     }
 
-    resume = await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
-
-    return resume;
+    return await this.resumeModel.findOneAndUpdate({ id: resumeId }, inputs);
   }
 
-  async delete(inputs: DeleteResumeResumeInputs): Promise<Resume> {
+  async delete(
+    userId: string,
+    inputs: DeleteResumeResumeInputs
+  ): Promise<Resume> {
     const { resumeId } = inputs;
 
-    const resume = await this.resumeModel.findById(resumeId);
+    const resume = await this.resumeModel.findOne({ id: resumeId, userId });
 
     if (!resume) {
       throw new CustomError(RESUME_NOT_FOUND);
@@ -79,9 +93,20 @@ export class ResumeService {
     return resume;
   }
 
-  async create(inputs: CreateResumeResumeInputs): Promise<Resume> {
+  async create(
+    userId: string,
+    inputs: CreateResumeResumeInputs
+  ): Promise<Resume> {
+    const nameDuplication = await this.resumeModel.findOne({
+      name: inputs.name,
+    });
+
+    if (nameDuplication) {
+      throw new CustomError(A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS);
+    }
+
     const resume = await this.resumeModel.create({
-      userId: "userId",
+      userId,
       ...inputs,
     });
 
