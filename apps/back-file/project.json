@@ -16,7 +16,8 @@
         "tsConfig": "apps/back-file/tsconfig.app.json",
         "assets": ["apps/back-file/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "apps/back-file/webpack.config.js"
+        "webpackConfig": "apps/back-file/webpack.config.js",
+        "generatePackageJson": true
       },
       "configurations": {
         "development": {},

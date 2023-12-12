@@ -2,9 +2,9 @@ import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { File, PaginatedFile } from "@@back-file/app/models";
 import { UserId } from "@back-common/decorators";
 import {
-  GetDownloadLinkFileArgsGQL,
-  GetFileByIdFileArgsGQL,
-  GetFilesFileArgsGQL,
+  GetDownloadLinkFileInputsGQL,
+  GetFileByIdFileInputsGQL,
+  GetFilesFileInputsGQL,
   GetUploadLinkForProfileImageFileInputsGQL,
   VerifyUploadedFileFileInputsGQL,
   PaginationArgsGQL,
@@ -22,8 +22,8 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async getFiles(
     @UserId() userId: string,
-    @Args("PaginationArgs") paginationArgs: PaginationArgsGQL,
-    @Args("GetFilesFileArgs") args: GetFilesFileArgsGQL
+    @Args("paginationArgs") paginationArgs: PaginationArgsGQL,
+    @Args("getFilesFileInputs") args: GetFilesFileInputsGQL
   ) {
     return this.fileService.getList(userId, args, paginationArgs);
   }
@@ -32,7 +32,7 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async getFileById(
     @UserId() userId: string,
-    @Args("GetFileByIdFileArgs") args: GetFileByIdFileArgsGQL
+    @Args("getFileByIdFileInputs") args: GetFileByIdFileInputsGQL
   ) {
     return this.fileService.getById(userId, args);
   }
@@ -41,7 +41,7 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async verifyUploadedFile(
     @UserId() userId: string,
-    @Args("VerifyUploadedFileFileInputs")
+    @Args("verifyUploadedFileFileInputs")
     inputs: VerifyUploadedFileFileInputsGQL
   ): Promise<File> {
     return this.fileService.verifyUploadedFile(userId, inputs);
@@ -51,7 +51,7 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async getUploadLinkForProfileImage(
     @UserId() userId: string,
-    @Args("GetUploadLinkForProfileImageFileInputs")
+    @Args("getUploadLinkForProfileImageFileInputs")
     inputs: GetUploadLinkForProfileImageFileInputsGQL
   ): Promise<File> {
     return this.fileService.getUploadLinkForProfileImage(userId, inputs);
@@ -61,7 +61,7 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async generatePdfOfResume(
     @UserId() userId: string,
-    @Args("GeneratePdfOfResumeFileInputs")
+    @Args("generatePdfOfResumeFileInputs")
     inputs: GeneratePdfOfResumeFileInputsGQL
   ): Promise<string> {
     return this.fileService.generatePdfOfResume(userId, inputs);
@@ -71,8 +71,8 @@ export class FileResolver {
   @UseGuards(GqlAuthGuard)
   async getDownloadLink(
     @UserId() userId: string,
-    @Args("GetDownloadLinkFileArgs")
-    args: GetDownloadLinkFileArgsGQL
+    @Args("getDownloadLinkFileInputs")
+    args: GetDownloadLinkFileInputsGQL
   ): Promise<string> {
     return this.fileService.getDownloadLink(userId, args);
   }

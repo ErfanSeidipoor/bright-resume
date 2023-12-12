@@ -62,8 +62,8 @@ export class ResumeResolver {
   @UseGuards(GqlAuthGuard)
   async getResumeById(
     @UserId() userId: string,
-    @Args() getProductByIdArgs: GetResumeByIdResumeArgsGQL
+    @Args() getResumeByIdArgs: GetResumeByIdResumeArgsGQL
   ) {
-    return this.resumeService.getById(userId, getProductByIdArgs);
+    return this.resumeService.getById(userId, getResumeByIdArgs);
   }
 }
