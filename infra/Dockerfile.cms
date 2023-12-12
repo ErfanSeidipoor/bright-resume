@@ -1,0 +1,27 @@
+FROM node:20-alpine as build
+
+WORKDIR /app
+
+ADD package.json /app/package.json
+
+RUN npm i -g pnpm
+RUN pnpm install
+
+ADD . /app
+
+WORKDIR /app/apps/back-cms
+RUN pnpm install
+
+WORKDIR /app
+RUN pnpm run cms:build
+
+
+FROM node:20-alpine
+RUN npm i -g pnpm
+
+COPY --from=build app/dist/apps/back-cms /app
+
+WORKDIR /app
+RUN pnpm install
+
+CMD ["npm","start"]

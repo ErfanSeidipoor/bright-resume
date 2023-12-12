@@ -39,9 +39,7 @@ describe("microservice:resume CreateResume", () => {
       name: resume.name,
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { createResume: Resume },
       { createResumeResumeInputs: CreateResumeResumeInputsGQL }
     >(integrationTestManager.httpServer)
@@ -61,8 +59,8 @@ describe("microservice:resume CreateResume", () => {
         createResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(
       A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS.description
     );
   });

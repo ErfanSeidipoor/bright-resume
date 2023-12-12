@@ -38,9 +38,7 @@ describe("microservice:resume DeleteResume", () => {
       resumeId: resume.id,
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { deleteResumeResumeInputs: DeleteResumeResumeInputsGQL }
     >(integrationTestManager.httpServer)
@@ -58,22 +56,20 @@ describe("microservice:resume DeleteResume", () => {
         deleteResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("Should return RESUME_NOT_FOUND if a user attempts to delete a resume but the ID is wrong", async () => {
     const authHeader = generateAuthorizationHeader({});
 
-    const resume = await helperDB.createResume({});
+    await helperDB.createResume({});
 
     const deleteResumeResumeInputs: DeleteResumeResumeInputs = {
       resumeId: new mongoose.Types.ObjectId().toString(),
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { deleteResumeResumeInputs: DeleteResumeResumeInputsGQL }
     >(integrationTestManager.httpServer)
@@ -91,8 +87,8 @@ describe("microservice:resume DeleteResume", () => {
         deleteResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("deletes a resume with valid inputs", async () => {

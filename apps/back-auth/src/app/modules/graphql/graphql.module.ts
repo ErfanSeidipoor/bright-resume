@@ -1,6 +1,5 @@
+import { ApolloServerPluginInlineTraceDisabled } from "@apollo/server/plugin/disabled";
 import {
-  ApolloDriver,
-  ApolloDriverConfig,
   ApolloFederationDriver,
   ApolloFederationDriverConfig,
 } from "@nestjs/apollo";
@@ -12,6 +11,7 @@ import { GraphQLModule as OriginalGraphQLModule } from "@nestjs/graphql";
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     OriginalGraphQLModule.forRoot<ApolloFederationDriverConfig>({
+      plugins: [ApolloServerPluginInlineTraceDisabled()],
       driver: ApolloFederationDriver,
       autoSchemaFile: {
         federation: 2,

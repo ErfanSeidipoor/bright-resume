@@ -1,12 +1,12 @@
-import { Resume } from "@@back-resume/app/models/resume.model";
 import { PageInfo } from "@back-common/model";
 import { generateAuthorizationHeader } from "@back-common/test/helpers";
-import { GetResumesResumeArgs, PaginationArgs } from "@dto";
+import { GetFilesFileInputs, PaginationArgs } from "@dto";
 import gql from "graphql-tag";
 import request from "supertest-graphql";
 import { HelperDB, IntegrationTestManager } from "../helper";
+import { File } from "@@back-file/app/models";
 
-describe("microservice:resume getResumes", () => {
+describe("microservice:file getFiles", () => {
   const integrationTestManager = new IntegrationTestManager();
   let helperDB: HelperDB;
 
@@ -27,25 +27,26 @@ describe("microservice:resume getResumes", () => {
     await integrationTestManager.afterAll();
   });
 
-  it("gets a list of resumes with valid inputs", async () => {
+  it("gets a list of files with valid inputs", async () => {
     const authHeader = generateAuthorizationHeader({});
 
     const COUNT = 10;
     const PAGE = 1;
 
-    await helperDB.createMultipleResumes(COUNT, {
+    await helperDB.createMultipleFiles(COUNT, {
       userId: authHeader.token.id,
+      isVerified: true,
     });
 
     const { data } = await request<
       {
-        getResumes: {
-          edges: Resume[];
+        getFiles: {
+          edges: File[];
           pageInfo: PageInfo;
         };
       },
       {
-        getResumesResumeArgs: GetResumesResumeArgs;
+        getFilesFileInputs: GetFilesFileInputs;
         paginationArgs: PaginationArgs;
       }
     >(integrationTestManager.httpServer)
@@ -53,17 +54,16 @@ describe("microservice:resume getResumes", () => {
       .query(
         gql`
           query (
-            $getResumesResumeArgs: GetResumesResumeArgsGQL!
+            $getFilesFileInputs: GetFilesFileInputsGQL!
             $paginationArgs: PaginationArgsGQL!
           ) {
-            getResumes(
-              getResumesResumeArgs: $getResumesResumeArgs
+            getFiles(
+              getFilesFileInputs: $getFilesFileInputs
               paginationArgs: $paginationArgs
             ) {
               edges {
                 id
                 userId
-                name
               }
               pageInfo {
                 edgeCount
@@ -75,13 +75,13 @@ describe("microservice:resume getResumes", () => {
         `
       )
       .variables({
-        getResumesResumeArgs: {},
+        getFilesFileInputs: {},
         paginationArgs: { limit: COUNT, page: PAGE },
       })
       .expectNoErrors();
 
-    expect(data.getResumes.edges).toHaveLength(COUNT);
-    expect(data.getResumes.pageInfo.currentPage).toBe(PAGE);
-    expect(data.getResumes.pageInfo.edgeCount).toBe(COUNT);
+    expect(data.getFiles.edges).toHaveLength(COUNT);
+    expect(data.getFiles.pageInfo.currentPage).toBe(PAGE);
+    expect(data.getFiles.pageInfo.edgeCount).toBe(COUNT);
   });
 });

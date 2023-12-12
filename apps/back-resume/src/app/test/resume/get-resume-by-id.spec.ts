@@ -61,11 +61,10 @@ describe("microservice:resume getResumeById", () => {
 
     await helperDB.createResume({ userId: authHeader.token.id });
 
-    const {
-      errors: [error],
-    } = await request<{ getResumeById: Resume }, { resumeId: string }>(
-      integrationTestManager.httpServer
-    )
+    const { errors } = await request<
+      { getResumeById: Resume },
+      { resumeId: string }
+    >(integrationTestManager.httpServer)
       .set(authHeader.key, authHeader.value)
       .query(
         gql`
@@ -79,8 +78,8 @@ describe("microservice:resume getResumeById", () => {
       )
       .variables({ resumeId: new mongoose.Types.ObjectId().toString() });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("gets a resume with valid id", async () => {
