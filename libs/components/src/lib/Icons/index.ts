@@ -30,3 +30,4 @@ export * from "./logo";
 export * from "./removeCircleRounded";
 export * from "./rocket";
 export * from "./solarPenBold";
+export * from "./meatBallsMenu";

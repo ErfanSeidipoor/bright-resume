@@ -53,6 +53,22 @@ export type BackgroundInfoProps = {
   onDecrease: (id: string) => void;
 };
 
+export type ExperienceChildProps = {
+  id: string;
+  role: TextFieldProps;
+  company: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+};
+
+export type ExperienceProps = {
+  header: TextFieldProps;
+  items: ExperienceChildProps[];
+  hoverItem?: ExperienceChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
 export type LanguageChildProps = {
   id: string;
   language: TextFieldProps;
