@@ -12,15 +12,18 @@ import {
   GoldCircle,
   GreyCircleIcon,
   CheckIcon,
+  PlusIcon,
+  MinusIcon,
 } from "../Icons";
 import Typography from "../Typography";
-// types //TODO => change type path
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+// types
+import { FontFamily, FontSize, Section, ThemeColor } from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Popup from "../Popup";
+import CheckBox from "../CheckBox";
 
 type Avatar = {
   src: string;
@@ -45,12 +48,13 @@ export type MenuProps = {
   user?: User;
   color: ThemeColor;
   onChangeColor: (color: ThemeColor) => void;
-  sections: string[];
-  onChangeSections: (sections: string[]) => void;
   fontFamily: FontFamily;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
-  fonSize: FonSize;
-  onChangeFontSize: (fonSize: FonSize) => void;
+  fonSize: FontSize;
+  onChangeFontSize: (fonSize: FontSize) => void;
+  section: Section;
+  sections: Section[];
+  onChangeSections: (section: Section) => void;
 };
 
 export const Menu: React.FC<MenuProps> = ({
@@ -65,7 +69,7 @@ export const Menu: React.FC<MenuProps> = ({
   fonSize,
   onChangeFontSize,
 }) => {
-  const data = useData();
+  const data = useData({ onChangeFontSize });
 
   const renderMenuItem = ({
     title,
@@ -80,7 +84,7 @@ export const Menu: React.FC<MenuProps> = ({
         {popup}
         <div className={classes.menu__content} onClick={onClick}>
           {title && <Typography component="div">{title}</Typography>}
-          {text && <Typography>{text}</Typography>}
+          {text && <Typography component="div">{text}</Typography>}
         </div>
       </div>
     );
@@ -160,7 +164,23 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenSectionsPicker}
           onClose={data.handleToggleSectionsPicker}
         >
-          Sections
+          <div className={classes.sections}>
+            {Object.values(Section).map((currentSection) => (
+              <div
+                key={`section-${currentSection}`}
+                className={classes.section}
+                onClick={() => onChangeSections(currentSection)}
+              >
+                <CheckBox
+                  checked={sections.some((sec) => sec === currentSection)}
+                  onChange={(value) => {
+                    onChangeSections(currentSection);
+                  }}
+                />
+                <Typography>{currentSection}</Typography>
+              </div>
+            ))}
+          </div>
         </Popup>
       ),
       text: texts.sections,
@@ -178,6 +198,7 @@ export const Menu: React.FC<MenuProps> = ({
         >
           {Object.values(FontFamily).map((currentFontFamily) => (
             <Typography
+              key={`fontFamily-${currentFontFamily}`}
               className={cls(classes.font, {
                 [classes.font__active]: currentFontFamily === fontFamily,
               })}
@@ -188,7 +209,7 @@ export const Menu: React.FC<MenuProps> = ({
           ))}
         </Popup>
       ),
-      title: <div className={classes.select}>Change</div>,
+      title: <div className={classes.select}>{fontFamily}</div>,
       text: texts.font,
       onClick: data.handleToggleFontFamilyPicker,
     });
@@ -196,25 +217,17 @@ export const Menu: React.FC<MenuProps> = ({
 
   const renderSize = () => {
     return renderMenuItem({
-      popup: (
-        <Popup
-          className={classes.popup}
-          isOpen={data.isOpenFontSizePicker}
-          onClose={data.handleToggleFontSizePicker}
-        >
-          {Object.values(FonSize).map((currentFontSize) => (
-            <Typography
-              className={cls(classes.font, {
-                [classes.font__active]: currentFontSize === fonSize,
-              })}
-              onClick={() => onChangeFontSize(currentFontSize)}
-            >
-              {currentFontSize}
-            </Typography>
-          ))}
-        </Popup>
+      title: (
+        <div className={classes.font__size_container}>
+          <MinusIcon
+            onClick={() => data.handleChangeFontSize(fonSize, "minus")}
+          />
+          <div className={classes.select}>{fonSize}</div>
+          <PlusIcon
+            onClick={() => data.handleChangeFontSize(fonSize, "plus")}
+          />
+        </div>
       ),
-      title: <div className={classes.select}>Change</div>,
       text: texts.size,
       onClick: data.handleToggleFontSizePicker,
     });
@@ -257,6 +270,13 @@ export const Menu: React.FC<MenuProps> = ({
     });
   };
 
+  const renderMyResumes = () => {
+    return renderMenuItem({
+      title: <SaveIcon width="34px" height="34px" />,
+      text: texts.my_resumes,
+    });
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -269,6 +289,7 @@ export const Menu: React.FC<MenuProps> = ({
         {renderLogin()}
         {renderProfile()}
         {renderSave()}
+        {renderMyResumes()}
       </div>
     </div>
   );

@@ -9,6 +9,10 @@
   width: 100%;
   user-select: none;
 
+  & p {
+    line-height: 10px !important;
+  }
+
   .container {
     @include flexbox(row, flex-start, center);
     @include shadow(2);
@@ -30,10 +34,6 @@
       cursor: pointer;
     }
 
-    & p {
-      line-height: 2px;
-    }
-
     & > div:not(:last-child)::after {
       content: "";
       position: absolute;
@@ -45,12 +45,28 @@
     }
 
     .select {
-      margin: spacing(1, 0, 3, 0);
+      margin: spacing(0, 0, 3, 0);
+    }
+
+    .font__size_container {
+      @include flexbox(row, center, flex-start, 1);
     }
 
     .person {
       width: 30px;
       height: 30px;
+    }
+
+    .sections {
+      @include flexbox(row, space-between, center, wrap);
+      width: 500px;
+      flex-wrap: wrap;
+
+      .section {
+        @include flexbox(row, flex-start, center, 1);
+        flex: 1;
+        flex-basis: 50%;
+      }
     }
 
     .popup {

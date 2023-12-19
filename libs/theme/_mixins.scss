@@ -55,12 +55,14 @@
   $direction: row,
   $justify: flex-start,
   $align: stretch,
-  $gap: 0
+  $gap: 0,
+  $wrap: nowrap
 ) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  flex-wrap: nowrap;
   gap: spacing($gap);
 }
 
