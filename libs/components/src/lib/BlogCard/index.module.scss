@@ -59,4 +59,8 @@
   .blog__categories {
     @include flexbox(row, flex-start, center, 2);
   }
+
+  @include sm {
+    width: 100%;
+  }
 }

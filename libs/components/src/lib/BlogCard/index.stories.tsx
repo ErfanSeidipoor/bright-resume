@@ -22,8 +22,8 @@ Main.args = {
   categories: [{ name: "Categories" }, { name: "Categories" }],
 };
 
-export const Style2 = Template.bind({});
-Style2.args = {
+export const CutOutImage = Template.bind({});
+CutOutImage.args = {
   imageWidth: "100%",
   imageHeight: "300px",
   link: "",
