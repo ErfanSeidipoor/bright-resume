@@ -1,0 +1,112 @@
+@import "../../../../theme/index";
+
+.container {
+  padding: spacing(5, 5, 5, 15);
+  background-color: var(--light);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: var(--light-primary);
+
+    .add__icon {
+      opacity: 1 !important;
+    }
+
+    .remove__icon {
+      opacity: 1 !important;
+    }
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header {
+      width: 100%;
+      margin-right: spacing(2);
+    }
+
+    .add__icon {
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+
+      > path {
+        fill: var(--primary);
+      }
+    }
+  }
+
+  .child__container {
+    padding-left: spacing(8);
+    list-style-type: none;
+    .child__wrapper {
+      position: relative;
+
+      .title__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title__wrapper {
+          display: flex;
+          gap: spacing(2);
+          align-items: center;
+          .title {
+            &:before {
+              content: " ";
+              width: 5px;
+              height: 5px;
+              color: var(--dark);
+              background-color: var(--dark);
+              position: absolute;
+              left: -16px;
+              border-radius: 100%;
+              z-index: 10;
+            }
+          }
+        }
+
+        .remove__icon {
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.2s ease-in-out;
+        }
+      }
+
+      .description {
+        color: var(--grey-600);
+      }
+
+      .hover__line {
+        position: absolute;
+        left: -15px;
+        top: 16px;
+        width: 2px;
+        height: 100%;
+        background-color: var(--primary);
+      }
+    }
+
+    .hover__items {
+      width: 100%;
+    }
+
+    .hover__items_disable {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .hover__items_enable {
+      position: inherit;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+}

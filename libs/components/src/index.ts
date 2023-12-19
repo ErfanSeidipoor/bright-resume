@@ -12,5 +12,6 @@ export * from "./lib/RadioButton";
 export * from "./lib/ImageProfile";
 export * from "./lib/DatePicker";
 export * from "./lib/RangePicker";
+export * from "./lib/Experience";
 
 export * from "./index.type";
