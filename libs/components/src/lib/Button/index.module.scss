@@ -1,4 +1,4 @@
-@import '../../../../theme/index';
+@import "../../../../theme/index";
 
 .root {
   border-radius: 0.5rem;
@@ -7,10 +7,118 @@
   padding: spacing(0, 1);
   cursor: pointer;
   min-width: 5rem;
-  background-color: var(--primary);
-  color: var(--light);
-  &:hover {
-    background-color: var(--dark-primary);
-  }
   @include transition(all, 150ms);
+  @include flexbox(row, center, center, 2);
+
+  .iconRightClassName {
+    @include flexbox(row-reverse, center, center);
+  }
+
+  .iconLeftClassName {
+    @include flexbox(row, center, center);
+  }
+
+  &.text {
+    background-color: var(--transparent);
+    color: var(--primary);
+    path {
+      fill: var(--primary);
+    }
+
+    &:hover {
+      background-color: var(--light-primary);
+    }
+
+    &:disabled {
+      cursor: default;
+      color: var(--grey-200);
+      background-color: var(--transparent);
+      path {
+        fill: var(--grey-200);
+      }
+    }
+  }
+
+  &.outlined {
+    border: 1px solid var(--primary);
+    background-color: var(--transparent);
+    color: var(--dark-primary);
+    path {
+      fill: var(--dark-primary);
+    }
+
+    &:hover {
+      background-color: var(--light-primary);
+    }
+
+    &:disabled {
+      cursor: default;
+      border-color: var(--grey-200);
+      color: var(--grey-200);
+      background-color: var(--transparent);
+      path {
+        fill: var(--grey-200);
+      }
+    }
+
+    &.navigation-button {
+      @extend .outlined;
+      &:first-of-type {
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+      &:last-of-type {
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+    }
+  }
+
+  &.contained {
+    background-color: var(--primary);
+    color: var(--light);
+    path {
+      fill: var(--light);
+    }
+
+    &:hover {
+      background-color: var(--dark-primary);
+    }
+
+    &:disabled {
+      cursor: default;
+      color: var(--grey-200);
+      background-color: var(--light-primary);
+      path {
+        fill: var(--grey-200);
+      }
+    }
+  }
+
+  &.rounded {
+    border: 1px solid var(--primary);
+    border-radius: 100px;
+    background-color: var(--light-primary);
+    color: var(--primary);
+    path {
+      fill: var(--primary);
+    }
+
+    &:hover {
+      border-color: var(--dark-primary);
+      background-color: var(--primary-hover);
+      color: var(--dark-primary);
+      path {
+        fill: var(--dark-primary);
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      border-color: var(--light-primary);
+      color: var(--grey-200);
+      background-color: var(--light-primary);
+      path {
+        fill: var(--grey-200);
+      }
+    }
+  }
 }
