@@ -125,6 +125,28 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
+export enum ButtonVariant {
+  text = "text",
+  outlined = "outlined",
+  contained = "contained",
+  rounded = "rounded",
+}
+
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  rootClassName?: string;
+  text?: string;
+  iconRight?: React.ReactNode;
+  iconLeft?: React.ReactNode;
+  onClick?: () => void;
+};
+
+export type NavigationButtonProps = ButtonProps & {
+  hasPrevPage?: boolean;
+  hasNextPage?: boolean;
+  onPrevPage?: () => void;
+  onNextPage?: () => void;
+};
 export enum MonthEnum {
   Jan = "Jan",
   Feb = "Feb",
