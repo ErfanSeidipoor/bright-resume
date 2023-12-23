@@ -14,7 +14,7 @@ const Themplate: StoryFn<typeof Search> = (args) => {
       <Search
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onEmptyValue={() => setValue("m")}
+        onEmptyValue={() => setValue("")}
         {...args}
       />
     </div>
