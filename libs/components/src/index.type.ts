@@ -160,6 +160,11 @@ export type BlogCardProps = {
   isCutOutImage?: boolean;
 };
 
+export type SearchProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  rootClassName?: string;
+  onEmptyValue?: () => void;
+};
+
 export enum MonthEnum {
   Jan = "Jan",
   Feb = "Feb",
