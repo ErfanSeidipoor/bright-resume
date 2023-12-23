@@ -14,7 +14,6 @@ const ICONS = {
 export default {
   component: Button,
   title: "Button",
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
