@@ -132,8 +132,11 @@ export enum ButtonVariant {
   rounded = "rounded",
 }
 
+export type ButtonColor = "blue" | "green" | "purple" | "gold" | "grey";
+
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
+  color?: ButtonColor;
   rootClassName?: string;
   text?: string;
   iconRight?: React.ReactNode;
@@ -147,6 +150,21 @@ export type NavigationButtonProps = ButtonProps & {
   onPrevPage?: () => void;
   onNextPage?: () => void;
 };
+
+export type BlogCardProps = {
+  rootClassName?: string;
+  imageWidth?: string | number;
+  imageHeight?: string | number;
+  link?: string;
+  categories?: { name: string }[];
+  isCutOutImage?: boolean;
+};
+
+export type SearchProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  rootClassName?: string;
+  onEmptyValue?: () => void;
+};
+
 export enum MonthEnum {
   Jan = "Jan",
   Feb = "Feb",
