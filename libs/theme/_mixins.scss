@@ -55,13 +55,15 @@
   $direction: row,
   $justify: flex-start,
   $align: stretch,
-  $gap: 0
+  $gap: 0,
+  $wrap: wrap
 ) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
   gap: spacing($gap);
+  flex-wrap: $wrap;
 }
 
 @mixin shadow($shadow-key) {

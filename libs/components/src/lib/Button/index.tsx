@@ -23,9 +23,10 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      id={color}
+      color={color}
       className={cls(classes.root, className ? classes[className] : "", {
         [rootClassName]: !!rootClassName,
+        [classes[color]]: color,
         [classes[variant]]: variant,
       })}
       onClick={onClick}

@@ -1,0 +1,66 @@
+@import "../../../../theme/index";
+
+.root {
+  width: 50%;
+  .blog__image {
+    border-radius: 15px;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  .blog__title {
+    margin: spacing(1, 0);
+    color: #{$blue};
+    &.blog__title__cutout {
+      margin: spacing(-10, 0, 0, 0);
+      padding: spacing(1, 3, 1, 0);
+      background: #{$light};
+      z-index: 99;
+      position: relative;
+      width: max-content;
+      border-radius: 0 15px 0 0;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        -webkit-mask-image: linear-gradient(to top, #{$dark}, #{$dark}),
+          radial-gradient(circle 15px at center, #{$dark} 80%, transparent 83%);
+        mask-image: linear-gradient(to top, #{$dark}, #{$dark}),
+          radial-gradient(circle 15px at center, #{$dark} 80%, transparent 83%);
+        -webkit-mask-size: 12px 12px, 100%;
+        mask-size: 12px 12px, 100%;
+        -webkit-mask-composite: source-out;
+        mask-composite: subtract;
+        -webkit-mask-repeat: no-repeat, repeat;
+        mask-repeat: no-repeat, repeat;
+        background-color: #{$light};
+        -webkit-mask-position: bottom left, center;
+        mask-position: bottom left, center;
+      }
+      &::before {
+        bottom: 100%;
+        left: 0;
+      }
+      &::after {
+        bottom: 3px;
+        left: 100%;
+      }
+    }
+  }
+  .blog__description {
+    margin: spacing(1, 0);
+    color: #{$dark};
+  }
+  .blog__short__description {
+    margin: spacing(0, 0, 3, 0);
+    color: #{$dark};
+  }
+  .blog__categories {
+    @include flexbox(row, flex-start, center, 2);
+  }
+
+  @include sm {
+    width: 100%;
+  }
+}
