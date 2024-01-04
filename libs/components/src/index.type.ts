@@ -16,6 +16,8 @@ export type TextAreaProps =
     variant?: TypographyVariant;
     rootClassName?: string;
     label?: string;
+    isSeparate?: boolean;
+    setValue?: (value: string | number | readonly string[] | undefined) => void;
   };
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {

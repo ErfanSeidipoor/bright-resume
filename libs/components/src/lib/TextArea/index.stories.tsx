@@ -9,7 +9,10 @@ export default {
 } as Meta<typeof TextArea>;
 
 const Template: StoryFn<typeof TextArea> = (args) => {
-  const [value, setValue] = useState<string | undefined>(undefined);
+  const [value, setValue] = useState<
+    string | number | readonly string[] | undefined
+  >(undefined);
+
   return (
     <div id="theme-blue">
       <TextArea
@@ -17,7 +20,8 @@ const Template: StoryFn<typeof TextArea> = (args) => {
         label={texts.name}
         value={value}
         placeholder={texts.lorem_ipsum}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(event) => setValue(event.target.value)}
+        setValue={setValue}
       />
     </div>
   );
@@ -25,6 +29,11 @@ const Template: StoryFn<typeof TextArea> = (args) => {
 
 export const Main = Template.bind({});
 Main.args = {};
+
+export const Separate = Template.bind({});
+Separate.args = {
+  isSeparate: true,
+};
 
 export const Variant = Template.bind({});
 Variant.args = {

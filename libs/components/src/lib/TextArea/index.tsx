@@ -13,9 +13,11 @@ export const TextArea: FC<TextAreaProps> = ({
   rootClassName = "",
   label = "",
   rows = 3,
+  isSeparate = false,
+  setValue = () => undefined,
   ...props
 }) => {
-  const data = useData();
+  const data = useData({ defaultRows: rows });
 
   const renderIcon = () => {
     return (
@@ -42,11 +44,15 @@ export const TextArea: FC<TextAreaProps> = ({
             [classes.disable__input]: !props.disabled && !data.isInputActive,
             [classes.not__allow_input]: props.disabled,
           })}
-          onKeyDown={(event) =>
-            event.key === "Escape" && data.handleDeActiveInput()
-          }
+          onKeyDown={(event) => {
+            event.key === "Escape" && data.handleDeActiveInput();
+            event.key === "Enter" &&
+              setValue(
+                data.handleChangeValue({ value: props.value, isSeparate })
+              );
+          }}
           variant={variant}
-          rows={rows}
+          rows={data.rows}
         />
       </>
     );
