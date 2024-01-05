@@ -1,10 +1,10 @@
 import cls from "classnames";
 import Typography from "../Typography";
-import Button from "../Button";
+import { Button } from "../Button";
 import blogImage from "@assets/image/logo-dark.png";
 
 import classes from "./index.module.scss";
-import { BlogCardProps, ButtonVariant } from "../../index.type";
+import { BlogCardProps } from "../../index.type";
 import { texts } from "./text";
 
 export const BlogCard: React.FC<BlogCardProps> = ({
@@ -45,11 +45,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       <div className={classes.blog__categories}>
         {categories.length > 0 &&
           categories.map((category) => (
-            <Button
-              key={category.name}
-              variant={ButtonVariant.rounded}
-              text={category.name}
-            />
+            <Button key={category.name} variant="rounded">
+              {category.name}
+            </Button>
           ))}
       </div>
     </div>

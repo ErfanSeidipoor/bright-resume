@@ -1,10 +1,10 @@
 import cls from "classnames";
 
 import classes from "./index.module.scss";
-import { ButtonProps, ButtonVariant } from "../../index.type";
+import { ButtonProps } from "../../index.type";
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = ButtonVariant.text,
+  variant = "contained",
   color = "blue",
   rootClassName = "",
   text,
@@ -12,6 +12,7 @@ export const Button: React.FC<ButtonProps> = ({
   iconLeft,
   className,
   onClick = () => null,
+  children,
   ...props
 }) => {
   const renderIconRight = () => {
@@ -33,7 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {renderIconLeft()}
-      {text}
+      {text ? text : children}
       {renderIconRight()}
     </button>
   );
