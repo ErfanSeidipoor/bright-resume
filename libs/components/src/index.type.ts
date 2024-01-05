@@ -12,13 +12,24 @@ export type TypographyVariant =
   | "h9";
 
 export type TextAreaProps =
-  React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
-    variant?: TypographyVariant;
-    rootClassName?: string;
-    label?: string;
-    isSeparate?: boolean;
-    setValue?: (value: string | number | readonly string[] | undefined) => void;
-  };
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: boolean;
+      setValue: (value: string | undefined) => void;
+      value: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    })
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: false;
+      setValue?: (value: string | undefined) => void;
+      value?: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    });
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
@@ -127,12 +138,7 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export enum ButtonVariant {
-  text = "text",
-  outlined = "outlined",
-  contained = "contained",
-  rounded = "rounded",
-}
+export type ButtonVariant = "text" | "outlined" | "contained" | "rounded";
 
 export type ButtonColor = "blue" | "green" | "purple" | "gold" | "grey";
 

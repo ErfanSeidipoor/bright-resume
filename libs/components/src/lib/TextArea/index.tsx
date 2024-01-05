@@ -13,8 +13,9 @@ export const TextArea: FC<TextAreaProps> = ({
   rootClassName = "",
   label = "",
   rows = 3,
-  isSeparate = false,
+  isSeparateValue = false,
   setValue = () => undefined,
+  getSeparatedValues = () => undefined,
   ...props
 }) => {
   const data = useData({ defaultRows: rows });
@@ -35,6 +36,17 @@ export const TextArea: FC<TextAreaProps> = ({
         </label>
         <Typography
           {...props}
+          onChange={(e) => {
+            if (props.onChange) {
+              props.onChange(e);
+            }
+            data.handleChangeRows(e.target.value);
+            data.handleResetRows(e.target.value);
+            setValue(
+              data.handleChangeValue({ value: e.target.value, isSeparateValue })
+            );
+            getSeparatedValues(data.handleMakeArrayValue(e.target.value));
+          }}
           component="textarea"
           onFocus={data.handleActiveInput}
           autoFocus={data.isInputActive}
@@ -45,11 +57,9 @@ export const TextArea: FC<TextAreaProps> = ({
             [classes.not__allow_input]: props.disabled,
           })}
           onKeyDown={(event) => {
-            event.key === "Escape" && data.handleDeActiveInput();
-            event.key === "Enter" &&
-              setValue(
-                data.handleChangeValue({ value: props.value, isSeparate })
-              );
+            if (event.key === "Escape") {
+              data.handleDeActiveInput();
+            }
           }}
           variant={variant}
           rows={data.rows}

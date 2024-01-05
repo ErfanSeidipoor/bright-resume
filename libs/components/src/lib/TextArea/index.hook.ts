@@ -14,32 +14,47 @@ export const useData = ({ defaultRows = 3 }: IUseData) => {
     setIsInputActive(true);
   };
 
-  const handleSeparateSentences = (
-    value: string | number | readonly string[] | undefined
-  ) => {
+  const handleMakeArrayValue = (value: string | undefined) => {
+    if (!value) return [];
+    const separatedText = value.toString().split(/\n/g).join("").split("• ");
+    const values = separatedText.filter((value) => !!value);
+
+    return values;
+  };
+
+  const handleSeparateSentences = (value: string | undefined) => {
     if (!value) return;
     const separatedText = value.toString().split(/\n/g);
     const formattedText = separatedText
       .map((sentence) => (sentence.includes("• ") ? sentence : "• " + sentence))
       .join("\n");
-    setRows(
-      separatedText.length + 1 > defaultRows
-        ? separatedText.length + 1
-        : defaultRows
-    );
+
     return formattedText;
   };
 
   const handleChangeValue = ({
     value,
-    isSeparate,
+    isSeparateValue,
   }: {
-    value: string | number | readonly string[] | undefined;
-    isSeparate: boolean;
+    value: string | undefined;
+    isSeparateValue: boolean;
   }) => {
     if (!value) return;
-    if (!isSeparate) return value;
+    if (!isSeparateValue) return value;
     return handleSeparateSentences(value);
+  };
+
+  const handleChangeRows = (value: string | undefined) => {
+    if (!value) return;
+    const separatedText = value.toString().split(/\n/g);
+    return setRows(
+      separatedText.length > defaultRows ? separatedText.length : defaultRows
+    );
+  };
+
+  const handleResetRows = (value: string | undefined) => {
+    if (value) return;
+    return setRows(defaultRows);
   };
 
   return {
@@ -48,5 +63,8 @@ export const useData = ({ defaultRows = 3 }: IUseData) => {
     handleDeActiveInput,
     handleChangeValue,
     rows,
+    handleChangeRows,
+    handleResetRows,
+    handleMakeArrayValue,
   };
 };
