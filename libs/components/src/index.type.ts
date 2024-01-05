@@ -72,6 +72,13 @@ export type ExperienceChildProps = {
   company: TextFieldProps;
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  isShowLocation?: boolean;
+  isShowDate?: boolean;
+  isShowPoints?: boolean;
+  onChangeShowLocation?: () => void;
+  onChangeShowDate?: () => void;
+  onChangeShowPoints?: () => void;
 };
 
 export type ExperienceProps = {
@@ -131,6 +138,14 @@ export enum ProficiencyEnum {
 }
 
 export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};
+
+export type CheckBoxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   labelVariant?: TypographyVariant;
   icon?: React.ReactNode;
   checkedIcon?: React.ReactNode;

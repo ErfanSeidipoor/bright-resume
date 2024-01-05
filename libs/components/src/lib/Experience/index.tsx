@@ -2,9 +2,11 @@ import cls from "classnames";
 import { FC } from "react";
 // components
 import {
+  CheckBox,
   ExperienceChildProps,
   ExperienceProps,
   RangePicker,
+  TextArea,
   TextField,
 } from "@bright-resume/components";
 // icons
@@ -26,6 +28,13 @@ export const Experience: FC<ExperienceProps> = ({
       company: {},
       location: {},
       rangeDate: undefined,
+      points: {},
+      isShowLocation: false,
+      isShowDate: false,
+      isShowPoints: false,
+      onChangeShowDate: () => undefined,
+      onChangeShowLocation: () => undefined,
+      onChangeShowPoints: () => undefined,
     },
   ],
   hoverItem = {
@@ -38,7 +47,6 @@ export const Experience: FC<ExperienceProps> = ({
   onDecrease = () => null,
 }) => {
   const data = useData();
-
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
@@ -62,15 +70,39 @@ export const Experience: FC<ExperienceProps> = ({
               onIncrease();
             }}
           />
-          <MeatBallsMenuIcon />
         </div>
       </div>
     );
   };
 
-  const renderChild = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (child: ExperienceChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
+        <div className={classes.menu__container}>
+          <MeatBallsMenuIcon
+            className={classes.menu__icon}
+            onClick={() => data.handleShowMenuId(child.id)}
+          />
+          {data.showMenuId === child.id && (
+            <div className={classes.menu__wrapper}>
+              <CheckBox
+                checked={child.isShowLocation}
+                onChange={child.onChangeShowLocation}
+                label="Location"
+              />
+              <CheckBox
+                checked={child.isShowDate}
+                onChange={child.onChangeShowDate}
+                label="Date"
+              />
+              <CheckBox
+                checked={child.isShowPoints}
+                onChange={child.onChangeShowPoints}
+                label="Points"
+              />
+            </div>
+          )}
+        </div>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
@@ -105,6 +137,17 @@ export const Experience: FC<ExperienceProps> = ({
           />
         )}
 
+        {child.points && (
+          <TextArea
+            {...child.points}
+            variant="h7"
+            placeholder={child.points.placeholder}
+            className={cls(classes.points, {
+              [child.points.className || ""]: !!child.points.className,
+            })}
+          />
+        )}
+
         {data.handleIsLastItemOnHover(items.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
@@ -113,13 +156,13 @@ export const Experience: FC<ExperienceProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderChild(hoverItem, -1);
+    return renderFields(hoverItem, -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderChild(child, index))}
+        {items.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,
@@ -141,3 +184,5 @@ export const Experience: FC<ExperienceProps> = ({
     </div>
   );
 };
+
+export default Experience;

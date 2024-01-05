@@ -34,3 +34,4 @@ export * from "./removeCircleRounded";
 export * from "./rocket";
 export * from "./solarPenBold";
 export * from "./meatBallsMenu";
+export * from "./emptySquare";
