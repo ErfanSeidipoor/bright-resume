@@ -73,6 +73,11 @@ export type BackgroundInfoProps = {
   onDecrease: (id: string) => void;
 };
 
+export type showOptionsType = {
+  isShow: boolean;
+  onToggle: () => void;
+};
+
 export type ExperienceChildProps = {
   id: string;
   role: TextFieldProps;
@@ -80,6 +85,9 @@ export type ExperienceChildProps = {
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
   points?: TextAreaProps;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
 };
 
 export type ExperienceProps = {
@@ -224,14 +232,14 @@ export interface DatePickerProps {
 export interface RangePickerProps {
   id?: string;
   className?: string;
-  fromMonth: MonthEnum | undefined;
-  fromYear: number | undefined;
-  onChangeFromMonth: (month: MonthEnum) => void;
-  onChangeFromYear: (year: number) => void;
-  toMonth: MonthEnum | undefined;
-  toYear: number | undefined;
-  onChangeToMonth: (month: MonthEnum) => void;
-  onChangeToYear: (year: number) => void;
+  fromMonth?: MonthEnum | undefined;
+  fromYear?: number | undefined;
+  onChangeFromMonth?: (month: MonthEnum) => void;
+  onChangeFromYear?: (year: number) => void;
+  toMonth?: MonthEnum | undefined;
+  toYear?: number | undefined;
+  onChangeToMonth?: (month: MonthEnum) => void;
+  onChangeToYear?: (year: number) => void;
   disabled?: boolean;
 }
 export type Option<T = any, K = any> = {

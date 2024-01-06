@@ -29,6 +29,18 @@ export const Experience: FC<ExperienceProps> = ({
       location: {},
       rangeDate: undefined,
       points: {},
+      showLocation: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showDate: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showPoints: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
     },
   ],
   hoverItem = {
@@ -91,7 +103,7 @@ export const Experience: FC<ExperienceProps> = ({
                 onClick={() => onDecrease(child.id)}
               />
             )}
-            {data.showOptions.isShowDate && child.rangeDate && (
+            {child.showDate?.isShow && child.rangeDate && (
               <RangePicker {...child.rangeDate} />
             )}
 
@@ -103,21 +115,21 @@ export const Experience: FC<ExperienceProps> = ({
               {data.showMenuId === child.id && (
                 <div className={classes.menu__wrapper}>
                   <CheckBox
-                    checked={data.showOptions.isShowLocation}
-                    onClick={data.toggleShowLocation}
-                    onChange={data.toggleShowLocation}
+                    checked={child.showLocation?.isShow}
+                    onClick={child.showLocation?.onToggle}
+                    onChange={child.showLocation?.onToggle}
                     label="Location"
                   />
                   <CheckBox
-                    checked={data.showOptions.isShowDate}
-                    onClick={data.toggleShowDate}
-                    onChange={data.toggleShowDate}
+                    checked={child.showDate?.isShow}
+                    onClick={child.showDate?.onToggle}
+                    onChange={child.showDate?.onToggle}
                     label="Date"
                   />
                   <CheckBox
-                    checked={data.showOptions.isShowPoints}
-                    onClick={data.toggleShowPoints}
-                    onChange={data.toggleShowPoints}
+                    checked={child.showPoints?.isShow}
+                    onClick={child.showPoints?.onToggle}
+                    onChange={child.showPoints?.onToggle}
                     label="Points"
                   />
                 </div>
@@ -130,7 +142,7 @@ export const Experience: FC<ExperienceProps> = ({
           variant="h5"
           placeholder={child.company.placeholder}
         />
-        {data.showOptions.isShowLocation && child.location && (
+        {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
             variant="h7"
@@ -138,7 +150,7 @@ export const Experience: FC<ExperienceProps> = ({
           />
         )}
 
-        {data.showOptions.isShowPoints && child.points && (
+        {child.showPoints?.isShow && child.points && (
           <TextArea
             {...child.points}
             variant="h7"
