@@ -80,7 +80,7 @@
         }
       }
 
-      .description {
+      .points {
         color: var(--grey-600);
       }
 
@@ -91,6 +91,32 @@
         width: 2px;
         height: 100%;
         background-color: var(--primary);
+      }
+
+      .menu__container {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .menu__icon {
+          cursor: pointer;
+          circle {
+            fill: var(--primary);
+          }
+        }
+
+        .menu__wrapper {
+          padding: spacing(3, 2);
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          background-color: var(--light);
+          position: absolute;
+          top: 24px;
+          right: 0;
+          z-index: 999;
+        }
       }
     }
 

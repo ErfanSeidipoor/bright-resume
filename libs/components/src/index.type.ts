@@ -12,11 +12,24 @@ export type TypographyVariant =
   | "h9";
 
 export type TextAreaProps =
-  React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
-    variant?: TypographyVariant;
-    rootClassName?: string;
-    label?: string;
-  };
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: boolean;
+      setValue: (value: string | undefined) => void;
+      value: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    })
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: false;
+      setValue?: (value: string | undefined) => void;
+      value?: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    });
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
@@ -59,6 +72,13 @@ export type ExperienceChildProps = {
   company: TextFieldProps;
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  isShowLocation?: boolean;
+  isShowDate?: boolean;
+  isShowPoints?: boolean;
+  onChangeShowLocation?: () => void;
+  onChangeShowDate?: () => void;
+  onChangeShowPoints?: () => void;
 };
 
 export type ExperienceProps = {
@@ -125,12 +145,15 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export enum ButtonVariant {
-  text = "text",
-  outlined = "outlined",
-  contained = "contained",
-  rounded = "rounded",
-}
+export type CheckBoxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};
+
+export type ButtonVariant = "text" | "outlined" | "contained" | "rounded";
 
 export type ButtonColor = "blue" | "green" | "purple" | "gold" | "grey";
 

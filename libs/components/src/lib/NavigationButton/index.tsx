@@ -2,8 +2,8 @@ import cls from "classnames";
 
 import classes from "./index.module.scss";
 
-import { ButtonVariant, NavigationButtonProps } from "../../index.type";
-import Button from "../Button";
+import { NavigationButtonProps } from "../../index.type";
+import { Button } from "../Button";
 import { texts } from "./text";
 import { ChevronLeft } from "../Icons/chevronLeft";
 import { ChevronRight } from "../Icons/chevronRight";
@@ -19,7 +19,7 @@ export const NavigationButton: React.FC<NavigationButtonProps> = ({
   return (
     <div className={cls(classes.root)}>
       <Button
-        variant={ButtonVariant.outlined}
+        variant={"outlined"}
         text={texts.previous}
         iconLeft={<ChevronLeft />}
         onClick={onPrevPage}
@@ -28,7 +28,7 @@ export const NavigationButton: React.FC<NavigationButtonProps> = ({
         {...props}
       />
       <Button
-        variant={ButtonVariant.outlined}
+        variant={"outlined"}
         text={texts.next}
         iconRight={<ChevronRight />}
         onClick={onNextPage}
