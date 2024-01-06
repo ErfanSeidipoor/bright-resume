@@ -10,7 +10,6 @@ export const useData = () => {
   };
 
   const handleShowMenuId = (id: string) => {
-    if (showMenuId === id) return setShowMenuId("");
     return setShowMenuId(id);
   };
 

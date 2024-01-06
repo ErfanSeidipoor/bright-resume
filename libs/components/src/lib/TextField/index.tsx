@@ -26,7 +26,10 @@ export const TextField: FC<TextFieldProps> = ({
           {...props}
           rootClassName={cls(classes.input__container)}
           variant={variant}
-          className={classes.typography}
+          className={cls(classes.typography, {
+            [classes.placeholder__typography]:
+              !props.value && !props.defaultValue,
+          })}
         >
           {props.value || props.defaultValue || props.placeholder}
         </Typography>

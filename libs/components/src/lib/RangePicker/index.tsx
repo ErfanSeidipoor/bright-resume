@@ -9,12 +9,12 @@ export const RangePicker: React.FC<RangePickerProps> = ({
   className = "",
   fromMonth = undefined,
   fromYear = undefined,
-  onChangeFromMonth,
-  onChangeFromYear,
+  onChangeFromMonth = () => undefined,
+  onChangeFromYear = () => undefined,
   toMonth = undefined,
   toYear = undefined,
-  onChangeToMonth,
-  onChangeToYear,
+  onChangeToMonth = () => undefined,
+  onChangeToYear = () => undefined,
   disabled = false,
 }) => {
   const data = useData({ fromMonth, fromYear });
