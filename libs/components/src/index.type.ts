@@ -44,6 +44,13 @@ export type BackgroundInfoChildKeys =
   | "description"
   | "rangeDate";
 
+export type ExperienceInfoChildKeys =
+  | "role"
+  | "company"
+  | "points"
+  | "location"
+  | "rangeDate";
+
 export type BackgroundInfoRangeDateChildKeys =
   | "fromMonth"
   | "fromYear"
@@ -73,12 +80,6 @@ export type ExperienceChildProps = {
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
   points?: TextAreaProps;
-  isShowLocation?: boolean;
-  isShowDate?: boolean;
-  isShowPoints?: boolean;
-  onChangeShowLocation?: () => void;
-  onChangeShowDate?: () => void;
-  onChangeShowPoints?: () => void;
 };
 
 export type ExperienceProps = {

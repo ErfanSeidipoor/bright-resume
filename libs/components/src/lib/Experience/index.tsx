@@ -29,19 +29,12 @@ export const Experience: FC<ExperienceProps> = ({
       location: {},
       rangeDate: undefined,
       points: {},
-      isShowLocation: false,
-      isShowDate: false,
-      isShowPoints: false,
-      onChangeShowDate: () => undefined,
-      onChangeShowLocation: () => undefined,
-      onChangeShowPoints: () => undefined,
     },
   ],
   hoverItem = {
     id: "hover-item",
     role: {},
     company: {},
-    location: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -78,31 +71,6 @@ export const Experience: FC<ExperienceProps> = ({
   const renderFields = (child: ExperienceChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
-        <div className={classes.menu__container}>
-          <MeatBallsMenuIcon
-            className={classes.menu__icon}
-            onClick={() => data.handleShowMenuId(child.id)}
-          />
-          {data.showMenuId === child.id && (
-            <div className={classes.menu__wrapper}>
-              <CheckBox
-                checked={child.isShowLocation}
-                onChange={child.onChangeShowLocation}
-                label="Location"
-              />
-              <CheckBox
-                checked={child.isShowDate}
-                onChange={child.onChangeShowDate}
-                label="Date"
-              />
-              <CheckBox
-                checked={child.isShowPoints}
-                onChange={child.onChangeShowPoints}
-                label="Points"
-              />
-            </div>
-          )}
-        </div>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
@@ -113,6 +81,8 @@ export const Experience: FC<ExperienceProps> = ({
                 [child.role.rootClassName || ""]: !!child.role.rootClassName,
               })}
             />
+          </div>
+          <div className={classes.title__left_side}>
             {!!index && (
               <RemoveCircleRounded
                 width="20px"
@@ -121,15 +91,46 @@ export const Experience: FC<ExperienceProps> = ({
                 onClick={() => onDecrease(child.id)}
               />
             )}
+            {data.showOptions.isShowDate && child.rangeDate && (
+              <RangePicker {...child.rangeDate} />
+            )}
+
+            <div className={classes.menu__container}>
+              <MeatBallsMenuIcon
+                className={classes.menu__icon}
+                onClick={() => data.handleShowMenuId(child.id)}
+              />
+              {data.showMenuId === child.id && (
+                <div className={classes.menu__wrapper}>
+                  <CheckBox
+                    checked={data.showOptions.isShowLocation}
+                    onClick={data.toggleShowLocation}
+                    onChange={data.toggleShowLocation}
+                    label="Location"
+                  />
+                  <CheckBox
+                    checked={data.showOptions.isShowDate}
+                    onClick={data.toggleShowDate}
+                    onChange={data.toggleShowDate}
+                    label="Date"
+                  />
+                  <CheckBox
+                    checked={data.showOptions.isShowPoints}
+                    onClick={data.toggleShowPoints}
+                    onChange={data.toggleShowPoints}
+                    label="Points"
+                  />
+                </div>
+              )}
+            </div>
           </div>
-          {child.rangeDate && <RangePicker {...child.rangeDate} />}
         </div>
         <TextField
           {...child.company}
           variant="h5"
           placeholder={child.company.placeholder}
         />
-        {child.location && (
+        {data.showOptions.isShowLocation && child.location && (
           <TextField
             {...child.location}
             variant="h7"
@@ -137,7 +138,7 @@ export const Experience: FC<ExperienceProps> = ({
           />
         )}
 
-        {child.points && (
+        {data.showOptions.isShowPoints && child.points && (
           <TextArea
             {...child.points}
             variant="h7"
@@ -175,8 +176,19 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
+  const renderBackdrop = () => {
+    if (!data.showMenuId) return null;
+    return (
+      <div
+        className={classes.backdrop}
+        onClick={() => data.handleShowMenuId("")}
+      />
+    );
+  };
+
   return (
     <div className={classes.container}>
+      {renderBackdrop()}
       <div className={classes.wrapper}>
         {renderHeader()}
         {renderItems()}
