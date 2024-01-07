@@ -35,7 +35,7 @@ export const useAnimation = ({
                 classes.accordion__item__children__open
               )
             ) {
-              content.style.height = `${content.scrollHeight}px`;
+              content.style.height = `${content.scrollHeight + 10}px`;
             } else {
               content.style.height = "1px";
             }

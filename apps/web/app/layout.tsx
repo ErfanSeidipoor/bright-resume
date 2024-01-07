@@ -1,15 +1,19 @@
-interface Props {
+import { MainLayout } from "apps/web/components/layouts";
+import "./global.css";
+
+export const metadata = {
+  title: "Bright resume",
+  description: "Build your resume to be seen by Bright resume",
+};
+
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode;
-}
-export default function RootLayout({ children }: Props) {
+}) {
   return (
     <html lang="en">
-      <body
-        suppressHydrationWarning={true}
-        style={{ fontFamily: "Helvetica", margin: 0, padding: 0 }}
-      >
-        {children}
-      </body>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }

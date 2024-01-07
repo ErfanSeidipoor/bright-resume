@@ -1,6 +1,6 @@
 import { FC } from "react";
-import styles from "./MainLayout.module.scss";
-import { MainNav } from "./MainNav";
+import styles from "./index.module.scss";
+import { MainNav } from "./nav";
 
 type Props = {
   children: React.ReactNode;
