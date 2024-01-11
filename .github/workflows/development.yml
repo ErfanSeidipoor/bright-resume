@@ -18,7 +18,7 @@ jobs:
         with:
           repository: bright-co/bright-resume-gitops
           ref: 'main'
-          token: ${{ github.G_TOKEN }}
+          token: ${{ secrets.G_TOKEN }}
       
     
   # build:
