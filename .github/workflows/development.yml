@@ -19,7 +19,7 @@ jobs:
           repository: bright-co/bright-resume-gitops
           ref: main
           token: ${{ secrets.G_TOKEN }}
-        run: |
+        run: /
           git config --global user.email "erfan@bright-resume.com"
           git config --global user.name "erfan"
           echo ${{ github.sha }}
