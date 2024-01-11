@@ -19,15 +19,15 @@ jobs:
           repository: bright-co/bright-resume-gitops
           ref: main
           token: ${{ secrets.G_TOKEN }}
-        run: /
+      - run: /
           git config --global user.email "erfan@bright-resume.com"
           git config --global user.name "erfan"
           echo ${{ github.sha }}
           sed -i "s|image: ghcr.io/bright-co/bright-resume-back-auth:\\(.*\\)|image: ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}|" ./development/auth.yaml
           git add -A
           git commit -am "update image for - ${{ github.sha }}"
-        run: echo ${{ github }}
-        run: git push
+      - run: echo ${{ github }}
+      - run: git push
       
     
   # build:
