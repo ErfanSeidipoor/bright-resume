@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: bright-co/bright-resume-gitops
-          ref: main
+          ref: 'main'
           token: ${{ github.G_TOKEN }}
       
     
@@ -34,8 +34,8 @@ jobs:
   #       with:
   #         registry: ghcr.io
   #         username: ${{ github.actor }}
-          password: ${{ secrets.G_TOKEN }}
+      #     password: ${{ secrets.G_TOKEN }}
           
-      - name: push images
-        run: docker push ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}
+      # - name: push images
+      #   run: docker push ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}
           
