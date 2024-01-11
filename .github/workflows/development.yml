@@ -30,7 +30,7 @@ jobs:
           git commit -m "update image for - ${{ github.sha }}"
       
       - name: Display GitHub Context
-        run: echo ${{ toJson(github) }}
+        run: echo ${{ github }}
       
       - name: Push Changes
         run: git push
