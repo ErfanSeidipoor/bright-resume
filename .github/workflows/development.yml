@@ -23,7 +23,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.G_TOKEN }}
           
       - name: push images
         run: docker push ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}
