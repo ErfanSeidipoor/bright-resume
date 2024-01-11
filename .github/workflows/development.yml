@@ -10,19 +10,30 @@ on:
     branches: [ "development" ]
 
 jobs:
-  build:
+  update-manifest-stage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: build back-auth 
-        run: docker build -t ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }} -f infra/Dockerfile.auth .
-      
-      - name: Docker Login
-        uses: docker/login-action@v3.0.0
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
+          repository: bright-co/bright-resume-gitops
+          ref: main
+          token: ${{ github.G_TOKEN }}
+      
+    
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+      
+  #     - name: build back-auth 
+  #       run: docker build -t ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }} -f infra/Dockerfile.auth .
+      
+  #     - name: Docker Login
+  #       uses: docker/login-action@v3.0.0
+  #       with:
+  #         registry: ghcr.io
+  #         username: ${{ github.actor }}
           password: ${{ secrets.G_TOKEN }}
           
       - name: push images
