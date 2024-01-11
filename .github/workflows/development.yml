@@ -14,12 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - name: build back-auth 
-      #   run: docker build -t ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }} -f infra/Dockerfile.auth .
+      
+      - name: build back-auth 
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }} -f infra/Dockerfile.auth .
+      
       - name: Docker Login
         uses: docker/login-action@v3.0.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: push images
+        run: docker push ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}
           
