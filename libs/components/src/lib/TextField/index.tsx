@@ -42,24 +42,19 @@ export const TextField: FC<TextFieldProps> = ({
 
   const renderInput = () => {
     return (
-      <>
-        <label htmlFor={props.id} className={classes.label}>
-          {label}
-        </label>
-        <Typography
-          {...props}
-          component="input"
-          autoFocus
-          rootClassName={cls(classes.input__container)}
-          className={cls(classes.input, {
-            [props.className || ""]: !!props.className,
-          })}
-          onKeyDown={(event) =>
-            event.key === "Enter" && data.handleDeActiveInput()
-          }
-          variant={variant}
-        />
-      </>
+      <Typography
+        {...props}
+        component="input"
+        autoFocus
+        rootClassName={cls(classes.input__container)}
+        className={cls(classes.input, {
+          [props.className || ""]: !!props.className,
+        })}
+        onKeyDown={(event) =>
+          event.key === "Enter" && data.handleDeActiveInput()
+        }
+        variant={variant}
+      />
     );
   };
 
@@ -68,18 +63,30 @@ export const TextField: FC<TextFieldProps> = ({
     else return renderInput();
   };
 
+  const renderLabel = () => {
+    if (!label) return;
+    return (
+      <Typography variant="h4" component="label" htmlFor={props.id}>
+        {label}
+      </Typography>
+    );
+  };
+
   return (
-    <div
-      className={cls(classes.root, {
-        [rootClassName]: !!rootClassName,
-        [classes.enable__root]: !!data.isInputActive,
-        [enableRootClassName]: !!data.isInputActive && !!enableRootClassName,
-        [classes.disable__root]: props.disabled,
-      })}
-      onBlur={data.handleDeActiveInput}
-      onClick={() => !props.disabled && data.handleActiveInput()}
-    >
-      {renderBody()}
+    <div className={classes.container}>
+      {renderLabel()}
+      <div
+        className={cls(classes.root, {
+          [rootClassName]: !!rootClassName,
+          [classes.enable__root]: !!data.isInputActive,
+          [enableRootClassName]: !!data.isInputActive && !!enableRootClassName,
+          [classes.disable__root]: props.disabled,
+        })}
+        onBlur={data.handleDeActiveInput}
+        onClick={() => !props.disabled && data.handleActiveInput()}
+      >
+        {renderBody()}
+      </div>
     </div>
   );
 };

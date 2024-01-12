@@ -95,7 +95,7 @@ export const Experience: FC<ExperienceProps> = ({
             />
           </div>
           <div className={classes.title__left_side}>
-            {!!index && (
+            {items.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"

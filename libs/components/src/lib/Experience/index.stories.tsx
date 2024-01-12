@@ -270,7 +270,7 @@ const Template: StoryFn<typeof Experience> = (args) => {
               onChangeShowPoints(item.id, !item.showPoints?.isShow),
           },
         }))}
-        header={{ label: texts.experience, placeholder: texts.experience }}
+        header={{ placeholder: texts.experience }}
         onDecrease={onDecrease}
         onIncrease={onIncrease}
         hoverItem={hoverItems}

@@ -14,7 +14,6 @@ const Template: StoryFn<typeof TextField> = (args) => {
     <div id="theme-blue">
       <TextField
         {...args}
-        label={texts.name}
         value={value}
         placeholder={texts.position}
         onChange={(e) => setValue(e.target.value)}
@@ -29,6 +28,11 @@ Main.args = {};
 export const Variant = Template.bind({});
 Variant.args = {
   variant: "h1",
+};
+
+export const Label = Template.bind({});
+Label.args = {
+  label: texts.name,
 };
 
 export const Disabled = Template.bind({});

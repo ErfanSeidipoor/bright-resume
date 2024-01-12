@@ -1,4 +1,4 @@
 export const texts = {
-  name: "name",
+  name: "name:",
   position: "Position",
 };

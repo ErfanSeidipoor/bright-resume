@@ -1,5 +1,11 @@
 @import "../../../../theme/index";
 
+.container {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+}
+
 .root {
   background-color: transparent;
   color: var(--dark);
@@ -51,7 +57,7 @@
     color: var(--grey-400);
   }
 
-  .label {
+  .hiddenLabel {
     visibility: hidden;
     position: absolute;
     z-index: -1;
