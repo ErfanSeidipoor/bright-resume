@@ -13,8 +13,10 @@ import classes from "./index.module.scss";
 export const TextField: FC<TextFieldProps> = ({
   variant = "h3",
   rootClassName = "",
+  containerClassName = "",
   enableRootClassName = "",
   label = "",
+  isMinimal = false,
   ...props
 }) => {
   const data = useData();
@@ -26,7 +28,9 @@ export const TextField: FC<TextFieldProps> = ({
           {...props}
           rootClassName={cls(classes.input__container)}
           variant={variant}
-          className={cls(classes.typography, {
+          className={cls({
+            [classes.minimal__typography]: isMinimal,
+            [classes.typography]: !isMinimal,
             [classes.placeholder__typography]:
               !props.value && !props.defaultValue,
           })}
@@ -67,13 +71,17 @@ export const TextField: FC<TextFieldProps> = ({
     if (!label) return;
     return (
       <Typography variant="h4" component="label" htmlFor={props.id}>
-        {label}
+        {label}:
       </Typography>
     );
   };
 
   return (
-    <div className={classes.container}>
+    <div
+      className={cls(classes.container, {
+        [containerClassName]: !!containerClassName,
+      })}
+    >
       {renderLabel()}
       <div
         className={cls(classes.root, {

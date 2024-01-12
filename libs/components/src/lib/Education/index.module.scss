@@ -57,7 +57,7 @@
 
     .child__wrapper {
       position: relative;
-      padding-bottom: 60px;
+      padding-bottom: 90px;
 
       &:hover {
         .remove__icon {
@@ -72,8 +72,13 @@
 
         .title__left_side {
           display: flex;
-          align-items: center;
+          justify-content: center;
+          align-items: flex-end;
+          flex-direction: column;
           gap: spacing(2);
+          position: absolute;
+          top: 0;
+          right: 0;
 
           .menu__container {
             position: relative;
@@ -102,9 +107,13 @@
 
         .title__wrapper {
           display: flex;
-          gap: spacing(2);
+          gap: spacing(6);
+          width: calc(100% - 35px);
+          // display: grid;
+          // grid-template-columns: 33% 33% 33%;
           align-items: center;
           .title {
+            position: relative;
             &:before {
               content: " ";
               width: 5px;
