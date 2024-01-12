@@ -1,14 +1,14 @@
-name: Development CI
+name: Staging CI
 
 on:
   push:
-    branches: ["development"]
+    branches: ["staging"]
   pull_request:
-    branches: [development]
+    branches: [staging]
 
 jobs:
   build-and-push-images:
-    if: github.ref == 'refs/heads/development'
+    if: github.ref == 'refs/heads/staging'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -48,7 +48,7 @@ jobs:
           docker push ghcr.io/bright-co/bright-resume-web:${{ github.sha }}
 
   update-manifest-stage:
-    if: github.ref == 'refs/heads/development'
+    if: github.ref == 'refs/heads/staging'
     runs-on: ubuntu-latest
     needs: ["build-and-push-images"]
     steps:
@@ -67,12 +67,12 @@ jobs:
       - name: Update Image Tag
         run: |
           echo ${{ github.sha }}
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-auth:.*|image: ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}|" ./development/auth.yaml
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-resume:.*|image: ghcr.io/bright-co/bright-resume-back-resume:${{ github.sha }}|" ./development/resume.yaml
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-file:.*|image: ghcr.io/bright-co/bright-resume-back-file:${{ github.sha }}|" ./development/file.yaml
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-gateway:.*|image: ghcr.io/bright-co/bright-resume-back-gateway:${{ github.sha }}|" ./development/gateway.yaml
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-cms:.*|image: ghcr.io/bright-co/bright-resume-back-cms:${{ github.sha }}|" ./development/cms.yaml
-          sed -i "s|image: ghcr.io/bright-co/bright-resume-web:.*|image: ghcr.io/bright-co/bright-resume-web:${{ github.sha }}|" ./development/web.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-auth:.*|image: ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}|" ./staging/auth.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-resume:.*|image: ghcr.io/bright-co/bright-resume-back-resume:${{ github.sha }}|" ./staging/resume.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-file:.*|image: ghcr.io/bright-co/bright-resume-back-file:${{ github.sha }}|" ./staging/file.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-gateway:.*|image: ghcr.io/bright-co/bright-resume-back-gateway:${{ github.sha }}|" ./staging/gateway.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-cms:.*|image: ghcr.io/bright-co/bright-resume-back-cms:${{ github.sha }}|" ./staging/cms.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-web:.*|image: ghcr.io/bright-co/bright-resume-web:${{ github.sha }}|" ./staging/web.yaml
           git add -A
           git commit -m "update image for - ${{ github.sha }}"
 
