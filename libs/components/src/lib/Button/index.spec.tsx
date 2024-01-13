@@ -1,12 +1,11 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Button from ".";
-import { ButtonVariant } from "../../index.type";
+import { Button } from ".";
 import classes from "./index.module.scss";
 
 afterEach(cleanup);
 
-const buttonVariant = Object.values(ButtonVariant);
+const buttonVariant = ["text", "outlined", "contained", "rounded"];
 
 const renderComponent = () => {
   const { baseElement } = render(

@@ -1,9 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
-import Button from ".";
+import { Button } from ".";
 
 import "../../../../theme/_index.scss";
 import { ArrowBack, ChevronLeft, ChevronRight } from "../Icons";
-import { ButtonVariant } from "../../index.type";
 
 const ICONS = {
   ArrowBack: <ArrowBack />,
@@ -17,7 +16,7 @@ export default {
   argTypes: {
     variant: {
       control: "select",
-      options: Object.keys(ButtonVariant),
+      options: ["text", "outlined", "contained", "rounded"],
     },
     color: {
       control: "select",
@@ -49,16 +48,17 @@ const Template: StoryFn<typeof Button> = (args) => {
         iconRight={iconRight}
         iconLeft={iconLeft}
         onClick={onClick}
-      />
+      >
+        Button
+      </Button>
     </div>
   );
 };
 
 export const Main = Template.bind({});
 Main.args = {
-  variant: ButtonVariant.text,
+  variant: "text",
   color: "blue",
-  text: "Button",
   iconRight: null,
   iconLeft: null,
   disabled: false,
@@ -66,25 +66,21 @@ Main.args = {
 
 export const Variant = Template.bind({});
 Variant.args = {
-  variant: ButtonVariant.text,
-  text: "Button",
+  variant: "text",
 };
 
 export const Color = Template.bind({});
 Color.args = {
   color: "green",
-  text: "Button",
 };
 
 export const Icons = Template.bind({});
 Icons.args = {
   iconRight: "ChevronRight",
   iconLeft: "ChevronLeft",
-  text: "Button",
 };
 
 export const Disable = Template.bind({});
 Disable.args = {
   disabled: true,
-  text: "Button",
 };

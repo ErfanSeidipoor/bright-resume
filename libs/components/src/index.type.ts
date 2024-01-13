@@ -12,23 +12,45 @@ export type TypographyVariant =
   | "h9";
 
 export type TextAreaProps =
-  React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
-    variant?: TypographyVariant;
-    rootClassName?: string;
-    label?: string;
-  };
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: boolean;
+      setValue: (value: string | undefined) => void;
+      value: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    })
+  | (React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+      variant?: TypographyVariant;
+      rootClassName?: string;
+      label?: string;
+      isSeparateValue?: false;
+      setValue?: (value: string | undefined) => void;
+      value?: string | undefined;
+      getSeparatedValues?: (value: string[]) => void;
+    });
 
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  containerClassName?: string;
   enableRootClassName?: string;
   label?: string;
+  isMinimal?: boolean;
 };
 
 export type BackgroundInfoChildKeys =
   | "title"
   | "subtitle"
   | "description"
+  | "rangeDate";
+
+export type ExperienceInfoChildKeys =
+  | "role"
+  | "company"
+  | "points"
+  | "location"
   | "rangeDate";
 
 export type BackgroundInfoRangeDateChildKeys =
@@ -53,18 +75,50 @@ export type BackgroundInfoProps = {
   onDecrease: (id: string) => void;
 };
 
+export type showOptionsType = {
+  isShow: boolean;
+  onToggle: () => void;
+};
+
 export type ExperienceChildProps = {
   id: string;
   role: TextFieldProps;
   company: TextFieldProps;
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
 };
 
 export type ExperienceProps = {
   header: TextFieldProps;
   items: ExperienceChildProps[];
   hoverItem?: ExperienceChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type EducationChildProps = {
+  id: string;
+  degree: TextFieldProps;
+  institute?: TextFieldProps;
+  gpa?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showGpa?: showOptionsType;
+};
+
+export type EducationProps = {
+  header: TextFieldProps;
+  items: EducationChildProps[];
+  hoverItem?: EducationChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };
@@ -125,12 +179,15 @@ export type RadioButtonProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
 };
 
-export enum ButtonVariant {
-  text = "text",
-  outlined = "outlined",
-  contained = "contained",
-  rounded = "rounded",
-}
+export type CheckBoxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  labelVariant?: TypographyVariant;
+  icon?: React.ReactNode;
+  checkedIcon?: React.ReactNode;
+  rootClassName?: string;
+  label?: string;
+};
+
+export type ButtonVariant = "text" | "outlined" | "contained" | "rounded";
 
 export type ButtonColor = "blue" | "green" | "purple" | "gold" | "grey";
 
@@ -200,14 +257,14 @@ export interface DatePickerProps {
 export interface RangePickerProps {
   id?: string;
   className?: string;
-  fromMonth: MonthEnum | undefined;
-  fromYear: number | undefined;
-  onChangeFromMonth: (month: MonthEnum) => void;
-  onChangeFromYear: (year: number) => void;
-  toMonth: MonthEnum | undefined;
-  toYear: number | undefined;
-  onChangeToMonth: (month: MonthEnum) => void;
-  onChangeToYear: (year: number) => void;
+  fromMonth?: MonthEnum | undefined;
+  fromYear?: number | undefined;
+  onChangeFromMonth?: (month: MonthEnum) => void;
+  onChangeFromYear?: (year: number) => void;
+  toMonth?: MonthEnum | undefined;
+  toYear?: number | undefined;
+  onChangeToMonth?: (month: MonthEnum) => void;
+  onChangeToYear?: (year: number) => void;
   disabled?: boolean;
 }
 export type Option<T = any, K = any> = {

@@ -1,15 +1,12 @@
 @import "libs/theme";
 
 .container {
-  display: flex;
-  justify-content: center;
-
-  padding: 7rem 2rem;
-  gap: 10%;
+  overflow: hidden;
+  @include flexbox(row, center, 0, 10, nowrap);
+  padding: spacing(8, 10);
 
   @include xl {
     flex-direction: column;
-    align-items: center;
     width: 100%;
     height: 100%;
     gap: 0;
@@ -17,17 +14,29 @@
 
   .wrapper {
     height: 100%;
-    display: flex;
-    align-items: center;
+    width: 30%;
+    @include flexbox(row, center, flex-start);
 
-    padding-top: 50px;
+    padding-top: 5rem;
+    @include xl {
+      width: 100%;
+      padding-top: 0;
+      img {
+        object-fit: cover;
+      }
+    }
   }
 
   .wrapperGrid {
-    padding: 2rem;
+    padding: spacing(10, 0);
     height: 100%;
     max-width: 560px;
+    margin-left: 5rem;
 
+    @include xl {
+      width: 100%;
+      margin: unset;
+    }
     .items__title {
       @include typography(h1);
       margin-bottom: 2rem;

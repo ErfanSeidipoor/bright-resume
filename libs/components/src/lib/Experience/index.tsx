@@ -2,9 +2,11 @@ import cls from "classnames";
 import { FC } from "react";
 // components
 import {
+  CheckBox,
   ExperienceChildProps,
   ExperienceProps,
   RangePicker,
+  TextArea,
   TextField,
 } from "@bright-resume/components";
 // icons
@@ -26,19 +28,30 @@ export const Experience: FC<ExperienceProps> = ({
       company: {},
       location: {},
       rangeDate: undefined,
+      points: {},
+      showLocation: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showDate: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showPoints: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
     },
   ],
   hoverItem = {
     id: "hover-item",
     role: {},
     company: {},
-    location: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
 }) => {
   const data = useData();
-
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
@@ -62,13 +75,12 @@ export const Experience: FC<ExperienceProps> = ({
               onIncrease();
             }}
           />
-          <MeatBallsMenuIcon />
         </div>
       </div>
     );
   };
 
-  const renderChild = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (child: ExperienceChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
@@ -81,7 +93,9 @@ export const Experience: FC<ExperienceProps> = ({
                 [child.role.rootClassName || ""]: !!child.role.rootClassName,
               })}
             />
-            {!!index && (
+          </div>
+          <div className={classes.title__left_side}>
+            {items.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
@@ -89,19 +103,61 @@ export const Experience: FC<ExperienceProps> = ({
                 onClick={() => onDecrease(child.id)}
               />
             )}
+            {child.showDate?.isShow && child.rangeDate && (
+              <RangePicker {...child.rangeDate} />
+            )}
+
+            <div className={classes.menu__container}>
+              <MeatBallsMenuIcon
+                className={classes.menu__icon}
+                onClick={() => data.handleShowMenuId(child.id)}
+              />
+              {data.showMenuId === child.id && (
+                <div className={classes.menu__wrapper}>
+                  <CheckBox
+                    checked={child.showLocation?.isShow}
+                    onClick={child.showLocation?.onToggle}
+                    onChange={child.showLocation?.onToggle}
+                    label="Location"
+                  />
+                  <CheckBox
+                    checked={child.showDate?.isShow}
+                    onClick={child.showDate?.onToggle}
+                    onChange={child.showDate?.onToggle}
+                    label="Date"
+                  />
+                  <CheckBox
+                    checked={child.showPoints?.isShow}
+                    onClick={child.showPoints?.onToggle}
+                    onChange={child.showPoints?.onToggle}
+                    label="Points"
+                  />
+                </div>
+              )}
+            </div>
           </div>
-          {child.rangeDate && <RangePicker {...child.rangeDate} />}
         </div>
         <TextField
           {...child.company}
           variant="h5"
           placeholder={child.company.placeholder}
         />
-        {child.location && (
+        {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
             variant="h7"
             placeholder={child.location.placeholder}
+          />
+        )}
+
+        {child.showPoints?.isShow && child.points && (
+          <TextArea
+            {...child.points}
+            variant="h7"
+            placeholder={child.points.placeholder}
+            className={cls(classes.points, {
+              [child.points.className || ""]: !!child.points.className,
+            })}
           />
         )}
 
@@ -113,13 +169,13 @@ export const Experience: FC<ExperienceProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderChild(hoverItem, -1);
+    return renderFields(hoverItem, -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderChild(child, index))}
+        {items.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,
@@ -132,8 +188,19 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
+  const renderBackdrop = () => {
+    if (!data.showMenuId) return null;
+    return (
+      <div
+        className={classes.backdrop}
+        onClick={() => data.handleShowMenuId("")}
+      />
+    );
+  };
+
   return (
     <div className={classes.container}>
+      {renderBackdrop()}
       <div className={classes.wrapper}>
         {renderHeader()}
         {renderItems()}
@@ -141,3 +208,5 @@ export const Experience: FC<ExperienceProps> = ({
     </div>
   );
 };
+
+export default Experience;
