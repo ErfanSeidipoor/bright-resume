@@ -23,10 +23,12 @@ export const useData = ({ defaultRows = 3 }: IUseData) => {
   };
 
   const handleSeparateSentences = (value: string | undefined) => {
-    if (!value) return;
+    if (!value) return " ";
     const separatedText = value.toString().split(/\n/g);
     const formattedText = separatedText
-      .map((sentence) => (sentence.includes("• ") ? sentence : "• " + sentence))
+      .map((sentence) =>
+        sentence ? (sentence.includes("• ") ? sentence : "• " + sentence) : ""
+      )
       .join("\n");
 
     return formattedText;
@@ -39,9 +41,17 @@ export const useData = ({ defaultRows = 3 }: IUseData) => {
     value: string | undefined;
     isSeparateValue: boolean;
   }) => {
-    if (!value) return;
     if (!isSeparateValue) return value;
     return handleSeparateSentences(value);
+  };
+
+  const handleRemoveEmptyValue = ({ value }: { value: string | undefined }) => {
+    if (!value) return undefined;
+    const separatedText = value.toString().split(/\n/g);
+    const result = separatedText
+      .filter((sentence) => sentence !== "• ")
+      .join("\n");
+    return result;
   };
 
   const handleChangeRows = (value: string | undefined) => {
@@ -66,5 +76,6 @@ export const useData = ({ defaultRows = 3 }: IUseData) => {
     handleChangeRows,
     handleResetRows,
     handleMakeArrayValue,
+    handleRemoveEmptyValue,
   };
 };

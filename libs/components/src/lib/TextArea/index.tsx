@@ -60,6 +60,10 @@ export const TextArea: FC<TextAreaProps> = ({
             if (event.key === "Escape") {
               data.handleDeActiveInput();
             }
+            if (event.key === "Backspace") {
+              data.handleRemoveEmptyValue({ value: props.value }) &&
+                setValue(data.handleRemoveEmptyValue({ value: props.value }));
+            }
           }}
           variant={variant}
           rows={data.rows}
