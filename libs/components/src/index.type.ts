@@ -100,6 +100,31 @@ export type ExperienceProps = {
   onDecrease: (id: string) => void;
 };
 
+export type ProjectChildProps = {
+  id: string;
+  title: TextFieldProps;
+  role?: TextFieldProps;
+  company?: TextFieldProps;
+  location?: TextFieldProps;
+  url?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showRole?: showOptionsType;
+  showCompany?: showOptionsType;
+  showUrl?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type ProjectProps = {
+  header: TextFieldProps;
+  items: ProjectChildProps[];
+  hoverItem?: ProjectChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
 export type EducationChildProps = {
   id: string;
   degree: TextFieldProps;
