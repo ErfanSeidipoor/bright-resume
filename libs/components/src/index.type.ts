@@ -100,6 +100,25 @@ export type ExperienceProps = {
   onDecrease: (id: string) => void;
 };
 
+export type CertificationChildProps = {
+  id: string;
+  name: TextFieldProps;
+  institute?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type CertificationProps = {
+  header: TextFieldProps;
+  items: CertificationChildProps[];
+  hoverItem?: CertificationChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
 export type ProjectChildProps = {
   id: string;
   title: TextFieldProps;
