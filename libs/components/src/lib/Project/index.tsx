@@ -32,7 +32,19 @@ export const Project: FC<ProjectProps> = ({
       url: {},
       rangeDate: undefined,
       points: {},
+      showRole: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showCompany: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
       showLocation: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showUrl: {
         isShow: false,
         onToggle: () => undefined,
       },
