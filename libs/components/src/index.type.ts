@@ -34,8 +34,10 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  containerClassName?: string;
   enableRootClassName?: string;
   label?: string;
+  isMinimal?: boolean;
 };
 
 export type BackgroundInfoChildKeys =
@@ -94,6 +96,29 @@ export type ExperienceProps = {
   header: TextFieldProps;
   items: ExperienceChildProps[];
   hoverItem?: ExperienceChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type EducationChildProps = {
+  id: string;
+  degree: TextFieldProps;
+  institute?: TextFieldProps;
+  gpa?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showGpa?: showOptionsType;
+};
+
+export type EducationProps = {
+  header: TextFieldProps;
+  items: EducationChildProps[];
+  hoverItem?: EducationChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };

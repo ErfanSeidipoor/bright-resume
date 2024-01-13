@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ExperienceChildProps,
-  ExperienceProps,
+  EducationChildProps,
+  EducationProps,
   RangePicker,
   TextArea,
   TextField,
@@ -18,14 +18,14 @@ import {
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { texts } from "./texts";
 
-export const Experience: FC<ExperienceProps> = ({
+export const Education: FC<EducationProps> = ({
   header = {},
   items = [
     {
       id: "item-1",
-      role: {},
-      company: {},
+      degree: {},
       location: {},
       rangeDate: undefined,
       points: {},
@@ -41,12 +41,19 @@ export const Experience: FC<ExperienceProps> = ({
         isShow: false,
         onToggle: () => undefined,
       },
+      showGpa: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showInstitute: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
     },
   ],
   hoverItem = {
     id: "hover-item",
-    role: {},
-    company: {},
+    degree: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -80,21 +87,96 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderFields = (child: ExperienceChildProps, index: number) => {
+  const renderMenu = (child: EducationChildProps) => {
+    if (data.showMenuId !== child.id) return;
+    return (
+      <div className={classes.menu__wrapper}>
+        <CheckBox
+          checked={child.showInstitute?.isShow}
+          onClick={child.showInstitute?.onToggle}
+          onChange={child.showInstitute?.onToggle}
+          label={texts.institute}
+        />
+        <CheckBox
+          checked={child.showGpa?.isShow}
+          onClick={child.showGpa?.onToggle}
+          onChange={child.showGpa?.onToggle}
+          label={texts.gpa}
+        />
+        <CheckBox
+          checked={child.showLocation?.isShow}
+          onClick={child.showLocation?.onToggle}
+          onChange={child.showLocation?.onToggle}
+          label={texts.location}
+        />
+        <CheckBox
+          checked={child.showDate?.isShow}
+          onClick={child.showDate?.onToggle}
+          onChange={child.showDate?.onToggle}
+          label={texts.date}
+        />
+        <CheckBox
+          checked={child.showPoints?.isShow}
+          onClick={child.showPoints?.onToggle}
+          onChange={child.showPoints?.onToggle}
+          label={texts.points}
+        />
+      </div>
+    );
+  };
+
+  const renderFields = (child: EducationChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
-              {...child.role}
-              variant="h4"
-              placeholder={child.role.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.role.rootClassName || ""]: !!child.role.rootClassName,
+              {...child.degree}
+              variant="h6"
+              isMinimal
+              placeholder={child.degree.placeholder}
+              containerClassName={cls(classes.title, {
+                [child.degree.containerClassName || ""]:
+                  !!child.degree.containerClassName,
               })}
             />
+            {child.showInstitute?.isShow && child.institute && (
+              <TextField
+                {...child.institute}
+                variant="h6"
+                isMinimal
+                placeholder={child.institute.placeholder}
+                containerClassName={cls(classes.title, {
+                  [child.institute.containerClassName || ""]:
+                    !!child.institute.containerClassName,
+                })}
+              />
+            )}
+            {child.showGpa?.isShow && child.gpa && (
+              <TextField
+                {...child.gpa}
+                isMinimal
+                variant="h6"
+                placeholder={child.gpa.placeholder}
+                containerClassName={cls(classes.title, {
+                  [child.gpa.containerClassName || ""]:
+                    !!child.gpa.containerClassName,
+                })}
+              />
+            )}
           </div>
           <div className={classes.title__left_side}>
+            <div className={classes.menu__container}>
+              <MeatBallsMenuIcon
+                className={classes.menu__icon}
+                onClick={() => data.handleShowMenuId(child.id)}
+              />
+              {renderMenu(child)}
+            </div>
+            {child.showDate?.isShow && child.rangeDate && (
+              <RangePicker {...child.rangeDate} />
+            )}
+
             {items.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
@@ -103,45 +185,9 @@ export const Experience: FC<ExperienceProps> = ({
                 onClick={() => onDecrease(child.id)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
-            )}
-
-            <div className={classes.menu__container}>
-              <MeatBallsMenuIcon
-                className={classes.menu__icon}
-                onClick={() => data.handleShowMenuId(child.id)}
-              />
-              {data.showMenuId === child.id && (
-                <div className={classes.menu__wrapper}>
-                  <CheckBox
-                    checked={child.showLocation?.isShow}
-                    onClick={child.showLocation?.onToggle}
-                    onChange={child.showLocation?.onToggle}
-                    label="Location"
-                  />
-                  <CheckBox
-                    checked={child.showDate?.isShow}
-                    onClick={child.showDate?.onToggle}
-                    onChange={child.showDate?.onToggle}
-                    label="Date"
-                  />
-                  <CheckBox
-                    checked={child.showPoints?.isShow}
-                    onClick={child.showPoints?.onToggle}
-                    onChange={child.showPoints?.onToggle}
-                    label="Points"
-                  />
-                </div>
-              )}
-            </div>
           </div>
         </div>
-        <TextField
-          {...child.company}
-          variant="h5"
-          placeholder={child.company.placeholder}
-        />
+
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
@@ -149,7 +195,6 @@ export const Experience: FC<ExperienceProps> = ({
             placeholder={child.location.placeholder}
           />
         )}
-
         {child.showPoints?.isShow && child.points && (
           <TextArea
             {...child.points}
@@ -209,4 +254,4 @@ export const Experience: FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default Education;
