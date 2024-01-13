@@ -64,6 +64,8 @@ const Template: StoryFn<typeof Project> = (args) => {
     },
   };
 
+  const [title, setTitle] = useState<string>(texts.project);
+
   const [items, setItems] = useState<ProjectChildProps[]>([
     defaultProjectItems,
   ]);
@@ -376,7 +378,11 @@ const Template: StoryFn<typeof Project> = (args) => {
               onChangeShowPoints(item.id, !item.showPoints?.isShow),
           },
         }))}
-        header={{ placeholder: texts.project }}
+        header={{
+          placeholder: texts.project,
+          value: title,
+          onChange: (e) => setTitle(e.target.value),
+        }}
         onDecrease={onDecrease}
         onIncrease={onIncrease}
         hoverItem={hoverItems}
