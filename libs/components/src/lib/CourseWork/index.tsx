@@ -61,6 +61,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
       <div className={classes.header__container}>
         <TextField
           {...header}
+          fullWidth
           variant="h2"
           placeholder={header.placeholder}
           rootClassName={cls(classes.header, {
@@ -123,6 +124,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
           <div className={classes.title__wrapper}>
             <TextField
               {...child.name}
+              fullWidth
               variant="h4"
               placeholder={child.name.placeholder}
               rootClassName={cls(classes.title, {
@@ -155,6 +157,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
         {child.showInstitute?.isShow && child.institute && (
           <TextField
             {...child.institute}
+            fullWidth
             variant="h7"
             placeholder={child.institute.placeholder}
           />

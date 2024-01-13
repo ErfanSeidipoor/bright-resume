@@ -113,10 +113,12 @@ export const Experience: FC<ExperienceProps> = ({
           <div className={classes.title__wrapper}>
             <TextField
               {...child.role}
+              fullWidth
               variant="h4"
               placeholder={child.role.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.role.rootClassName || ""]: !!child.role.rootClassName,
+              containerClassName={cls(classes.title, {
+                [child.role.containerClassName || ""]:
+                  !!child.role.containerClassName,
               })}
             />
           </div>
@@ -144,12 +146,14 @@ export const Experience: FC<ExperienceProps> = ({
         </div>
         <TextField
           {...child.company}
+          fullWidth
           variant="h5"
           placeholder={child.company.placeholder}
         />
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
+            fullWidth
             variant="h7"
             placeholder={child.location.placeholder}
           />
