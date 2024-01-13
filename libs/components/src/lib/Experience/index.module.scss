@@ -13,10 +13,17 @@
     .add__icon {
       opacity: 1 !important;
     }
+  }
 
-    .remove__icon {
-      opacity: 1 !important;
-    }
+  .backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    z-index: 99;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
   }
 
   .wrapper {
@@ -47,13 +54,52 @@
   .child__container {
     padding-left: spacing(8);
     list-style-type: none;
+
     .child__wrapper {
       position: relative;
+      padding-bottom: 60px;
+
+      &:hover {
+        .remove__icon {
+          opacity: 1 !important;
+        }
+      }
 
       .title__container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        .title__left_side {
+          display: flex;
+          align-items: center;
+          gap: spacing(2);
+
+          .menu__container {
+            position: relative;
+
+            .menu__icon {
+              cursor: pointer;
+              circle {
+                fill: var(--primary);
+              }
+            }
+
+            .menu__wrapper {
+              padding: spacing(3, 2);
+              border-radius: 10px;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              background-color: var(--light);
+              position: absolute;
+              top: 24px;
+              right: 0;
+              z-index: 999;
+            }
+          }
+        }
+
         .title__wrapper {
           display: flex;
           gap: spacing(2);
@@ -91,32 +137,6 @@
         width: 2px;
         height: 100%;
         background-color: var(--primary);
-      }
-
-      .menu__container {
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        .menu__icon {
-          cursor: pointer;
-          circle {
-            fill: var(--primary);
-          }
-        }
-
-        .menu__wrapper {
-          padding: spacing(3, 2);
-          border-radius: 10px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          background-color: var(--light);
-          position: absolute;
-          top: 24px;
-          right: 0;
-          z-index: 999;
-        }
       }
     }
 

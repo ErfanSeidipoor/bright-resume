@@ -7,12 +7,14 @@ import { texts } from "./texts";
 
 const FAQ: FC = () => {
   return (
-    <div className={styles.container} id="faq-section">
+    <div className={styles.container}>
       <div className={styles.wrapper}>
         <Image src={FAQImage} alt="Picture of the author" />
       </div>
       <div className={styles.wrapperGrid}>
-        <div className={styles.items__title}>Frequently Asked Questions</div>
+        <div className={styles.items__title} id="faq-section">
+          Frequently Asked Questions
+        </div>
         <Accordion items={texts.accordion_items} />
       </div>
     </div>

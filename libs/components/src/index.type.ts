@@ -34,14 +34,23 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  containerClassName?: string;
   enableRootClassName?: string;
   label?: string;
+  isMinimal?: boolean;
 };
 
 export type BackgroundInfoChildKeys =
   | "title"
   | "subtitle"
   | "description"
+  | "rangeDate";
+
+export type ExperienceInfoChildKeys =
+  | "role"
+  | "company"
+  | "points"
+  | "location"
   | "rangeDate";
 
 export type BackgroundInfoRangeDateChildKeys =
@@ -66,6 +75,11 @@ export type BackgroundInfoProps = {
   onDecrease: (id: string) => void;
 };
 
+export type showOptionsType = {
+  isShow: boolean;
+  onToggle: () => void;
+};
+
 export type ExperienceChildProps = {
   id: string;
   role: TextFieldProps;
@@ -73,18 +87,38 @@ export type ExperienceChildProps = {
   location?: TextFieldProps;
   rangeDate?: RangePickerProps;
   points?: TextAreaProps;
-  isShowLocation?: boolean;
-  isShowDate?: boolean;
-  isShowPoints?: boolean;
-  onChangeShowLocation?: () => void;
-  onChangeShowDate?: () => void;
-  onChangeShowPoints?: () => void;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
 };
 
 export type ExperienceProps = {
   header: TextFieldProps;
   items: ExperienceChildProps[];
   hoverItem?: ExperienceChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type EducationChildProps = {
+  id: string;
+  degree: TextFieldProps;
+  institute?: TextFieldProps;
+  gpa?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showGpa?: showOptionsType;
+};
+
+export type EducationProps = {
+  header: TextFieldProps;
+  items: EducationChildProps[];
+  hoverItem?: EducationChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };
@@ -228,14 +262,14 @@ export interface DatePickerProps {
 export interface RangePickerProps {
   id?: string;
   className?: string;
-  fromMonth: MonthEnum | undefined;
-  fromYear: number | undefined;
-  onChangeFromMonth: (month: MonthEnum) => void;
-  onChangeFromYear: (year: number) => void;
-  toMonth: MonthEnum | undefined;
-  toYear: number | undefined;
-  onChangeToMonth: (month: MonthEnum) => void;
-  onChangeToYear: (year: number) => void;
+  fromMonth?: MonthEnum | undefined;
+  fromYear?: number | undefined;
+  onChangeFromMonth?: (month: MonthEnum) => void;
+  onChangeFromYear?: (year: number) => void;
+  toMonth?: MonthEnum | undefined;
+  toYear?: number | undefined;
+  onChangeToMonth?: (month: MonthEnum) => void;
+  onChangeToYear?: (year: number) => void;
   disabled?: boolean;
 }
 export type Option<T = any, K = any> = {

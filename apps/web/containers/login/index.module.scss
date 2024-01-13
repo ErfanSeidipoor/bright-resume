@@ -1,7 +1,7 @@
 @import "libs/theme";
 
 .login_page {
-  @include flexbox(row, center, center);
+  @include flexbox(row, center, center, 0, nowrap);
   width: 100%;
   height: 100vh;
 
@@ -17,7 +17,7 @@
     object-fit: contain;
 
     @include md {
-      max-height: 300px;
+      max-height: 200px;
       width: 100%;
       background-image: url("/assets/image/Rectangle-vertical.png");
     }
@@ -27,6 +27,10 @@
     @include flexbox(column, center, center, 1);
     width: 100%;
     padding-top: spacing(15);
+
+    @include sm {
+      padding: unset;
+    }
 
     .login_wrapper {
       height: 100%;
@@ -38,12 +42,16 @@
 
       @include md {
         width: 100%;
+        padding: spacing(10);
       }
 
       .login_header {
         width: 100%;
-        line-height: 0.5;
-        margin-left: spacing(10);
+        padding: spacing(2);
+
+        h1 {
+          @include typography(h1);
+        }
       }
 
       .login_form {
@@ -54,7 +62,7 @@
           @include flexbox(column, center, flex-start);
 
           h2 {
-            font-size: 24px;
+            @include typography(h2);
             margin-bottom: 20px;
           }
 
@@ -66,6 +74,10 @@
             border-radius: 100px;
             @include typography(h9);
             color: $blue;
+
+            @include sm {
+              width: 100%;
+            }
 
             &::placeholder {
               color: $blue;
@@ -86,17 +98,16 @@
 
       button {
         width: 100%;
-        padding: 16px 32px;
-        margin-top: 32px;
-        background-color: #007bff;
-        color: #fff;
+        padding: spacing(4, 8);
+        margin-top: spacing(8);
+        background-color: $blue;
+        color: $light;
         border: none;
         border-radius: 100px;
-        font-size: 16px;
-        cursor: pointer;
+        @include typography(h8);
 
         &:hover {
-          background-color: #0069d9;
+          background-color: $dark-blue;
         }
       }
 
@@ -119,20 +130,15 @@
       }
 
       .social {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+        @include flexbox(row, center, space-evenly, 0, nowrap);
         width: 100%;
-        margin-top: 20px;
 
         .social_item {
-          width: 140px;
-          height: 64px;
+          @include flexbox(row, center, center, 0, nowrap);
+          height: spacing(12);
           border-radius: 100px;
           margin: 0 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+
           cursor: pointer;
           background-color: $light;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

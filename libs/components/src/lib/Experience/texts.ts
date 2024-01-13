@@ -5,6 +5,8 @@ export const texts = {
   skills: "Skills",
   position: "Position",
   company: "Company",
+  points: "Points",
+  location: "Location",
   degree: "Degree",
   university: "University",
   achievement_number_one: "Achievement Number 1",

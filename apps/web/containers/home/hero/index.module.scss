@@ -1,6 +1,7 @@
 @import "libs/theme";
 
 .hero {
+  overflow: hidden;
   width: 100%;
   height: calc(100vh - 120px);
   background-position: center;
@@ -31,11 +32,20 @@
     text-align: center;
     z-index: 1;
 
+    @include sm {
+      @include typography(h7);
+      font-weight: map-get($font-weight, bold);
+      line-height: 300%;
+    }
+
     .message {
       @include typography(h1);
+      line-height: 1;
+      word-spacing: 1px;
       text-align: center;
       display: inline-block;
       margin-bottom: 20px;
+
       .blue {
         color: $blue;
       }
@@ -49,7 +59,6 @@
       color: $light;
       border-radius: 5px;
       border: none;
-      @include typography(h8);
       font-weight: map-get($font-weight, bold);
       cursor: pointer;
       transition: all 0.3s ease-in-out;

@@ -1,5 +1,11 @@
 @import "../../../../theme/index";
 
+.container {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+}
+
 .root {
   background-color: transparent;
   color: var(--dark);
@@ -28,7 +34,7 @@
   }
 
   .input__container {
-    width: 100%
+    width: 100%;
   }
 
   .input {
@@ -37,13 +43,27 @@
     outline: none;
     border: none;
     width: 100%;
+    &::placeholder {
+      color: var(--grey-400);
+    }
   }
 
   .typography {
     margin: 0;
+    min-width: 250px;
   }
 
-  .label {
+  .minimal__typography {
+    margin: 0;
+    min-width: fit-content;
+    max-width: fit-content;
+  }
+
+  .placeholder__typography {
+    color: var(--grey-400);
+  }
+
+  .hiddenLabel {
     visibility: hidden;
     position: absolute;
     z-index: -1;
@@ -54,11 +74,11 @@
   }
 
   &.disable__root {
-    cursor: not-allowed!important;
+    cursor: not-allowed !important;
     &:hover {
-      border: 1px solid transparent!important;
+      border: 1px solid transparent !important;
       .edit__icon {
-        display: none!important;
+        display: none !important;
       }
     }
   }
