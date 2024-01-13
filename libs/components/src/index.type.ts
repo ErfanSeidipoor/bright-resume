@@ -210,6 +210,9 @@ export type NavigationButtonProps = ButtonProps & {
 
 export type BlogCardProps = {
   rootClassName?: string;
+  title?: string;
+  description?: string;
+  shortDescription?: string;
   imageWidth?: string | number;
   imageHeight?: string | number;
   link?: string;
