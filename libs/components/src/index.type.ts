@@ -213,6 +213,7 @@ export type BlogCardProps = {
   title?: string;
   description?: string;
   shortDescription?: string;
+  image?: string;
   imageWidth?: string | number;
   imageHeight?: string | number;
   link?: string;

@@ -1,7 +1,6 @@
 import cls from "classnames";
 import Typography from "../Typography";
 import { Button } from "../Button";
-import blogImage from "@assets/image/logo-dark.png";
 
 import classes from "./index.module.scss";
 import { BlogCardProps } from "../../index.type";
@@ -11,6 +10,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   title,
   description,
   shortDescription,
+  image,
   imageWidth = "",
   imageHeight = "",
   link = "",
@@ -24,7 +24,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       })}
     >
       <img
-        src={blogImage}
+        src={image}
         alt={"blog-post-img"}
         width={imageWidth}
         height={imageHeight}
