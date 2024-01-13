@@ -282,3 +282,14 @@ export type SliderProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
+
+export type MyResumeCardProps = {
+  rootClassName?: string;
+  id?: string;
+  title?: string;
+  image?: string;
+  imageWidth?: string | number;
+  imageHeight?: string | number;
+  onEdit?: (id: string) => void;
+  onDelete?: (id: string) => void;
+};
