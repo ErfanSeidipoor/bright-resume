@@ -59,6 +59,8 @@ const Template: StoryFn<typeof Education> = (args) => {
     },
   };
 
+  const [title, setTitle] = useState<string>(texts.education);
+
   const [items, setItems] = useState<EducationChildProps[]>([
     defaultEducationItems,
   ]);
@@ -335,7 +337,11 @@ const Template: StoryFn<typeof Education> = (args) => {
               onChangeShowPoints(item.id, !item.showPoints?.isShow),
           },
         }))}
-        header={{ placeholder: texts.education }}
+        header={{
+          placeholder: texts.education,
+          value: title,
+          onChange: (e) => setTitle(e.target.value),
+        }}
         onDecrease={onDecrease}
         onIncrease={onIncrease}
         hoverItem={hoverItems}

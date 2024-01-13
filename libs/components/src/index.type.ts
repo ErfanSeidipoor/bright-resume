@@ -119,6 +119,27 @@ export type CertificationProps = {
   onDecrease: (id: string) => void;
 };
 
+export type CourseWorkChildProps = {
+  id: string;
+  name: TextFieldProps;
+  institute?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  skills?: TextAreaProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showSkills?: showOptionsType;
+};
+
+export type CourseWorkProps = {
+  header: TextFieldProps;
+  items: CourseWorkChildProps[];
+  hoverItem?: CourseWorkChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
 export type ProjectChildProps = {
   id: string;
   title: TextFieldProps;

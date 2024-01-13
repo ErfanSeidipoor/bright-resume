@@ -1,24 +1,27 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Certification } from "./";
+import { CourseWork } from "./";
 import { texts } from "./texts";
 import { useState } from "react";
-import { CertificationChildProps, MonthEnum } from "../../index.type";
+import { CourseWorkChildProps, MonthEnum } from "../../index.type";
 
 export default {
-  component: Certification,
-  title: "Certification",
-} as Meta<typeof Certification>;
+  component: CourseWork,
+  title: "CourseWork",
+} as Meta<typeof CourseWork>;
 
-const Template: StoryFn<typeof Certification> = (args) => {
-  const hoverItems: CertificationChildProps = {
+const Template: StoryFn<typeof CourseWork> = (args) => {
+  const hoverItems: CourseWorkChildProps = {
     id: "item-1",
     name: { placeholder: texts.name },
   };
-  const defaultCertificationItems: CertificationChildProps = {
+  const defaultCourseWorkItems: CourseWorkChildProps = {
     id: "item-1",
     name: { placeholder: texts.name },
     institute: { placeholder: texts.institute },
+    skills: {
+      placeholder: texts.skills,
+    },
     points: {
       placeholder: texts.points,
       isSeparateValue: true,
@@ -43,16 +46,20 @@ const Template: StoryFn<typeof Certification> = (args) => {
       isShow: false,
       onToggle: () => undefined,
     },
+    showSkills: {
+      isShow: false,
+      onToggle: () => undefined,
+    },
     showPoints: {
       isShow: false,
       onToggle: () => undefined,
     },
   };
 
-  const [title, setTitle] = useState<string>(texts.certification);
+  const [title, setTitle] = useState<string>(texts.course_work);
 
-  const [items, setItems] = useState<CertificationChildProps[]>([
-    defaultCertificationItems,
+  const [items, setItems] = useState<CourseWorkChildProps[]>([
+    defaultCourseWorkItems,
   ]);
 
   const onChangeName = (id: string, value: string) => {
@@ -79,6 +86,18 @@ const Template: StoryFn<typeof Certification> = (args) => {
     });
   };
 
+  const onChangeSkills = (id: string, value: string) => {
+    const itemIndex = items.findIndex((item) => item.id === id);
+    setItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems[itemIndex] = {
+        ...updatedItems[itemIndex],
+        skills: { ...updatedItems[itemIndex].skills, value },
+      };
+      return updatedItems;
+    });
+  };
+
   const onChangePoints = (id: string, value: string | undefined) => {
     if (!value) return;
     const itemIndex = items.findIndex((item) => item.id === id);
@@ -100,6 +119,22 @@ const Template: StoryFn<typeof Certification> = (args) => {
         ...updatedItems[itemIndex],
         showInstitute: {
           ...updatedItems[itemIndex].showInstitute,
+          isShow,
+          onToggle: () => undefined,
+        },
+      };
+      return updatedItems;
+    });
+  };
+
+  const onChangeShowSkills = (id: string, isShow: boolean) => {
+    const itemIndex = items.findIndex((item) => item.id === id);
+    setItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems[itemIndex] = {
+        ...updatedItems[itemIndex],
+        showSkills: {
+          ...updatedItems[itemIndex].showSkills,
           isShow,
           onToggle: () => undefined,
         },
@@ -203,13 +238,13 @@ const Template: StoryFn<typeof Certification> = (args) => {
   const onIncrease = () => {
     setItems((prevState) => [
       ...prevState,
-      { ...defaultCertificationItems, id: `item-${prevState.length + 1}` },
+      { ...defaultCourseWorkItems, id: `item-${prevState.length + 1}` },
     ]);
   };
 
   return (
     <div id="theme-blue">
-      <Certification
+      <CourseWork
         {...args}
         items={items.map((item) => ({
           id: item.id,
@@ -220,6 +255,10 @@ const Template: StoryFn<typeof Certification> = (args) => {
           institute: {
             ...item.institute,
             onChange: (e) => onChangeInstitute(item.id, e.target.value),
+          },
+          skills: {
+            ...item.skills,
+            onChange: (e) => onChangeSkills(item.id, e.target.value),
           },
           points: {
             ...item.points,
@@ -248,6 +287,11 @@ const Template: StoryFn<typeof Certification> = (args) => {
             isShow: !!item.showDate?.isShow,
             onToggle: () => onChangeShowDate(item.id, !item.showDate?.isShow),
           },
+          showSkills: {
+            isShow: !!item.showSkills?.isShow,
+            onToggle: () =>
+              onChangeShowSkills(item.id, !item.showSkills?.isShow),
+          },
           showPoints: {
             isShow: !!item.showPoints?.isShow,
             onToggle: () =>
@@ -255,7 +299,7 @@ const Template: StoryFn<typeof Certification> = (args) => {
           },
         }))}
         header={{
-          placeholder: texts.certification,
+          placeholder: texts.course_work,
           value: title,
           onChange: (e) => setTitle(e.target.value),
         }}
