@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ExperienceChildProps,
-  ExperienceProps,
+  ProjectChildProps,
+  ProjectProps,
   RangePicker,
   TextArea,
   TextField,
@@ -18,18 +18,33 @@ import {
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { texts } from "./texts";
 
-export const Experience: FC<ExperienceProps> = ({
+export const Project: FC<ProjectProps> = ({
   header = {},
   items = [
     {
       id: "item-1",
+      title: {},
       role: {},
       company: {},
       location: {},
+      url: {},
       rangeDate: undefined,
       points: {},
+      showRole: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showCompany: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
       showLocation: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showUrl: {
         isShow: false,
         onToggle: () => undefined,
       },
@@ -45,8 +60,7 @@ export const Experience: FC<ExperienceProps> = ({
   ],
   hoverItem = {
     id: "hover-item",
-    role: {},
-    company: {},
+    title: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -80,33 +94,51 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderMenu = (child: ExperienceChildProps) => {
+  const renderMenu = (child: ProjectChildProps) => {
     if (data.showMenuId !== child.id) return;
     return (
       <div className={classes.menu__wrapper}>
         <CheckBox
+          checked={child.showRole?.isShow}
+          onClick={child.showRole?.onToggle}
+          onChange={child.showRole?.onToggle}
+          label={texts.role}
+        />
+        <CheckBox
+          checked={child.showCompany?.isShow}
+          onClick={child.showCompany?.onToggle}
+          onChange={child.showCompany?.onToggle}
+          label={texts.company}
+        />
+        <CheckBox
           checked={child.showLocation?.isShow}
           onClick={child.showLocation?.onToggle}
           onChange={child.showLocation?.onToggle}
-          label="Location"
+          label={texts.location}
+        />
+        <CheckBox
+          checked={child.showUrl?.isShow}
+          onClick={child.showUrl?.onToggle}
+          onChange={child.showUrl?.onToggle}
+          label={texts.url}
         />
         <CheckBox
           checked={child.showDate?.isShow}
           onClick={child.showDate?.onToggle}
           onChange={child.showDate?.onToggle}
-          label="Date"
+          label={texts.date}
         />
         <CheckBox
           checked={child.showPoints?.isShow}
           onClick={child.showPoints?.onToggle}
           onChange={child.showPoints?.onToggle}
-          label="Points"
+          label={texts.points}
         />
       </div>
     );
   };
 
-  const renderFields = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (child: ProjectChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
@@ -114,9 +146,9 @@ export const Experience: FC<ExperienceProps> = ({
             <TextField
               {...child.role}
               variant="h4"
-              placeholder={child.role.placeholder}
+              placeholder={child.title.placeholder}
               rootClassName={cls(classes.title, {
-                [child.role.rootClassName || ""]: !!child.role.rootClassName,
+                [child.title.rootClassName || ""]: !!child.title.rootClassName,
               })}
             />
           </div>
@@ -142,16 +174,32 @@ export const Experience: FC<ExperienceProps> = ({
             </div>
           </div>
         </div>
-        <TextField
-          {...child.company}
-          variant="h5"
-          placeholder={child.company.placeholder}
-        />
+        {child.showRole?.isShow && child.role && (
+          <TextField
+            {...child.role}
+            variant="h5"
+            placeholder={child.role.placeholder}
+          />
+        )}
+        {child.showCompany?.isShow && child.company && (
+          <TextField
+            {...child.company}
+            variant="h5"
+            placeholder={child.company.placeholder}
+          />
+        )}
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
             variant="h7"
             placeholder={child.location.placeholder}
+          />
+        )}
+        {child.showUrl?.isShow && child.url && (
+          <TextField
+            {...child.url}
+            variant="h7"
+            placeholder={child.url.placeholder}
           />
         )}
 
@@ -214,4 +262,4 @@ export const Experience: FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default Project;
