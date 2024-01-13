@@ -56,6 +56,7 @@ export const Certification: FC<CertificationProps> = ({
       <div className={classes.header__container}>
         <TextField
           {...header}
+          fullWidth
           variant="h2"
           placeholder={header.placeholder}
           rootClassName={cls(classes.header, {
@@ -112,6 +113,7 @@ export const Certification: FC<CertificationProps> = ({
           <div className={classes.title__wrapper}>
             <TextField
               {...child.name}
+              fullWidth
               variant="h4"
               placeholder={child.name.placeholder}
               rootClassName={cls(classes.title, {
@@ -144,6 +146,7 @@ export const Certification: FC<CertificationProps> = ({
         {child.showInstitute?.isShow && child.institute && (
           <TextField
             {...child.institute}
+            fullWidth
             variant="h7"
             placeholder={child.institute.placeholder}
           />

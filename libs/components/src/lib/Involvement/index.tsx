@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  CourseWorkChildProps,
-  CourseWorkProps,
+  InvolvementChildProps,
+  InvolvementProps,
   RangePicker,
   TextArea,
   TextField,
@@ -20,25 +20,25 @@ import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import { texts } from "./texts";
 
-export const CourseWork: FC<CourseWorkProps> = ({
+export const Involvement: FC<InvolvementProps> = ({
   header = {},
   items = [
     {
       id: "item-1",
-      name: {},
-      institute: {},
+      role: {},
+      company: {},
+      location: {},
       rangeDate: undefined,
-      skills: {},
       points: {},
-      showInstitute: {
+      showCompany: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
+      showLocation: {
         isShow: false,
         onToggle: () => undefined,
       },
       showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showSkills: {
         isShow: false,
         onToggle: () => undefined,
       },
@@ -50,7 +50,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
   ],
   hoverItem = {
     id: "hover-item",
-    name: {},
+    role: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -61,7 +61,6 @@ export const CourseWork: FC<CourseWorkProps> = ({
       <div className={classes.header__container}>
         <TextField
           {...header}
-          fullWidth
           variant="h2"
           placeholder={header.placeholder}
           rootClassName={cls(classes.header, {
@@ -85,27 +84,27 @@ export const CourseWork: FC<CourseWorkProps> = ({
     );
   };
 
-  const renderMenu = (child: CourseWorkChildProps) => {
+  const renderMenu = (child: InvolvementChildProps) => {
     if (data.showMenuId !== child.id) return;
     return (
       <div className={classes.menu__wrapper}>
         <CheckBox
-          checked={child.showInstitute?.isShow}
-          onClick={child.showInstitute?.onToggle}
-          onChange={child.showInstitute?.onToggle}
-          label={texts.institute}
+          checked={child.showCompany?.isShow}
+          onClick={child.showCompany?.onToggle}
+          onChange={child.showCompany?.onToggle}
+          label={texts.company}
+        />
+        <CheckBox
+          checked={child.showLocation?.isShow}
+          onClick={child.showLocation?.onToggle}
+          onChange={child.showLocation?.onToggle}
+          label={texts.location}
         />
         <CheckBox
           checked={child.showDate?.isShow}
           onClick={child.showDate?.onToggle}
           onChange={child.showDate?.onToggle}
           label={texts.date}
-        />
-        <CheckBox
-          checked={child.showSkills?.isShow}
-          onClick={child.showSkills?.onToggle}
-          onChange={child.showSkills?.onToggle}
-          label={texts.skills}
         />
         <CheckBox
           checked={child.showPoints?.isShow}
@@ -117,18 +116,19 @@ export const CourseWork: FC<CourseWorkProps> = ({
     );
   };
 
-  const renderFields = (child: CourseWorkChildProps, index: number) => {
+  const renderFields = (child: InvolvementChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
-              {...child.name}
+              {...child.role}
               fullWidth
               variant="h4"
-              placeholder={child.name.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.name.rootClassName || ""]: !!child.name.rootClassName,
+              placeholder={child.role.placeholder}
+              containerClassName={cls(classes.title, {
+                [child.role.containerClassName || ""]:
+                  !!child.role.containerClassName,
               })}
             />
           </div>
@@ -154,23 +154,20 @@ export const CourseWork: FC<CourseWorkProps> = ({
             </div>
           </div>
         </div>
-        {child.showInstitute?.isShow && child.institute && (
+        {child.showCompany?.isShow && child.company && (
           <TextField
-            {...child.institute}
+            {...child.company}
             fullWidth
-            variant="h7"
-            placeholder={child.institute.placeholder}
+            variant="h5"
+            placeholder={child.company.placeholder}
           />
         )}
-
-        {child.showSkills?.isShow && child.skills && (
-          <TextArea
-            {...child.skills}
+        {child.showLocation?.isShow && child.location && (
+          <TextField
+            {...child.location}
+            fullWidth
             variant="h7"
-            placeholder={child.skills.placeholder}
-            className={cls(classes.skills, {
-              [child.skills.className || ""]: !!child.skills.className,
-            })}
+            placeholder={child.location.placeholder}
           />
         )}
 
@@ -233,4 +230,4 @@ export const CourseWork: FC<CourseWorkProps> = ({
   );
 };
 
-export default CourseWork;
+export default Involvement;

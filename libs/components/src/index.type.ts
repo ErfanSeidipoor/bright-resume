@@ -38,6 +38,7 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   enableRootClassName?: string;
   label?: string;
   isMinimal?: boolean;
+  fullWidth?: boolean;
 };
 
 export type BackgroundInfoChildKeys =
@@ -161,6 +162,27 @@ export type ProjectProps = {
   header: TextFieldProps;
   items: ProjectChildProps[];
   hoverItem?: ProjectChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type InvolvementChildProps = {
+  id: string;
+  role: TextFieldProps;
+  company?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showCompany?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type InvolvementProps = {
+  header: TextFieldProps;
+  items: InvolvementChildProps[];
+  hoverItem?: InvolvementChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };

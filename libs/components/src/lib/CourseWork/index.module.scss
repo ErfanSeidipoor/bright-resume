@@ -69,6 +69,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: spacing(2);
 
         .title__left_side {
           display: flex;
@@ -104,6 +105,7 @@
           display: flex;
           gap: spacing(2);
           align-items: center;
+          width: 100%;
           .title {
             &:before {
               content: " ";

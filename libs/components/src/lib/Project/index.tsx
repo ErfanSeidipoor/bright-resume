@@ -145,6 +145,7 @@ export const Project: FC<ProjectProps> = ({
           <div className={classes.title__wrapper}>
             <TextField
               {...child.role}
+              fullWidth
               variant="h4"
               placeholder={child.title.placeholder}
               rootClassName={cls(classes.title, {
@@ -177,6 +178,7 @@ export const Project: FC<ProjectProps> = ({
         {child.showRole?.isShow && child.role && (
           <TextField
             {...child.role}
+            fullWidth
             variant="h5"
             placeholder={child.role.placeholder}
           />
@@ -184,6 +186,7 @@ export const Project: FC<ProjectProps> = ({
         {child.showCompany?.isShow && child.company && (
           <TextField
             {...child.company}
+            fullWidth
             variant="h5"
             placeholder={child.company.placeholder}
           />
@@ -191,6 +194,7 @@ export const Project: FC<ProjectProps> = ({
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
+            fullWidth
             variant="h7"
             placeholder={child.location.placeholder}
           />
@@ -198,6 +202,7 @@ export const Project: FC<ProjectProps> = ({
         {child.showUrl?.isShow && child.url && (
           <TextField
             {...child.url}
+            fullWidth
             variant="h7"
             placeholder={child.url.placeholder}
           />
