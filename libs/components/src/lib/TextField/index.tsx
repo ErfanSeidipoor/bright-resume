@@ -17,6 +17,7 @@ export const TextField: FC<TextFieldProps> = ({
   enableRootClassName = "",
   label = "",
   isMinimal = false,
+  fullWidth = false,
   ...props
 }) => {
   const data = useData();
@@ -80,6 +81,7 @@ export const TextField: FC<TextFieldProps> = ({
     <div
       className={cls(classes.container, {
         [containerClassName]: !!containerClassName,
+        [classes.full__width]: fullWidth,
       })}
     >
       {renderLabel()}
@@ -89,6 +91,7 @@ export const TextField: FC<TextFieldProps> = ({
           [classes.enable__root]: !!data.isInputActive,
           [enableRootClassName]: !!data.isInputActive && !!enableRootClassName,
           [classes.disable__root]: props.disabled,
+          [classes.full__width]: fullWidth,
         })}
         onBlur={data.handleDeActiveInput}
         onClick={() => !props.disabled && data.handleActiveInput()}

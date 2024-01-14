@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ExperienceChildProps,
-  ExperienceProps,
+  InvolvementChildProps,
+  InvolvementProps,
   RangePicker,
   TextArea,
   TextField,
@@ -18,8 +18,9 @@ import {
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { texts } from "./texts";
 
-export const Experience: FC<ExperienceProps> = ({
+export const Involvement: FC<InvolvementProps> = ({
   header = {},
   items = [
     {
@@ -29,6 +30,10 @@ export const Experience: FC<ExperienceProps> = ({
       location: {},
       rangeDate: undefined,
       points: {},
+      showCompany: {
+        isShow: false,
+        onToggle: () => undefined,
+      },
       showLocation: {
         isShow: false,
         onToggle: () => undefined,
@@ -46,7 +51,6 @@ export const Experience: FC<ExperienceProps> = ({
   hoverItem = {
     id: "hover-item",
     role: {},
-    company: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -80,33 +84,39 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderMenu = (child: ExperienceChildProps) => {
+  const renderMenu = (child: InvolvementChildProps) => {
     if (data.showMenuId !== child.id) return;
     return (
       <div className={classes.menu__wrapper}>
         <CheckBox
+          checked={child.showCompany?.isShow}
+          onClick={child.showCompany?.onToggle}
+          onChange={child.showCompany?.onToggle}
+          label={texts.company}
+        />
+        <CheckBox
           checked={child.showLocation?.isShow}
           onClick={child.showLocation?.onToggle}
           onChange={child.showLocation?.onToggle}
-          label="Location"
+          label={texts.location}
         />
         <CheckBox
           checked={child.showDate?.isShow}
           onClick={child.showDate?.onToggle}
           onChange={child.showDate?.onToggle}
-          label="Date"
+          label={texts.date}
         />
         <CheckBox
           checked={child.showPoints?.isShow}
           onClick={child.showPoints?.onToggle}
           onChange={child.showPoints?.onToggle}
-          label="Points"
+          label={texts.points}
         />
       </div>
     );
   };
 
-  const renderFields = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (child: InvolvementChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
@@ -144,12 +154,14 @@ export const Experience: FC<ExperienceProps> = ({
             </div>
           </div>
         </div>
-        <TextField
-          {...child.company}
-          fullWidth
-          variant="h5"
-          placeholder={child.company.placeholder}
-        />
+        {child.showCompany?.isShow && child.company && (
+          <TextField
+            {...child.company}
+            fullWidth
+            variant="h5"
+            placeholder={child.company.placeholder}
+          />
+        )}
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
@@ -218,4 +230,4 @@ export const Experience: FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default Involvement;

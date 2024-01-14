@@ -51,6 +51,8 @@ const Template: StoryFn<typeof Experience> = (args) => {
     },
   };
 
+  const [title, setTitle] = useState<string>(texts.experience);
+
   const [items, setItems] = useState<ExperienceChildProps[]>([
     defaultExperienceItems,
   ]);
@@ -270,7 +272,11 @@ const Template: StoryFn<typeof Experience> = (args) => {
               onChangeShowPoints(item.id, !item.showPoints?.isShow),
           },
         }))}
-        header={{ placeholder: texts.experience }}
+        header={{
+          placeholder: texts.experience,
+          value: title,
+          onChange: (e) => setTitle(e.target.value),
+        }}
         onDecrease={onDecrease}
         onIncrease={onIncrease}
         hoverItem={hoverItems}

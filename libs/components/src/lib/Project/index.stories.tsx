@@ -1,26 +1,27 @@
 import { Meta, StoryFn } from "@storybook/react";
 
-import { Education } from "./";
+import { Project } from "./";
 import { texts } from "./texts";
 import { useState } from "react";
-import { EducationChildProps, MonthEnum } from "../../index.type";
+import { ProjectChildProps, MonthEnum } from "../../index.type";
 
 export default {
-  component: Education,
-  title: "Education",
-} as Meta<typeof Education>;
+  component: Project,
+  title: "Project",
+} as Meta<typeof Project>;
 
-const Template: StoryFn<typeof Education> = (args) => {
-  const hoverItems: EducationChildProps = {
+const Template: StoryFn<typeof Project> = (args) => {
+  const hoverItems: ProjectChildProps = {
     id: "item-1",
-    degree: { placeholder: texts.degree, label: texts.degree },
+    title: { placeholder: texts.title },
   };
-  const defaultEducationItems: EducationChildProps = {
+  const defaultProjectItems: ProjectChildProps = {
     id: "item-1",
-    degree: { placeholder: texts.degree, label: texts.degree },
-    institute: { placeholder: texts.institute, label: texts.institute },
-    gpa: { placeholder: texts.gpa, label: texts.gpa },
+    title: { placeholder: texts.title },
+    role: { placeholder: texts.role },
+    company: { placeholder: texts.company },
     location: { placeholder: texts.location },
+    url: { placeholder: texts.url },
     points: {
       placeholder: texts.points,
       isSeparateValue: true,
@@ -37,11 +38,15 @@ const Template: StoryFn<typeof Education> = (args) => {
       onChangeToYear: () => undefined,
       onChangeFromYear: () => undefined,
     },
-    showInstitute: {
+    showRole: {
       isShow: false,
       onToggle: () => undefined,
     },
-    showGpa: {
+    showCompany: {
+      isShow: false,
+      onToggle: () => undefined,
+    },
+    showUrl: {
       isShow: false,
       onToggle: () => undefined,
     },
@@ -59,43 +64,43 @@ const Template: StoryFn<typeof Education> = (args) => {
     },
   };
 
-  const [title, setTitle] = useState<string>(texts.education);
+  const [title, setTitle] = useState<string>(texts.project);
 
-  const [items, setItems] = useState<EducationChildProps[]>([
-    defaultEducationItems,
+  const [items, setItems] = useState<ProjectChildProps[]>([
+    defaultProjectItems,
   ]);
 
-  const onChangeDegree = (id: string, value: string) => {
+  const onChangeTitle = (id: string, value: string) => {
     const itemIndex = items.findIndex((item) => item.id === id);
     setItems((prevItems) => {
       const updatedItems = [...prevItems];
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
-        degree: { ...updatedItems[itemIndex].degree, value },
+        title: { ...updatedItems[itemIndex].title, value },
       };
       return updatedItems;
     });
   };
 
-  const onChangeInstitute = (id: string, value: string) => {
+  const onChangeRole = (id: string, value: string) => {
     const itemIndex = items.findIndex((item) => item.id === id);
     setItems((prevItems) => {
       const updatedItems = [...prevItems];
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
-        institute: { ...updatedItems[itemIndex].institute, value },
+        role: { ...updatedItems[itemIndex].role, value },
       };
       return updatedItems;
     });
   };
 
-  const onChangeGpa = (id: string, value: string) => {
+  const onChangeCompany = (id: string, value: string) => {
     const itemIndex = items.findIndex((item) => item.id === id);
     setItems((prevItems) => {
       const updatedItems = [...prevItems];
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
-        gpa: { ...updatedItems[itemIndex].gpa, value },
+        company: { ...updatedItems[itemIndex].company, value },
       };
       return updatedItems;
     });
@@ -108,6 +113,18 @@ const Template: StoryFn<typeof Education> = (args) => {
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
         location: { ...updatedItems[itemIndex].location, value },
+      };
+      return updatedItems;
+    });
+  };
+
+  const onChangeUrl = (id: string, value: string) => {
+    const itemIndex = items.findIndex((item) => item.id === id);
+    setItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems[itemIndex] = {
+        ...updatedItems[itemIndex],
+        url: { ...updatedItems[itemIndex].url, value },
       };
       return updatedItems;
     });
@@ -126,14 +143,14 @@ const Template: StoryFn<typeof Education> = (args) => {
     });
   };
 
-  const onChangeShowInstitute = (id: string, isShow: boolean) => {
+  const onChangeShowRole = (id: string, isShow: boolean) => {
     const itemIndex = items.findIndex((item) => item.id === id);
     setItems((prevItems) => {
       const updatedItems = [...prevItems];
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
-        showInstitute: {
-          ...updatedItems[itemIndex].showInstitute,
+        showRole: {
+          ...updatedItems[itemIndex].showRole,
           isShow,
           onToggle: () => undefined,
         },
@@ -142,14 +159,30 @@ const Template: StoryFn<typeof Education> = (args) => {
     });
   };
 
-  const onChangeShowGpa = (id: string, isShow: boolean) => {
+  const onChangeShowCompany = (id: string, isShow: boolean) => {
     const itemIndex = items.findIndex((item) => item.id === id);
     setItems((prevItems) => {
       const updatedItems = [...prevItems];
       updatedItems[itemIndex] = {
         ...updatedItems[itemIndex],
-        showGpa: {
-          ...updatedItems[itemIndex].showGpa,
+        showCompany: {
+          ...updatedItems[itemIndex].showCompany,
+          isShow,
+          onToggle: () => undefined,
+        },
+      };
+      return updatedItems;
+    });
+  };
+
+  const onChangeShowUrl = (id: string, isShow: boolean) => {
+    const itemIndex = items.findIndex((item) => item.id === id);
+    setItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      updatedItems[itemIndex] = {
+        ...updatedItems[itemIndex],
+        showUrl: {
+          ...updatedItems[itemIndex].showUrl,
           isShow,
           onToggle: () => undefined,
         },
@@ -269,31 +302,35 @@ const Template: StoryFn<typeof Education> = (args) => {
   const onIncrease = () => {
     setItems((prevState) => [
       ...prevState,
-      { ...defaultEducationItems, id: `item-${prevState.length + 1}` },
+      { ...defaultProjectItems, id: `item-${prevState.length + 1}` },
     ]);
   };
 
   return (
     <div id="theme-blue">
-      <Education
+      <Project
         {...args}
         items={items.map((item) => ({
           id: item.id,
-          degree: {
-            ...item.degree,
-            onChange: (e) => onChangeDegree(item.id, e.target.value),
+          title: {
+            ...item.title,
+            onChange: (e) => onChangeTitle(item.id, e.target.value),
           },
-          institute: {
-            ...item.institute,
-            onChange: (e) => onChangeInstitute(item.id, e.target.value),
+          role: {
+            ...item.role,
+            onChange: (e) => onChangeRole(item.id, e.target.value),
           },
-          gpa: {
-            ...item.gpa,
-            onChange: (e) => onChangeGpa(item.id, e.target.value),
+          company: {
+            ...item.company,
+            onChange: (e) => onChangeCompany(item.id, e.target.value),
           },
           location: {
             ...item.location,
             onChange: (e) => onChangeLocation(item.id, e.target.value),
+          },
+          url: {
+            ...item.url,
+            onChange: (e) => onChangeUrl(item.id, e.target.value),
           },
           points: {
             ...item.points,
@@ -313,19 +350,23 @@ const Template: StoryFn<typeof Education> = (args) => {
             onChangeFromYear: (year) => onChangeFromYear(item.id, year),
             onChangeToYear: (year) => onChangeToYear(item.id, year),
           },
-          showInstitute: {
-            isShow: !!item.showInstitute?.isShow,
-            onToggle: () =>
-              onChangeShowInstitute(item.id, !item.showInstitute?.isShow),
+          showRole: {
+            isShow: !!item.showRole?.isShow,
+            onToggle: () => onChangeShowRole(item.id, !item.showRole?.isShow),
           },
-          showGpa: {
-            isShow: !!item.showGpa?.isShow,
-            onToggle: () => onChangeShowGpa(item.id, !item.showGpa?.isShow),
+          showCompany: {
+            isShow: !!item.showCompany?.isShow,
+            onToggle: () =>
+              onChangeShowCompany(item.id, !item.showCompany?.isShow),
           },
           showLocation: {
             isShow: !!item.showLocation?.isShow,
             onToggle: () =>
               onChangeShowLocation(item.id, !item.showLocation?.isShow),
+          },
+          showUrl: {
+            isShow: !!item.showUrl?.isShow,
+            onToggle: () => onChangeShowUrl(item.id, !item.showUrl?.isShow),
           },
           showDate: {
             isShow: !!item.showDate?.isShow,
@@ -338,7 +379,7 @@ const Template: StoryFn<typeof Education> = (args) => {
           },
         }))}
         header={{
-          placeholder: texts.education,
+          placeholder: texts.project,
           value: title,
           onChange: (e) => setTitle(e.target.value),
         }}
