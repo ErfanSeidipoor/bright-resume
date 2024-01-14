@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ExperienceChildProps,
-  ExperienceProps,
+  CertificationChildProps,
+  CertificationProps,
   RangePicker,
   TextArea,
   TextField,
@@ -18,18 +18,18 @@ import {
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { texts } from "./texts";
 
-export const Experience: FC<ExperienceProps> = ({
+export const Certification: FC<CertificationProps> = ({
   header = {},
   items = [
     {
       id: "item-1",
-      role: {},
-      company: {},
-      location: {},
+      name: {},
+      institute: {},
       rangeDate: undefined,
       points: {},
-      showLocation: {
+      showInstitute: {
         isShow: false,
         onToggle: () => undefined,
       },
@@ -45,8 +45,7 @@ export const Experience: FC<ExperienceProps> = ({
   ],
   hoverItem = {
     id: "hover-item",
-    role: {},
-    company: {},
+    name: {},
   },
   onIncrease = () => null,
   onDecrease = () => null,
@@ -57,6 +56,7 @@ export const Experience: FC<ExperienceProps> = ({
       <div className={classes.header__container}>
         <TextField
           {...header}
+          fullWidth
           variant="h2"
           placeholder={header.placeholder}
           rootClassName={cls(classes.header, {
@@ -80,45 +80,44 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderMenu = (child: ExperienceChildProps) => {
+  const renderMenu = (child: CertificationChildProps) => {
     if (data.showMenuId !== child.id) return;
     return (
       <div className={classes.menu__wrapper}>
         <CheckBox
-          checked={child.showLocation?.isShow}
-          onClick={child.showLocation?.onToggle}
-          onChange={child.showLocation?.onToggle}
-          label="Location"
+          checked={child.showInstitute?.isShow}
+          onClick={child.showInstitute?.onToggle}
+          onChange={child.showInstitute?.onToggle}
+          label={texts.institute}
         />
         <CheckBox
           checked={child.showDate?.isShow}
           onClick={child.showDate?.onToggle}
           onChange={child.showDate?.onToggle}
-          label="Date"
+          label={texts.date}
         />
         <CheckBox
           checked={child.showPoints?.isShow}
           onClick={child.showPoints?.onToggle}
           onChange={child.showPoints?.onToggle}
-          label="Points"
+          label={texts.points}
         />
       </div>
     );
   };
 
-  const renderFields = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (child: CertificationChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
-              {...child.role}
+              {...child.name}
               fullWidth
               variant="h4"
-              placeholder={child.role.placeholder}
-              containerClassName={cls(classes.title, {
-                [child.role.containerClassName || ""]:
-                  !!child.role.containerClassName,
+              placeholder={child.name.placeholder}
+              rootClassName={cls(classes.title, {
+                [child.name.rootClassName || ""]: !!child.name.rootClassName,
               })}
             />
           </div>
@@ -144,18 +143,12 @@ export const Experience: FC<ExperienceProps> = ({
             </div>
           </div>
         </div>
-        <TextField
-          {...child.company}
-          fullWidth
-          variant="h5"
-          placeholder={child.company.placeholder}
-        />
-        {child.showLocation?.isShow && child.location && (
+        {child.showInstitute?.isShow && child.institute && (
           <TextField
-            {...child.location}
+            {...child.institute}
             fullWidth
             variant="h7"
-            placeholder={child.location.placeholder}
+            placeholder={child.institute.placeholder}
           />
         )}
 
@@ -218,4 +211,4 @@ export const Experience: FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default Certification;

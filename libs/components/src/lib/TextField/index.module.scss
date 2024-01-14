@@ -4,81 +4,90 @@
   display: flex;
   align-items: center;
   gap: spacing(2);
-}
 
-.root {
-  background-color: transparent;
-  color: var(--dark);
-  border-radius: spacing(1, 1);
-  border: 1px solid transparent;
-  padding: spacing(0.5, 0.5);
-  display: flex;
-  align-items: center;
-  gap: spacing(1, 1);
-  cursor: pointer;
-  &:hover {
-    border: 1px dashed var(--primary);
-    .edit__icon {
-      display: block;
-    }
-  }
-  &:focus {
-    border: 1px solid var(--primary);
-  }
-
-  .edit__icon {
-    display: none;
-    > svg > path {
-      fill: var(--primary);
-    }
-  }
-
-  .input__container {
+  &.full__width {
     width: 100%;
   }
 
-  .input {
+  .root {
     background-color: transparent;
     color: var(--dark);
-    outline: none;
-    border: none;
-    width: 100%;
-    &::placeholder {
+    border-radius: spacing(1, 1);
+    border: 1px solid transparent;
+    padding: spacing(0.5, 0.5);
+    display: flex;
+    align-items: center;
+    gap: spacing(1, 1);
+    cursor: pointer;
+
+    &.full__width {
+      width: 100%;
+    }
+
+    &:hover {
+      border: 1px dashed var(--primary);
+      .edit__icon {
+        display: block;
+      }
+    }
+    &:focus {
+      border: 1px solid var(--primary);
+    }
+
+    .edit__icon {
+      display: none;
+      > svg > path {
+        fill: var(--primary);
+      }
+    }
+
+    .input__container {
+      width: 100%;
+    }
+
+    .input {
+      background-color: transparent;
+      color: var(--dark);
+      outline: none;
+      border: none;
+      width: 100%;
+      &::placeholder {
+        color: var(--grey-400);
+      }
+    }
+
+    .typography {
+      margin: 0;
+      min-width: 250px;
+    }
+
+    .minimal__typography {
+      margin: 0;
+      min-width: fit-content;
+      max-width: fit-content;
+    }
+
+    .placeholder__typography {
       color: var(--grey-400);
     }
-  }
 
-  .typography {
-    margin: 0;
-    min-width: 250px;
-  }
+    .hiddenLabel {
+      visibility: hidden;
+      position: absolute;
+      z-index: -1;
+    }
 
-  .minimal__typography {
-    margin: 0;
-    min-width: fit-content;
-    max-width: fit-content;
-  }
+    &.enable__root {
+      border: 1px solid var(--primary) !important;
+    }
 
-  .placeholder__typography {
-    color: var(--grey-400);
-  }
-
-  .hiddenLabel {
-    visibility: hidden;
-    position: absolute;
-    z-index: -1;
-  }
-
-  &.enable__root {
-    border: 1px solid var(--primary) !important;
-  }
-
-  &.disable__root {
-    cursor: not-allowed !important;
-    &:hover {
-      border: 1px solid transparent !important;
-      .edit__icon {
-        display: none !important;
+    &.disable__root {
+      cursor: not-allowed !important;
+      &:hover {
+        border: 1px solid transparent !important;
+        .edit__icon {
+          display: none !important;
+        }
       }
     }
   }
