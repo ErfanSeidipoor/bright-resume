@@ -293,3 +293,21 @@ export type MyResumeCardProps = {
   onEdit?: (id: string) => void;
   onDelete?: (id: string) => void;
 };
+
+export type FloatingIconButtonVariant = "outlined" | "contained";
+
+export type FloatingIconButtonColor =
+  | "blue"
+  | "green"
+  | "purple"
+  | "gold"
+  | "grey";
+
+export type FloatingIconButtonProps =
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant?: FloatingIconButtonVariant;
+    color?: FloatingIconButtonColor;
+    rootClassName?: string;
+    icon?: React.ReactNode;
+    onClick?: () => void;
+  };
