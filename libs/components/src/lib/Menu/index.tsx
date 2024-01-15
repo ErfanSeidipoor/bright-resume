@@ -15,7 +15,6 @@ import {
   PlusIcon,
   MinusIcon,
 } from "../Icons";
-import Typography from "../Typography";
 // types
 import { FontFamily, FontSize, Section, ThemeColor } from "../../index.type";
 // locals
@@ -80,11 +79,11 @@ export const Menu: React.FC<MenuProps> = ({
   }: MenuItem) => {
     if (isHidden) return;
     return (
-      <div>
+      <div className={classes.item}>
         {popup}
         <div className={classes.menu__content} onClick={onClick}>
-          {title && <Typography component="div">{title}</Typography>}
-          {text && <Typography component="div">{text}</Typography>}
+          {title && <div className={classes.text}>{title}</div>}
+          {text && <div className={classes.text}>{text}</div>}
         </div>
       </div>
     );
@@ -173,11 +172,11 @@ export const Menu: React.FC<MenuProps> = ({
               >
                 <CheckBox
                   checked={sections.some((sec) => sec === currentSection)}
-                  onChange={(value) => {
+                  onChange={() => {
                     onChangeSections(currentSection);
                   }}
                 />
-                <Typography>{currentSection}</Typography>
+                <div className={classes.text}>{currentSection}</div>
               </div>
             ))}
           </div>
@@ -197,7 +196,7 @@ export const Menu: React.FC<MenuProps> = ({
           onClose={data.handleToggleFontFamilyPicker}
         >
           {Object.values(FontFamily).map((currentFontFamily) => (
-            <Typography
+            <div
               key={`fontFamily-${currentFontFamily}`}
               className={cls(classes.font, {
                 [classes.font__active]: currentFontFamily === fontFamily,
@@ -205,7 +204,7 @@ export const Menu: React.FC<MenuProps> = ({
               onClick={() => onChangeFontFamily(currentFontFamily)}
             >
               {currentFontFamily}
-            </Typography>
+            </div>
           ))}
         </Popup>
       ),

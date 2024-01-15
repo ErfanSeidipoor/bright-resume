@@ -56,7 +56,7 @@
   $justify: flex-start,
   $align: stretch,
   $gap: 0,
-  $wrap: nowrap
+  $wrap: wrap
 ) {
   display: flex;
   flex-direction: $direction;
@@ -64,6 +64,7 @@
   align-items: $align;
   flex-wrap: nowrap;
   gap: spacing($gap);
+  flex-wrap: $wrap;
 }
 
 @mixin shadow($shadow-key) {

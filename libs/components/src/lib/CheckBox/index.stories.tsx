@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import CheckBox from ".";
+import { CheckBox } from ".";
 
 import "../../../../theme/_index.scss";
 import { useState } from "react";

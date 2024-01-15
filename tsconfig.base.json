@@ -22,7 +22,6 @@
       "@assets": ["libs/assets/src/index.ts"],
       "@assets/*": ["libs/assets/src/*"],
       "@back-common/*": ["libs/back-common/src/*"],
-      "@bright-resume/api-common": ["libs/api-common/src/index.ts"],
       "@bright-resume/assets": ["libs/assets/src/index.ts"],
       "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/back-auth/*": ["apps/back-auth/src/*"],

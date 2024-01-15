@@ -1,64 +1,93 @@
 @import "../../../../theme/index";
 
-.root {
-  background-color: transparent;
-  color: var(--dark);
-  border-radius: spacing(1, 1);
-  border: 1px solid transparent;
-  padding: spacing(0.5, 0.5);
+.container {
   display: flex;
   align-items: center;
-  gap: spacing(1, 1);
-  cursor: pointer;
-  &:hover {
-    border: 1px dashed var(--primary);
-    .edit__icon {
-      display: block;
-    }
-  }
-  &:focus {
-    border: 1px solid var(--primary);
-  }
+  gap: spacing(2);
 
-  .edit__icon {
-    display: none;
-    > svg > path {
-      fill: var(--primary);
-    }
-  }
-
-  .input__container {
-    width: 100%
-  }
-
-  .input {
-    background-color: transparent;
-    color: var(--dark);
-    outline: none;
-    border: none;
+  &.full__width {
     width: 100%;
   }
 
-  .typography {
-    margin: 0;
-  }
+  .root {
+    background-color: transparent;
+    color: var(--dark);
+    border-radius: spacing(1, 1);
+    border: 1px solid transparent;
+    padding: spacing(0.5, 0.5);
+    display: flex;
+    align-items: center;
+    gap: spacing(1, 1);
+    cursor: pointer;
 
-  .label {
-    visibility: hidden;
-    position: absolute;
-    z-index: -1;
-  }
+    &.full__width {
+      width: 100%;
+    }
 
-  &.enable__root {
-    border: 1px solid var(--primary) !important;
-  }
-
-  &.disable__root {
-    cursor: not-allowed!important;
     &:hover {
-      border: 1px solid transparent!important;
+      border: 1px dashed var(--primary);
       .edit__icon {
-        display: none!important;
+        display: block;
+      }
+    }
+    &:focus {
+      border: 1px solid var(--primary);
+    }
+
+    .edit__icon {
+      display: none;
+      > svg > path {
+        fill: var(--primary);
+      }
+    }
+
+    .input__container {
+      width: 100%;
+    }
+
+    .input {
+      background-color: transparent;
+      color: var(--dark);
+      outline: none;
+      border: none;
+      width: 100%;
+      &::placeholder {
+        color: var(--grey-400);
+      }
+    }
+
+    .typography {
+      margin: 0;
+      min-width: 250px;
+    }
+
+    .minimal__typography {
+      margin: 0;
+      min-width: fit-content;
+      max-width: fit-content;
+    }
+
+    .placeholder__typography {
+      color: var(--grey-400);
+    }
+
+    .hiddenLabel {
+      visibility: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &.enable__root {
+      border: 1px solid var(--primary) !important;
+    }
+
+    &.disable__root {
+      cursor: not-allowed !important;
+      &:hover {
+        border: 1px solid transparent !important;
+        .edit__icon {
+          display: none !important;
+        }
       }
     }
   }
