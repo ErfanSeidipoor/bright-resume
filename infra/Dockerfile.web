@@ -5,6 +5,8 @@ WORKDIR /app
 ADD package.json /app/package.json
 
 RUN npm i -g pnpm
+
+RUN apk update && apk add --no-cache git
 RUN pnpm install
 
 ADD . /app
@@ -19,6 +21,7 @@ ADD package.json /app/package.json
 
 COPY --from=build app/dist/apps/web /app
 
+RUN apk update && apk add --no-cache git
 RUN pnpm install -P
 
 CMD ["npm", "start"]
