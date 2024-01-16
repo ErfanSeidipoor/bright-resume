@@ -309,6 +309,10 @@ export type NavigationButtonProps = ButtonProps & {
 
 export type BlogCardProps = {
   rootClassName?: string;
+  title?: string;
+  description?: string;
+  shortDescription?: string;
+  image?: string;
   imageWidth?: string | number;
   imageHeight?: string | number;
   link?: string;
@@ -319,6 +323,11 @@ export type BlogCardProps = {
 export type SearchProps = React.InputHTMLAttributes<HTMLInputElement> & {
   rootClassName?: string;
   onEmptyValue?: () => void;
+  isLoading?: boolean;
+};
+
+export type DotLoadingProps = {
+  color?: "blue" | "green" | "purple" | "gold";
 };
 
 export enum MonthEnum {
