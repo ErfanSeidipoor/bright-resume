@@ -2,12 +2,18 @@ import { act } from "react-dom/test-utils";
 import { renderHook } from "@testing-library/react";
 // locals
 import { useData } from "./index.hook";
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import {
+  FontFamily,
+  FontSize,
+  Section,
+  ThemeColor,
+} from "@bright-resume/components";
 
 const initialProps = {
   themeColor: ThemeColor.blue,
   fontFamily: FontFamily.montserrat,
-  fonSize: FonSize.medium,
+  fonSize: FontSize.medium,
+  sections: [],
 };
 
 describe("theme hook", () => {
@@ -41,9 +47,21 @@ describe("theme hook", () => {
     expect(result.current.fonSize).toBe(initialProps.fonSize);
 
     act(() => {
-      result.current.changeFontSize(FonSize.large);
+      result.current.changeFontSize(FontSize.large);
     });
 
-    expect(result.current.fonSize).toBe(FonSize.large);
+    expect(result.current.fonSize).toBe(FontSize.large);
+  });
+
+  it("should change sections state", () => {
+    const { result } = renderHook(() => useData(initialProps));
+
+    expect(result.current.sections).toBe(initialProps.sections);
+
+    act(() => {
+      result.current.changeSections(Section.aboutMe);
+    });
+
+    expect(result.current.sections).toBe([Section.aboutMe]);
   });
 });

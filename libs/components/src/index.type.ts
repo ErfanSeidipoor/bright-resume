@@ -241,7 +241,7 @@ export enum ThemeColor {
   grey = "grey",
 }
 
-export enum FonSize {
+export enum FontSize {
   small = "small",
   medium = "medium",
   large = "large",
@@ -251,6 +251,18 @@ export enum FontFamily {
   arial = "arial",
   montserrat = "montserrat",
 }
+
+export enum Section {
+  aboutMe = "About me",
+  languages = "Languages",
+  experience = "Experience",
+  picture = "Picture",
+  education = "Education",
+  skills = "Skills",
+  achievement = "Achievement",
+  hobbiesAndInterests = "Hobbies And Interests",
+}
+
 export enum ProficiencyEnum {
   beginner = "Beginner",
   intermediate = "Intermediate",

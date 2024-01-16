@@ -1,8 +1,6 @@
 @import "../../../../theme/index";
 
 .root {
-  @include flexbox(row, flex-start, center, 1);
-
   .h1 {
     @include typography(h1);
   }

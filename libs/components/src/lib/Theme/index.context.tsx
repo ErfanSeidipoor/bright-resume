@@ -1,14 +1,21 @@
 import { createContext, useContext } from "react";
 
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import {
+  FontFamily,
+  FontSize,
+  Section,
+  ThemeColor,
+} from "@bright-resume/components";
 
 export type Theme = {
   themeColor: ThemeColor;
   changeThemeColor: (themeColor: ThemeColor) => void;
   fontFamily: FontFamily;
   changeFontFamily: (fontFamily: FontFamily) => void;
-  fonSize: FonSize;
-  changeFontSize: (fonSize: FonSize) => void;
+  fonSize: FontSize;
+  changeFontSize: (fonSize: FontSize) => void;
+  sections: Section[];
+  changeSections: (section: Section) => void;
 };
 
 export const ThemeContext = createContext<Theme>({
@@ -16,8 +23,10 @@ export const ThemeContext = createContext<Theme>({
   changeThemeColor: () => undefined,
   fontFamily: FontFamily.montserrat,
   changeFontFamily: () => undefined,
-  fonSize: FonSize.medium,
+  fonSize: FontSize.medium,
   changeFontSize: () => undefined,
+  sections: [],
+  changeSections: () => undefined,
 });
 
 export const useTheme = () => useContext(ThemeContext);
