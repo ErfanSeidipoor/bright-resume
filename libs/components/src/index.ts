@@ -15,5 +15,13 @@ export * from "./lib/DatePicker";
 export * from "./lib/RangePicker";
 export * from "./lib/Experience";
 export * from "./lib/CheckBox";
+export * from "./lib/ContactInfo";
+export * from "./lib/Slider";
+export * from "./lib/Language";
+export * from "./lib/Education";
+export * from "./lib/Certification";
+export * from "./lib/Project";
+export * from "./lib/Involvement";
+export * from "./lib/CourseWork";
 
 export * from "./index.type";
