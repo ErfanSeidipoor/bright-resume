@@ -3,28 +3,40 @@ import Typography from "../Typography";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import { texts } from "./text";
+import Image from "next/image";
 
 export const ImageProfile = () => {
   const { inputRef, profileImage, handleChange, uploadHandler } = useData();
 
   const renderImage = () => {
-     if (!profileImage) {
-       return (
-         <>
-           <ProfileImageIcon />
-           <Typography variant="h6" rootClassName={classes.text__wrapper}>
-             {texts.yourPicture}
-           </Typography>
-         </>
-       );
-     } else {
-       return <img src={URL.createObjectURL(profileImage)} alt="profile-img" />;
-     }
+    if (!profileImage) {
+      return (
+        <>
+          <ProfileImageIcon />
+          <Typography variant="h6" rootClassName={classes.text__wrapper}>
+            {texts.yourPicture}
+          </Typography>
+        </>
+      );
+    } else {
+      return (
+        <Image
+          width={200}
+          height={200}
+          src={URL.createObjectURL(profileImage)}
+          alt="profile-img"
+        />
+      );
+    }
   };
 
   return (
     <div
       className={classes.container}
+      style={{
+        width: 200,
+        height: 200,
+      }}
       data-testid="image-uploader-container"
       onClick={uploadHandler}
     >

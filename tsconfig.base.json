@@ -37,7 +37,8 @@
       "@enums": ["libs/enums/src/index.ts"],
       "@errors": ["libs/errors/src/index.ts"],
       "@libs/scss": ["libs/components/scss"],
-      "@utils": ["libs/utils/src/index.ts"]
+      "@utils": ["libs/utils/src/index.ts"],
+      "@web/*": ["apps/web/*"]
     },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
