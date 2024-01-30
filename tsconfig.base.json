@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@@back-auth/*": ["apps/back-auth/src/*"],
+      "@web/*": ["apps/web/*"],
       "@@back-file/*": ["apps/back-file/src/*"],
       "@@back-gateway/*": ["apps/back-gateway/src/*"],
       "@@back-resume/*": ["apps/back-resume/src/*"],

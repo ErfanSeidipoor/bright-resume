@@ -1,4 +1,4 @@
-import { FC } from "react";
+"use client";
 import styles from "./index.module.scss";
 import { MainNav } from "./nav";
 
@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const MainLayout: FC<Props> = ({ children }) => {
+export function MainLayout({ children }: Props) {
   return (
     <div className={styles.container}>
       <MainNav />
@@ -14,6 +14,4 @@ const MainLayout: FC<Props> = ({ children }) => {
       {children}
     </div>
   );
-};
-
-export { MainLayout };
+}

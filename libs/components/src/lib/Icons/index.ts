@@ -36,3 +36,4 @@ export * from "./solarPenBold";
 export * from "./meatBallsMenu";
 export * from "./MenuIcon";
 export * from "./emptySquare";
+export * from "./loadingCircle";

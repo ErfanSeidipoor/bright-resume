@@ -3,7 +3,7 @@ import { Features } from "apps/web/containers/home/features";
 import classes from "./page.module.scss";
 import { Hero } from "apps/web/containers/home/hero";
 
-export default async function Index() {
+export default async function Page() {
   return (
     <div className={classes.page}>
       <Hero />
@@ -13,9 +13,3 @@ export default async function Index() {
     </div>
   );
 }
-
-// https://cms-development.bright-resume.com/documentation
-// https://cms-staging.bright-resume.com/documentation#/
-// https://back-staging.bright-resume.com/graphql
-// https://back.bright-resume.com/graphql
-// https://cms.bright-resume.com/documentation

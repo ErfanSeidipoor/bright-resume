@@ -1,4 +1,3 @@
-import { MainLayout } from "apps/web/components/layouts";
 import "./global.css";
 
 export const metadata = {

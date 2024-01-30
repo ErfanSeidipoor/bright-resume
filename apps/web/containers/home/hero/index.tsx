@@ -1,6 +1,7 @@
+"use client";
 import { FC } from "react";
-import Image from "next/image";
 import classes from "./index.module.scss";
+import ImageCombo from "./ImageCombo";
 
 export const Hero: FC = () => {
   return (
@@ -13,12 +14,7 @@ export const Hero: FC = () => {
         <button>Get Started</button>
       </div>
       <div className={classes.hero__image}>
-        <Image
-          src="/assets/image/hero-image.png"
-          alt="Hero image"
-          fill
-          sizes="100%"
-        />
+        <ImageCombo />
       </div>
     </div>
   );
