@@ -71,19 +71,3 @@
     }
   }
 }
-
-.imageCombo {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-  height: 40%;
-
-  display: flex;
-  justify-content: center;
-
-  img {
-    object-fit: cover;
-  }
-}
