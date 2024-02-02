@@ -7,6 +7,11 @@ import moment from "moment";
 import request from "supertest-graphql";
 import { HelperDB, IntegrationTestManager } from "../helper";
 import { CreateResumeResumeInputs } from "@dto";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 import { A_RESUME_WITH_THE_GIVEN_NAME_ALREADY_EXISTS } from "@bright-resume/errors";
 
 describe("microservice:resume CreateResume", () => {
@@ -70,6 +75,9 @@ describe("microservice:resume CreateResume", () => {
 
     const createResumeResumeInputs: CreateResumeResumeInputs = {
       name: faker.person.fullName(),
+      color: ResumeColorEnum.black,
+      fontFamily: ResumeFontFamilyEnum.nunito,
+      fontSize: ResumeFontSizeEnum.large,
       role: faker.person.jobTitle(),
       isShowPhoneNumber: faker.datatype.boolean(),
       phoneNumber: faker.phone.number(),
@@ -295,6 +303,9 @@ describe("microservice:resume CreateResume", () => {
     // i want to check all propes
 
     expect(createResumeResumeInputs.name).toBe(resume.name);
+    expect(createResumeResumeInputs.color).toBe(resume.color);
+    expect(createResumeResumeInputs.fontFamily).toBe(resume.fontFamily);
+    expect(createResumeResumeInputs.fontSize).toBe(resume.fontSize);
 
     expect(createResumeResumeInputs.role).toBe(resume.role);
     expect(createResumeResumeInputs.isShowPhoneNumber).toBe(

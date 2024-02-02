@@ -9,6 +9,11 @@ import {
   CreateResumeLanguageItemInputs,
   CreateResumeProjectItemInputs,
 } from "@dto";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 
 @InputType()
 export class CreateResumeExperienceItemResumeInputsGQL extends CreateResumeExperienceItemResumeInputs {
@@ -234,6 +239,15 @@ export class CreateResumeLanguageItemInputsGQL extends CreateResumeLanguageItemI
 export class CreateResumeResumeInputsGQL extends CreateResumeResumeInputs {
   @Field(() => String, { nullable: true })
   name?: string;
+
+  @Field(() => ResumeFontSizeEnum, { nullable: true })
+  fontSize?: ResumeFontSizeEnum;
+
+  @Field(() => ResumeFontFamilyEnum, { nullable: true })
+  fontFamily?: ResumeFontFamilyEnum;
+
+  @Field(() => ResumeColorEnum, { nullable: true })
+  color?: ResumeColorEnum;
 
   @Field(() => String, { nullable: true })
   role?: string;
