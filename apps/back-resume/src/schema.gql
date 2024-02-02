@@ -104,6 +104,9 @@ type Resume {
   id: ID
   userId: ID!
   name: String
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
   role: String
   isShowPhoneNumber: Boolean
   phoneNumber: String
@@ -176,6 +179,36 @@ type Resume {
   updatedAt: DateTime!
 }
 
+enum ResumeFontSizeEnum {
+  xx_small
+  x_small
+  small
+  medium
+  large
+  x_large
+  xx_large
+}
+
+enum ResumeFontFamilyEnum {
+  montserrat
+  nunito
+  roboto
+  raleway
+}
+
+enum ResumeColorEnum {
+  red
+  yellow
+  blue
+  green
+  black
+  gray
+  purple
+  orange
+  brown
+  white
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -212,6 +245,9 @@ input DeleteResumeResumeInputsGQL {
 
 input CreateResumeResumeInputsGQL {
   name: String
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
   role: String
   isShowPhoneNumber: Boolean
   phoneNumber: String
@@ -374,6 +410,9 @@ input CreateResumeLanguageItemInputsGQL {
 input UpdateResumeResumeInputsGQL {
   resumeId: String!
   name: String
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
   role: String
   isShowPhoneNumber: Boolean
   phoneNumber: String

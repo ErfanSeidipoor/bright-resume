@@ -4,6 +4,11 @@ import moment from "moment";
 import { DbService } from "../../modules/db/db.service";
 import mongoose from "mongoose";
 import { Resume } from "@@back-resume/app/models";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 
 export class HelperDB {
   dbService: DbService;
@@ -37,6 +42,9 @@ export class HelperDB {
       userId: userId || new mongoose.Types.ObjectId().toString(),
 
       name: faker.person.fullName(),
+      color: ResumeColorEnum.green,
+      fontFamily: ResumeFontFamilyEnum.raleway,
+      fontSize: ResumeFontSizeEnum.small,
       role: faker.person.jobTitle(),
       isShowPhoneNumber: faker.datatype.boolean(),
       phoneNumber: faker.phone.number(),

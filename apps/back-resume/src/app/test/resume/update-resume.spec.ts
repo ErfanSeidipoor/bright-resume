@@ -8,6 +8,11 @@ import mongoose from "mongoose";
 import request from "supertest-graphql";
 import { HelperDB, IntegrationTestManager } from "../helper";
 import moment from "moment";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 
 describe("microservice:resume UpdateResume", () => {
   const integrationTestManager = new IntegrationTestManager();
@@ -104,6 +109,9 @@ describe("microservice:resume UpdateResume", () => {
     const updateResumeResumeInputs: UpdateResumeResumeInputs = {
       resumeId: resume.id,
       name: faker.person.fullName(),
+      color: ResumeColorEnum.black,
+      fontFamily: ResumeFontFamilyEnum.nunito,
+      fontSize: ResumeFontSizeEnum.large,
       role: faker.person.jobTitle(),
       isShowPhoneNumber: faker.datatype.boolean(),
       phoneNumber: faker.phone.number(),
@@ -297,7 +305,7 @@ describe("microservice:resume UpdateResume", () => {
       hobbies: [faker.lorem.paragraph(), faker.lorem.paragraph()],
     };
 
-    const { data, errors } = await request<
+    const { data } = await request<
       { updateResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -328,6 +336,9 @@ describe("microservice:resume UpdateResume", () => {
     expect(updatedResume.userId).toBe(userId);
 
     expect(updateResumeResumeInputs.name).toBe(updatedResume.name);
+    expect(updateResumeResumeInputs.color).toBe(updatedResume.color);
+    expect(updateResumeResumeInputs.fontFamily).toBe(updatedResume.fontFamily);
+    expect(updateResumeResumeInputs.fontSize).toBe(updatedResume.fontSize);
 
     expect(updateResumeResumeInputs.role).toBe(updatedResume.role);
     expect(updateResumeResumeInputs.isShowPhoneNumber).toBe(
