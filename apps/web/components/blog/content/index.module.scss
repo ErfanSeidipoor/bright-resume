@@ -1,0 +1,16 @@
+@import "libs/theme";
+
+.content__wrapper {
+  @include flexbox(row, flex-start, center, 9, wrap);
+  margin-bottom: spacing(10);
+  .blog__card__wrapper {
+    flex: 30%;
+    .blog__card {
+      width: 100%;
+    }
+
+    @include sm {
+      flex: 100%;
+    }
+  }
+}
