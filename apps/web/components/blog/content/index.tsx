@@ -1,6 +1,6 @@
 "use client";
 import { FC } from "react";
-import { BlogCard } from "@bright-resume/components";
+import { BlogCard, NavigationButton } from "@bright-resume/components";
 
 import classes from "./index.module.scss";
 
@@ -29,7 +29,18 @@ const BlogContent: FC<BlogContentProps> = ({ blogsData }) => {
     ));
   };
 
-  return <div className={classes.content__wrapper}>{renderBlogContent()}</div>;
+  const renderNavigationButton = () => {
+    return <NavigationButton className="navigation-button" color="grey" />;
+  };
+
+  return (
+    <div className={classes.content__wrapper}>
+      <div className={classes.blog__card__content__wrapper}>
+        {renderBlogContent()}
+      </div>
+      {renderNavigationButton()}
+    </div>
+  );
 };
 
 export { BlogContent };
