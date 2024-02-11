@@ -30,8 +30,11 @@ const MainNav: FC = () => {
           Features
         </a>
         <a className={styles.links} href="#faq-section">
-          FAG
+          FAQ
         </a>
+        <Link className={styles.links} href="/blog">
+          Our blog
+        </Link>
         <Link className={styles.login_button} href="/login">
           Login/Sign up
         </Link>

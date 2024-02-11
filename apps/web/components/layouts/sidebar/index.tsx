@@ -24,6 +24,9 @@ export const Sidebar: FC<Props> = ({ open, onClick }) => {
         <Link href="#faq-section" onClick={onClick}>
           {texts.faq}
         </Link>
+        <Link href="/blog" onClick={onClick}>
+          {texts.our_blog}
+        </Link>
         <Link className={styles.login_button} href="/login">
           Login/Sign up
         </Link>
