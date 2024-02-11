@@ -25,4 +25,4 @@ const BlogTitle: FC<BlogTitleProps> = () => {
   );
 };
 
-export default BlogTitle;
+export { BlogTitle };

@@ -25,6 +25,7 @@ export * from "./lib/Involvement";
 export * from "./lib/CourseWork";
 export * from "./lib/BlogCard";
 export * from "./lib/Search";
+export * from "./lib/NavigationButton";
 export * from "./lib/FloatingIconButton";
 export * from "./lib/MyResumeCard";
 

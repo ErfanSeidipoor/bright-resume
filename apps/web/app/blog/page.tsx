@@ -1,5 +1,4 @@
-import BlogTitle from "@web/components/blog/title";
-
+import { BlogTitle } from "@web/components/blog";
 import classes from "./page.module.scss";
 
 type BlogPageProps = {};
