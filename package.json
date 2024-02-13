@@ -69,7 +69,6 @@
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "storybook": "link:@nx/react/plugins/storybook",
     "tslib": "^2.6.2",
     "typescript-plugin-css-modules": "^5.0.1"
   },
@@ -107,8 +106,8 @@
     "@types/jest": "^29.4.0",
     "@types/mongoose-delete": "^1.0.0",
     "@types/node": "18.16.9",
-    "@types/react": "18.2.33",
-    "@types/react-dom": "18.2.14",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
     "@types/testing-library__jest-dom": "^5.14.9",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",
