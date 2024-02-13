@@ -9,16 +9,12 @@
   width: 100%;
   user-select: none;
 
-  & p {
-    line-height: 10px !important;
-  }
-
   .container {
     @include flexbox(row, flex-start, center);
     @include shadow(2);
     border-radius: 18px;
     min-width: 960px;
-    width: 1280px;
+    max-width: 1280px;
     background-color: var(--light);
     height: 90px;
 
@@ -29,13 +25,13 @@
       position: relative;
     }
 
-    .item {
-      width: 100px;
-    }
-
     .menu__content {
       @include flexbox(column, center, center);
       cursor: pointer;
+    }
+
+    & p {
+      line-height: 2px;
     }
 
     & > div:not(:last-child)::after {
@@ -49,28 +45,12 @@
     }
 
     .select {
-      margin: spacing(0, 0, 3, 0);
-    }
-
-    .font__size_container {
-      @include flexbox(row, center, flex-start, 1);
+      margin: spacing(1, 0, 3, 0);
     }
 
     .person {
       width: 30px;
       height: 30px;
-    }
-
-    .sections {
-      @include flexbox(row, space-between, center, wrap);
-      width: 500px;
-      flex-wrap: wrap;
-
-      .section {
-        @include flexbox(row, flex-start, center, 1);
-        flex: 1;
-        flex-basis: 50%;
-      }
     }
 
     .popup {
@@ -113,10 +93,6 @@
       &.font__active {
         color: $blue;
       }
-    }
-
-    .text {
-      font-size: map-get($font-size, h7);
     }
   }
 }
