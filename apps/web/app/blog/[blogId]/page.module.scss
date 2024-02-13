@@ -1,0 +1,16 @@
+@import "libs/theme";
+
+.blog__layout {
+  .root {
+    padding: 0 8%;
+  }
+  .page__footer {
+    @include flexbox(row, center, center);
+    height: 35px;
+    width: 100%;
+    background-color: $blue;
+    color: $light;
+  }
+  .container {
+  }
+}

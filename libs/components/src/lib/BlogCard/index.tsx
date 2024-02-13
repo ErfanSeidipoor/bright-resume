@@ -18,13 +18,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   categories = [],
   isCutOutImage = false,
 }) => {
-  return (
-    <div
-      className={cls(classes.root, {
-        [rootClassName]: !!rootClassName,
-      })}
-    >
-      <Link href={link}>
+  const renderCardTitleImage = () => {
+    return (
+      <div>
         <img
           src={image}
           alt={"blog-post-img"}
@@ -40,7 +36,21 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         >
           {title}
         </Typography>
-      </Link>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      className={cls(classes.root, {
+        [rootClassName]: !!rootClassName,
+      })}
+    >
+      {link ? (
+        <Link href={link}>{renderCardTitleImage()}</Link>
+      ) : (
+        renderCardTitleImage()
+      )}
       <Typography variant="h4" className={classes.blog__description}>
         {description}
       </Typography>
