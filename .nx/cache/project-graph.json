@@ -1,56 +1,5 @@
 {
   "nodes": {
-    "components-e2e": {
-      "name": "components-e2e",
-      "type": "e2e",
-      "data": {
-        "root": "apps/components-e2e",
-        "name": "components-e2e",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "apps/components-e2e/src",
-        "projectType": "application",
-        "targets": {
-          "e2e": {
-            "inputs": [
-              "default",
-              "^production"
-            ],
-            "executor": "@nx/cypress:cypress",
-            "options": {
-              "cypressConfig": "apps/components-e2e/cypress.config.ts",
-              "devServerTarget": "components:storybook",
-              "testingType": "e2e"
-            },
-            "configurations": {
-              "ci": {
-                "devServerTarget": "components:storybook:ci"
-              }
-            }
-          },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/components-e2e/**/*.{js,ts}"
-              ]
-            },
-            "configurations": {}
-          }
-        },
-        "tags": [],
-        "implicitDependencies": [
-          "components"
-        ]
-      }
-    },
     "back-gateway": {
       "name": "back-gateway",
       "type": "app",
@@ -258,115 +207,29 @@
         "implicitDependencies": []
       }
     },
-    "api-common": {
-      "name": "api-common",
-      "type": "lib",
-      "data": {
-        "root": "libs/api-common",
-        "name": "api-common",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/api-common/src",
-        "projectType": "library",
-        "targets": {
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/api-common/**/*.ts"
-              ]
-            },
-            "configurations": {}
-          },
-          "test": {
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}/jest.preset.js"
-            ],
-            "executor": "@nx/jest:jest",
-            "outputs": [
-              "{workspaceRoot}/coverage/{projectRoot}"
-            ],
-            "options": {
-              "jestConfig": "libs/api-common/jest.config.ts",
-              "passWithNoTests": true
-            },
-            "configurations": {
-              "ci": {
-                "ci": true,
-                "codeCoverage": true
-              }
-            }
-          }
-        },
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
     "components": {
       "name": "components",
       "type": "lib",
       "data": {
         "root": "libs/components",
         "name": "components",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/components/src",
+        "projectType": "library",
+        "tags": [],
         "targets": {
-          "nx-release-publish": {
-            "dependsOn": [
-              "^nx-release-publish"
-            ],
-            "executor": "@nx/js:release-publish",
-            "options": {},
-            "configurations": {}
-          },
           "lint": {
             "inputs": [
               "default",
               "{workspaceRoot}/.eslintrc.json",
               "{workspaceRoot}/.eslintignore"
             ],
-            "executor": "@nx/linter:eslint",
+            "executor": "@nx/eslint:lint",
             "outputs": [
               "{options.outputFile}"
             ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/components/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
+            "options": {},
             "configurations": {}
-          },
-          "build": {
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ],
-            "executor": "@nx/vite:build",
-            "outputs": [
-              "{options.outputPath}"
-            ],
-            "defaultConfiguration": "production",
-            "options": {
-              "outputPath": "dist/libs/components"
-            },
-            "configurations": {
-              "development": {
-                "mode": "development"
-              },
-              "production": {
-                "mode": "production"
-              }
-            }
           },
           "test": {
             "inputs": [
@@ -379,28 +242,15 @@
               "{workspaceRoot}/coverage/{projectRoot}"
             ],
             "options": {
-              "jestConfig": "libs/components/jest.config.ts",
-              "passWithNoTests": true
+              "jestConfig": "libs/components/jest.config.ts"
             },
-            "configurations": {
-              "ci": {
-                "ci": true,
-                "codeCoverage": true
-              }
-            }
+            "configurations": {}
           },
           "storybook": {
             "executor": "@nx/storybook:storybook",
             "options": {
               "port": 4400,
-              "configDir": "libs/components/.storybook",
-              "assets": [
-                {
-                  "input": "../assets/src",
-                  "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
-                  "output": "/assets"
-                }
-              ]
+              "configDir": "libs/components/.storybook"
             },
             "configurations": {
               "ci": {
@@ -415,6 +265,7 @@
               "{projectRoot}/.storybook/**/*",
               "{projectRoot}/tsconfig.storybook.json"
             ],
+            "cache": true,
             "executor": "@nx/storybook:build",
             "outputs": [
               "{options.outputDir}"
@@ -428,60 +279,28 @@
                 "quiet": true
               }
             }
-          }
-        },
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/components/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "resume-e2e": {
-      "name": "resume-e2e",
-      "type": "lib",
-      "data": {
-        "root": "apps/resume-e2e",
-        "name": "resume-e2e",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "implicitDependencies": [
-          "resume"
-        ],
-        "targets": {
-          "e2e": {
-            "inputs": [
-              "default",
-              "^production"
-            ],
-            "executor": "@nx/jest:jest",
-            "outputs": [
-              "{workspaceRoot}/coverage/{e2eProjectRoot}"
-            ],
+          },
+          "test-storybook": {
+            "executor": "nx:run-commands",
             "options": {
-              "jestConfig": "apps/resume-e2e/jest.config.ts",
-              "passWithNoTests": true
+              "command": "test-storybook -c libs/components/.storybook --url=http://localhost:4400"
             },
             "configurations": {}
           },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
+          "static-storybook": {
+            "executor": "@nx/web:file-server",
             "options": {
-              "lintFilePatterns": [
-                "apps/resume-e2e/**/*.{js,ts}"
-              ]
+              "buildTarget": "components:build-storybook",
+              "staticFilePath": "dist/storybook/components"
             },
-            "configurations": {}
+            "configurations": {
+              "ci": {
+                "buildTarget": "components:build-storybook:ci"
+              }
+            }
           }
         },
-        "tags": []
+        "implicitDependencies": []
       }
     },
     "back-auth": {
@@ -850,104 +669,6 @@
         "implicitDependencies": []
       }
     },
-    "resume": {
-      "name": "resume",
-      "type": "app",
-      "data": {
-        "root": "apps/resume",
-        "name": "resume",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "apps/resume/src",
-        "projectType": "application",
-        "targets": {
-          "build": {
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ],
-            "executor": "@nx/webpack:webpack",
-            "outputs": [
-              "{options.outputPath}"
-            ],
-            "defaultConfiguration": "production",
-            "options": {
-              "target": "node",
-              "compiler": "tsc",
-              "outputPath": "dist/apps/resume",
-              "main": "apps/resume/src/main.ts",
-              "tsConfig": "apps/resume/tsconfig.app.json",
-              "assets": [
-                "apps/resume/src/assets"
-              ],
-              "isolatedConfig": true,
-              "webpackConfig": "apps/resume/webpack.config.js"
-            },
-            "configurations": {
-              "development": {},
-              "production": {}
-            }
-          },
-          "serve": {
-            "executor": "@nx/js:node",
-            "defaultConfiguration": "development",
-            "options": {
-              "buildTarget": "resume:build"
-            },
-            "configurations": {
-              "development": {
-                "buildTarget": "resume:build:development"
-              },
-              "production": {
-                "buildTarget": "resume:build:production"
-              }
-            }
-          },
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "apps/resume/**/*.ts"
-              ]
-            },
-            "configurations": {}
-          },
-          "test": {
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}/jest.preset.js"
-            ],
-            "executor": "@nx/jest:jest",
-            "outputs": [
-              "{workspaceRoot}/coverage/{projectRoot}"
-            ],
-            "options": {
-              "jestConfig": "apps/resume/jest.config.ts",
-              "passWithNoTests": true
-            },
-            "configurations": {
-              "ci": {
-                "ci": true,
-                "codeCoverage": true
-              }
-            }
-          }
-        },
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
     "enums": {
       "name": "enums",
       "type": "lib",
@@ -1192,13 +913,6 @@
   },
   "externalNodes": {},
   "dependencies": {
-    "components-e2e": [
-      {
-        "source": "components-e2e",
-        "target": "components",
-        "type": "implicit"
-      }
-    ],
     "back-gateway": [
       {
         "source": "back-gateway",
@@ -1240,13 +954,11 @@
         "type": "static"
       }
     ],
-    "api-common": [],
-    "components": [],
-    "resume-e2e": [
+    "components": [
       {
-        "source": "resume-e2e",
-        "target": "resume",
-        "type": "implicit"
+        "source": "components",
+        "target": "assets",
+        "type": "static"
       }
     ],
     "back-auth": [
@@ -1286,23 +998,11 @@
         "source": "back-file",
         "target": "errors",
         "type": "static"
-      },
-      {
-        "source": "back-file",
-        "target": "back-resume",
-        "type": "static"
       }
     ],
     "back-cms": [],
     "assets": [],
     "errors": [],
-    "resume": [
-      {
-        "source": "resume",
-        "target": "api-common",
-        "type": "static"
-      }
-    ],
     "enums": [],
     "utils": [],
     "dto": [
@@ -1315,12 +1015,12 @@
     "web": [
       {
         "source": "web",
-        "target": "assets",
+        "target": "components",
         "type": "static"
       },
       {
         "source": "web",
-        "target": "components",
+        "target": "assets",
         "type": "static"
       }
     ]

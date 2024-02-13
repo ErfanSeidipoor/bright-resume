@@ -54,3 +54,29 @@ peg$SyntaxError: Expected ":" or blank space but "\n" found.
   }
 }
 [NX Daemon Server] - 2023-12-07T10:58:09.953Z - Done responding to the client null
+[NX Daemon Server] - 2024-02-13T10:49:29.572Z - Started listening on: /var/folders/sq/7_7lz4m93kl8bnxv5443tgsh0000gn/T/dd63222735e11b3c7cdb/d.sock
+[NX Daemon Server] - 2024-02-13T10:49:29.575Z - [WATCHER]: Subscribed to changes within: /Users/adibmokhtari/Documents/projects/bright-resume (native)
+[NX Daemon Server] - 2024-02-13T10:49:29.576Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-13T10:49:29.576Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-13T10:49:29.577Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-13T10:49:29.919Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-13T10:49:29.919Z - Time taken for 'total for creating and serializing project graph' 341.47354197502136ms
+[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 342. Response time: 1.
+[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-13T10:49:29.922Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-13T10:49:29.923Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-02-13T10:49:29.923Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Time taken for 'total for creating and serializing project graph' 1.238124966621399ms
+[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Handled REQUEST_FILE_DATA. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-13T10:49:29.924Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-13T10:49:29.924Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-02-13T10:49:36.779Z - [WATCHER]: Processing file changes in outputs
