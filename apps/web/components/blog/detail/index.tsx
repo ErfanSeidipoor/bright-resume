@@ -1,16 +1,21 @@
 "use client";
 import { FC } from "react";
-import { Button, Typography } from "@bright-resume/components";
+import { sanitize } from "dompurify";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+import { ArrowBack, Button, Typography } from "@bright-resume/components";
 
 import classes from "./index.module.scss";
 import { texts } from "./texts";
-import Image from "next/image";
 
 type BlogDetailProps = {
   blogDetailData?: any;
 };
 
 const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
+  const router = useRouter();
+
   const renderImage = () => {
     return (
       <div className={classes.blog__detail__image__wrapper}>
@@ -44,13 +49,39 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
   };
 
   const renderContent = () => {
-    return <div></div>;
+    const blogDetailContentHTML = sanitize(blogDetailData.content);
+    return (
+      <div className={classes.blog__detail__content__wrapper}>
+        <Typography variant="h2" className={classes.blog__detail__title}>
+          {blogDetailData.title}
+        </Typography>
+        <Typography variant="h4" className={classes.blog__detail__description}>
+          {blogDetailData.description}
+        </Typography>
+        <div dangerouslySetInnerHTML={{ __html: blogDetailContentHTML }}></div>
+      </div>
+    );
+  };
+
+  const renderBack = () => {
+    return (
+      <div className={classes.blog__detail__button__wrapper}>
+        <Button
+          variant="text"
+          iconLeft={<ArrowBack />}
+          onClick={() => router.push("/blog")}
+        >
+          {texts.view_all_posts}
+        </Button>
+      </div>
+    );
   };
 
   return (
     <div className={classes.blog__detail__wrapper}>
       {renderImage()}
       {renderContent()}
+      {renderBack()}
     </div>
   );
 };

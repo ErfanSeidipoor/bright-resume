@@ -1,7 +1,7 @@
 @import "libs/theme";
 
 .blog__detail__wrapper {
-  margin: spacing(5, 0);
+  margin: spacing(5, 0, 15, 0);
   .blog__detail__image__wrapper {
     @include flexbox(column, center, flex-end);
     margin-bottom: spacing(2);
@@ -50,5 +50,12 @@
         right: 0;
       }
     }
+  }
+  .blog__detail__content__wrapper {
+    margin: spacing(4, 0);
+  }
+  .blog__detail__button__wrapper {
+    @include flexbox(row, center, center);
+    margin: spacing(7, 0);
   }
 }
