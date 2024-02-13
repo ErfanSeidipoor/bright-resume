@@ -2,10 +2,10 @@
 
 @font-face {
   font-family: $montserrat;
-  src: url("../assets/src/fonts/montserrat.eot") format("eot");
-  src: url("../assets/src/fonts/montserrat.ttf") format("ttf");
-  src: url("../assets/src/fonts/montserrat.woff") format("woff");
-  src: url("../assets/src/fonts/montserrat.woff2") format("woff2");
+  src: url("@assets/fonts/montserrat.eot") format("eot");
+  src: url("@assets/fonts/montserrat.ttf") format("ttf");
+  src: url("@assets/fonts/montserrat.woff") format("woff");
+  src: url("@assets/fonts/montserrat.woff2") format("woff2");
 }
 
 /* ------------------------------- Theme color ------------------------------ */
