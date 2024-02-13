@@ -1,37 +1,20 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-
-import { mergeConfig } from "vite";
+import type { StorybookConfig } from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
-  core: {},
-
-  stories: [
-    "../src/lib/**/(*.stories|stories).(ts|tsx|js|mdx)",
-    "../src/lib/**/*.stories.@(js|jsx|ts|tsx)",
+  stories: ["../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@nx/react/plugins/storybook",
   ],
-
-  addons: ["@storybook/addon-essentials"],
-
-  async viteFinal(config: any) {
-    return mergeConfig(config, {});
-  },
-
   framework: {
-    name: "@storybook/react-vite",
-    options: {
-      builder: {
-        viteConfigPath: "libs/components/vite.config.ts",
-      },
-    },
-  },
-
-  docs: {
-    autodocs: "tag",
+    name: "@storybook/react-webpack5",
+    options: {},
   },
 };
 
-module.exports = config;
+export default config;
 
-// To customize your Vite configuration you can use the viteFinal field.
-// Check https://storybook.js.org/docs/react/builders/vite#configuration
-// and https://nx.dev/packages/storybook/documents/custom-builder-configs
+// To customize your webpack configuration you can use the webpackFinal field.
+// Check https://storybook.js.org/docs/react/builders/webpack#extending-storybooks-webpack-config
+// and https://nx.dev/recipes/storybook/custom-builder-configs

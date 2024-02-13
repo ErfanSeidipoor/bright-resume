@@ -1,8 +1,8 @@
 import { Field, InputType } from "@nestjs/graphql";
-import { GetDownloadLinkFileArgs } from "@dto";
+import { GetDownloadLinkFileInputs } from "@dto";
 
 @InputType()
-export class GetDownloadLinkFileArgsGQL extends GetDownloadLinkFileArgs {
+export class GetDownloadLinkFileInputsGQL extends GetDownloadLinkFileInputs {
   @Field(() => String, { nullable: false })
   fileId: string;
 }

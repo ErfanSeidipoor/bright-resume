@@ -51,9 +51,7 @@ export class AuthService {
       throw new CustomError(USERNAME_OR_PASSWORD_IS_INCORRECT);
     }
 
-    const token = await this.jwtService.signAsync(generateUserToken(user), {
-      secret: this.configService.get(EnvironmentVariablesEnum.JWT_SECRET),
-    });
+    const token = await this.generateUserToken(user);
 
     user.token = token;
 
@@ -75,13 +73,19 @@ export class AuthService {
       password: await generateHashPassword(password),
     });
 
-    const token = this.jwtService.sign(generateUserToken(newUser), {
-      secret: this.configService.get(EnvironmentVariablesEnum.JWT_SECRET),
-    });
+    const token = await this.generateUserToken(newUser);
 
     await newUser.save();
     newUser.token = token;
 
     return newUser;
+  }
+
+  async generateUserToken(user: User): Promise<string> {
+    const token = await this.jwtService.signAsync(generateUserToken(user), {
+      secret: this.configService.get(EnvironmentVariablesEnum.JWT_SECRET),
+    });
+
+    return token;
   }
 }

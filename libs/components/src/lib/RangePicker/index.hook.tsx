@@ -11,9 +11,9 @@ export const useData = ({ fromMonth, fromYear }: useDataProps) => {
   const fromRef = useRef<HTMLButtonElement | null>(null);
   const toRef = useRef<HTMLButtonElement | null>(null);
 
-  useEffect(() => {
-    console.log(fromRef, toRef);
-  }, [fromRef, toRef]);
+  // useEffect(() => {
+  //   console.log(fromRef, toRef);
+  // }, [fromRef, toRef]);
 
   useEffect(() => {
     if (fromMonth && fromYear) {

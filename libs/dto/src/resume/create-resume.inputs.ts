@@ -1,8 +1,14 @@
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 import { Expose, Type } from "class-transformer";
 import {
   ArrayMaxSize,
   IsArray,
   IsBoolean,
+  IsEnum,
   IsOptional,
   IsString,
   MaxLength,
@@ -361,6 +367,18 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   role?: string;
+
+  @IsOptional()
+  @IsEnum(ResumeFontSizeEnum)
+  fontSize?: ResumeFontSizeEnum;
+
+  @IsOptional()
+  @IsEnum(ResumeFontFamilyEnum)
+  fontFamily?: ResumeFontFamilyEnum;
+
+  @IsOptional()
+  @IsEnum(ResumeColorEnum)
+  color?: ResumeColorEnum;
 
   @IsOptional()
   @IsBoolean()

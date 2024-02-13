@@ -1,5 +1,4 @@
-@import "../../../../../libs/theme";
-@import "../../../../../libs/theme/mixins";
+@import "../../../../theme/index";
 
 .accordion {
   width: 100%;
@@ -17,9 +16,9 @@
     .accordion__item__header {
       width: 100%;
       min-height: 70px;
-      @include flexbox(row, space-between, center);
+      @include flexbox(row, space-between, center, 5, nowrap);
 
-      padding: spacing(4, 3);
+      padding: spacing(4, 0);
       cursor: pointer;
 
       .accordion__item__header__title {
@@ -49,6 +48,7 @@
     }
 
     .accordion__item__children {
+      overflow: hidden;
       width: 100%;
       @include typography(h8);
       overflow: hidden;

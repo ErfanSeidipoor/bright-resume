@@ -1,17 +1,21 @@
 import { registerEnumType } from "@nestjs/graphql";
 
-import { FileReasonEnum, FileTypeEnum, FileStatusEnum } from "@enums";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 
-registerEnumType(FileReasonEnum, {
-  name: "FileReasonEnum",
+registerEnumType(ResumeColorEnum, {
+  name: "ResumeColorEnum",
 });
 
-registerEnumType(FileTypeEnum, {
-  name: "FileTypeEnum",
+registerEnumType(ResumeFontFamilyEnum, {
+  name: "ResumeFontFamilyEnum",
 });
 
-registerEnumType(FileStatusEnum, {
-  name: "FileStatusEnum",
+registerEnumType(ResumeFontSizeEnum, {
+  name: "ResumeFontSizeEnum",
 });
 
 export * from "@enums";

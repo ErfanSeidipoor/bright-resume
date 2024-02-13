@@ -47,10 +47,9 @@ export class GoogleStrategy extends PassportStrategy(Strategy, "google") {
     let user = await this.userModel.findOne({ email });
 
     if (!user) {
-      user = new this.userModel();
+      user = await this.userModel.create({ email });
     }
 
-    user.email = email;
     user.name = name;
     user.picture = picture;
 

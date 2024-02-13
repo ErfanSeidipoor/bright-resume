@@ -85,7 +85,7 @@ const renderChangedValue = ({
     case "description":
       return {
         ...item,
-        description: { ...item.description, value: changeItemValue },
+        description: { ...item.description, value: changeItemValue as string | undefined },
       };
     case "rangeDate":
       return renderChangedDateValue({

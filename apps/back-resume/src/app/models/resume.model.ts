@@ -10,6 +10,11 @@ import { Certification, CertificationSchema } from "./certification.model";
 import { Education, EducationSchema } from "./education.model";
 import { Project, ProjectSchema } from "./project.model";
 import { Experience, ExperienceSchema } from "./experience.model";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@@back-resume/app/enums";
 
 @Schema({
   collection: "resumes",
@@ -35,6 +40,18 @@ export class Resume extends Document {
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
   name: string;
+
+  @Field(() => ResumeFontSizeEnum, { nullable: true })
+  @Prop({ type: String, enum: ResumeFontSizeEnum, required: false })
+  fontSize?: ResumeFontSizeEnum;
+
+  @Field(() => ResumeFontFamilyEnum, { nullable: true })
+  @Prop({ type: String, enum: ResumeFontFamilyEnum, required: false })
+  fontFamily?: ResumeFontFamilyEnum;
+
+  @Field(() => ResumeColorEnum, { nullable: true })
+  @Prop({ type: String, enum: ResumeColorEnum, required: false })
+  color?: ResumeColorEnum;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })

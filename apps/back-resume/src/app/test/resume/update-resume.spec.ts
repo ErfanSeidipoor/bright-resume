@@ -8,6 +8,11 @@ import mongoose from "mongoose";
 import request from "supertest-graphql";
 import { HelperDB, IntegrationTestManager } from "../helper";
 import moment from "moment";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 
 describe("microservice:resume UpdateResume", () => {
   const integrationTestManager = new IntegrationTestManager();
@@ -39,9 +44,7 @@ describe("microservice:resume UpdateResume", () => {
       resumeId: resume.id,
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -59,8 +62,8 @@ describe("microservice:resume UpdateResume", () => {
         updateResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("Should return RESUME_NOT_FOUND if a user attempts to delete a resume but the ID is wrong", async () => {
@@ -74,9 +77,7 @@ describe("microservice:resume UpdateResume", () => {
       resumeId: new mongoose.Types.ObjectId().toString(),
     };
 
-    const {
-      errors: [error],
-    } = await request<
+    const { errors } = await request<
       { deleteResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -94,8 +95,8 @@ describe("microservice:resume UpdateResume", () => {
         updateResumeResumeInputs,
       });
 
-    expect(error).toBeDefined();
-    expect(error.message).toBe(RESUME_NOT_FOUND.description);
+    expect(errors).toBeDefined();
+    expect(errors[0].message).toBe(RESUME_NOT_FOUND.description);
   });
 
   it("updates a resume with valid inputs", async () => {
@@ -108,6 +109,9 @@ describe("microservice:resume UpdateResume", () => {
     const updateResumeResumeInputs: UpdateResumeResumeInputs = {
       resumeId: resume.id,
       name: faker.person.fullName(),
+      color: ResumeColorEnum.black,
+      fontFamily: ResumeFontFamilyEnum.nunito,
+      fontSize: ResumeFontSizeEnum.large,
       role: faker.person.jobTitle(),
       isShowPhoneNumber: faker.datatype.boolean(),
       phoneNumber: faker.phone.number(),
@@ -301,7 +305,7 @@ describe("microservice:resume UpdateResume", () => {
       hobbies: [faker.lorem.paragraph(), faker.lorem.paragraph()],
     };
 
-    const { data, errors } = await request<
+    const { data } = await request<
       { updateResume: Resume },
       { updateResumeResumeInputs: UpdateResumeResumeInputs }
     >(integrationTestManager.httpServer)
@@ -320,9 +324,6 @@ describe("microservice:resume UpdateResume", () => {
       .variables({
         updateResumeResumeInputs,
       });
-    // .expectNoErrors();
-
-    console.log({ errors, data });
 
     const { id: resumeId } = data.updateResume;
     const { id: userId } = authHeader.token;
@@ -334,9 +335,10 @@ describe("microservice:resume UpdateResume", () => {
     expect(updatedResume.id).toBe(resumeId);
     expect(updatedResume.userId).toBe(userId);
 
-    // i want to check all propes
-
     expect(updateResumeResumeInputs.name).toBe(updatedResume.name);
+    expect(updateResumeResumeInputs.color).toBe(updatedResume.color);
+    expect(updateResumeResumeInputs.fontFamily).toBe(updatedResume.fontFamily);
+    expect(updateResumeResumeInputs.fontSize).toBe(updatedResume.fontSize);
 
     expect(updateResumeResumeInputs.role).toBe(updatedResume.role);
     expect(updateResumeResumeInputs.isShowPhoneNumber).toBe(

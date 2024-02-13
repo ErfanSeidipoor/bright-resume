@@ -8,10 +8,12 @@ import { JWTStrategy } from "@back-common/strategies";
 import { PassportModule } from "@nestjs/passport";
 import { MongooseModule } from "@nestjs/mongoose";
 import { models } from "./models";
-import { GoogleStrategy } from "./strategies";
+import { GoogleStrategy, GitHubStrategy, LinkedInStrategy } from "./strategies";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     GraphQLModule,
     PassportModule,
     JWTModule,
@@ -20,6 +22,6 @@ import { GoogleStrategy } from "./strategies";
     MongooseModule.forFeature(models),
   ],
   controllers: [AppController],
-  providers: [JWTStrategy, GoogleStrategy],
+  providers: [JWTStrategy, GoogleStrategy, GitHubStrategy, LinkedInStrategy],
 })
 export class AppModule {}
