@@ -241,7 +241,7 @@ export enum ThemeColor {
   grey = "grey",
 }
 
-export enum FontSize {
+export enum FonSize {
   small = "small",
   medium = "medium",
   large = "large",
@@ -251,18 +251,6 @@ export enum FontFamily {
   arial = "arial",
   montserrat = "montserrat",
 }
-
-export enum Section {
-  aboutMe = "About me",
-  languages = "Languages",
-  experience = "Experience",
-  picture = "Picture",
-  education = "Education",
-  skills = "Skills",
-  achievement = "Achievement",
-  hobbiesAndInterests = "Hobbies And Interests",
-}
-
 export enum ProficiencyEnum {
   beginner = "Beginner",
   intermediate = "Intermediate",
@@ -309,10 +297,6 @@ export type NavigationButtonProps = ButtonProps & {
 
 export type BlogCardProps = {
   rootClassName?: string;
-  title?: string;
-  description?: string;
-  shortDescription?: string;
-  image?: string;
   imageWidth?: string | number;
   imageHeight?: string | number;
   link?: string;
@@ -323,11 +307,6 @@ export type BlogCardProps = {
 export type SearchProps = React.InputHTMLAttributes<HTMLInputElement> & {
   rootClassName?: string;
   onEmptyValue?: () => void;
-  isLoading?: boolean;
-};
-
-export type DotLoadingProps = {
-  color?: "blue" | "green" | "purple" | "gold";
 };
 
 export enum MonthEnum {
@@ -385,32 +364,3 @@ export type SliderProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
-
-export type MyResumeCardProps = {
-  rootClassName?: string;
-  id?: string;
-  title?: string;
-  image?: string;
-  imageWidth?: string | number;
-  imageHeight?: string | number;
-  onEdit?: (id: string) => void;
-  onDelete?: (id: string) => void;
-};
-
-export type FloatingIconButtonVariant = "outlined" | "contained";
-
-export type FloatingIconButtonColor =
-  | "blue"
-  | "green"
-  | "purple"
-  | "gold"
-  | "grey";
-
-export type FloatingIconButtonProps =
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: FloatingIconButtonVariant;
-    color?: FloatingIconButtonColor;
-    rootClassName?: string;
-    icon?: React.ReactNode;
-    onClick?: () => void;
-  };

@@ -9,5 +9,4 @@ export const texts = {
   montserrat: "Montserrat",
   arial: "Arial",
   sansSerif: "Sans serif",
-  my_resumes: "My resumes",
 };

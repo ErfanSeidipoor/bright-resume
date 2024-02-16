@@ -12,17 +12,15 @@ import {
   GoldCircle,
   GreyCircleIcon,
   CheckIcon,
-  PlusIcon,
-  MinusIcon,
 } from "../Icons";
-// types
-import { FontFamily, FontSize, Section, ThemeColor } from "../../index.type";
+import Typography from "../Typography";
+// types //TODO => change type path
+import { FontFamily, FonSize, ThemeColor } from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Popup from "../Popup";
-import CheckBox from "../CheckBox";
 
 type Avatar = {
   src: string;
@@ -47,13 +45,12 @@ export type MenuProps = {
   user?: User;
   color: ThemeColor;
   onChangeColor: (color: ThemeColor) => void;
+  sections: string[];
+  onChangeSections: (sections: string[]) => void;
   fontFamily: FontFamily;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
-  fonSize: FontSize;
-  onChangeFontSize: (fonSize: FontSize) => void;
-  section: Section;
-  sections: Section[];
-  onChangeSections: (section: Section) => void;
+  fonSize: FonSize;
+  onChangeFontSize: (fonSize: FonSize) => void;
 };
 
 export const Menu: React.FC<MenuProps> = ({
@@ -68,7 +65,7 @@ export const Menu: React.FC<MenuProps> = ({
   fonSize,
   onChangeFontSize,
 }) => {
-  const data = useData({ onChangeFontSize });
+  const data = useData();
 
   const renderMenuItem = ({
     title,
@@ -79,11 +76,11 @@ export const Menu: React.FC<MenuProps> = ({
   }: MenuItem) => {
     if (isHidden) return;
     return (
-      <div className={classes.item}>
+      <div>
         {popup}
         <div className={classes.menu__content} onClick={onClick}>
-          {title && <div className={classes.text}>{title}</div>}
-          {text && <div className={classes.text}>{text}</div>}
+          {title && <Typography component="div">{title}</Typography>}
+          {text && <Typography>{text}</Typography>}
         </div>
       </div>
     );
@@ -163,23 +160,7 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenSectionsPicker}
           onClose={data.handleToggleSectionsPicker}
         >
-          <div className={classes.sections}>
-            {Object.values(Section).map((currentSection) => (
-              <div
-                key={`section-${currentSection}`}
-                className={classes.section}
-                onClick={() => onChangeSections(currentSection)}
-              >
-                <CheckBox
-                  checked={sections.some((sec) => sec === currentSection)}
-                  onChange={() => {
-                    onChangeSections(currentSection);
-                  }}
-                />
-                <div className={classes.text}>{currentSection}</div>
-              </div>
-            ))}
-          </div>
+          Sections
         </Popup>
       ),
       text: texts.sections,
@@ -196,19 +177,18 @@ export const Menu: React.FC<MenuProps> = ({
           onClose={data.handleToggleFontFamilyPicker}
         >
           {Object.values(FontFamily).map((currentFontFamily) => (
-            <div
-              key={`fontFamily-${currentFontFamily}`}
+            <Typography
               className={cls(classes.font, {
                 [classes.font__active]: currentFontFamily === fontFamily,
               })}
               onClick={() => onChangeFontFamily(currentFontFamily)}
             >
               {currentFontFamily}
-            </div>
+            </Typography>
           ))}
         </Popup>
       ),
-      title: <div className={classes.select}>{fontFamily}</div>,
+      title: <div className={classes.select}>Change</div>,
       text: texts.font,
       onClick: data.handleToggleFontFamilyPicker,
     });
@@ -216,17 +196,25 @@ export const Menu: React.FC<MenuProps> = ({
 
   const renderSize = () => {
     return renderMenuItem({
-      title: (
-        <div className={classes.font__size_container}>
-          <MinusIcon
-            onClick={() => data.handleChangeFontSize(fonSize, "minus")}
-          />
-          <div className={classes.select}>{fonSize}</div>
-          <PlusIcon
-            onClick={() => data.handleChangeFontSize(fonSize, "plus")}
-          />
-        </div>
+      popup: (
+        <Popup
+          className={classes.popup}
+          isOpen={data.isOpenFontSizePicker}
+          onClose={data.handleToggleFontSizePicker}
+        >
+          {Object.values(FonSize).map((currentFontSize) => (
+            <Typography
+              className={cls(classes.font, {
+                [classes.font__active]: currentFontSize === fonSize,
+              })}
+              onClick={() => onChangeFontSize(currentFontSize)}
+            >
+              {currentFontSize}
+            </Typography>
+          ))}
+        </Popup>
       ),
+      title: <div className={classes.select}>Change</div>,
       text: texts.size,
       onClick: data.handleToggleFontSizePicker,
     });
@@ -269,13 +257,6 @@ export const Menu: React.FC<MenuProps> = ({
     });
   };
 
-  const renderMyResumes = () => {
-    return renderMenuItem({
-      title: <SaveIcon width="34px" height="34px" />,
-      text: texts.my_resumes,
-    });
-  };
-
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -288,7 +269,6 @@ export const Menu: React.FC<MenuProps> = ({
         {renderLogin()}
         {renderProfile()}
         {renderSave()}
-        {renderMyResumes()}
       </div>
     </div>
   );

@@ -34,8 +34,8 @@ export const ImageProfile = () => {
     <div
       className={classes.container}
       style={{
-        width: 200,
-        height: 200,
+        width: "40mm",
+        height: "40mm",
       }}
       data-testid="image-uploader-container"
       onClick={uploadHandler}

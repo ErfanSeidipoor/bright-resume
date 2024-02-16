@@ -58,7 +58,7 @@ export const Typography = <T extends React.ElementType = "p">({
   return (
     <div
       className={cls(classes.root, {
-        [rootClassName]: rootClassName,
+        [rootClassName]: !!rootClassName,
       })}
     >
       {renderStartAdornment()}
