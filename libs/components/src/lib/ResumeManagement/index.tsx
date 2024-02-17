@@ -1,52 +1,45 @@
-import { FC, MouseEvent, useEffect, useState } from "react";
-import Search from "../Search";
-import classes from "./index.module.scss";
-import { CancelIcon } from "../Icons/cancel";
-import { ResumeManagementProps } from "../../index.type";
-import MyResumeCard from "../MyResumeCard";
+import { FC } from "react";
 import cls from "classnames";
+// components
+import Search from "../Search";
+import MyResumeCard from "../MyResumeCard";
+// icons
+import { CancelIcon } from "../Icons/cancel";
+// types
+import { ResumeManagementProps } from "../../index.type";
+// locals
+import { useData } from "./index.hook";
+import classes from "./index.module.scss";
 
 export const ResumeManagement: FC<ResumeManagementProps> = ({
   resumes,
   onClose,
   isStoryBook = false,
 }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [value, setValue] = useState<string>("");
-
-  useEffect(() => {
-    setShowModal(true);
-  }, []);
-
-  const closeModal = () => {
-    setShowModal(false);
-    setTimeout(() => {
-      onClose?.();
-    }, 500);
-  };
+  const data = useData(onClose);
 
   return (
     <div
       className={cls(classes.backdrop, {
-        [classes["show-backdrop"]]: showModal,
+        [classes["show-backdrop"]]: data.showModal,
       })}
-      onClick={closeModal}
+      onClick={data.closeModal}
     >
       <div
         className={cls(classes.modal, {
           [classes["modal-story-book"]]: isStoryBook,
-          [classes["show-modal"]]: showModal,
+          [classes["show-modal"]]: data.showModal,
         })}
         onClick={(e) => e.stopPropagation()}
       >
         <div className={classes.header}>
           <Search
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            onEmptyValue={() => setValue("")}
+            value={data.value}
+            onChange={data.searchChangeHandler}
+            onEmptyValue={data.emptySearchHandler}
             rootClassName={classes.search}
           />
-          <CancelIcon onClick={closeModal} />
+          <CancelIcon onClick={data.closeModal} />
         </div>
         <div className={classes.body}>
           {resumes?.map((resume) => (

@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { ResumeManagement } from ".";
 import { texts } from "./texts";

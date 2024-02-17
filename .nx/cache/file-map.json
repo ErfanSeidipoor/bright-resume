@@ -199,64 +199,144 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".github/workflows/staging.yml",
-        "hash": "8242438752871892249"
-      },
-      {
-        "file": "tools/tsconfig.tools.json",
-        "hash": "16088922570277978783"
-      },
-      {
-        "file": "libs/theme/variables/_spacing.scss",
-        "hash": "3556394467595384808"
-      },
-      {
-        "file": "libs/theme/_globals.scss",
-        "hash": "4145092238198523015"
-      },
-      {
-        "file": "infra/Dockerfile.web",
-        "hash": "10302187584736511075"
+        "file": "tsconfig.base.json",
+        "hash": "5938613800042618473"
       },
       {
         "file": ".env.sample",
         "hash": "14767275929961414376"
       },
       {
-        "file": "libs/theme/_theme-config.scss",
-        "hash": "16950268391248411251"
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "4059735078897953533"
-      },
-      {
-        "file": "libs/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "16669698489301453613"
-      },
-      {
-        "file": "libs/theme/_index.scss",
-        "hash": "4803121496136374652"
-      },
-      {
-        "file": "CONTRIBUTING.md",
-        "hash": "5295415111483234947"
+        "file": "tools/tsconfig.tools.json",
+        "hash": "16088922570277978783"
       },
       {
         "file": "libs/theme/_functions.scss",
         "hash": "14445529187432293547"
       },
       {
-        "file": "infra/Dockerfile.auth",
-        "hash": "18206284758192450861"
+        "file": "libs/theme/variables/_palette.scss",
+        "hash": "2943658661485142617"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "8865097869854018350"
+      },
+      {
+        "file": "infra/Dockerfile.web",
+        "hash": "10302187584736511075"
+      },
+      {
+        "file": "libs/theme/variables/_spacing.scss",
+        "hash": "3556394467595384808"
+      },
+      {
+        "file": "infra/Dockerfile.cms",
+        "hash": "2171251260521876235"
+      },
+      {
+        "file": "libs/theme/_globals.scss",
+        "hash": "4145092238198523015"
       },
       {
         "file": "infra/Dockerfile.resume",
         "hash": "10862739728144964428"
+      },
+      {
+        "file": "nx.json",
+        "hash": "230079145323515653"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "5180390452307162121"
+      },
+      {
+        "file": "libs/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "infra/Dockerfile.auth",
+        "hash": "18206284758192450861"
+      },
+      {
+        "file": "libs/theme/variables/_typography.scss",
+        "hash": "10445983366270872061"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "14932722313705501266"
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "hash": "5295415111483234947"
+      },
+      {
+        "file": "storybook-migration-summary.md",
+        "hash": "4732824080389201564"
+      },
+      {
+        "file": "babel.config.json",
+        "hash": "5546405625092116747"
+      },
+      {
+        "file": "files/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "7840256993921210602"
+      },
+      {
+        "file": "libs/theme/variables/_shadow.scss",
+        "hash": "3706259344736106301"
+      },
+      {
+        "file": ".github/workflows/production.yml",
+        "hash": "9943186406007617364"
+      },
+      {
+        "file": ".github/workflows/development.yml",
+        "hash": "10577822526619538010"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "235626400633494639"
+      },
+      {
+        "file": "CODE_OF_CONDUCT.md",
+        "hash": "1210143655683272091"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "16669698489301453613"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "2051239443920455407"
+      },
+      {
+        "file": "apps/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "2392540309333994723"
+      },
+      {
+        "file": "libs/theme/_mixins.scss",
+        "hash": "13583250127911238638"
+      },
+      {
+        "file": "libs/theme/variables/_breakpoints.scss",
+        "hash": "6888342581477874803"
+      },
+      {
+        "file": "libs/theme/_theme-config.scss",
+        "hash": "16950268391248411251"
       },
       {
         "file": "package.json",
@@ -267,104 +347,24 @@
         "hash": "1054147760445285251"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "storybook-migration-summary.md",
-        "hash": "4732824080389201564"
-      },
-      {
-        "file": "libs/theme/variables/_shadow.scss",
-        "hash": "3706259344736106301"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "2392540309333994723"
+        "file": ".github/workflows/staging.yml",
+        "hash": "8242438752871892249"
       },
       {
         "file": "infra/Dockerfile.file",
         "hash": "1926402788650821294"
       },
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       },
       {
-        "file": ".gitignore",
-        "hash": "5180390452307162121"
+        "file": ".eslintrc.json",
+        "hash": "4059735078897953533"
       },
       {
-        "file": ".prettierrc",
-        "hash": "7840256993921210602"
-      },
-      {
-        "file": "libs/theme/variables/_breakpoints.scss",
-        "hash": "6888342581477874803"
-      },
-      {
-        "file": "libs/theme/_mixins.scss",
-        "hash": "13583250127911238638"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "235626400633494639"
-      },
-      {
-        "file": "files/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "apps/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "libs/theme/variables/_palette.scss",
-        "hash": "2943658661485142617"
-      },
-      {
-        "file": ".github/workflows/development.yml",
-        "hash": "10577822526619538010"
-      },
-      {
-        "file": "libs/theme/variables/_typography.scss",
-        "hash": "10445983366270872061"
-      },
-      {
-        "file": ".dockerignore",
-        "hash": "2051239443920455407"
-      },
-      {
-        "file": ".github/workflows/production.yml",
-        "hash": "9943186406007617364"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "5938613800042618473"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "14932722313705501266"
-      },
-      {
-        "file": "infra/Dockerfile.cms",
-        "hash": "2171251260521876235"
-      },
-      {
-        "file": "nx.json",
-        "hash": "230079145323515653"
-      },
-      {
-        "file": "CODE_OF_CONDUCT.md",
-        "hash": "1210143655683272091"
-      },
-      {
-        "file": "babel.config.json",
-        "hash": "5546405625092116747"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "8865097869854018350"
+        "file": "libs/theme/_index.scss",
+        "hash": "4803121496136374652"
       }
     ],
     "projectFileMap": {
@@ -2653,7 +2653,10 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.hook.ts",
-          "hash": "5171570153197742559"
+          "hash": "18190055211851595054",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.module.scss",
@@ -2665,7 +2668,7 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.stories.tsx",
-          "hash": "17519694647613616640",
+          "hash": "4552170356425966743",
           "deps": [
             "npm:react",
             "npm:@storybook/react",
@@ -2674,7 +2677,7 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.tsx",
-          "hash": "10902437031369272980",
+          "hash": "11816302487256163303",
           "deps": [
             "npm:react",
             "npm:classnames"
@@ -2682,7 +2685,7 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/texts.ts",
-          "hash": "8025136580400781793"
+          "hash": "8765539765508340126"
         },
         {
           "file": "libs/components/src/lib/Search/index.module.scss",
