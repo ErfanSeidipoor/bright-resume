@@ -23,6 +23,7 @@
 
   .login_button {
     height: 34px;
+    max-width: 140px;
     font-weight: map-get($font-weight, bold);
     padding: spacing(0, 4);
     border: 1px solid $blue;

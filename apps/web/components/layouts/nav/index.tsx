@@ -1,52 +1,50 @@
 "use client";
 import logo from "@bright-resume/assets/image/logo-with-typography-horizontal.png";
 import Image from "next/image";
-import { FC, useState } from "react";
-import styles from "./index.module.scss";
+import { useState } from "react";
+import classes from "./index.module.scss";
 import Link from "next/link";
 import { MenuIcon } from "@bright-resume/components/Icons";
 import { Sidebar } from "../sidebar";
 import { useOutsideClick } from "./index.hooks";
 import { useSession } from "next-auth/react";
 
-const MainNav: FC = () => {
+export default function MainNav() {
   const { status } = useSession();
   const [open, setOpen] = useState(false);
 
   const ref = useOutsideClick(() => setOpen(false));
 
   return (
-    <div className={styles.container}>
+    <div className={classes.container}>
       <div>
-        <Link href="/" className={styles.links}>
+        <Link href="/" className={classes.links}>
           <Image
-            className={styles.logo}
+            className={classes.logo}
             src={logo}
             alt="logo-with-typography-horizontal"
           />
         </Link>
       </div>
 
-      <div className={styles.tabs}>
-        <a className={styles.links} href="#feature-section">
+      <div className={classes.tabs}>
+        <a className={classes.links} href="#feature-section">
           Features
         </a>
-        <a className={styles.links} href="#faq-section">
+        <a className={classes.links} href="#faq-section">
           FAG
         </a>
-        <Link className={styles.login_button} href="/login">
+        <Link className={classes.login_button} href="/login">
           {status === "unauthenticated" ? "Login/Sign up" : "Sign out"}
         </Link>
       </div>
 
-      <div ref={ref} className={styles.menu} onClick={() => setOpen(!open)}>
-        <div className={styles.icon}>
+      <div ref={ref} className={classes.menu} onClick={() => setOpen(!open)}>
+        <div className={classes.icon}>
           <MenuIcon begin={open ? 1 : "reverse.begin"} />
         </div>
         <Sidebar open={open} onClick={() => setOpen(false)} />
       </div>
     </div>
   );
-};
-
-export { MainNav };
+}

@@ -1,5 +1,5 @@
-import "reflect-metadata";
 
+import "reflect-metadata";
 import React from "react";
 import { MainLayout } from "apps/web/components/layouts";
 

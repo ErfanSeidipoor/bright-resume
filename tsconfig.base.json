@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@@back-auth/*": ["apps/back-auth/src/*"],
+      "@web/*": ["apps/web/*"],
       "@@back-file/*": ["apps/back-file/src/*"],
       "@@back-gateway/*": ["apps/back-gateway/src/*"],
       "@@back-resume/*": ["apps/back-resume/src/*"],
@@ -38,8 +39,7 @@
       "@enums": ["libs/enums/src/index.ts"],
       "@errors": ["libs/errors/src/index.ts"],
       "@libs/scss": ["libs/components/scss"],
-      "@utils": ["libs/utils/src/index.ts"],
-      "@web/*": ["apps/web/*"]
+      "@utils": ["libs/utils/src/index.ts"],      
     },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },

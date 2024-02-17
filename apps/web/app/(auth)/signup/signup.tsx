@@ -1,14 +1,19 @@
 "use client";
-import { signUpAction } from "../actions";
+
 import classes from "../index.module.scss";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-// import { useFormState, useFormStatus } from "react-dom";
-import { SignUpAuthInputs } from "@dto";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "@bright-resume/components";
 import { useData } from "./useData";
+import { useFormStatus } from "react-dom";
+
+function Submit() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" className={classes.submitButton} disabled={pending}>
+      Sign up
+    </button>
+  );
+}
 
 export default function SignUp() {
   const { register, handleSubmit, onSubmit } = useData();
@@ -41,16 +46,10 @@ export default function SignUp() {
         />
       </div>
       <div className={classes.terms}>
-        <input type="checkbox" {...register("terms", { required: true })} />
+        <input type="checkbox" />
         <div>I agree to all Term, Privacy Policy and Fees</div>
       </div>
-      <Button
-        type="submit"
-        className={classes.submitButton}
-        disabled={isLoading}
-      >
-        Sign up
-      </Button>
+      <Submit />
       <div className={classes.signup}>
         <span>Already have an account? </span> <Link href="login">Sign in</Link>
       </div>

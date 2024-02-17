@@ -1,13 +1,12 @@
 "use client";
 import "reflect-metadata";
-import React, { FormEventHandler, useEffect } from "react";
+import React, { useEffect } from "react";
 import classes from "../index.module.scss";
 import Link from "next/link";
-import { Button } from "@bright-resume/components";
 import { useData } from "./useData";
 import { useFormStatus } from "react-dom";
 
-async function Submit() {
+function Submit() {
   const { pending } = useFormStatus();
   return (
     <button type="submit" className={classes.submitButton} disabled={pending}>
@@ -60,7 +59,6 @@ export default function Login() {
 
       <Submit />
 
-      {/* {isLoading && <LoadingCircle height="16px" width="16px" />} */}
       <div className={classes.signup}>
         <span>Don’t have an account?</span> <Link href="signup">Sign up</Link>
       </div>
