@@ -414,3 +414,8 @@ export type FloatingIconButtonProps =
     icon?: React.ReactNode;
     onClick?: () => void;
   };
+
+  export type ResumeManagementProps = {
+    resumes: MyResumeCardProps[];
+    onClose: () => void;
+  };

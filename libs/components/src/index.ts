@@ -23,5 +23,5 @@ export * from "./lib/Certification";
 export * from "./lib/Project";
 export * from "./lib/Involvement";
 export * from "./lib/CourseWork";
-
+export * from "./lib/ResumeManagement";
 export * from "./index.type";

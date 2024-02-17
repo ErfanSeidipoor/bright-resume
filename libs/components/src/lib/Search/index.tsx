@@ -33,10 +33,12 @@ export const Search: React.FC<SearchProps> = ({
     if (isLoading) return <DotLoading color="blue" />;
   };
 
+  console.log(rootClassName);
+
   return (
     <div
       className={cls(classes.root, {
-        [classes.rootClassName]: !!rootClassName,
+        [`${rootClassName}`]: !!rootClassName,
       })}
     >
       <div className={classes.search__box}>

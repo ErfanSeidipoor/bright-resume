@@ -1,82 +1,85 @@
-[NX Daemon Server] - 2023-12-07T10:58:09.904Z - Started listening on: /var/folders/sq/7_7lz4m93kl8bnxv5443tgsh0000gn/T/dd63222735e11b3c7cdb/d.sock
-[NX Daemon Server] - 2023-12-07T10:58:09.906Z - [WATCHER]: Subscribed to changes within: /Users/adibmokhtari/Documents/projects/bright-resume (native)
-[NX Daemon Server] - 2023-12-07T10:58:09.906Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2023-12-07T10:58:09.907Z - Established a connection. Number of open connections: 2
-[NX Daemon Server] - 2023-12-07T10:58:09.908Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2023-12-07T10:58:09.929Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2023-12-07T10:58:09.929Z - [REQUEST]: 
-[NX Daemon Server] - 2023-12-07T10:58:09.930Z - [REQUEST]: 
-
- >  NX   Failed to parse yarn lockfile
-
-   Please open an issue at `https://github.com/nrwl/nx/issues/new?template=1-bug.yml` and provide a reproduction.
-   
-Original error: Expected ":" or blank space but "\n" found.
-
-
-   SyntaxError: Expected ":" or blank space but "\n" found.
-    at peg$buildStructuredError (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:371:12)
-    at peg$parse (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:1898:11)
-    at parseViaPeg (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:109:29)
-    at parseViaJsYaml (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:114:16)
-    at parseSyml (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:130:12)
-    at parseLockFile (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:20:20)
-    at getYarnLockfileDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:34:45)
-    at getLockFileDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/lock-file.js:60:66)
-    at Object.createDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/index.js:64:76)
-    at /Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/project-graph/build-project-graph.js:180:47
-
-[NX Daemon Server] - 2023-12-07T10:58:09.952Z - Error detected when creating a project graph: Failed to process project dependencies with "nx-js-graph-plugin".
-Expected ":" or blank space but "\n" found.
-[NX Daemon Server] - 2023-12-07T10:58:09.952Z - [REQUEST]: Responding to the client with an error. Error when preparing serialized project graph. Failed to process project dependencies with "nx-js-graph-plugin".
-Expected ":" or blank space but "\n" found.
-peg$SyntaxError: Expected ":" or blank space but "\n" found.
-    at peg$buildStructuredError (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:371:12)
-    at peg$parse (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/grammars/syml.js:1898:11)
-    at parseViaPeg (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:109:29)
-    at parseViaJsYaml (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:114:16)
-    at parseSyml (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/@yarnpkg/parsers/lib/syml.js:130:12)
-    at parseLockFile (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:20:20)
-    at getYarnLockfileDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/yarn-parser.js:34:45)
-    at getLockFileDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/lock-file/lock-file.js:60:66)
-    at Object.createDependencies (/Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/plugins/js/index.js:64:76)
-    at /Users/adibmokhtari/Documents/projects/bright-resume/node_modules/nx/src/project-graph/build-project-graph.js:180:47 {
-  message: 'Failed to process project dependencies with "nx-js-graph-plugin".\n' +
-    'Expected ":" or blank space but "\\n" found.',
-  expected: [
-    { type: 'other', description: 'blank space' },
-    { type: 'literal', text: ':', ignoreCase: false }
-  ],
-  found: '\n',
-  location: {
-    start: { offset: 4203, line: 107, column: 13 },
-    end: { offset: 4204, line: 108, column: 1 }
-  }
-}
-[NX Daemon Server] - 2023-12-07T10:58:09.953Z - Done responding to the client null
-[NX Daemon Server] - 2024-02-13T10:49:29.572Z - Started listening on: /var/folders/sq/7_7lz4m93kl8bnxv5443tgsh0000gn/T/dd63222735e11b3c7cdb/d.sock
-[NX Daemon Server] - 2024-02-13T10:49:29.575Z - [WATCHER]: Subscribed to changes within: /Users/adibmokhtari/Documents/projects/bright-resume (native)
-[NX Daemon Server] - 2024-02-13T10:49:29.576Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-02-13T10:49:29.576Z - Established a connection. Number of open connections: 2
-[NX Daemon Server] - 2024-02-13T10:49:29.577Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
-[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: 
-[NX Daemon Server] - 2024-02-13T10:49:29.610Z - [REQUEST]: 
-[NX Daemon Server] - 2024-02-13T10:49:29.919Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-02-13T10:49:29.919Z - Time taken for 'total for creating and serializing project graph' 341.47354197502136ms
-[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 342. Response time: 1.
-[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Closed a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-02-13T10:49:29.920Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Closed a connection. Number of open connections: 0
-[NX Daemon Server] - 2024-02-13T10:49:29.921Z - Established a connection. Number of open connections: 1
-[NX Daemon Server] - 2024-02-13T10:49:29.922Z - [REQUEST]: Client Request for Project Graph Received
-[NX Daemon Server] - 2024-02-13T10:49:29.923Z - [REQUEST]: Responding to the client. handleRequestFileData
-[NX Daemon Server] - 2024-02-13T10:49:29.923Z - [REQUEST]: Responding to the client. project-graph
-[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Time taken for 'total for creating and serializing project graph' 1.238124966621399ms
-[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Done responding to the client handleRequestFileData
-[NX Daemon Server] - 2024-02-13T10:49:29.923Z - Handled REQUEST_FILE_DATA. Handling time: 1. Response time: 0.
-[NX Daemon Server] - 2024-02-13T10:49:29.924Z - Done responding to the client project-graph
-[NX Daemon Server] - 2024-02-13T10:49:29.924Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 1.
-[NX Daemon Server] - 2024-02-13T10:49:36.779Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:16.010Z - Started listening on: /var/folders/sq/7_7lz4m93kl8bnxv5443tgsh0000gn/T/dd63222735e11b3c7cdb/d.sock
+[NX Daemon Server] - 2024-02-17T16:10:16.013Z - [WATCHER]: Subscribed to changes within: /Users/adibmokhtari/Documents/projects/bright-resume (native)
+[NX Daemon Server] - 2024-02-17T16:10:16.020Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:10:16.021Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:10:16.022Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:10:16.022Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:10:16.031Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:10:16.031Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:10:16.031Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:10:16.294Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:10:16.294Z - Time taken for 'total for creating and serializing project graph' 271.88966703414917ms
+[NX Daemon Server] - 2024-02-17T16:10:16.295Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:10:16.295Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 272. Response time: 1.
+[NX Daemon Server] - 2024-02-17T16:10:16.308Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:10:16.308Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:10:16.308Z - Handled HASH_TASKS. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:10:19.456Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:37.402Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:10:42.084Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:10:42.085Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:10:42.085Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:10:42.086Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:10:42.086Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:10:42.086Z - Time taken for 'total for creating and serializing project graph' 0.12741684913635254ms
+[NX Daemon Server] - 2024-02-17T16:10:42.087Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:10:42.088Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2024-02-17T16:10:42.097Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:10:42.097Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:10:42.097Z - Handled HASH_TASKS. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:10:46.331Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:47.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:48.300Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:50.117Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:50.710Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:51.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:53.030Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:53.810Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:53.899Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:54.043Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:10:54.403Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.306Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.444Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.517Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.777Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.850Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:54.947Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:11:55.157Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:12:11.134Z - [WATCHER]: libs/theme/_theme-config.scss was modified
+[NX Daemon Server] - 2024-02-17T16:12:11.134Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:12:11.224Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:12:11.236Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:12:11.236Z - [REQUEST]: libs/theme/_theme-config.scss
+[NX Daemon Server] - 2024-02-17T16:12:11.236Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:12:11.250Z - Time taken for 'hash changed files from watcher' 0.5847499370574951ms
+[NX Daemon Server] - 2024-02-17T16:12:22.527Z - [WATCHER]: libs/theme/_theme-config.scss was modified
+[NX Daemon Server] - 2024-02-17T16:12:22.527Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:12:22.729Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:12:22.729Z - [REQUEST]: libs/theme/_theme-config.scss
+[NX Daemon Server] - 2024-02-17T16:12:22.729Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:12:22.739Z - Time taken for 'hash changed files from watcher' 0.9256658554077148ms
+[NX Daemon Server] - 2024-02-17T16:13:01.924Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:02.039Z - [WATCHER]: apps/web/app/(home)/page.module.scss was modified
+[NX Daemon Server] - 2024-02-17T16:14:02.039Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:02.098Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:02.360Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:02.442Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:14:02.442Z - [REQUEST]: apps/web/app/(home)/page.module.scss
+[NX Daemon Server] - 2024-02-17T16:14:02.442Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:14:02.491Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:02.491Z - Time taken for 'hash changed files from watcher' 0.9301249980926514ms
+[NX Daemon Server] - 2024-02-17T16:14:11.645Z - [WATCHER]: apps/web/app/(home)/page.module.scss was modified
+[NX Daemon Server] - 2024-02-17T16:14:11.645Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:12.448Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:14:12.448Z - [REQUEST]: apps/web/app/(home)/page.module.scss
+[NX Daemon Server] - 2024-02-17T16:14:12.449Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:14:12.508Z - Time taken for 'hash changed files from watcher' 1.383208990097046ms
+[NX Daemon Server] - 2024-02-17T16:14:35.896Z - [WATCHER]: apps/web/app/(home)/page.module.scss was modified
+[NX Daemon Server] - 2024-02-17T16:14:35.896Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:37.499Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:14:37.500Z - [REQUEST]: apps/web/app/(home)/page.module.scss
+[NX Daemon Server] - 2024-02-17T16:14:37.500Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:14:37.557Z - Time taken for 'hash changed files from watcher' 1.8530840873718262ms
+[NX Daemon Server] - 2024-02-17T16:14:42.452Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:14:42.551Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:14:43.750Z - [WATCHER]: Processing file changes in outputs
