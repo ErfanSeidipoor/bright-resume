@@ -23,11 +23,14 @@ export const useData = (onClose?: () => void) => {
     setValue("");
   };
 
+  const addResumeHandler = () => {};
+
   return {
     closeModal,
     showModal,
     value,
     searchChangeHandler,
     emptySearchHandler,
+    addResumeHandler,
   };
 };

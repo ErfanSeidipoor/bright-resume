@@ -3,8 +3,10 @@ import cls from "classnames";
 // components
 import Search from "../Search";
 import MyResumeCard from "../MyResumeCard";
+import FloatingIconButton from "../FloatingIconButton";
 // icons
 import { CancelIcon } from "../Icons/cancel";
+import { PlusIcon } from "../Icons";
 // types
 import { ResumeManagementProps } from "../../index.type";
 // locals
@@ -25,6 +27,11 @@ export const ResumeManagement: FC<ResumeManagementProps> = ({
       })}
       onClick={data.closeModal}
     >
+      <FloatingIconButton
+        onClick={data.addResumeHandler}
+        icon={<PlusIcon />}
+        rootClassName={classes["float-button"]}
+      />
       <div
         className={cls(classes.modal, {
           [classes["modal-story-book"]]: isStoryBook,

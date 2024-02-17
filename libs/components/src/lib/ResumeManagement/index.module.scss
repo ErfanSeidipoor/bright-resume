@@ -17,6 +17,11 @@
     &.show-backdrop {
         opacity: 1;
     }
+    .float-button {
+        z-index: 40;
+        right: 50px;
+        cursor: pointer;
+    }
   .modal {
     position: absolute;
     bottom: 110px;
