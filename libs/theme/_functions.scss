@@ -22,11 +22,11 @@
 
 @function em($pixels, $context) {
   @if (unitless($pixels)) {
-    $pixels: $pixels * 1px;
+    $pixels: $pixels * 0.25mm;
   }
 
   @if (unitless($context)) {
-    $context: $context * 1px;
+    $context: $context * 0.25mm;
   }
 
   @return calc($pixels / $context) * 1em;

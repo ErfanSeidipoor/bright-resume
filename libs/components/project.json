@@ -6,21 +6,54 @@
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/components/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/libs/components"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/components/jest.config.ts"
+        "jestConfig": "libs/components/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     },
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
         "port": 4400,
-        "configDir": "libs/components/.storybook"
+        "configDir": "libs/components/.storybook",
+        "assets": [
+          {
+            "input": "../assets/src",
+            "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+            "output": "/assets"
+          }
+        ]
       },
       "configurations": {
         "ci": {
@@ -38,24 +71,6 @@
       "configurations": {
         "ci": {
           "quiet": true
-        }
-      }
-    },
-    "test-storybook": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "test-storybook -c libs/components/.storybook --url=http://localhost:4400"
-      }
-    },
-    "static-storybook": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "components:build-storybook",
-        "staticFilePath": "dist/storybook/components"
-      },
-      "configurations": {
-        "ci": {
-          "buildTarget": "components:build-storybook:ci"
         }
       }
     }

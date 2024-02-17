@@ -6,12 +6,10 @@ import Typography from "../Typography";
 import { SearchIcon } from "../Icons/search";
 import { CancelIcon } from "../Icons/cancel";
 import { texts } from "./texts";
-import DotLoading from "../DotLoading";
 
 export const Search: React.FC<SearchProps> = ({
   rootClassName = "",
   onEmptyValue = () => null,
-  isLoading = false,
   ...props
 }) => {
   const renderIcons = () => {
@@ -29,12 +27,6 @@ export const Search: React.FC<SearchProps> = ({
       );
   };
 
-  const renderLoading = () => {
-    if (isLoading) return <DotLoading color="blue" />;
-  };
-
-  console.log(rootClassName);
-
   return (
     <div
       className={cls(classes.root, {
@@ -50,7 +42,7 @@ export const Search: React.FC<SearchProps> = ({
           placeholder={texts.placeHolder}
           {...props}
         />
-        {isLoading ? renderLoading() : renderIcons()}
+        {renderIcons()}
       </div>
     </div>
   );

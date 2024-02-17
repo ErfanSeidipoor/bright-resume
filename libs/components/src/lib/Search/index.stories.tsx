@@ -23,6 +23,3 @@ const Themplate: StoryFn<typeof Search> = (args) => {
 
 export const Main = Themplate.bind({});
 Main.args = {};
-
-export const Loading = Themplate.bind({});
-Loading.args = { isLoading: true };

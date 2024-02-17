@@ -3,8 +3,16 @@
   "npmScope": "bright-resume",
   "tasksRunnerOptions": {
     "default": {
+      // "runner": "nx-cloud",
       "options": {
-        "cacheableOperations": ["build-storybook"]
+        "cacheableOperations": [
+          // "build",
+          // "lint",
+          // "test",
+          // "e2e",
+          // "build-storybook"
+        ]
+        // "accessToken": "YWI4MmJmYzYtMzE5Mi00ODg5LTkzYWUtZWUzYzljYWJlZWRkfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -32,8 +40,7 @@
         "^production",
         "{projectRoot}/.storybook/**/*",
         "{projectRoot}/tsconfig.storybook.json"
-      ],
-      "cache": true
+      ]
     }
   },
   "namedInputs": {
