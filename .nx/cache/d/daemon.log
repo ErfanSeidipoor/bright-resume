@@ -83,3 +83,71 @@
 [NX Daemon Server] - 2024-02-17T16:14:42.452Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-02-17T16:14:42.551Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-02-17T16:14:43.750Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:17:02.870Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:17:02.871Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:17:02.871Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:17:02.871Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2024-02-17T16:17:02.871Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2024-02-17T16:17:02.871Z - Handled RECORD_OUTPUTS_HASH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:17:02.876Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:21:50.227Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:21:50.227Z - [WATCHER]: 42 file(s) created or restored, 0 file(s) modified, 11 file(s) deleted
+[NX Daemon Server] - 2024-02-17T16:21:50.329Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:21:50.329Z - [REQUEST]: libs/components/src/lib/Theme/index.provider.tsx,libs/components/src/lib/Theme/index.spec.tsx,libs/components/tsconfig.lib.json,libs/components/tsconfig.spec.json,package.json,libs/components/src/lib/Menu/index.module.scss,libs/components/src/lib/Icons/index.ts,libs/components/src/lib/Typography/index.module.scss,libs/theme/variables/_spacing.scss,libs/components/src/lib/BlogCard/index.tsx,libs/components/index.d.ts,nx.json,libs/components/src/index.type.ts,libs/theme/variables/_typography.scss,libs/components/src/lib/Search/index.stories.tsx,libs/components/src/lib/Menu/index.hook.ts,libs/components/README.md,libs/components/src/lib/Search/index.tsx,libs/components/src/lib/Menu/index.stories.tsx,libs/theme/_functions.scss,apps/web/app/resume/page.tsx,libs/components/src/lib/Theme/index.context.tsx,libs/theme/variables/_shadow.scss,libs/components/src/lib/BlogCard/index.stories.tsx,libs/components/src/lib/Typography/index.tsx,libs/components/project.json,libs/components/.storybook/main.ts,libs/components/src/lib/BlogCard/text.ts,libs/components/tsconfig.storybook.json,libs/components/src/lib/Menu/index.tsx,libs/components/vite.config.ts,libs/theme/_theme-config.scss,apps/web/app/resume/page.module.scss,libs/theme/variables/_breakpoints.scss,libs/components/src/lib/ImageProfile/index.module.scss,libs/components/tsconfig.json,libs/components/package.json,libs/components/src/lib/ImageProfile/index.tsx,libs/components/src/index.ts,libs/components/setupTests.ts,libs/components/src/lib/Menu/index.texts.ts,libs/components/src/lib/Theme/index.hook.ts
+[NX Daemon Server] - 2024-02-17T16:21:50.329Z - [REQUEST]: libs/components/src/lib/FloatingIconButton/index.tsx,libs/components/src/lib/DotLoading/index.tsx,libs/components/src/lib/MyResumeCard/index.stories.tsx,libs/components/src/lib/MyResumeCard/index.module.scss,libs/components/.babelrc,libs/components/src/lib/FloatingIconButton/index.stories.tsx,libs/components/src/lib/Icons/edit.tsx,libs/components/src/lib/FloatingIconButton/index.module.scss,libs/components/src/lib/Icons/trash.tsx,libs/components/src/lib/DotLoading/index.module.scss,libs/components/src/lib/MyResumeCard/index.tsx
+[NX Daemon Server] - 2024-02-17T16:21:50.411Z - Time taken for 'hash changed files from watcher' 1.1837079524993896ms
+[NX Daemon Server] - 2024-02-17T16:21:50.731Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:21:50.731Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:21:50.731Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:21:50.732Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:21:50.732Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:21:50.732Z - Time taken for 'total for creating and serializing project graph' 0.07645797729492188ms
+[NX Daemon Server] - 2024-02-17T16:21:50.732Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:21:50.732Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:21:50.733Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:21:50.733Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:21:50.733Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:21:50.733Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:21:50.734Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:21:50.735Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:21:50.735Z - Handled REQUEST_FILE_DATA. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2024-02-17T16:21:51.259Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:21:51.260Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:21:51.260Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:21:51.261Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:21:51.261Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.261Z - Time taken for 'total for creating and serializing project graph' 0.09108304977416992ms
+[NX Daemon Server] - 2024-02-17T16:21:51.262Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.262Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2024-02-17T16:21:51.276Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:21:51.277Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.277Z - Time taken for 'total for creating and serializing project graph' 0.08129096031188965ms
+[NX Daemon Server] - 2024-02-17T16:21:51.277Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.277Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:21:51.278Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:21:51.278Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.278Z - Time taken for 'total for creating and serializing project graph' 0.03587508201599121ms
+[NX Daemon Server] - 2024-02-17T16:21:51.278Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:21:51.278Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:21:51.284Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:21:51.284Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:21:51.284Z - Handled REQUEST_FILE_DATA. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:21:51.377Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:22:24.105Z - [WATCHER]: libs/components/src/index.type.ts was modified
+[NX Daemon Server] - 2024-02-17T16:22:24.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:22:24.207Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:22:24.207Z - [REQUEST]: libs/components/src/index.type.ts
+[NX Daemon Server] - 2024-02-17T16:22:24.207Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:22:24.242Z - Time taken for 'hash changed files from watcher' 0.6320841312408447ms
+[NX Daemon Server] - 2024-02-17T16:22:47.788Z - [WATCHER]: libs/components/src/lib/Search/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:22:47.788Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:22:47.992Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:22:47.992Z - [REQUEST]: libs/components/src/lib/Search/index.tsx
+[NX Daemon Server] - 2024-02-17T16:22:47.992Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:22:48.042Z - Time taken for 'hash changed files from watcher' 2.2558748722076416ms
+[NX Daemon Server] - 2024-02-17T16:23:30.525Z - [WATCHER]: libs/components/src/lib/Search/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:23:30.525Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:23:30.927Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:23:30.927Z - [REQUEST]: libs/components/src/lib/Search/index.tsx
+[NX Daemon Server] - 2024-02-17T16:23:30.927Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:23:30.934Z - Time taken for 'hash changed files from watcher' 0.488584041595459ms

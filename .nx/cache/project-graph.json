@@ -213,23 +213,56 @@
       "data": {
         "root": "libs/components",
         "name": "components",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/components/src",
-        "projectType": "library",
-        "tags": [],
         "targets": {
+          "nx-release-publish": {
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "executor": "@nx/js:release-publish",
+            "options": {},
+            "configurations": {}
+          },
           "lint": {
             "inputs": [
               "default",
               "{workspaceRoot}/.eslintrc.json",
               "{workspaceRoot}/.eslintignore"
             ],
-            "executor": "@nx/eslint:lint",
+            "executor": "@nx/linter:eslint",
             "outputs": [
               "{options.outputFile}"
             ],
-            "options": {},
+            "options": {
+              "lintFilePatterns": [
+                "libs/components/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
             "configurations": {}
+          },
+          "build": {
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "executor": "@nx/vite:build",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/libs/components"
+            },
+            "configurations": {
+              "development": {
+                "mode": "development"
+              },
+              "production": {
+                "mode": "production"
+              }
+            }
           },
           "test": {
             "inputs": [
@@ -242,15 +275,28 @@
               "{workspaceRoot}/coverage/{projectRoot}"
             ],
             "options": {
-              "jestConfig": "libs/components/jest.config.ts"
+              "jestConfig": "libs/components/jest.config.ts",
+              "passWithNoTests": true
             },
-            "configurations": {}
+            "configurations": {
+              "ci": {
+                "ci": true,
+                "codeCoverage": true
+              }
+            }
           },
           "storybook": {
             "executor": "@nx/storybook:storybook",
             "options": {
               "port": 4400,
-              "configDir": "libs/components/.storybook"
+              "configDir": "libs/components/.storybook",
+              "assets": [
+                {
+                  "input": "../assets/src",
+                  "glob": "**/*.{png,jpeg,jpg,svg,ttf,gif,eot}",
+                  "output": "/assets"
+                }
+              ]
             },
             "configurations": {
               "ci": {
@@ -265,7 +311,6 @@
               "{projectRoot}/.storybook/**/*",
               "{projectRoot}/tsconfig.storybook.json"
             ],
-            "cache": true,
             "executor": "@nx/storybook:build",
             "outputs": [
               "{options.outputDir}"
@@ -279,27 +324,12 @@
                 "quiet": true
               }
             }
-          },
-          "test-storybook": {
-            "executor": "nx:run-commands",
-            "options": {
-              "command": "test-storybook -c libs/components/.storybook --url=http://localhost:4400"
-            },
-            "configurations": {}
-          },
-          "static-storybook": {
-            "executor": "@nx/web:file-server",
-            "options": {
-              "buildTarget": "components:build-storybook",
-              "staticFilePath": "dist/storybook/components"
-            },
-            "configurations": {
-              "ci": {
-                "buildTarget": "components:build-storybook:ci"
-              }
-            }
           }
         },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/components/src",
+        "projectType": "library",
+        "tags": [],
         "implicitDependencies": []
       }
     },
