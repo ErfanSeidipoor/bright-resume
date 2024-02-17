@@ -233,3 +233,821 @@
 [NX Daemon Server] - 2024-02-17T16:32:10.106Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-02-17T16:32:10.293Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-02-17T16:32:10.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:40:52.617Z - Started listening on: /var/folders/sq/7_7lz4m93kl8bnxv5443tgsh0000gn/T/dd63222735e11b3c7cdb/d.sock
+[NX Daemon Server] - 2024-02-17T16:40:52.619Z - [WATCHER]: Subscribed to changes within: /Users/adibmokhtari/Documents/projects/bright-resume (native)
+[NX Daemon Server] - 2024-02-17T16:40:52.620Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:40:52.620Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:40:52.622Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:40:52.626Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:40:52.627Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:40:52.627Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:40:52.841Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:40:52.842Z - Time taken for 'total for creating and serializing project graph' 218.81270813941956ms
+[NX Daemon Server] - 2024-02-17T16:40:52.842Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:40:52.842Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:40:52.842Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 219. Response time: 1.
+[NX Daemon Server] - 2024-02-17T16:40:52.843Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:40:52.843Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:40:52.843Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-02-17T16:40:52.843Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:40:52.845Z - [REQUEST]: Responding to the client. handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:40:52.845Z - Done responding to the client handleRequestFileData
+[NX Daemon Server] - 2024-02-17T16:40:52.845Z - Handled REQUEST_FILE_DATA. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:40:58.256Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:40:58.256Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T16:40:58.257Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T16:40:58.258Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T16:40:58.258Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T16:40:58.258Z - Time taken for 'total for creating and serializing project graph' 0.08516716957092285ms
+[NX Daemon Server] - 2024-02-17T16:40:58.259Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T16:40:58.259Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2024-02-17T16:40:58.268Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:40:58.268Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-17T16:40:58.268Z - Handled HASH_TASKS. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-02-17T16:41:00.614Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:41:01.102Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:41:01.421Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:41:02.071Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:41:02.071Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:41:02.173Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:41:02.173Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T16:41:02.173Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:41:02.189Z - Time taken for 'hash changed files from watcher' 0.7536659240722656ms
+[NX Daemon Server] - 2024-02-17T16:42:03.216Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:03.216Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:42:03.418Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:42:03.418Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:42:03.418Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:42:03.467Z - Time taken for 'hash changed files from watcher' 0.5704171657562256ms
+[NX Daemon Server] - 2024-02-17T16:42:07.821Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:08.487Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:08.992Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.078Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.174Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.258Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.547Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.666Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.879Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:09.957Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:10.201Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:11.468Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:11.743Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:15.483Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:42:16.236Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:12.965Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:12.966Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:43:13.032Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:13.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:13.368Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:43:13.368Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:43:13.368Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:43:13.418Z - Time taken for 'hash changed files from watcher' 0.4651670455932617ms
+[NX Daemon Server] - 2024-02-17T16:43:33.364Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:43:33.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:33.418Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:33.501Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:34.165Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:43:34.166Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:43:34.166Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:43:34.204Z - Time taken for 'hash changed files from watcher' 0.5162498950958252ms
+[NX Daemon Server] - 2024-02-17T16:43:42.275Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:43:42.276Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:42.327Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:42.379Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:43:43.878Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:43:43.878Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:43:43.878Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:43:43.937Z - Time taken for 'hash changed files from watcher' 1.2594578266143799ms
+[NX Daemon Server] - 2024-02-17T16:44:27.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:27.634Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:44:27.686Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:27.738Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:30.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:30.837Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:44:30.838Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:44:30.838Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:44:30.907Z - Time taken for 'hash changed files from watcher' 1.3550419807434082ms
+[NX Daemon Server] - 2024-02-17T16:44:44.743Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:44:44.743Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:44.804Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:44.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:44:51.147Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:44:51.147Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:44:51.147Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:44:51.203Z - Time taken for 'hash changed files from watcher' 1.5388331413269043ms
+[NX Daemon Server] - 2024-02-17T16:45:06.775Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:45:06.776Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:45:06.834Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:45:06.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:45:13.179Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:45:13.179Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:45:13.179Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:45:13.234Z - Time taken for 'hash changed files from watcher' 2.35337495803833ms
+[NX Daemon Server] - 2024-02-17T16:46:06.963Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:46:07.096Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:46:07.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:46:07.198Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:46:07.287Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:50:14.723Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:50:14.870Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:50:14.938Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:14.681Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:51:14.682Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:14.810Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:14.938Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:21.085Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:51:21.086Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:51:21.086Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:51:21.144Z - Time taken for 'hash changed files from watcher' 2.257667064666748ms
+[NX Daemon Server] - 2024-02-17T16:51:22.671Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:51:22.671Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:22.728Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:22.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:51:29.074Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:51:29.074Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:51:29.074Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:51:29.135Z - Time taken for 'hash changed files from watcher' 1.472541093826294ms
+[NX Daemon Server] - 2024-02-17T16:52:19.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:52:19.909Z - [WATCHER]: apps/web/app/resume/page.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:52:19.959Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:52:20.016Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:52:26.312Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:52:26.312Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T16:52:26.312Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:52:26.371Z - Time taken for 'hash changed files from watcher' 2.3192920684814453ms
+[NX Daemon Server] - 2024-02-17T16:53:20.027Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:53:20.113Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:53:20.190Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:53:20.274Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:58:09.547Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:58:09.550Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T16:58:09.740Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:58:09.851Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:58:15.955Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T16:58:15.955Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T16:58:15.955Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T16:58:16.030Z - Time taken for 'hash changed files from watcher' 2.782249927520752ms
+[NX Daemon Server] - 2024-02-17T16:59:09.840Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:59:09.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:59:09.971Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:59:10.026Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T16:59:10.103Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:00.887Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:00:00.888Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:01.034Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:01.171Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:07.291Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:00:07.291Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:00:07.291Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:00:07.352Z - Time taken for 'hash changed files from watcher' 2.292874813079834ms
+[NX Daemon Server] - 2024-02-17T17:00:41.800Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:41.802Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:00:41.859Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:41.914Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:00:48.204Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:00:48.204Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:00:48.204Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:00:48.268Z - Time taken for 'hash changed files from watcher' 1.2598330974578857ms
+[NX Daemon Server] - 2024-02-17T17:01:17.668Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:01:17.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:01:17.916Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:01:18.200Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:01:24.071Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:01:24.073Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:01:24.073Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:01:24.140Z - Time taken for 'hash changed files from watcher' 1.3294169902801514ms
+[NX Daemon Server] - 2024-02-17T17:02:07.123Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:02:07.124Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:02:07.232Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:02:07.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:02:13.527Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:02:13.528Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:02:13.528Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:02:13.551Z - Time taken for 'hash changed files from watcher' 1.7133328914642334ms
+[NX Daemon Server] - 2024-02-17T17:03:07.333Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:07.440Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:07.494Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:07.555Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:07.665Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:07.859Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:09.448Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:03:09.448Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:09.593Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:09.748Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:14.841Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:03:14.841Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:14.895Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:14.947Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:15.850Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:03:15.850Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss,libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:03:15.850Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:03:15.912Z - Time taken for 'hash changed files from watcher' 1.1678330898284912ms
+[NX Daemon Server] - 2024-02-17T17:03:44.865Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:03:44.865Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:44.970Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:45.058Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:03:51.268Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:03:51.269Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:03:51.269Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:03:51.336Z - Time taken for 'hash changed files from watcher' 1.5003340244293213ms
+[NX Daemon Server] - 2024-02-17T17:04:12.631Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:04:12.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:04:12.735Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:04:12.816Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:04:19.038Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:04:19.038Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:04:19.038Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:04:19.081Z - Time taken for 'hash changed files from watcher' 0.639915943145752ms
+[NX Daemon Server] - 2024-02-17T17:05:12.843Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:05:12.903Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:05:12.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:05:13.082Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:09:25.934Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:11:55.822Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:11:55.822Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:11:55.971Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:11:56.115Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:12:02.224Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:12:02.225Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:12:02.225Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:12:02.287Z - Time taken for 'hash changed files from watcher' 1.2421250343322754ms
+[NX Daemon Server] - 2024-02-17T17:12:56.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:12:56.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:12:56.228Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:12:56.354Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:13:49.432Z - [WATCHER]: libs/components/src/lib/Menu/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:13:49.432Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:13:49.600Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:13:49.765Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:13:55.834Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:13:55.834Z - [REQUEST]: libs/components/src/lib/Menu/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:13:55.834Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:13:55.896Z - Time taken for 'hash changed files from watcher' 1.4111669063568115ms
+[NX Daemon Server] - 2024-02-17T17:14:04.872Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:14:04.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:04.967Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:05.046Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:11.275Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:14:11.275Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:14:11.276Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:14:11.336Z - Time taken for 'hash changed files from watcher' 2.1687090396881104ms
+[NX Daemon Server] - 2024-02-17T17:14:12.588Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:14:12.588Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:12.681Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:12.776Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:14:18.990Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:14:18.990Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:14:18.991Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:14:19.033Z - Time taken for 'hash changed files from watcher' 1.1788749694824219ms
+[NX Daemon Server] - 2024-02-17T17:14:30.115Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:12.729Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:12.784Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:12.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:13.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:14.761Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:15:14.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:14.926Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:15.079Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:15:21.164Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:15:21.164Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:15:21.164Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:15:21.216Z - Time taken for 'hash changed files from watcher' 1.0715420246124268ms
+[NX Daemon Server] - 2024-02-17T17:16:14.968Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:16:15.139Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:16:15.200Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:16:15.322Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:02.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:02.318Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:17:02.447Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:02.566Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:08.721Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:17:08.721Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:17:08.721Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:17:08.771Z - Time taken for 'hash changed files from watcher' 1.3727920055389404ms
+[NX Daemon Server] - 2024-02-17T17:17:23.363Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:17:23.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:23.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:23.542Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:29.767Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:17:29.767Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:17:29.767Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:17:29.820Z - Time taken for 'hash changed files from watcher' 2.1841671466827393ms
+[NX Daemon Server] - 2024-02-17T17:17:44.096Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:17:44.096Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:44.184Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:44.258Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:17:50.499Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:17:50.499Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:17:50.499Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:17:50.566Z - Time taken for 'hash changed files from watcher' 1.491542100906372ms
+[NX Daemon Server] - 2024-02-17T17:17:52.916Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:03.808Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:18:03.808Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:03.928Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:04.020Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:10.209Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:18:10.209Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:18:10.209Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:18:10.259Z - Time taken for 'hash changed files from watcher' 0.7171249389648438ms
+[NX Daemon Server] - 2024-02-17T17:18:17.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:33.364Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:18:33.364Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:33.490Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:33.578Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:18:39.768Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:18:39.768Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:18:39.768Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:18:39.832Z - Time taken for 'hash changed files from watcher' 2.425874948501587ms
+[NX Daemon Server] - 2024-02-17T17:19:33.563Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:19:33.701Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:19:33.778Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:19:33.872Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:25.810Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:25.811Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:21:25.991Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:26.122Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:32.213Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:21:32.213Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:21:32.213Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:21:32.262Z - Time taken for 'hash changed files from watcher' 0.8181672096252441ms
+[NX Daemon Server] - 2024-02-17T17:21:36.099Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:21:36.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:36.214Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:36.308Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:21:42.501Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:21:42.501Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:21:42.501Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:21:42.565Z - Time taken for 'hash changed files from watcher' 1.3473329544067383ms
+[NX Daemon Server] - 2024-02-17T17:22:36.274Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:36.343Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:36.417Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:36.488Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:37.880Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:22:37.880Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:38.049Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:38.183Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:42.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:22:44.283Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:22:44.283Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:22:44.283Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:22:44.332Z - Time taken for 'hash changed files from watcher' 0.9559159278869629ms
+[NX Daemon Server] - 2024-02-17T17:23:35.632Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:23:35.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:35.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:35.856Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:40.222Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:42.035Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:23:42.036Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:23:42.036Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:23:42.101Z - Time taken for 'hash changed files from watcher' 1.0460829734802246ms
+[NX Daemon Server] - 2024-02-17T17:23:48.269Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:23:48.272Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:48.354Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:48.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:54.674Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:23:54.674Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:23:54.674Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:23:54.738Z - Time taken for 'hash changed files from watcher' 1.4006669521331787ms
+[NX Daemon Server] - 2024-02-17T17:23:57.431Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:23:57.431Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:57.545Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:23:57.639Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:03.833Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:24:03.833Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:24:03.833Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:24:03.881Z - Time taken for 'hash changed files from watcher' 0.9191250801086426ms
+[NX Daemon Server] - 2024-02-17T17:24:13.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:13.634Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:13.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:13.852Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:20.038Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:24:20.038Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:24:20.038Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:24:20.097Z - Time taken for 'hash changed files from watcher' 1.390458106994629ms
+[NX Daemon Server] - 2024-02-17T17:24:20.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:20.430Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:20.541Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:20.613Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:26.833Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:24:26.834Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:24:26.834Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:24:26.895Z - Time taken for 'hash changed files from watcher' 1.2642910480499268ms
+[NX Daemon Server] - 2024-02-17T17:24:35.145Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:35.146Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:35.237Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:35.311Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:41.024Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:41.025Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:41.105Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:41.212Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:41.547Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:24:41.548Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:24:41.548Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:24:41.596Z - Time taken for 'hash changed files from watcher' 0.6401658058166504ms
+[NX Daemon Server] - 2024-02-17T17:24:44.296Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:44.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:44.374Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:44.446Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:48.974Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:24:48.974Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:49.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:49.139Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:24:50.699Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:24:50.699Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:24:50.699Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:24:50.735Z - Time taken for 'hash changed files from watcher' 0.6227090358734131ms
+[NX Daemon Server] - 2024-02-17T17:24:51.963Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:09.746Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:09.747Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:09.870Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:09.963Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:15.534Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:15.534Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:15.649Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:15.725Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:16.148Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:25:16.148Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:25:16.148Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:25:16.198Z - Time taken for 'hash changed files from watcher' 0.7040841579437256ms
+[NX Daemon Server] - 2024-02-17T17:25:21.758Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:21.758Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:21.899Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:21.977Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:28.160Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:25:28.160Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:25:28.160Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:25:28.225Z - Time taken for 'hash changed files from watcher' 1.222249984741211ms
+[NX Daemon Server] - 2024-02-17T17:25:31.260Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:31.260Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:31.332Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:31.403Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:35.008Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:35.008Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:35.094Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:35.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:37.664Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:25:37.664Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:25:37.664Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:25:37.721Z - Time taken for 'hash changed files from watcher' 2.1975419521331787ms
+[NX Daemon Server] - 2024-02-17T17:25:56.834Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:25:56.835Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:56.947Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:25:57.042Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:26:03.238Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:26:03.238Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:26:03.238Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:26:03.299Z - Time taken for 'hash changed files from watcher' 1.3355841636657715ms
+[NX Daemon Server] - 2024-02-17T17:26:06.919Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:26:43.236Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:26:43.236Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:26:43.352Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:26:43.439Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:26:49.638Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:26:49.639Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:26:49.639Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:26:49.688Z - Time taken for 'hash changed files from watcher' 0.7857909202575684ms
+[NX Daemon Server] - 2024-02-17T17:27:03.319Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:27:43.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:27:43.495Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:27:43.652Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:15.720Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:28:15.721Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:15.908Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:16.074Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:22.122Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:28:22.122Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:28:22.123Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:28:22.183Z - Time taken for 'hash changed files from watcher' 0.907041072845459ms
+[NX Daemon Server] - 2024-02-17T17:28:23.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:32.761Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T17:28:32.864Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:28:38.608Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T17:28:38.608Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-02-17T17:28:38.608Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T17:28:38.609Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T17:28:38.610Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T17:28:38.610Z - Time taken for 'total for creating and serializing project graph' 0.09154105186462402ms
+[NX Daemon Server] - 2024-02-17T17:28:38.611Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T17:28:38.611Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-02-17T17:28:38.622Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-17T17:28:38.622Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-17T17:28:38.622Z - Handled HASH_TASKS. Handling time: 1. Response time: 0.
+[NX Daemon Server] - 2024-02-17T17:28:40.818Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:31:38.380Z - [WATCHER]: libs/components/src/index.type.ts was modified
+[NX Daemon Server] - 2024-02-17T17:31:38.380Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:31:38.480Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:31:38.481Z - [REQUEST]: libs/components/src/index.type.ts
+[NX Daemon Server] - 2024-02-17T17:31:38.481Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:31:38.527Z - Time taken for 'hash changed files from watcher' 0.6020421981811523ms
+[NX Daemon Server] - 2024-02-17T17:33:03.348Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:33:03.349Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:33:03.549Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:33:03.549Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:33:03.549Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:33:03.598Z - Time taken for 'hash changed files from watcher' 0.6629579067230225ms
+[NX Daemon Server] - 2024-02-17T17:33:34.415Z - [WATCHER]: libs/components/src/index.type.ts was modified
+[NX Daemon Server] - 2024-02-17T17:33:34.415Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:33:34.817Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:33:34.818Z - [REQUEST]: libs/components/src/index.type.ts
+[NX Daemon Server] - 2024-02-17T17:33:34.818Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:33:34.873Z - Time taken for 'hash changed files from watcher' 1.1452500820159912ms
+[NX Daemon Server] - 2024-02-17T17:34:39.435Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:34:39.437Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:34:40.240Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:34:40.241Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:34:40.241Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:34:40.300Z - Time taken for 'hash changed files from watcher' 1.7821249961853027ms
+[NX Daemon Server] - 2024-02-17T17:34:56.279Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:34:56.280Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:34:57.882Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:34:57.882Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:34:57.882Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:34:57.937Z - Time taken for 'hash changed files from watcher' 1.028249979019165ms
+[NX Daemon Server] - 2024-02-17T17:35:15.453Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:35:15.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:35:18.658Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:35:18.658Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:35:18.658Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:35:18.716Z - Time taken for 'hash changed files from watcher' 2.3922080993652344ms
+[NX Daemon Server] - 2024-02-17T17:35:29.669Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:35:29.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:35:36.072Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:35:36.072Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:35:36.072Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:35:36.120Z - Time taken for 'hash changed files from watcher' 0.9033339023590088ms
+[NX Daemon Server] - 2024-02-17T17:36:22.022Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:36:22.022Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:36:28.425Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:36:28.426Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T17:36:28.426Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:36:28.481Z - Time taken for 'hash changed files from watcher' 1.934499979019165ms
+[NX Daemon Server] - 2024-02-17T17:37:10.921Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:37:10.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:37:13.711Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T17:37:17.325Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:37:17.325Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:37:17.325Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:37:17.345Z - Time taken for 'hash changed files from watcher' 1.2450840473175049ms
+[NX Daemon Server] - 2024-02-17T17:37:22.829Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T17:37:22.829Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-02-17T17:37:22.830Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-02-17T17:37:22.831Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-02-17T17:37:22.831Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-02-17T17:37:22.831Z - Time taken for 'total for creating and serializing project graph' 0.057917118072509766ms
+[NX Daemon Server] - 2024-02-17T17:37:22.832Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-02-17T17:37:22.832Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 1.
+[NX Daemon Server] - 2024-02-17T17:37:22.847Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-02-17T17:37:22.847Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-02-17T17:37:22.847Z - Handled HASH_TASKS. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2024-02-17T17:37:52.099Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:37:52.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:37:52.201Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:37:52.201Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:37:52.201Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:37:52.245Z - Time taken for 'hash changed files from watcher' 0.6895418167114258ms
+[NX Daemon Server] - 2024-02-17T17:39:00.901Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:39:00.901Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:39:01.104Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:39:01.104Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:39:01.104Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:39:01.158Z - Time taken for 'hash changed files from watcher' 0.4155418872833252ms
+[NX Daemon Server] - 2024-02-17T17:39:12.865Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:39:12.866Z - [WATCHER]: libs/components/src/index.type.ts was modified
+[NX Daemon Server] - 2024-02-17T17:39:13.268Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:39:13.268Z - [REQUEST]: libs/components/src/index.type.ts
+[NX Daemon Server] - 2024-02-17T17:39:13.268Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:39:13.323Z - Time taken for 'hash changed files from watcher' 1.1641249656677246ms
+[NX Daemon Server] - 2024-02-17T17:39:20.483Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:39:20.483Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:39:21.285Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:39:21.285Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:39:21.285Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:39:21.298Z - Time taken for 'hash changed files from watcher' 0.7829577922821045ms
+[NX Daemon Server] - 2024-02-17T17:40:19.932Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:40:19.932Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:40:21.535Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:40:21.535Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:40:21.535Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:40:21.586Z - Time taken for 'hash changed files from watcher' 1.359833002090454ms
+[NX Daemon Server] - 2024-02-17T17:40:39.475Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T17:40:39.475Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:40:42.678Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:40:42.678Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T17:40:42.678Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:40:42.733Z - Time taken for 'hash changed files from watcher' 2.413666009902954ms
+[NX Daemon Server] - 2024-02-17T17:41:00.913Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:41:00.913Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:41:07.316Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:41:07.317Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:41:07.317Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:41:07.377Z - Time taken for 'hash changed files from watcher' 1.3392090797424316ms
+[NX Daemon Server] - 2024-02-17T17:41:12.976Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:41:12.976Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:41:19.379Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:41:19.379Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:41:19.379Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:41:19.435Z - Time taken for 'hash changed files from watcher' 2.2302908897399902ms
+[NX Daemon Server] - 2024-02-17T17:41:23.805Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.stories.tsx was modified
+[NX Daemon Server] - 2024-02-17T17:41:23.805Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T17:41:30.208Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T17:41:30.208Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.stories.tsx
+[NX Daemon Server] - 2024-02-17T17:41:30.208Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T17:41:30.272Z - Time taken for 'hash changed files from watcher' 1.1352920532226562ms
+[NX Daemon Server] - 2024-02-17T18:14:02.687Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:14:02.687Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:14:09.089Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:14:09.089Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T18:14:09.089Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:14:09.134Z - Time taken for 'hash changed files from watcher' 0.5148749351501465ms
+[NX Daemon Server] - 2024-02-17T18:14:16.650Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:14:16.651Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:14:22.199Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:14:22.199Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:14:23.054Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:14:23.054Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx,libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:14:23.054Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:14:23.112Z - Time taken for 'hash changed files from watcher' 1.7014589309692383ms
+[NX Daemon Server] - 2024-02-17T18:18:01.768Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:18:01.769Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:18:08.171Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:18:08.171Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T18:18:08.171Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:18:08.214Z - Time taken for 'hash changed files from watcher' 0.5137498378753662ms
+[NX Daemon Server] - 2024-02-17T18:18:25.767Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:18:25.768Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:18:28.658Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:18:28.658Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:18:32.169Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:18:32.169Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T18:18:32.169Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:18:32.208Z - Time taken for 'hash changed files from watcher' 0.6431660652160645ms
+[NX Daemon Server] - 2024-02-17T18:19:01.946Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:19:01.946Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:19:08.350Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:19:08.350Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:19:08.350Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:19:08.414Z - Time taken for 'hash changed files from watcher' 1.7627921104431152ms
+[NX Daemon Server] - 2024-02-17T18:21:33.597Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:21:33.598Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:21:40.001Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:21:40.001Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:21:40.001Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:21:40.066Z - Time taken for 'hash changed files from watcher' 1.779749870300293ms
+[NX Daemon Server] - 2024-02-17T18:21:53.419Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:21:53.419Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:21:59.823Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:21:59.824Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:21:59.824Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:21:59.887Z - Time taken for 'hash changed files from watcher' 2.692415952682495ms
+[NX Daemon Server] - 2024-02-17T18:22:17.554Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:22:17.554Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:22:23.951Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:22:23.952Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:22:23.952Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:22:24.003Z - Time taken for 'hash changed files from watcher' 0.6924171447753906ms
+[NX Daemon Server] - 2024-02-17T18:22:47.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:22:47.936Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:22:54.338Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:22:54.339Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:22:54.339Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:22:54.407Z - Time taken for 'hash changed files from watcher' 1.0928330421447754ms
+[NX Daemon Server] - 2024-02-17T18:23:03.285Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:23:03.285Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:23:09.686Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:23:09.686Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:23:09.686Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:23:09.730Z - Time taken for 'hash changed files from watcher' 0.5016660690307617ms
+[NX Daemon Server] - 2024-02-17T18:23:14.531Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:23:14.531Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:23:20.932Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:23:20.932Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:23:20.932Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:23:20.975Z - Time taken for 'hash changed files from watcher' 0.45583319664001465ms
+[NX Daemon Server] - 2024-02-17T18:23:26.762Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:23:26.762Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:23:33.164Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:23:33.164Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:23:33.164Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:23:33.213Z - Time taken for 'hash changed files from watcher' 0.6442501544952393ms
+[NX Daemon Server] - 2024-02-17T18:23:38.684Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:23:38.684Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:23:45.086Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:23:45.086Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:23:45.086Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:23:45.132Z - Time taken for 'hash changed files from watcher' 0.5624589920043945ms
+[NX Daemon Server] - 2024-02-17T18:23:48.327Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:23:48.327Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:23:54.729Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:23:54.729Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:23:54.729Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:23:54.782Z - Time taken for 'hash changed files from watcher' 0.9718749523162842ms
+[NX Daemon Server] - 2024-02-17T18:24:06.519Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:24:06.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:24:12.921Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:24:12.921Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:24:12.922Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:24:12.971Z - Time taken for 'hash changed files from watcher' 0.9194581508636475ms
+[NX Daemon Server] - 2024-02-17T18:24:18.380Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:24:18.380Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:24:24.781Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:24:24.782Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:24:24.782Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:24:24.828Z - Time taken for 'hash changed files from watcher' 0.4839160442352295ms
+[NX Daemon Server] - 2024-02-17T18:24:29.568Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:24:29.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:24:35.970Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:24:35.970Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:24:35.970Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:24:36.019Z - Time taken for 'hash changed files from watcher' 1.1195828914642334ms
+[NX Daemon Server] - 2024-02-17T18:24:38.733Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:24:38.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:24:45.136Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:24:45.136Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:24:45.137Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:24:45.205Z - Time taken for 'hash changed files from watcher' 1.7839999198913574ms
+[NX Daemon Server] - 2024-02-17T18:26:51.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:26:51.368Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:26:57.771Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:26:57.772Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T18:26:57.772Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:26:57.835Z - Time taken for 'hash changed files from watcher' 1.8700828552246094ms
+[NX Daemon Server] - 2024-02-17T18:29:12.001Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:29:12.003Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:29:18.407Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:29:18.407Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:29:18.407Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:29:18.467Z - Time taken for 'hash changed files from watcher' 2.339708089828491ms
+[NX Daemon Server] - 2024-02-17T18:29:59.671Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.tsx was modified
+[NX Daemon Server] - 2024-02-17T18:29:59.671Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:30:06.074Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:30:06.074Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.tsx
+[NX Daemon Server] - 2024-02-17T18:30:06.074Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:30:06.138Z - Time taken for 'hash changed files from watcher' 1.3753328323364258ms
+[NX Daemon Server] - 2024-02-17T18:34:26.094Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:34:26.098Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:34:32.501Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:34:32.502Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:34:32.502Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:34:32.556Z - Time taken for 'hash changed files from watcher' 2.234208106994629ms
+[NX Daemon Server] - 2024-02-17T18:34:39.953Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:34:39.954Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:34:44.426Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:34:44.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:34:46.356Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:34:46.356Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:34:46.356Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:34:46.370Z - Time taken for 'hash changed files from watcher' 0.7106249332427979ms
+[NX Daemon Server] - 2024-02-17T18:34:49.962Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:34:49.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:34:56.363Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:34:56.365Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:34:56.365Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:34:56.413Z - Time taken for 'hash changed files from watcher' 0.8089580535888672ms
+[NX Daemon Server] - 2024-02-17T18:35:00.455Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:35:00.455Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:35:06.857Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:35:06.857Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:35:06.857Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:35:06.893Z - Time taken for 'hash changed files from watcher' 0.5174160003662109ms
+[NX Daemon Server] - 2024-02-17T18:35:07.132Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:35:07.132Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:35:13.535Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:35:13.535Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:35:13.535Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:35:13.597Z - Time taken for 'hash changed files from watcher' 2.178874969482422ms
+[NX Daemon Server] - 2024-02-17T18:35:21.498Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:35:21.498Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:35:27.901Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:35:27.902Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:35:27.902Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:35:27.964Z - Time taken for 'hash changed files from watcher' 1.6489591598510742ms
+[NX Daemon Server] - 2024-02-17T18:35:36.514Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:35:36.514Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:35:42.916Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:35:42.916Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:35:42.916Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:35:42.978Z - Time taken for 'hash changed files from watcher' 1.2654578685760498ms
+[NX Daemon Server] - 2024-02-17T18:35:47.713Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:35:47.713Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:35:54.115Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:35:54.116Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:35:54.116Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:35:54.177Z - Time taken for 'hash changed files from watcher' 1.5506248474121094ms
+[NX Daemon Server] - 2024-02-17T18:36:01.560Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:36:01.560Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:36:07.962Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:36:07.962Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:36:07.962Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:36:08.020Z - Time taken for 'hash changed files from watcher' 1.2577919960021973ms
+[NX Daemon Server] - 2024-02-17T18:36:17.036Z - [WATCHER]: libs/components/src/lib/ResumeManagement/index.module.scss was modified
+[NX Daemon Server] - 2024-02-17T18:36:17.036Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:36:23.438Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:36:23.438Z - [REQUEST]: libs/components/src/lib/ResumeManagement/index.module.scss
+[NX Daemon Server] - 2024-02-17T18:36:23.438Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:36:23.503Z - Time taken for 'hash changed files from watcher' 2.1171250343322754ms
+[NX Daemon Server] - 2024-02-17T18:50:00.370Z - [WATCHER]: apps/web/app/resume/page.tsx was created or restored
+[NX Daemon Server] - 2024-02-17T18:50:00.370Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-02-17T18:50:00.471Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-02-17T18:50:00.471Z - [REQUEST]: apps/web/app/resume/page.tsx
+[NX Daemon Server] - 2024-02-17T18:50:00.471Z - [REQUEST]: 
+[NX Daemon Server] - 2024-02-17T18:50:00.518Z - Time taken for 'hash changed files from watcher' 0.5302078723907471ms

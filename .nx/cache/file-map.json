@@ -199,48 +199,96 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "libs/theme/_index.scss",
-        "hash": "4803121496136374652"
+        "file": ".github/workflows/staging.yml",
+        "hash": "8242438752871892249"
       },
       {
-        "file": "apps/.gitkeep",
-        "hash": "3244421341483603138"
+        "file": "tools/tsconfig.tools.json",
+        "hash": "16088922570277978783"
       },
       {
-        "file": "infra/Dockerfile.file",
-        "hash": "1926402788650821294"
+        "file": "libs/theme/variables/_spacing.scss",
+        "hash": "3556394467595384808"
       },
       {
-        "file": "CONTRIBUTING.md",
-        "hash": "5295415111483234947"
+        "file": "libs/theme/_globals.scss",
+        "hash": "4145092238198523015"
       },
       {
-        "file": "infra/Dockerfile.gateway",
-        "hash": "1054147760445285251"
+        "file": "infra/Dockerfile.web",
+        "hash": "10302187584736511075"
       },
       {
-        "file": "storybook-migration-summary.md",
-        "hash": "4732824080389201564"
+        "file": ".env.sample",
+        "hash": "14767275929961414376"
       },
       {
-        "file": "CODE_OF_CONDUCT.md",
-        "hash": "1210143655683272091"
+        "file": "libs/theme/_theme-config.scss",
+        "hash": "16950268391248411251"
       },
       {
-        "file": ".dockerignore",
-        "hash": "2051239443920455407"
+        "file": ".eslintrc.json",
+        "hash": "4059735078897953533"
       },
       {
         "file": "libs/.gitkeep",
         "hash": "3244421341483603138"
       },
       {
-        "file": ".github/workflows/production.yml",
-        "hash": "9943186406007617364"
+        "file": ".vscode/settings.json",
+        "hash": "16669698489301453613"
       },
       {
-        "file": ".github/workflows/staging.yml",
-        "hash": "8242438752871892249"
+        "file": "libs/theme/_index.scss",
+        "hash": "4803121496136374652"
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "hash": "5295415111483234947"
+      },
+      {
+        "file": "libs/theme/_functions.scss",
+        "hash": "14445529187432293547"
+      },
+      {
+        "file": "infra/Dockerfile.auth",
+        "hash": "18206284758192450861"
+      },
+      {
+        "file": "infra/Dockerfile.resume",
+        "hash": "10862739728144964428"
+      },
+      {
+        "file": "package.json",
+        "hash": "14313492602862203840"
+      },
+      {
+        "file": "infra/Dockerfile.gateway",
+        "hash": "1054147760445285251"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "storybook-migration-summary.md",
+        "hash": "4732824080389201564"
+      },
+      {
+        "file": "libs/theme/variables/_shadow.scss",
+        "hash": "3706259344736106301"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "2392540309333994723"
+      },
+      {
+        "file": "infra/Dockerfile.file",
+        "hash": "1926402788650821294"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       },
       {
         "file": ".gitignore",
@@ -251,120 +299,72 @@
         "hash": "7840256993921210602"
       },
       {
-        "file": "files/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "infra/Dockerfile.cms",
-        "hash": "2171251260521876235"
-      },
-      {
         "file": "libs/theme/variables/_breakpoints.scss",
         "hash": "6888342581477874803"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".env.sample",
-        "hash": "14767275929961414376"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "8865097869854018350"
-      },
-      {
-        "file": "infra/Dockerfile.web",
-        "hash": "10302187584736511075"
       },
       {
         "file": "libs/theme/_mixins.scss",
         "hash": "13583250127911238638"
       },
       {
-        "file": "babel.config.json",
-        "hash": "5546405625092116747"
+        "file": ".vscode/extensions.json",
+        "hash": "235626400633494639"
       },
       {
-        "file": "libs/theme/variables/_spacing.scss",
-        "hash": "3556394467595384808"
+        "file": "files/.gitkeep",
+        "hash": "3244421341483603138"
       },
       {
-        "file": "libs/theme/variables/_shadow.scss",
-        "hash": "3706259344736106301"
-      },
-      {
-        "file": "libs/theme/variables/_typography.scss",
-        "hash": "10445983366270872061"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "2392540309333994723"
-      },
-      {
-        "file": "package.json",
-        "hash": "14313492602862203840"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "infra/Dockerfile.auth",
-        "hash": "18206284758192450861"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "14932722313705501266"
-      },
-      {
-        "file": "libs/theme/_functions.scss",
-        "hash": "14445529187432293547"
+        "file": "apps/.gitkeep",
+        "hash": "3244421341483603138"
       },
       {
         "file": "libs/theme/variables/_palette.scss",
         "hash": "2943658661485142617"
       },
       {
-        "file": "tools/tsconfig.tools.json",
-        "hash": "16088922570277978783"
+        "file": ".github/workflows/development.yml",
+        "hash": "10577822526619538010"
       },
       {
-        "file": ".vscode/settings.json",
-        "hash": "16669698489301453613"
+        "file": "libs/theme/variables/_typography.scss",
+        "hash": "10445983366270872061"
       },
       {
-        "file": "infra/Dockerfile.resume",
-        "hash": "10862739728144964428"
+        "file": ".dockerignore",
+        "hash": "2051239443920455407"
       },
       {
-        "file": "libs/theme/_globals.scss",
-        "hash": "4145092238198523015"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "235626400633494639"
+        "file": ".github/workflows/production.yml",
+        "hash": "9943186406007617364"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "5938613800042618473"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "4059735078897953533"
+        "file": "jest.preset.js",
+        "hash": "14932722313705501266"
       },
       {
-        "file": "libs/theme/_theme-config.scss",
-        "hash": "16950268391248411251"
-      },
-      {
-        "file": ".github/workflows/development.yml",
-        "hash": "10577822526619538010"
+        "file": "infra/Dockerfile.cms",
+        "hash": "2171251260521876235"
       },
       {
         "file": "nx.json",
         "hash": "230079145323515653"
+      },
+      {
+        "file": "CODE_OF_CONDUCT.md",
+        "hash": "1210143655683272091"
+      },
+      {
+        "file": "babel.config.json",
+        "hash": "5546405625092116747"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "8865097869854018350"
       }
     ],
     "projectFileMap": {
@@ -794,129 +794,229 @@
           "hash": "14909012727429369469"
         }
       ],
-      "back-resume": [
+      "assets": [
         {
-          "file": "apps/back-resume/.eslintrc.json",
+          "file": "libs/assets/.eslintrc.json",
           "hash": "13800677001662881425"
         },
         {
-          "file": "apps/back-resume/.local.env",
-          "hash": "17828912378990095931"
+          "file": "libs/assets/README.md",
+          "hash": "6231827512503862145"
         },
         {
-          "file": "apps/back-resume/.test.env",
-          "hash": "7100944151844519050"
+          "file": "libs/assets/package.json",
+          "hash": "73538106940283162"
         },
         {
-          "file": "apps/back-resume/jest.config.ts",
-          "hash": "10117454068588385837"
+          "file": "libs/assets/project.json",
+          "hash": "9147531039050775303"
         },
         {
-          "file": "apps/back-resume/project.json",
-          "hash": "2083352400190554793"
+          "file": "libs/assets/src/fonts/montserrat.eot",
+          "hash": "7273806197133787437"
         },
         {
-          "file": "apps/back-resume/src/app/app.controller.ts",
-          "hash": "16829926735074085302",
+          "file": "libs/assets/src/fonts/montserrat.ttf",
+          "hash": "7954986609523831250"
+        },
+        {
+          "file": "libs/assets/src/fonts/montserrat.woff",
+          "hash": "15249419071044512271"
+        },
+        {
+          "file": "libs/assets/src/fonts/montserrat.woff2",
+          "hash": "10608776567931229208"
+        },
+        {
+          "file": "libs/assets/src/image/Rectangle-vertical.png",
+          "hash": "17520988374860988353"
+        },
+        {
+          "file": "libs/assets/src/image/Rectangle.png",
+          "hash": "1190680156976297620"
+        },
+        {
+          "file": "libs/assets/src/image/faq.png",
+          "hash": "8518803222163358886"
+        },
+        {
+          "file": "libs/assets/src/image/logo-dark.png",
+          "hash": "8165447128695740551"
+        },
+        {
+          "file": "libs/assets/src/image/logo-light.png",
+          "hash": "14088077140528724430"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-horizontal-dark.png",
+          "hash": "4783690449262601479"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-horizontal-light.png",
+          "hash": "9058977168358323720"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-horizontal.png",
+          "hash": "15690391710280100537"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-vertical-dark.png",
+          "hash": "6733613260477364962"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-vertical-light.png",
+          "hash": "7840791372848099803"
+        },
+        {
+          "file": "libs/assets/src/image/logo-with-typography-vertical.png",
+          "hash": "7867625552289997568"
+        },
+        {
+          "file": "libs/assets/src/image/logo.png",
+          "hash": "14590100021951847272"
+        },
+        {
+          "file": "libs/assets/src/image/person.png",
+          "hash": "14922460504331449394"
+        },
+        {
+          "file": "libs/assets/src/image/social/apple.png",
+          "hash": "3848454452630863943"
+        },
+        {
+          "file": "libs/assets/src/image/social/facebook.png",
+          "hash": "14293612099149195242"
+        },
+        {
+          "file": "libs/assets/src/image/social/google.png",
+          "hash": "15808557572289176527"
+        },
+        {
+          "file": "libs/assets/src/index.ts",
+          "hash": "4595979742548113990"
+        },
+        {
+          "file": "libs/assets/src/svg/add-circle-rounded.svg",
+          "hash": "4865917125548217084"
+        },
+        {
+          "file": "libs/assets/src/svg/cloud.svg",
+          "hash": "8413583284104207405"
+        },
+        {
+          "file": "libs/assets/src/svg/international.svg",
+          "hash": "11663409080936958921"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-dark.svg",
+          "hash": "11577837180107331722"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-light.svg",
+          "hash": "349328234827650343"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-horizontal-dark.svg",
+          "hash": "8713188963396813252"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-horizontal-light.svg",
+          "hash": "16451746925379859289"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-horizontal.svg",
+          "hash": "9711951243796538690"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-vertical-dark.svg",
+          "hash": "1852923357727277713"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-vertical-light.svg",
+          "hash": "9536108494251965475"
+        },
+        {
+          "file": "libs/assets/src/svg/logo-with-typography-vertical.svg",
+          "hash": "2143032901237862265"
+        },
+        {
+          "file": "libs/assets/src/svg/logo.svg",
+          "hash": "14777584086934710746"
+        },
+        {
+          "file": "libs/assets/src/svg/rocket.svg",
+          "hash": "13471757100171449385"
+        },
+        {
+          "file": "libs/assets/src/svg/solar-pen-bold.svg",
+          "hash": "5680379993702250967"
+        },
+        {
+          "file": "libs/assets/tsconfig.json",
+          "hash": "634795086719220447"
+        },
+        {
+          "file": "libs/assets/tsconfig.lib.json",
+          "hash": "3632393694954060084"
+        }
+      ],
+      "back-auth": [
+        {
+          "file": "apps/back-auth/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "apps/back-auth/.local.env",
+          "hash": "5869511423541526578"
+        },
+        {
+          "file": "apps/back-auth/.test.env",
+          "hash": "15795863297438314509"
+        },
+        {
+          "file": "apps/back-auth/jest.config.ts",
+          "hash": "12323896252568319713"
+        },
+        {
+          "file": "apps/back-auth/project.json",
+          "hash": "1965032023592241592"
+        },
+        {
+          "file": "apps/back-auth/src/app/app.controller.ts",
+          "hash": "1645085445394379682",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/app.module.ts",
-          "hash": "14081724337922417137",
+          "file": "apps/back-auth/src/app/app.module.ts",
+          "hash": "1683694409703222537",
           "deps": [
             "npm:@nestjs/common",
-            "npm:@nestjs/passport",
             "back-common",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/mongoose",
             "npm:@nestjs/config"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/enums/environment-variable.enum.ts",
-          "hash": "2624587631864121633"
+          "file": "apps/back-auth/src/app/enums/environment-variable.enum.ts",
+          "hash": "18279405284960388971"
         },
         {
-          "file": "apps/back-resume/src/app/enums/index.ts",
-          "hash": "6052534238315335812",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "enums"
-          ]
+          "file": "apps/back-auth/src/app/enums/index.ts",
+          "hash": "4782308521087589150"
         },
         {
-          "file": "apps/back-resume/src/app/models/certification.model.ts",
-          "hash": "13151096178895014278",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/course-work.model.ts",
-          "hash": "11059598892781878123",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/education.model.ts",
-          "hash": "12959015523154598909",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/experience.model.ts",
-          "hash": "12620959507942560060",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/index.ts",
-          "hash": "6607616243430897599",
+          "file": "apps/back-auth/src/app/models/index.ts",
+          "hash": "1260368074489622272",
           "deps": [
             "npm:@nestjs/mongoose"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/models/involvement.model.ts",
-          "hash": "7574665234075713840",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/language.model.ts",
-          "hash": "126720847718156019",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/project.model.ts",
-          "hash": "3415647127097553380",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/models/resume.model.ts",
-          "hash": "17314470458736391007",
+          "file": "apps/back-auth/src/app/models/user.model.ts",
+          "hash": "15103419069767619013",
           "deps": [
             "npm:@nestjs/graphql",
             "npm:@nestjs/mongoose",
@@ -925,7 +1025,49 @@
           ]
         },
         {
-          "file": "apps/back-resume/src/app/modules/db/db.module.ts",
+          "file": "apps/back-auth/src/app/modules/auth/auth.controller.ts",
+          "hash": "13296625213929948311",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:express",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/modules/auth/auth.module.ts",
+          "hash": "16483103694962062788",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/modules/auth/auth.resolver.ts",
+          "hash": "5400835688580570199",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/common",
+            "back-common"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/modules/auth/auth.service.ts",
+          "hash": "5371202765590468177",
+          "deps": [
+            "dto",
+            "npm:@nestjs/jwt",
+            "errors",
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose",
+            "back-common",
+            "npm:@nestjs/config"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/modules/db/db.module.ts",
           "hash": "16179918448244937933",
           "deps": [
             "npm:@nestjs/common",
@@ -933,8 +1075,8 @@
           ]
         },
         {
-          "file": "apps/back-resume/src/app/modules/db/db.service.ts",
-          "hash": "4323035667888706743",
+          "file": "apps/back-auth/src/app/modules/db/db.service.ts",
+          "hash": "17083236064086327252",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/mongoose",
@@ -942,173 +1084,625 @@
           ]
         },
         {
-          "file": "apps/back-resume/src/app/modules/graphql/graphql.module.ts",
-          "hash": "11764545106314684699",
+          "file": "apps/back-auth/src/app/modules/graphql/graphql.module.ts",
+          "hash": "12545977147000914963",
           "deps": [
+            "npm:@apollo/server/plugin/disabled",
             "npm:@nestjs/apollo",
             "npm:@nestjs/common",
             "npm:@nestjs/config",
-            "npm:@nestjs/graphql",
-            "npm:@apollo/server/plugin/disabled"
+            "npm:@nestjs/graphql"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/modules/resume/resume.module.ts",
-          "hash": "12175154805581284323",
+          "file": "apps/back-auth/src/app/modules/jwt/jwt.module.ts",
+          "hash": "3389224166037840862",
           "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/modules/resume/resume.resolver.ts",
-          "hash": "11957122737127790974",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "back-common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/passport",
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/modules/resume/resume.service.ts",
-          "hash": "12183499263309025040",
+          "file": "apps/back-auth/src/app/strategies/github.strategy.ts",
+          "hash": "11694098288397093986",
           "deps": [
-            "npm:mongoose",
             "npm:@nestjs/common",
+            "npm:@nestjs/config",
             "npm:@nestjs/mongoose",
-            "errors",
-            "dto",
-            "back-common"
+            "npm:@nestjs/passport",
+            "npm:mongoose",
+            "npm:passport-github2"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/test/helper/IntegrationTestManager.ts",
-          "hash": "17819432049635768890",
+          "file": "apps/back-auth/src/app/strategies/google.strategy.ts",
+          "hash": "135310386359596890",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/mongoose",
+            "npm:@nestjs/passport",
+            "npm:mongoose",
+            "npm:passport-google-oauth20"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/strategies/index.ts",
+          "hash": "8642803765521697312"
+        },
+        {
+          "file": "apps/back-auth/src/app/strategies/linkedin.strategy.ts",
+          "hash": "2773809256777596475",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/mongoose",
+            "npm:@nestjs/passport",
+            "npm:mongoose",
+            "npm:passport-linkedin-oauth2"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/test/helper/IntegrationTestManager.ts",
+          "hash": "1526819734199656715",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/testing"
           ]
         },
         {
-          "file": "apps/back-resume/src/app/test/helper/helper.db.ts",
-          "hash": "912860260878557953",
+          "file": "apps/back-auth/src/app/test/helper/helper.db.ts",
+          "hash": "5234958679978559281",
           "deps": [
+            "npm:@faker-js/faker",
             "npm:@nestjs/common",
-            "npm:@faker-js/faker",
-            "npm:moment",
             "npm:mongoose",
-            "enums"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/test/helper/index.ts",
-          "hash": "496229115254592654"
-        },
-        {
-          "file": "apps/back-resume/src/app/test/resume/create-resume.spec.ts",
-          "hash": "15137894010914852362",
-          "deps": [
-            "back-common",
-            "npm:@faker-js/faker",
-            "npm:graphql-tag",
-            "npm:moment",
-            "npm:supertest-graphql",
-            "dto",
-            "enums",
-            "errors"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/test/resume/delete-resume.spec.ts",
-          "hash": "8322069803421399083",
-          "deps": [
-            "back-common",
-            "errors",
-            "dto",
-            "npm:graphql-tag",
-            "npm:mongoose",
-            "npm:supertest-graphql"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/test/resume/get-resume-by-id.spec.ts",
-          "hash": "17415658525806310865",
-          "deps": [
-            "back-common",
-            "errors",
-            "dto",
-            "npm:graphql-tag",
-            "npm:mongoose",
-            "npm:supertest-graphql"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/test/resume/get-resumes.spec.ts",
-          "hash": "6069536330257592925",
-          "deps": [
-            "back-common",
-            "dto",
-            "npm:graphql-tag",
-            "npm:supertest-graphql"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/app/test/resume/update-resume.spec.ts",
-          "hash": "13245267157693462034",
-          "deps": [
-            "back-common",
-            "errors",
-            "dto",
-            "npm:@faker-js/faker",
-            "npm:graphql-tag",
-            "npm:mongoose",
-            "npm:supertest-graphql",
-            "npm:moment",
-            "enums"
-          ]
-        },
-        {
-          "file": "apps/back-resume/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-resume/src/main.ts",
-          "hash": "12079135154154284453",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
             "back-common"
           ]
         },
         {
-          "file": "apps/back-resume/src/schema.gql",
-          "hash": "17696332200675906405"
+          "file": "apps/back-auth/src/app/test/helper/index.ts",
+          "hash": "496229115254592654"
         },
         {
-          "file": "apps/back-resume/src/setup-app.ts",
-          "hash": "5748545079654956718",
+          "file": "apps/back-auth/src/app/test/resume/get-profile.spec.ts",
+          "hash": "6875487182825983143",
+          "deps": [
+            "back-common",
+            "errors",
+            "npm:graphql-tag",
+            "npm:supertest-graphql"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/test/resume/sign-in.spec.ts",
+          "hash": "8713527569734647439",
+          "deps": [
+            "npm:supertest-graphql",
+            "npm:graphql-tag",
+            "dto",
+            "npm:@faker-js/faker",
+            "errors"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/app/test/resume/sign-up.spec.ts",
+          "hash": "17065980085161942915",
+          "deps": [
+            "npm:supertest-graphql",
+            "npm:graphql-tag",
+            "dto",
+            "npm:@faker-js/faker",
+            "errors"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-auth/src/index.d.ts",
+          "hash": "14814035825283034989",
+          "deps": [
+            "npm:src/entities"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/main.ts",
+          "hash": "7314354872188236346",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "back-common",
+            "npm:express-session"
+          ]
+        },
+        {
+          "file": "apps/back-auth/src/schema.gql",
+          "hash": "839119001212777388"
+        },
+        {
+          "file": "apps/back-auth/src/setup-app.ts",
+          "hash": "13654373114988974127",
+          "deps": [
+            "npm:@nestjs/common",
+            "back-common"
+          ]
+        },
+        {
+          "file": "apps/back-auth/tsconfig.app.json",
+          "hash": "3171572500325445971"
+        },
+        {
+          "file": "apps/back-auth/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/back-auth/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/back-auth/webpack.config.js",
+          "hash": "1741996030928640101",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "dto": [
+        {
+          "file": "libs/dto/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/dto/README.md",
+          "hash": "10110557639418611773"
+        },
+        {
+          "file": "libs/dto/project.json",
+          "hash": "12261984556220732743"
+        },
+        {
+          "file": "libs/dto/src/auth/index.ts",
+          "hash": "7486718540619727038"
+        },
+        {
+          "file": "libs/dto/src/auth/sign-in.inputs.ts",
+          "hash": "8304312520692563705",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/auth/sign-up.inputs.ts",
+          "hash": "2878764490174737565",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/generate-pdf-of-resume.inputs.ts",
+          "hash": "11341869304477579175",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/get-download-link.args.ts",
+          "hash": "15535372637297312642",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/get-file-by-id.args.ts",
+          "hash": "17229655792198177736",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/get-files.args.ts",
+          "hash": "16555044374948206661",
+          "deps": [
+            "enums",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/get-upload-link-for-profile-image.inputs.ts",
+          "hash": "5567047328718954856",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/file/index.ts",
+          "hash": "18429472649903233642"
+        },
+        {
+          "file": "libs/dto/src/file/verify-uploaded-file.inputs.ts",
+          "hash": "1345346868098367972",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/index.ts",
+          "hash": "14906362982127079771"
+        },
+        {
+          "file": "libs/dto/src/pagination.args.ts",
+          "hash": "137315903768155742",
+          "deps": [
+            "npm:class-transformer",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/resume/create-resume.inputs.ts",
+          "hash": "298718925328221324",
+          "deps": [
+            "enums",
+            "npm:class-transformer",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/resume/delete-resume.inputs.ts",
+          "hash": "8779983627724786015",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/resume/get-resume-by-id.args.ts",
+          "hash": "16882381473946626056",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/resume/get-resumes.args.ts",
+          "hash": "411533687887545284",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/src/resume/index.ts",
+          "hash": "18043856415800601267"
+        },
+        {
+          "file": "libs/dto/src/resume/update-resume.inputs.ts",
+          "hash": "11391656713578619121",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "libs/dto/tsconfig.json",
+          "hash": "14490782888307098276"
+        },
+        {
+          "file": "libs/dto/tsconfig.lib.json",
+          "hash": "8188472110264778699"
+        }
+      ],
+      "back-cms": [
+        {
+          "file": "apps/back-cms/.editorconfig",
+          "hash": "2909426046681820701"
+        },
+        {
+          "file": "apps/back-cms/.env.example",
+          "hash": "3065931810359311169"
+        },
+        {
+          "file": "apps/back-cms/.gitignore",
+          "hash": "10172830409130986677"
+        },
+        {
+          "file": "apps/back-cms/.local.env",
+          "hash": "2932790099616862803"
+        },
+        {
+          "file": "apps/back-cms/.strapi/client/app.js",
+          "hash": "10393317687945891732",
+          "deps": [
+            "npm:@strapi/plugin-documentation/strapi-admin",
+            "npm:@strapi/plugin-i18n/strapi-admin",
+            "npm:@strapi/plugin-users-permissions/strapi-admin",
+            "npm:@strapi/strapi/admin"
+          ]
+        },
+        {
+          "file": "apps/back-cms/.strapi/client/index.html",
+          "hash": "1139141481586457686"
+        },
+        {
+          "file": "apps/back-cms/README.md",
+          "hash": "17132335316338899167"
+        },
+        {
+          "file": "apps/back-cms/config/admin.ts",
+          "hash": "3318224537284219599"
+        },
+        {
+          "file": "apps/back-cms/config/api.ts",
+          "hash": "9672464556671902634"
+        },
+        {
+          "file": "apps/back-cms/config/database.ts",
+          "hash": "13324097011095041066",
+          "deps": [
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/back-cms/config/middlewares.ts",
+          "hash": "14880606890579497784"
+        },
+        {
+          "file": "apps/back-cms/config/server.ts",
+          "hash": "8064313050443797535"
+        },
+        {
+          "file": "apps/back-cms/database/migrations/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-cms/favicon.png",
+          "hash": "15291804428025262948"
+        },
+        {
+          "file": "apps/back-cms/package.json",
+          "hash": "12778237014687233546"
+        },
+        {
+          "file": "apps/back-cms/project.json",
+          "hash": "9326560583637766794"
+        },
+        {
+          "file": "apps/back-cms/public/robots.txt",
+          "hash": "11585738888281099673"
+        },
+        {
+          "file": "apps/back-cms/public/uploads/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-cms/src/admin/app.example.tsx",
+          "hash": "15818449298056872036"
+        },
+        {
+          "file": "apps/back-cms/src/admin/tsconfig.json",
+          "hash": "5118291700334880245"
+        },
+        {
+          "file": "apps/back-cms/src/admin/webpack.config.example.js",
+          "hash": "15592645657430508747"
+        },
+        {
+          "file": "apps/back-cms/src/admin/webpack.config.js",
+          "hash": "11208875553880149577",
+          "deps": [
+            "npm:@nx-extend/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-cms/src/api/category/content-types/category/schema.json",
+          "hash": "10124211389930006307"
+        },
+        {
+          "file": "apps/back-cms/src/api/category/controllers/category.ts",
+          "hash": "4982676703489100010",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/category/documentation/1.0.0/category.json",
+          "hash": "6976924237065184980"
+        },
+        {
+          "file": "apps/back-cms/src/api/category/routes/category.ts",
+          "hash": "143190392472947142",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/category/services/category.ts",
+          "hash": "15561285343920578059",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/faq/content-types/faq/schema.json",
+          "hash": "15343495961408032246"
+        },
+        {
+          "file": "apps/back-cms/src/api/faq/controllers/faq.ts",
+          "hash": "6233078910966709155",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/faq/documentation/1.0.0/faq.json",
+          "hash": "15365901012837490195"
+        },
+        {
+          "file": "apps/back-cms/src/api/faq/routes/faq.ts",
+          "hash": "16393029652283229224",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/faq/services/faq.ts",
+          "hash": "1134327113449804047",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post-meta/content-types/post-meta/schema.json",
+          "hash": "777966609970175468"
+        },
+        {
+          "file": "apps/back-cms/src/api/post-meta/controllers/post-meta.ts",
+          "hash": "10348770854415737865",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post-meta/documentation/1.0.0/post-meta.json",
+          "hash": "6894157229259895072"
+        },
+        {
+          "file": "apps/back-cms/src/api/post-meta/routes/post-meta.ts",
+          "hash": "7855845523394614658",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post-meta/services/post-meta.ts",
+          "hash": "16507686881052609283",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post/content-types/post/schema.json",
+          "hash": "13712673298629591608"
+        },
+        {
+          "file": "apps/back-cms/src/api/post/controllers/post.ts",
+          "hash": "7303595790700117051",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post/documentation/1.0.0/post.json",
+          "hash": "12378883433621982525"
+        },
+        {
+          "file": "apps/back-cms/src/api/post/routes/post.ts",
+          "hash": "8411076496636622928",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/post/services/post.ts",
+          "hash": "13208738365808490783",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/tag/content-types/tag/schema.json",
+          "hash": "14718056283546916224"
+        },
+        {
+          "file": "apps/back-cms/src/api/tag/controllers/tag.ts",
+          "hash": "13514293386101799687",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/tag/documentation/1.0.0/tag.json",
+          "hash": "14565287787750638097"
+        },
+        {
+          "file": "apps/back-cms/src/api/tag/routes/tag.ts",
+          "hash": "11401382434494324789",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/api/tag/services/tag.ts",
+          "hash": "8211701298800792409",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/src/extensions/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-cms/src/extensions/documentation/documentation/1.0.0/full_documentation.json",
+          "hash": "4054278168686800812"
+        },
+        {
+          "file": "apps/back-cms/src/extensions/documentation/public/index.html",
+          "hash": "6511672899158239586"
+        },
+        {
+          "file": "apps/back-cms/src/index.ts",
+          "hash": "11709673509276973984"
+        },
+        {
+          "file": "apps/back-cms/tsconfig.json",
+          "hash": "5988964845001743378"
+        },
+        {
+          "file": "apps/back-cms/types/generated/components.d.ts",
+          "hash": "12054726823334070192",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        },
+        {
+          "file": "apps/back-cms/types/generated/contentTypes.d.ts",
+          "hash": "12303120162818583307",
+          "deps": [
+            "npm:@strapi/strapi"
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "file": "libs/errors/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "libs/errors/README.md",
+          "hash": "9614015180738745449"
+        },
+        {
+          "file": "libs/errors/project.json",
+          "hash": "2507588317838055232"
+        },
+        {
+          "file": "libs/errors/src/index.ts",
+          "hash": "326834206734347302",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "apps/back-resume/tsconfig.app.json",
-          "hash": "9090601054658091226"
+          "file": "libs/errors/tsconfig.json",
+          "hash": "14490782888307098276"
         },
         {
-          "file": "apps/back-resume/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/back-resume/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        },
-        {
-          "file": "apps/back-resume/webpack.config.js",
-          "hash": "1741996030928640101",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
+          "file": "libs/errors/tsconfig.lib.json",
+          "hash": "8188472110264778699"
         }
       ],
       "components": [
@@ -1167,7 +1761,7 @@
         },
         {
           "file": "libs/components/src/index.type.ts",
-          "hash": "8463656802466392614",
+          "hash": "10759130391430862431",
           "deps": [
             "npm:react"
           ]
@@ -1647,6 +2241,10 @@
           "hash": "9341986838937900499"
         },
         {
+          "file": "libs/components/src/lib/Icons/edit.tsx",
+          "hash": "12790186166925033731"
+        },
+        {
           "file": "libs/components/src/lib/Icons/emailAddress.tsx",
           "hash": "850002954518300080"
         },
@@ -1676,7 +2274,7 @@
         },
         {
           "file": "libs/components/src/lib/Icons/index.ts",
-          "hash": "8121788846265453764"
+          "hash": "14927722116195807426"
         },
         {
           "file": "libs/components/src/lib/Icons/international.tsx",
@@ -1739,6 +2337,10 @@
         {
           "file": "libs/components/src/lib/Icons/solarPenBold.tsx",
           "hash": "10609187278197920896"
+        },
+        {
+          "file": "libs/components/src/lib/Icons/trash.tsx",
+          "hash": "12297215776910385732"
         },
         {
           "file": "libs/components/src/lib/Icons/userCircle.tsx",
@@ -1851,7 +2453,7 @@
         },
         {
           "file": "libs/components/src/lib/Menu/index.module.scss",
-          "hash": "3284975449841142453"
+          "hash": "4590266277551150289"
         },
         {
           "file": "libs/components/src/lib/Menu/index.spec.tsx",
@@ -1871,6 +2473,25 @@
         {
           "file": "libs/components/src/lib/Menu/index.tsx",
           "hash": "15938069686607888515",
+          "deps": [
+            "npm:classnames"
+          ]
+        },
+        {
+          "file": "libs/components/src/lib/MyResumeCard/index.module.scss",
+          "hash": "1446809451304039963"
+        },
+        {
+          "file": "libs/components/src/lib/MyResumeCard/index.stories.tsx",
+          "hash": "4688442104099088369",
+          "deps": [
+            "npm:@storybook/react",
+            "assets"
+          ]
+        },
+        {
+          "file": "libs/components/src/lib/MyResumeCard/index.tsx",
+          "hash": "16417419364996685417",
           "deps": [
             "npm:classnames"
           ]
@@ -2036,7 +2657,7 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.module.scss",
-          "hash": "2454728812850626921"
+          "hash": "10862310755878811338"
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.spec.tsx",
@@ -2044,7 +2665,7 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.stories.tsx",
-          "hash": "259903276384461152",
+          "hash": "17519694647613616640",
           "deps": [
             "npm:react",
             "npm:@storybook/react",
@@ -2053,9 +2674,10 @@
         },
         {
           "file": "libs/components/src/lib/ResumeManagement/index.tsx",
-          "hash": "15373925342215704611",
+          "hash": "10902437031369272980",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:classnames"
           ]
         },
         {
@@ -2289,172 +2911,6 @@
           ]
         }
       ],
-      "assets": [
-        {
-          "file": "libs/assets/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "libs/assets/README.md",
-          "hash": "6231827512503862145"
-        },
-        {
-          "file": "libs/assets/package.json",
-          "hash": "73538106940283162"
-        },
-        {
-          "file": "libs/assets/project.json",
-          "hash": "9147531039050775303"
-        },
-        {
-          "file": "libs/assets/src/fonts/montserrat.eot",
-          "hash": "7273806197133787437"
-        },
-        {
-          "file": "libs/assets/src/fonts/montserrat.ttf",
-          "hash": "7954986609523831250"
-        },
-        {
-          "file": "libs/assets/src/fonts/montserrat.woff",
-          "hash": "15249419071044512271"
-        },
-        {
-          "file": "libs/assets/src/fonts/montserrat.woff2",
-          "hash": "10608776567931229208"
-        },
-        {
-          "file": "libs/assets/src/image/Rectangle-vertical.png",
-          "hash": "17520988374860988353"
-        },
-        {
-          "file": "libs/assets/src/image/Rectangle.png",
-          "hash": "1190680156976297620"
-        },
-        {
-          "file": "libs/assets/src/image/faq.png",
-          "hash": "8518803222163358886"
-        },
-        {
-          "file": "libs/assets/src/image/logo-dark.png",
-          "hash": "8165447128695740551"
-        },
-        {
-          "file": "libs/assets/src/image/logo-light.png",
-          "hash": "14088077140528724430"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-horizontal-dark.png",
-          "hash": "4783690449262601479"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-horizontal-light.png",
-          "hash": "9058977168358323720"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-horizontal.png",
-          "hash": "15690391710280100537"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-vertical-dark.png",
-          "hash": "6733613260477364962"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-vertical-light.png",
-          "hash": "7840791372848099803"
-        },
-        {
-          "file": "libs/assets/src/image/logo-with-typography-vertical.png",
-          "hash": "7867625552289997568"
-        },
-        {
-          "file": "libs/assets/src/image/logo.png",
-          "hash": "14590100021951847272"
-        },
-        {
-          "file": "libs/assets/src/image/person.png",
-          "hash": "14922460504331449394"
-        },
-        {
-          "file": "libs/assets/src/image/social/apple.png",
-          "hash": "3848454452630863943"
-        },
-        {
-          "file": "libs/assets/src/image/social/facebook.png",
-          "hash": "14293612099149195242"
-        },
-        {
-          "file": "libs/assets/src/image/social/google.png",
-          "hash": "15808557572289176527"
-        },
-        {
-          "file": "libs/assets/src/index.ts",
-          "hash": "4595979742548113990"
-        },
-        {
-          "file": "libs/assets/src/svg/add-circle-rounded.svg",
-          "hash": "4865917125548217084"
-        },
-        {
-          "file": "libs/assets/src/svg/cloud.svg",
-          "hash": "8413583284104207405"
-        },
-        {
-          "file": "libs/assets/src/svg/international.svg",
-          "hash": "11663409080936958921"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-dark.svg",
-          "hash": "11577837180107331722"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-light.svg",
-          "hash": "349328234827650343"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-horizontal-dark.svg",
-          "hash": "8713188963396813252"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-horizontal-light.svg",
-          "hash": "16451746925379859289"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-horizontal.svg",
-          "hash": "9711951243796538690"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-vertical-dark.svg",
-          "hash": "1852923357727277713"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-vertical-light.svg",
-          "hash": "9536108494251965475"
-        },
-        {
-          "file": "libs/assets/src/svg/logo-with-typography-vertical.svg",
-          "hash": "2143032901237862265"
-        },
-        {
-          "file": "libs/assets/src/svg/logo.svg",
-          "hash": "14777584086934710746"
-        },
-        {
-          "file": "libs/assets/src/svg/rocket.svg",
-          "hash": "13471757100171449385"
-        },
-        {
-          "file": "libs/assets/src/svg/solar-pen-bold.svg",
-          "hash": "5680379993702250967"
-        },
-        {
-          "file": "libs/assets/tsconfig.json",
-          "hash": "634795086719220447"
-        },
-        {
-          "file": "libs/assets/tsconfig.lib.json",
-          "hash": "3632393694954060084"
-        }
-      ],
       "utils": [
         {
           "file": "libs/utils/.eslintrc.json",
@@ -2497,33 +2953,321 @@
           "hash": "11550347367511341917"
         }
       ],
-      "errors": [
+      "back-resume": [
         {
-          "file": "libs/errors/.eslintrc.json",
+          "file": "apps/back-resume/.eslintrc.json",
           "hash": "13800677001662881425"
         },
         {
-          "file": "libs/errors/README.md",
-          "hash": "9614015180738745449"
+          "file": "apps/back-resume/.local.env",
+          "hash": "17828912378990095931"
         },
         {
-          "file": "libs/errors/project.json",
-          "hash": "2507588317838055232"
+          "file": "apps/back-resume/.test.env",
+          "hash": "7100944151844519050"
         },
         {
-          "file": "libs/errors/src/index.ts",
-          "hash": "326834206734347302",
+          "file": "apps/back-resume/jest.config.ts",
+          "hash": "10117454068588385837"
+        },
+        {
+          "file": "apps/back-resume/project.json",
+          "hash": "2083352400190554793"
+        },
+        {
+          "file": "apps/back-resume/src/app/app.controller.ts",
+          "hash": "16829926735074085302",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "libs/errors/tsconfig.json",
-          "hash": "14490782888307098276"
+          "file": "apps/back-resume/src/app/app.module.ts",
+          "hash": "14081724337922417137",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "back-common",
+            "npm:@nestjs/config"
+          ]
         },
         {
-          "file": "libs/errors/tsconfig.lib.json",
-          "hash": "8188472110264778699"
+          "file": "apps/back-resume/src/app/enums/environment-variable.enum.ts",
+          "hash": "2624587631864121633"
+        },
+        {
+          "file": "apps/back-resume/src/app/enums/index.ts",
+          "hash": "6052534238315335812",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "enums"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/certification.model.ts",
+          "hash": "13151096178895014278",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/course-work.model.ts",
+          "hash": "11059598892781878123",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/education.model.ts",
+          "hash": "12959015523154598909",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/experience.model.ts",
+          "hash": "12620959507942560060",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/index.ts",
+          "hash": "6607616243430897599",
+          "deps": [
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/involvement.model.ts",
+          "hash": "7574665234075713840",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/language.model.ts",
+          "hash": "126720847718156019",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/project.model.ts",
+          "hash": "3415647127097553380",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/models/resume.model.ts",
+          "hash": "17314470458736391007",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/mongoose",
+            "back-common",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/db/db.module.ts",
+          "hash": "16179918448244937933",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/db/db.service.ts",
+          "hash": "4323035667888706743",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/graphql/graphql.module.ts",
+          "hash": "11764545106314684699",
+          "deps": [
+            "npm:@nestjs/apollo",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/graphql",
+            "npm:@apollo/server/plugin/disabled"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/resume/resume.module.ts",
+          "hash": "12175154805581284323",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/resume/resume.resolver.ts",
+          "hash": "11957122737127790974",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "back-common",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/modules/resume/resume.service.ts",
+          "hash": "12183499263309025040",
+          "deps": [
+            "npm:mongoose",
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "errors",
+            "dto",
+            "back-common"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/helper/IntegrationTestManager.ts",
+          "hash": "17819432049635768890",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/helper/helper.db.ts",
+          "hash": "912860260878557953",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@faker-js/faker",
+            "npm:moment",
+            "npm:mongoose",
+            "enums"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/helper/index.ts",
+          "hash": "496229115254592654"
+        },
+        {
+          "file": "apps/back-resume/src/app/test/resume/create-resume.spec.ts",
+          "hash": "15137894010914852362",
+          "deps": [
+            "back-common",
+            "npm:@faker-js/faker",
+            "npm:graphql-tag",
+            "npm:moment",
+            "npm:supertest-graphql",
+            "dto",
+            "enums",
+            "errors"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/resume/delete-resume.spec.ts",
+          "hash": "8322069803421399083",
+          "deps": [
+            "back-common",
+            "errors",
+            "dto",
+            "npm:graphql-tag",
+            "npm:mongoose",
+            "npm:supertest-graphql"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/resume/get-resume-by-id.spec.ts",
+          "hash": "17415658525806310865",
+          "deps": [
+            "back-common",
+            "errors",
+            "dto",
+            "npm:graphql-tag",
+            "npm:mongoose",
+            "npm:supertest-graphql"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/resume/get-resumes.spec.ts",
+          "hash": "6069536330257592925",
+          "deps": [
+            "back-common",
+            "dto",
+            "npm:graphql-tag",
+            "npm:supertest-graphql"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/app/test/resume/update-resume.spec.ts",
+          "hash": "13245267157693462034",
+          "deps": [
+            "back-common",
+            "errors",
+            "dto",
+            "npm:@faker-js/faker",
+            "npm:graphql-tag",
+            "npm:mongoose",
+            "npm:supertest-graphql",
+            "npm:moment",
+            "enums"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/back-resume/src/main.ts",
+          "hash": "12079135154154284453",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "back-common"
+          ]
+        },
+        {
+          "file": "apps/back-resume/src/schema.gql",
+          "hash": "17696332200675906405"
+        },
+        {
+          "file": "apps/back-resume/src/setup-app.ts",
+          "hash": "5748545079654956718",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/back-resume/tsconfig.app.json",
+          "hash": "9090601054658091226"
+        },
+        {
+          "file": "apps/back-resume/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/back-resume/tsconfig.spec.json",
+          "hash": "11550347367511341917"
+        },
+        {
+          "file": "apps/back-resume/webpack.config.js",
+          "hash": "1741996030928640101",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
         }
       ],
       "enums": [
@@ -2650,553 +3394,6 @@
         },
         {
           "file": "apps/back-gateway/webpack.config.js",
-          "hash": "1741996030928640101",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
-      "back-common": [
-        {
-          "file": "libs/back-common/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "libs/back-common/README.md",
-          "hash": "3947612893612682947"
-        },
-        {
-          "file": "libs/back-common/project.json",
-          "hash": "4288137998609669068"
-        },
-        {
-          "file": "libs/back-common/src/check-env.ts",
-          "hash": "11094343113104082232"
-        },
-        {
-          "file": "libs/back-common/src/decorators/index.ts",
-          "hash": "15716196660114153706"
-        },
-        {
-          "file": "libs/back-common/src/decorators/user-id.decorator.ts",
-          "hash": "14707611382447641522",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/graphql"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/auth/index.ts",
-          "hash": "7486718540619727038"
-        },
-        {
-          "file": "libs/back-common/src/dto/auth/sign-in.inputs.ts",
-          "hash": "13363584262132697459",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/auth/sign-up.inputs.ts",
-          "hash": "886016230870517209",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/generate-pdf-of-resume.inputs.ts",
-          "hash": "11846646380158675814",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/get-download-link.args.ts",
-          "hash": "17691600407219988099",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/get-file-by-id.args.ts",
-          "hash": "2530241794305610600",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/get-files.args.ts",
-          "hash": "12614180713713027782",
-          "deps": [
-            "dto",
-            "enums",
-            "npm:@nestjs/graphql"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/get-upload-link-for-profile-image.inputs.ts",
-          "hash": "13934621918597103200",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/file/index.ts",
-          "hash": "18429472649903233642"
-        },
-        {
-          "file": "libs/back-common/src/dto/file/verify-uploaded-file.inputs.ts",
-          "hash": "5668773832193041906",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/index.ts",
-          "hash": "15066706573635751421"
-        },
-        {
-          "file": "libs/back-common/src/dto/pagination.args.ts",
-          "hash": "12907615596062493639",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/create-resume.inputs.ts",
-          "hash": "9372381308254094695",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto",
-            "enums"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/delete-resume.inputs.ts",
-          "hash": "2502222001037874921",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/get-resume-by-id.args.ts",
-          "hash": "2255567239194515456",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/get-resumes.args.ts",
-          "hash": "15975233562534711184",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/index.ts",
-          "hash": "5916610853886274022"
-        },
-        {
-          "file": "libs/back-common/src/dto/resume/update-resume.inputs.ts",
-          "hash": "17838896870856332642",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "dto",
-            "enums"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/guards/gql-auth.guard.ts",
-          "hash": "16715325371280629440",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/passport"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/guards/index.ts",
-          "hash": "3918896672032281230"
-        },
-        {
-          "file": "libs/back-common/src/helpers/index.ts",
-          "hash": "7945263833739608586"
-        },
-        {
-          "file": "libs/back-common/src/helpers/jwt.ts",
-          "hash": "102097500435026953"
-        },
-        {
-          "file": "libs/back-common/src/helpers/password.ts",
-          "hash": "6106935720392318057",
-          "deps": [
-            "npm:crypto",
-            "npm:util"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/model/index.ts",
-          "hash": "10107021778666983983"
-        },
-        {
-          "file": "libs/back-common/src/model/pageInfo.ts",
-          "hash": "16371299361461415645",
-          "deps": [
-            "npm:@nestjs/graphql"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/model/paginated.ts",
-          "hash": "7839189148157034076",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/pagination/index.ts",
-          "hash": "2063635071860503063",
-          "deps": [
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/strategies/index.ts",
-          "hash": "10247532376028075023"
-        },
-        {
-          "file": "libs/back-common/src/strategies/jwt.strategy.ts",
-          "hash": "5069642489980260492",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/passport",
-            "npm:passport-jwt"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/test/helpers/authentication-header.ts",
-          "hash": "13869663031934942745",
-          "deps": [
-            "npm:@faker-js/faker",
-            "npm:crypto"
-          ]
-        },
-        {
-          "file": "libs/back-common/src/test/helpers/index.ts",
-          "hash": "14211509659185560153",
-          "deps": [
-            "npm:@nestjs/jwt",
-            "npm:@faker-js/faker",
-            "npm:crypto",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "libs/back-common/tsconfig.json",
-          "hash": "14490782888307098276"
-        },
-        {
-          "file": "libs/back-common/tsconfig.lib.json",
-          "hash": "8188472110264778699"
-        }
-      ],
-      "back-auth": [
-        {
-          "file": "apps/back-auth/.eslintrc.json",
-          "hash": "13800677001662881425"
-        },
-        {
-          "file": "apps/back-auth/.local.env",
-          "hash": "5869511423541526578"
-        },
-        {
-          "file": "apps/back-auth/.test.env",
-          "hash": "15795863297438314509"
-        },
-        {
-          "file": "apps/back-auth/jest.config.ts",
-          "hash": "12323896252568319713"
-        },
-        {
-          "file": "apps/back-auth/project.json",
-          "hash": "1965032023592241592"
-        },
-        {
-          "file": "apps/back-auth/src/app/app.controller.ts",
-          "hash": "1645085445394379682",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/app.module.ts",
-          "hash": "1683694409703222537",
-          "deps": [
-            "npm:@nestjs/common",
-            "back-common",
-            "npm:@nestjs/passport",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/config"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/enums/environment-variable.enum.ts",
-          "hash": "18279405284960388971"
-        },
-        {
-          "file": "apps/back-auth/src/app/enums/index.ts",
-          "hash": "4782308521087589150"
-        },
-        {
-          "file": "apps/back-auth/src/app/models/index.ts",
-          "hash": "1260368074489622272",
-          "deps": [
-            "npm:@nestjs/mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/models/user.model.ts",
-          "hash": "15103419069767619013",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/mongoose",
-            "back-common",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/auth/auth.controller.ts",
-          "hash": "13296625213929948311",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/passport",
-            "npm:express",
-            "npm:@nestjs/config"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/auth/auth.module.ts",
-          "hash": "16483103694962062788",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/jwt",
-            "npm:@nestjs/mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/auth/auth.resolver.ts",
-          "hash": "5400835688580570199",
-          "deps": [
-            "npm:@nestjs/graphql",
-            "npm:@nestjs/common",
-            "back-common"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/auth/auth.service.ts",
-          "hash": "5371202765590468177",
-          "deps": [
-            "dto",
-            "npm:@nestjs/jwt",
-            "errors",
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose",
-            "back-common",
-            "npm:@nestjs/config"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/db/db.module.ts",
-          "hash": "16179918448244937933",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/db/db.service.ts",
-          "hash": "17083236064086327252",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/graphql/graphql.module.ts",
-          "hash": "12545977147000914963",
-          "deps": [
-            "npm:@apollo/server/plugin/disabled",
-            "npm:@nestjs/apollo",
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/graphql"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/modules/jwt/jwt.module.ts",
-          "hash": "3389224166037840862",
-          "deps": [
-            "npm:@nestjs/config",
-            "npm:@nestjs/jwt",
-            "npm:@nestjs/passport",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/strategies/github.strategy.ts",
-          "hash": "11694098288397093986",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/passport",
-            "npm:mongoose",
-            "npm:passport-github2"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/strategies/google.strategy.ts",
-          "hash": "135310386359596890",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/passport",
-            "npm:mongoose",
-            "npm:passport-google-oauth20"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/strategies/index.ts",
-          "hash": "8642803765521697312"
-        },
-        {
-          "file": "apps/back-auth/src/app/strategies/linkedin.strategy.ts",
-          "hash": "2773809256777596475",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/passport",
-            "npm:mongoose",
-            "npm:passport-linkedin-oauth2"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/test/helper/IntegrationTestManager.ts",
-          "hash": "1526819734199656715",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/test/helper/helper.db.ts",
-          "hash": "5234958679978559281",
-          "deps": [
-            "npm:@faker-js/faker",
-            "npm:@nestjs/common",
-            "npm:mongoose",
-            "back-common"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/test/helper/index.ts",
-          "hash": "496229115254592654"
-        },
-        {
-          "file": "apps/back-auth/src/app/test/resume/get-profile.spec.ts",
-          "hash": "6875487182825983143",
-          "deps": [
-            "back-common",
-            "errors",
-            "npm:graphql-tag",
-            "npm:supertest-graphql"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/test/resume/sign-in.spec.ts",
-          "hash": "8713527569734647439",
-          "deps": [
-            "npm:supertest-graphql",
-            "npm:graphql-tag",
-            "dto",
-            "npm:@faker-js/faker",
-            "errors"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/app/test/resume/sign-up.spec.ts",
-          "hash": "17065980085161942915",
-          "deps": [
-            "npm:supertest-graphql",
-            "npm:graphql-tag",
-            "dto",
-            "npm:@faker-js/faker",
-            "errors"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-auth/src/index.d.ts",
-          "hash": "14814035825283034989",
-          "deps": [
-            "npm:src/entities"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/main.ts",
-          "hash": "7314354872188236346",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "back-common",
-            "npm:express-session"
-          ]
-        },
-        {
-          "file": "apps/back-auth/src/schema.gql",
-          "hash": "839119001212777388"
-        },
-        {
-          "file": "apps/back-auth/src/setup-app.ts",
-          "hash": "13654373114988974127",
-          "deps": [
-            "npm:@nestjs/common",
-            "back-common"
-          ]
-        },
-        {
-          "file": "apps/back-auth/tsconfig.app.json",
-          "hash": "3171572500325445971"
-        },
-        {
-          "file": "apps/back-auth/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/back-auth/tsconfig.spec.json",
-          "hash": "11550347367511341917"
-        },
-        {
-          "file": "apps/back-auth/webpack.config.js",
           "hash": "1741996030928640101",
           "deps": [
             "npm:@nx/webpack"
@@ -3568,428 +3765,259 @@
           ]
         }
       ],
-      "back-cms": [
+      "back-common": [
         {
-          "file": "apps/back-cms/.editorconfig",
-          "hash": "2909426046681820701"
-        },
-        {
-          "file": "apps/back-cms/.env.example",
-          "hash": "3065931810359311169"
-        },
-        {
-          "file": "apps/back-cms/.gitignore",
-          "hash": "10172830409130986677"
-        },
-        {
-          "file": "apps/back-cms/.local.env",
-          "hash": "2932790099616862803"
-        },
-        {
-          "file": "apps/back-cms/.strapi/client/app.js",
-          "hash": "10393317687945891732",
-          "deps": [
-            "npm:@strapi/plugin-documentation/strapi-admin",
-            "npm:@strapi/plugin-i18n/strapi-admin",
-            "npm:@strapi/plugin-users-permissions/strapi-admin",
-            "npm:@strapi/strapi/admin"
-          ]
-        },
-        {
-          "file": "apps/back-cms/.strapi/client/index.html",
-          "hash": "1139141481586457686"
-        },
-        {
-          "file": "apps/back-cms/README.md",
-          "hash": "17132335316338899167"
-        },
-        {
-          "file": "apps/back-cms/config/admin.ts",
-          "hash": "3318224537284219599"
-        },
-        {
-          "file": "apps/back-cms/config/api.ts",
-          "hash": "9672464556671902634"
-        },
-        {
-          "file": "apps/back-cms/config/database.ts",
-          "hash": "13324097011095041066",
-          "deps": [
-            "npm:path"
-          ]
-        },
-        {
-          "file": "apps/back-cms/config/middlewares.ts",
-          "hash": "14880606890579497784"
-        },
-        {
-          "file": "apps/back-cms/config/server.ts",
-          "hash": "8064313050443797535"
-        },
-        {
-          "file": "apps/back-cms/database/migrations/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-cms/favicon.png",
-          "hash": "15291804428025262948"
-        },
-        {
-          "file": "apps/back-cms/package.json",
-          "hash": "12778237014687233546"
-        },
-        {
-          "file": "apps/back-cms/project.json",
-          "hash": "9326560583637766794"
-        },
-        {
-          "file": "apps/back-cms/public/robots.txt",
-          "hash": "11585738888281099673"
-        },
-        {
-          "file": "apps/back-cms/public/uploads/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-cms/src/admin/app.example.tsx",
-          "hash": "15818449298056872036"
-        },
-        {
-          "file": "apps/back-cms/src/admin/tsconfig.json",
-          "hash": "5118291700334880245"
-        },
-        {
-          "file": "apps/back-cms/src/admin/webpack.config.example.js",
-          "hash": "15592645657430508747"
-        },
-        {
-          "file": "apps/back-cms/src/admin/webpack.config.js",
-          "hash": "11208875553880149577",
-          "deps": [
-            "npm:@nx-extend/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-cms/src/api/category/content-types/category/schema.json",
-          "hash": "10124211389930006307"
-        },
-        {
-          "file": "apps/back-cms/src/api/category/controllers/category.ts",
-          "hash": "4982676703489100010",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/category/documentation/1.0.0/category.json",
-          "hash": "6976924237065184980"
-        },
-        {
-          "file": "apps/back-cms/src/api/category/routes/category.ts",
-          "hash": "143190392472947142",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/category/services/category.ts",
-          "hash": "15561285343920578059",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/faq/content-types/faq/schema.json",
-          "hash": "15343495961408032246"
-        },
-        {
-          "file": "apps/back-cms/src/api/faq/controllers/faq.ts",
-          "hash": "6233078910966709155",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/faq/documentation/1.0.0/faq.json",
-          "hash": "15365901012837490195"
-        },
-        {
-          "file": "apps/back-cms/src/api/faq/routes/faq.ts",
-          "hash": "16393029652283229224",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/faq/services/faq.ts",
-          "hash": "1134327113449804047",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post-meta/content-types/post-meta/schema.json",
-          "hash": "777966609970175468"
-        },
-        {
-          "file": "apps/back-cms/src/api/post-meta/controllers/post-meta.ts",
-          "hash": "10348770854415737865",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post-meta/documentation/1.0.0/post-meta.json",
-          "hash": "6894157229259895072"
-        },
-        {
-          "file": "apps/back-cms/src/api/post-meta/routes/post-meta.ts",
-          "hash": "7855845523394614658",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post-meta/services/post-meta.ts",
-          "hash": "16507686881052609283",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post/content-types/post/schema.json",
-          "hash": "13712673298629591608"
-        },
-        {
-          "file": "apps/back-cms/src/api/post/controllers/post.ts",
-          "hash": "7303595790700117051",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post/documentation/1.0.0/post.json",
-          "hash": "12378883433621982525"
-        },
-        {
-          "file": "apps/back-cms/src/api/post/routes/post.ts",
-          "hash": "8411076496636622928",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/post/services/post.ts",
-          "hash": "13208738365808490783",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/tag/content-types/tag/schema.json",
-          "hash": "14718056283546916224"
-        },
-        {
-          "file": "apps/back-cms/src/api/tag/controllers/tag.ts",
-          "hash": "13514293386101799687",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/tag/documentation/1.0.0/tag.json",
-          "hash": "14565287787750638097"
-        },
-        {
-          "file": "apps/back-cms/src/api/tag/routes/tag.ts",
-          "hash": "11401382434494324789",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/api/tag/services/tag.ts",
-          "hash": "8211701298800792409",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/src/extensions/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/back-cms/src/extensions/documentation/documentation/1.0.0/full_documentation.json",
-          "hash": "4054278168686800812"
-        },
-        {
-          "file": "apps/back-cms/src/extensions/documentation/public/index.html",
-          "hash": "6511672899158239586"
-        },
-        {
-          "file": "apps/back-cms/src/index.ts",
-          "hash": "11709673509276973984"
-        },
-        {
-          "file": "apps/back-cms/tsconfig.json",
-          "hash": "5988964845001743378"
-        },
-        {
-          "file": "apps/back-cms/types/generated/components.d.ts",
-          "hash": "12054726823334070192",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        },
-        {
-          "file": "apps/back-cms/types/generated/contentTypes.d.ts",
-          "hash": "12303120162818583307",
-          "deps": [
-            "npm:@strapi/strapi"
-          ]
-        }
-      ],
-      "dto": [
-        {
-          "file": "libs/dto/.eslintrc.json",
+          "file": "libs/back-common/.eslintrc.json",
           "hash": "13800677001662881425"
         },
         {
-          "file": "libs/dto/README.md",
-          "hash": "10110557639418611773"
+          "file": "libs/back-common/README.md",
+          "hash": "3947612893612682947"
         },
         {
-          "file": "libs/dto/project.json",
-          "hash": "12261984556220732743"
+          "file": "libs/back-common/project.json",
+          "hash": "4288137998609669068"
         },
         {
-          "file": "libs/dto/src/auth/index.ts",
+          "file": "libs/back-common/src/check-env.ts",
+          "hash": "11094343113104082232"
+        },
+        {
+          "file": "libs/back-common/src/decorators/index.ts",
+          "hash": "15716196660114153706"
+        },
+        {
+          "file": "libs/back-common/src/decorators/user-id.decorator.ts",
+          "hash": "14707611382447641522",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/graphql"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/dto/auth/index.ts",
           "hash": "7486718540619727038"
         },
         {
-          "file": "libs/dto/src/auth/sign-in.inputs.ts",
-          "hash": "8304312520692563705",
+          "file": "libs/back-common/src/dto/auth/sign-in.inputs.ts",
+          "hash": "13363584262132697459",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/auth/sign-up.inputs.ts",
-          "hash": "2878764490174737565",
+          "file": "libs/back-common/src/dto/auth/sign-up.inputs.ts",
+          "hash": "886016230870517209",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/file/generate-pdf-of-resume.inputs.ts",
-          "hash": "11341869304477579175",
+          "file": "libs/back-common/src/dto/file/generate-pdf-of-resume.inputs.ts",
+          "hash": "11846646380158675814",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/file/get-download-link.args.ts",
-          "hash": "15535372637297312642",
+          "file": "libs/back-common/src/dto/file/get-download-link.args.ts",
+          "hash": "17691600407219988099",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/file/get-file-by-id.args.ts",
-          "hash": "17229655792198177736",
+          "file": "libs/back-common/src/dto/file/get-file-by-id.args.ts",
+          "hash": "2530241794305610600",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/file/get-files.args.ts",
-          "hash": "16555044374948206661",
+          "file": "libs/back-common/src/dto/file/get-files.args.ts",
+          "hash": "12614180713713027782",
           "deps": [
+            "dto",
             "enums",
-            "npm:class-validator"
+            "npm:@nestjs/graphql"
           ]
         },
         {
-          "file": "libs/dto/src/file/get-upload-link-for-profile-image.inputs.ts",
-          "hash": "5567047328718954856",
+          "file": "libs/back-common/src/dto/file/get-upload-link-for-profile-image.inputs.ts",
+          "hash": "13934621918597103200",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/file/index.ts",
+          "file": "libs/back-common/src/dto/file/index.ts",
           "hash": "18429472649903233642"
         },
         {
-          "file": "libs/dto/src/file/verify-uploaded-file.inputs.ts",
-          "hash": "1345346868098367972",
+          "file": "libs/back-common/src/dto/file/verify-uploaded-file.inputs.ts",
+          "hash": "5668773832193041906",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/index.ts",
-          "hash": "14906362982127079771"
+          "file": "libs/back-common/src/dto/index.ts",
+          "hash": "15066706573635751421"
         },
         {
-          "file": "libs/dto/src/pagination.args.ts",
-          "hash": "137315903768155742",
+          "file": "libs/back-common/src/dto/pagination.args.ts",
+          "hash": "12907615596062493639",
           "deps": [
-            "npm:class-transformer",
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/resume/create-resume.inputs.ts",
-          "hash": "298718925328221324",
+          "file": "libs/back-common/src/dto/resume/create-resume.inputs.ts",
+          "hash": "9372381308254094695",
           "deps": [
-            "enums",
-            "npm:class-transformer",
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto",
+            "enums"
           ]
         },
         {
-          "file": "libs/dto/src/resume/delete-resume.inputs.ts",
-          "hash": "8779983627724786015",
+          "file": "libs/back-common/src/dto/resume/delete-resume.inputs.ts",
+          "hash": "2502222001037874921",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/resume/get-resume-by-id.args.ts",
-          "hash": "16882381473946626056",
+          "file": "libs/back-common/src/dto/resume/get-resume-by-id.args.ts",
+          "hash": "2255567239194515456",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/resume/get-resumes.args.ts",
-          "hash": "411533687887545284",
+          "file": "libs/back-common/src/dto/resume/get-resumes.args.ts",
+          "hash": "15975233562534711184",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto"
           ]
         },
         {
-          "file": "libs/dto/src/resume/index.ts",
-          "hash": "18043856415800601267"
+          "file": "libs/back-common/src/dto/resume/index.ts",
+          "hash": "5916610853886274022"
         },
         {
-          "file": "libs/dto/src/resume/update-resume.inputs.ts",
-          "hash": "11391656713578619121",
+          "file": "libs/back-common/src/dto/resume/update-resume.inputs.ts",
+          "hash": "17838896870856332642",
           "deps": [
-            "npm:class-validator"
+            "npm:@nestjs/graphql",
+            "dto",
+            "enums"
           ]
         },
         {
-          "file": "libs/dto/tsconfig.json",
+          "file": "libs/back-common/src/guards/gql-auth.guard.ts",
+          "hash": "16715325371280629440",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/guards/index.ts",
+          "hash": "3918896672032281230"
+        },
+        {
+          "file": "libs/back-common/src/helpers/index.ts",
+          "hash": "7945263833739608586"
+        },
+        {
+          "file": "libs/back-common/src/helpers/jwt.ts",
+          "hash": "102097500435026953"
+        },
+        {
+          "file": "libs/back-common/src/helpers/password.ts",
+          "hash": "6106935720392318057",
+          "deps": [
+            "npm:crypto",
+            "npm:util"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/model/index.ts",
+          "hash": "10107021778666983983"
+        },
+        {
+          "file": "libs/back-common/src/model/pageInfo.ts",
+          "hash": "16371299361461415645",
+          "deps": [
+            "npm:@nestjs/graphql"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/model/paginated.ts",
+          "hash": "7839189148157034076",
+          "deps": [
+            "npm:@nestjs/graphql",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/pagination/index.ts",
+          "hash": "2063635071860503063",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/strategies/index.ts",
+          "hash": "10247532376028075023"
+        },
+        {
+          "file": "libs/back-common/src/strategies/jwt.strategy.ts",
+          "hash": "5069642489980260492",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/passport",
+            "npm:passport-jwt"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/test/helpers/authentication-header.ts",
+          "hash": "13869663031934942745",
+          "deps": [
+            "npm:@faker-js/faker",
+            "npm:crypto"
+          ]
+        },
+        {
+          "file": "libs/back-common/src/test/helpers/index.ts",
+          "hash": "14211509659185560153",
+          "deps": [
+            "npm:@nestjs/jwt",
+            "npm:@faker-js/faker",
+            "npm:crypto",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "libs/back-common/tsconfig.json",
           "hash": "14490782888307098276"
         },
         {
-          "file": "libs/dto/tsconfig.lib.json",
+          "file": "libs/back-common/tsconfig.lib.json",
           "hash": "8188472110264778699"
         }
       ]

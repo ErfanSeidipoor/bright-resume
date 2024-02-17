@@ -12,18 +12,35 @@
     z-index: 10;
     background-color: transparent;
     @include flexbox(row, center, center);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    &.show-backdrop {
+        opacity: 1;
+    }
   .modal {
-    position: fixed;
-    top: 10%;
+    position: absolute;
+    bottom: 110px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 100vh);
     width: 90%;
-    min-height: 70%;
+    height: 80vh;
     z-index: 20;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 10px;
     background-color: $grey-50;
-    padding: spacing(4);
+    padding: spacing(10);
+    box-shadow: 0px -4px 24px 0px #0000001A inset;
+    opacity: 0.2;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    &.show-modal {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateX(-50%);
+    }
+    &.modal-story-book {
+       bottom: 10px; 
+    }
     .search {
         flex: 1;
         input {
@@ -31,18 +48,18 @@
         }
     }
     .header {
-        margin-bottom: spacing(4);
+        margin-bottom: spacing(10);
         @include flexbox(row, space-between, center);
         svg {
             cursor: pointer;
         }
     }
-    .resumes-wrapper {
-        @include flexbox(row, flex-start, flex-start, 4,wrap);
+    .body {
+        @include flexbox(row, flex-start, flex-start, 10,wrap);
         .resume {
             img {
-                width: 364px;
-                height: 462px;
+                width: 264px;
+                height: 362px;
             }
             width: auto;
         }

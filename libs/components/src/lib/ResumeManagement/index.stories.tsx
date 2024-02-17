@@ -27,8 +27,6 @@ const Template: StoryFn<typeof ResumeManagement> = (args) => {
       image: resumeCardImage,
       imageWidth: "340px",
       imageHeight: "450px",
-      onEdit: () => {},
-      onDelete: () => {},
     },
     {
       id: "2",
@@ -36,21 +34,36 @@ const Template: StoryFn<typeof ResumeManagement> = (args) => {
       image: resumeCardImage,
       imageWidth: "340px",
       imageHeight: "450px",
-      onEdit: () => {},
-      onDelete: () => {},
+    },
+    {
+      id: "3",
+      title: "Resume 3",
+      image: resumeCardImage,
+      imageWidth: "340px",
+      imageHeight: "450px",
+    },
+    {
+      id: "4",
+      title: "Resume 4",
+      image: resumeCardImage,
+      imageWidth: "340px",
+      imageHeight: "450px",
     },
   ];
-
   return (
     <div id="theme-blue">
       <Button onClick={toggleResumeManagement}>{texts.labelButton}</Button>
 
       {isOpen && (
-        <ResumeManagement onClose={closeResumeManagement} resumes={resumes} />
+        <ResumeManagement
+          onClose={closeResumeManagement}
+          resumes={resumes}
+          {...args}
+        />
       )}
     </div>
   );
 };
 
 export const Main = Template.bind({});
-Main.args = {};
+Main.args = { isStoryBook: true };

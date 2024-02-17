@@ -395,6 +395,7 @@ export type FloatingIconButtonProps =
   };
 
   export type ResumeManagementProps = {
-    resumes: MyResumeCardProps[];
-    onClose: () => void;
+    resumes?: MyResumeCardProps[];
+    onClose?: () => void;
+    isStoryBook?: boolean;
   };
