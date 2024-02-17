@@ -1,9 +1,13 @@
-import { FAQ } from "apps/web/containers/home/faq";
-import { Features } from "apps/web/containers/home/features";
+import { FAQ } from "@web/components/faq";
+import { Features } from "@web/components/features";
 import classes from "./page.module.scss";
-import { Hero } from "apps/web/containers/home/hero";
+import { Hero } from "@web/components/hero";
+import { auth } from "@web/auth";
 
-export default async function Index() {
+export default async function Page() {
+  let session = await auth();
+  let user = session?.user;
+
   return (
     <div className={classes.page}>
       <Hero />
@@ -13,9 +17,3 @@ export default async function Index() {
     </div>
   );
 }
-
-// https://cms-development.bright-resume.com/documentation
-// https://cms-staging.bright-resume.com/documentation#/
-// https://back-staging.bright-resume.com/graphql
-// https://back.bright-resume.com/graphql
-// https://cms.bright-resume.com/documentation

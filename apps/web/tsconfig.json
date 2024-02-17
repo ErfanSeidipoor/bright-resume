@@ -11,12 +11,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2021",
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "types": ["jest", "node"]
+    "types": ["reflect-metadata", "jest", "node"]
   },
   "include": [
     "**/*.ts",

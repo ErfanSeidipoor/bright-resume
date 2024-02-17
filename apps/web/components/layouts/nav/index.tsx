@@ -7,8 +7,10 @@ import Link from "next/link";
 import { MenuIcon } from "@bright-resume/components/Icons";
 import { Sidebar } from "../sidebar";
 import { useOutsideClick } from "./index.hooks";
+import { useSession } from "next-auth/react";
 
 const MainNav: FC = () => {
+  const { status } = useSession();
   const [open, setOpen] = useState(false);
 
   const ref = useOutsideClick(() => setOpen(false));
@@ -33,7 +35,7 @@ const MainNav: FC = () => {
           FAG
         </a>
         <Link className={styles.login_button} href="/login">
-          Login/Sign up
+          {status === "unauthenticated" ? "Login/Sign up" : "Sign out"}
         </Link>
       </div>
 

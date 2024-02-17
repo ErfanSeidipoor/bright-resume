@@ -1,7 +1,18 @@
+import classes from "./index.module.scss";
+
 export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <section>{children}</section>;
+  return (
+    <div className={classes.page}>
+      <div className={classes.hero}>
+        <div />
+      </div>
+      <div className={classes.container}>
+        <div className={classes.wrapper}>{children}</div>
+      </div>
+    </div>
+  );
 }

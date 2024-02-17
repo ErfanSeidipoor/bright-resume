@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import React from "react";
 import { MainLayout } from "apps/web/components/layouts";
 
@@ -6,11 +8,5 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props) {
-  return (
-    <html lang="en">
-      <body suppressHydrationWarning={true}>
-        <MainLayout>{children}</MainLayout>
-      </body>
-    </html>
-  );
+  return <MainLayout>{children}</MainLayout>;
 }
