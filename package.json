@@ -7,22 +7,24 @@
     "auth:build": "nx build back-auth",
     "auth:dev": "nx serve back-auth",
     "auth:test": "nx test back-auth --runInBand",
-    "auth:test:file": "nx serve back-auth --testFile=<file-name>",
+    "auth:test:file": "nx test back-auth --testFile=<file-path>",
     "cms:build": "nx build back-cms",
     "cms:dev": "nx serve back-cms",
     "components": "nx run components:storybook",
     "file:build": "nx build back-file",
     "file:dev": "nx serve back-file",
     "file:test": "nx test back-file --runInBand",
+    "file:test:file": "nx test back-file --testFile=apps/back-file/src/app/test/file/get-file-by-id.spec.ts",
     "gateway:build": "nx build back-gateway",
     "gateway:dev": "nx serve back-gateway",
     "resume:build": "nx build back-resume",
     "resume:dev": "nx serve back-resume",
     "resume:test": "nx test back-resume --runInBand",
+    "resume:test:file": "nx test back-resume --testFile=apps/back-resume/src/app/test/resume/update-resume.spec.ts",
     "web": "nx run web:serve",
     "web:build": "nx run web:build",
     "codegen": "graphql-codegen --config ./apps/web/codegen.ts",
-    "codegen-watch": "env-cmd graphql-codegen -c ./apps/web/codegen.ts --watch"    
+    "codegen-watch": "env-cmd graphql-codegen -c ./apps/web/codegen.ts --watch"
   },
   "dependencies": {
     "@apollo/gateway": "^2.5.6",
@@ -61,12 +63,14 @@
     "mongoose": "^8.0.1",
     "mongoose-paginate-v2": "^1.7.23",
     "nestjs-minio-client": "^2.2.0",
-    "next": "14.0.4",
+    "next": "14.1.0",
     "next-auth": "5.0.0-beta.5",
     "nextjs-progressbar": "^0.0.16",
     "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
+    "passport-linkedin-oauth2": "github:auth0/passport-linkedin-oauth2#v3.0.0",
     "pg": "^8.11.3",
     "puppeteer": "^21.5.2",
     "react": "18.3.0-canary-2cd19ed1d-20240207",
@@ -156,4 +160,3 @@
     "webpack": "^5.88.1"
   }
 }
-

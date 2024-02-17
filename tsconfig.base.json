@@ -23,7 +23,6 @@
       "@assets": ["libs/assets/src/index.ts"],
       "@assets/*": ["libs/assets/src/*"],
       "@back-common/*": ["libs/back-common/src/*"],
-      "@bright-resume/api-common": ["libs/api-common/src/index.ts"],
       "@bright-resume/assets": ["libs/assets/src/index.ts"],
       "@bright-resume/assets/*": ["libs/assets/src/*"],
       "@bright-resume/back-auth/*": ["apps/back-auth/src/*"],
@@ -39,7 +38,7 @@
       "@enums": ["libs/enums/src/index.ts"],
       "@errors": ["libs/errors/src/index.ts"],
       "@libs/scss": ["libs/components/scss"],
-      "@utils": ["libs/utils/src/index.ts"],      
+      "@utils": ["libs/utils/src/index.ts"]
     },
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },

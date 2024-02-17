@@ -34,8 +34,11 @@ export type TextAreaProps =
 export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: TypographyVariant;
   rootClassName?: string;
+  containerClassName?: string;
   enableRootClassName?: string;
   label?: string;
+  isMinimal?: boolean;
+  fullWidth?: boolean;
 };
 
 export type BackgroundInfoChildKeys =
@@ -94,6 +97,115 @@ export type ExperienceProps = {
   header: TextFieldProps;
   items: ExperienceChildProps[];
   hoverItem?: ExperienceChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type CertificationChildProps = {
+  id: string;
+  name: TextFieldProps;
+  institute?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type CertificationProps = {
+  header: TextFieldProps;
+  items: CertificationChildProps[];
+  hoverItem?: CertificationChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type CourseWorkChildProps = {
+  id: string;
+  name: TextFieldProps;
+  institute?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  skills?: TextAreaProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showSkills?: showOptionsType;
+};
+
+export type CourseWorkProps = {
+  header: TextFieldProps;
+  items: CourseWorkChildProps[];
+  hoverItem?: CourseWorkChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type ProjectChildProps = {
+  id: string;
+  title: TextFieldProps;
+  role?: TextFieldProps;
+  company?: TextFieldProps;
+  location?: TextFieldProps;
+  url?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showRole?: showOptionsType;
+  showCompany?: showOptionsType;
+  showUrl?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type ProjectProps = {
+  header: TextFieldProps;
+  items: ProjectChildProps[];
+  hoverItem?: ProjectChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type InvolvementChildProps = {
+  id: string;
+  role: TextFieldProps;
+  company?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showCompany?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+};
+
+export type InvolvementProps = {
+  header: TextFieldProps;
+  items: InvolvementChildProps[];
+  hoverItem?: InvolvementChildProps;
+  onIncrease: () => void;
+  onDecrease: (id: string) => void;
+};
+
+export type EducationChildProps = {
+  id: string;
+  degree: TextFieldProps;
+  institute?: TextFieldProps;
+  gpa?: TextFieldProps;
+  location?: TextFieldProps;
+  rangeDate?: RangePickerProps;
+  points?: TextAreaProps;
+  showInstitute?: showOptionsType;
+  showLocation?: showOptionsType;
+  showDate?: showOptionsType;
+  showPoints?: showOptionsType;
+  showGpa?: showOptionsType;
+};
+
+export type EducationProps = {
+  header: TextFieldProps;
+  items: EducationChildProps[];
+  hoverItem?: EducationChildProps;
   onIncrease: () => void;
   onDecrease: (id: string) => void;
 };

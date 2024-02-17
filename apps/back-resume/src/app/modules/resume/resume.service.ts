@@ -18,14 +18,10 @@ import {
 import { paginate } from "@bright-resume/back-common/pagination";
 
 import { PaginatedResume, Resume } from "../../models/resume.model";
-import { Experience } from "../../models";
 
 @Injectable()
 export class ResumeService {
-  constructor(
-    @InjectModel(Resume.name) private resumeModel: Model<Resume>,
-    @InjectModel(Experience.name) private experienceModel: Model<Experience>
-  ) {}
+  constructor(@InjectModel(Resume.name) private resumeModel: Model<Resume>) {}
 
   async getResumes(
     userId: string,

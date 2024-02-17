@@ -3,15 +3,15 @@
 .root {
   background-color: var(--primary);
   color: var(--light);
-  padding-bottom: spacing(8);
-  padding-left: spacing(15);
   .field__container {
     display: flex;
     gap: spacing(3);
     align-items: center;
     padding-bottom: 20px;
+    width: 200px;
     .field {
       color: var(--light);
+      width: 170px;
       input {
         color: var(--light);
         &::placeholder {

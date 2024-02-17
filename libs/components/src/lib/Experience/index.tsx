@@ -80,6 +80,32 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
+  const renderMenu = (child: ExperienceChildProps) => {
+    if (data.showMenuId !== child.id) return;
+    return (
+      <div className={classes.menu__wrapper}>
+        <CheckBox
+          checked={child.showLocation?.isShow}
+          onClick={child.showLocation?.onToggle}
+          onChange={child.showLocation?.onToggle}
+          label="Location"
+        />
+        <CheckBox
+          checked={child.showDate?.isShow}
+          onClick={child.showDate?.onToggle}
+          onChange={child.showDate?.onToggle}
+          label="Date"
+        />
+        <CheckBox
+          checked={child.showPoints?.isShow}
+          onClick={child.showPoints?.onToggle}
+          onChange={child.showPoints?.onToggle}
+          label="Points"
+        />
+      </div>
+    );
+  };
+
   const renderFields = (child: ExperienceChildProps, index: number) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
@@ -87,15 +113,17 @@ export const Experience: FC<ExperienceProps> = ({
           <div className={classes.title__wrapper}>
             <TextField
               {...child.role}
+              fullWidth
               variant="h4"
               placeholder={child.role.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.role.rootClassName || ""]: !!child.role.rootClassName,
+              containerClassName={cls(classes.title, {
+                [child.role.containerClassName || ""]:
+                  !!child.role.containerClassName,
               })}
             />
           </div>
           <div className={classes.title__left_side}>
-            {!!index && (
+            {items.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
@@ -112,39 +140,20 @@ export const Experience: FC<ExperienceProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {data.showMenuId === child.id && (
-                <div className={classes.menu__wrapper}>
-                  <CheckBox
-                    checked={child.showLocation?.isShow}
-                    onClick={child.showLocation?.onToggle}
-                    onChange={child.showLocation?.onToggle}
-                    label="Location"
-                  />
-                  <CheckBox
-                    checked={child.showDate?.isShow}
-                    onClick={child.showDate?.onToggle}
-                    onChange={child.showDate?.onToggle}
-                    label="Date"
-                  />
-                  <CheckBox
-                    checked={child.showPoints?.isShow}
-                    onClick={child.showPoints?.onToggle}
-                    onChange={child.showPoints?.onToggle}
-                    label="Points"
-                  />
-                </div>
-              )}
+              {renderMenu(child)}
             </div>
           </div>
         </div>
         <TextField
           {...child.company}
+          fullWidth
           variant="h5"
           placeholder={child.company.placeholder}
         />
         {child.showLocation?.isShow && child.location && (
           <TextField
             {...child.location}
+            fullWidth
             variant="h7"
             placeholder={child.location.placeholder}
           />

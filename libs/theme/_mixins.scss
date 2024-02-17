@@ -62,6 +62,7 @@
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+  flex-wrap: nowrap;
   gap: spacing($gap);
   flex-wrap: $wrap;
 }

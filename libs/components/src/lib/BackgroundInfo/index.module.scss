@@ -1,7 +1,7 @@
 @import "../../../../theme/index";
 
 .container {
-  padding: spacing(5, 5, 5, 15);
+  padding: spacing(5);
   background-color: var(--light);
   color: var(--dark);
   display: flex;
@@ -54,10 +54,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: spacing(2);
         .title__wrapper {
           display: flex;
           gap: spacing(2);
           align-items: center;
+          width: 100%;
           .title {
             &:before {
               content: " ";

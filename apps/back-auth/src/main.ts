@@ -5,12 +5,14 @@ import { AppModule } from "./app/app.module";
 import { setupApp } from "./setup-app";
 import { checkEnv } from "@back-common/check-env";
 import { EnvironmentVariablesEnum } from "./app/enums";
+import session from "express-session";
 
 async function bootstrap() {
   checkEnv(EnvironmentVariablesEnum);
   const app = await NestFactory.create(AppModule);
   setupApp(app);
   const port = 4001;
+  app.use(session({ secret: "secret" }));
   app.setGlobalPrefix("auth");
   await app.listen(port);
   Logger.log(
