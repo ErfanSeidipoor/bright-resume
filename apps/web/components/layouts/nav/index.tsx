@@ -8,10 +8,12 @@ import { MenuIcon } from "@bright-resume/components/Icons";
 import { Sidebar } from "../sidebar";
 import { useOutsideClick } from "./index.hooks";
 import { useSession } from "next-auth/react";
+import { handleSignOut } from "./action";
 
 export default function MainNav() {
-  const { status } = useSession();
+  const { update, data, status } = useSession();
   const [open, setOpen] = useState(false);
+  console.log("status", { status, update, data });
 
   const ref = useOutsideClick(() => setOpen(false));
 
@@ -34,9 +36,16 @@ export default function MainNav() {
         <a className={classes.links} href="#faq-section">
           FAG
         </a>
-        <Link className={classes.login_button} href="/login">
-          {status === "unauthenticated" ? "Login/Sign up" : "Sign out"}
-        </Link>
+
+        {status === "unauthenticated" ? (
+          <Link className={classes.login_button} href="/login">
+            Login/Sign up
+          </Link>
+        ) : (
+          <form className={classes.login_button} action={handleSignOut}>
+            Sign out
+          </form>
+        )}
       </div>
 
       <div ref={ref} className={classes.menu} onClick={() => setOpen(!open)}>

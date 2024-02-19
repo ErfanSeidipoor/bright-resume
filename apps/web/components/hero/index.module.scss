@@ -24,26 +24,22 @@
   }
 
   .hero__title__wrapper {
-    @include typography(h1);
-    font-weight: map-get($font-weight, regular);
+    @include typography(h2);
+    font-weight: map-get($font-weight, reguler);
+    @include flexbox(column, null, center);
     position: relative;
     top: 5rem;
-    max-width: 400px;
-    text-align: center;
     z-index: 1;
 
     @include sm {
-      @include typography(h7);
-      font-weight: map-get($font-weight, bold);
-      line-height: 300%;
+      text-align: center;
+      @include typography(h3);
+      font-weight: map-get($font-weight, reguler);
     }
 
     .message {
-      @include typography(h1);
-      line-height: 1;
-      word-spacing: 1px;
-      text-align: center;
-      display: inline-block;
+      @include typography(h3);
+      font-weight: map-get($font-weight, bold);
       margin-bottom: 20px;
 
       .blue {

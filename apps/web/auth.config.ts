@@ -2,7 +2,7 @@ import type { NextAuthConfig, Session } from "next-auth";
 import { routes } from "./utils/routes";
 
 export const authConfig = {
-  debug: true,
+  debug: process.env.NODE_ENV !== "production",
   pages: {
     signIn: "/login",
   },

@@ -5,6 +5,7 @@ import classes from "../index.module.scss";
 import Link from "next/link";
 import { useData } from "./useData";
 import { useFormStatus } from "react-dom";
+import { useRouter } from "next/navigation";
 
 function Submit() {
   const { pending } = useFormStatus();
@@ -16,12 +17,12 @@ function Submit() {
 }
 
 export default function Login() {
-  // const router = useRouter();
-  const { errors, register, state, serverResponse } = useData();
+  const router = useRouter();
+  const { errors, register, state } = useData();
 
   useEffect(() => {
-    if (state?.status === "authenticated") {
-      // router.back();
+    if (state?.user) {
+      router.back();
     }
   }, [state]);
 
