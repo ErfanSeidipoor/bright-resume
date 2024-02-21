@@ -13,7 +13,7 @@ export const SaveIcon = (props: React.SVGProps<SVGSVGElement>) => {
         cy="20"
         r="19.5"
         fill="white"
-        fill-opacity="0.2"
+        fillOpacity="0.2"
         stroke="#3A86FF"
       />
       <path

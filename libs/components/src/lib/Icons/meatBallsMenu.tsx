@@ -13,7 +13,7 @@ export const MeatBallsMenuIcon = (props: React.SVGProps<SVGSVGElement>) => (
       r="5"
       transform="matrix(-4.37114e-08 1 1 4.37114e-08 0 0)"
       fill="#3A86FF"
-      fill-opacity="0.7"
+      fillOpacity="0.7"
     />
     <circle
       cx="5"
@@ -21,7 +21,7 @@ export const MeatBallsMenuIcon = (props: React.SVGProps<SVGSVGElement>) => (
       r="5"
       transform="matrix(-4.37114e-08 1 1 4.37114e-08 12.5 0)"
       fill="#3A86FF"
-      fill-opacity="0.7"
+      fillOpacity="0.7"
     />
     <circle
       cx="5"
@@ -29,7 +29,7 @@ export const MeatBallsMenuIcon = (props: React.SVGProps<SVGSVGElement>) => (
       r="5"
       transform="matrix(-4.37114e-08 1 1 4.37114e-08 25 0)"
       fill="#3A86FF"
-      fill-opacity="0.7"
+      fillOpacity="0.7"
     />
   </svg>
 );
