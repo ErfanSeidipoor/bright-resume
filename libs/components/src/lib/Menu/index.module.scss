@@ -62,6 +62,10 @@
       position: absolute;
       bottom: spacing(16);
       left: spacing(0);
+      bottom: 10mm;
+      display: flex;
+      flex-direction: column;
+      gap: spacing(3);
     }
 
     .colors__container {
