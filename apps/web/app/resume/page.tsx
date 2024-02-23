@@ -15,28 +15,20 @@ const ResumePage = () => {
   const theme = useTheme();
   console.log(theme);
   return (
-    <ThemeProvider
-      fonSize={theme.fonSize}
-      fontFamily={theme.fontFamily}
-      themeColor={theme.themeColor}
-    >
-      <div className={classes.resume__container}>
-        <ResumeSidebar />
-        <ResumeContent />
-        {/* <div className={classes.menu__wrapper}> */}
-        <Menu
-          color={theme.themeColor}
-          fonSize={theme.fonSize}
-          fontFamily={theme.fontFamily}
-          onChangeColor={theme.changeThemeColor}
-          onChangeFontFamily={theme.changeFontFamily}
-          onChangeFontSize={theme.changeFontSize}
-          sections={[]}
-          onChangeSections={() => undefined}
-        />
-      </div>
-      {/* </div> */}
-    </ThemeProvider>
+    <div className={classes.resume__container}>
+      <ResumeSidebar />
+      <ResumeContent />
+      <Menu
+        color={theme.themeColor}
+        fonSize={theme.fonSize}
+        fontFamily={theme.fontFamily}
+        onChangeColor={theme.changeThemeColor}
+        onChangeFontFamily={theme.changeFontFamily}
+        onChangeFontSize={theme.changeFontSize}
+        sections={[]}
+        onChangeSections={() => undefined}
+      />
+    </div>
   );
 };
 

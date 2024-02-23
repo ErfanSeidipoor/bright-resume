@@ -7,10 +7,14 @@
 }
 
 .root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: spacing(2);
+  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: spacing(2);
+  }
 }
 
 .resume__container {
