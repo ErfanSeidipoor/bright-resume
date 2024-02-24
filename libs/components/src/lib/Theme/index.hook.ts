@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 // locals
 import { FontFamily, FonSize, ThemeColor } from "../../index.type";

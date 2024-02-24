@@ -1,8 +1,5 @@
-import {
-  ChangeEvent,
-  useRef,
-  useState,
-} from "react";
+"use client";
+import { ChangeEvent, useRef, useState } from "react";
 
 export const useData = () => {
   const inputRef = useRef<HTMLInputElement>(null);

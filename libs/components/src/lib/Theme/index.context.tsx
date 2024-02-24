@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext } from "react";
 
 import { FontFamily, FonSize, ThemeColor } from "../../index.type";

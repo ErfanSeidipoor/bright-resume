@@ -1,6 +1,6 @@
 "use client";
 import { FC } from "react";
-import { sanitize } from "dompurify";
+import Dompurify from "dompurify";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -49,7 +49,7 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
   };
 
   const renderContent = () => {
-    const blogDetailContentHTML = sanitize(blogDetailData.content);
+    const blogDetailContentHTML = Dompurify.sanitize(blogDetailData.content);
     return (
       <div className={classes.blog__detail__content__wrapper}>
         <Typography variant="h2" className={classes.blog__detail__title}>

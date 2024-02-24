@@ -11,10 +11,4 @@
       padding-left: spacing(2);
     }
   }
-  .search {
-    width: 30%;
-    @include sm {
-      width: 100%;
-    }
-  }
 }

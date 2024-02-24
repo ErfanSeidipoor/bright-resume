@@ -1,9 +1,10 @@
 "use client";
 import { FC } from "react";
-import { Search, Typography } from "@bright-resume/components";
+import { Typography } from "@bright-resume/components";
 
 import classes from "./index.module.scss";
 import { texts } from "./texts";
+import { BlogSearch } from "../search";
 
 type BlogTitleProps = {};
 
@@ -18,9 +19,7 @@ const BlogTitle: FC<BlogTitleProps> = () => {
           {texts.blog}
         </Typography>
       </div>
-      <div className={classes.search}>
-        <Search />
-      </div>
+      <BlogSearch />
     </div>
   );
 };
