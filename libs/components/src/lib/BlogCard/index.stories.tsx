@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { BlogCard } from "./";
-import blogImage from "@assets/image/logo-dark.png";
 
 export default {
   component: BlogCard,
@@ -11,13 +10,12 @@ const Template: StoryFn<typeof BlogCard> = (args) => {
   return (
     <div id="theme-blue">
       <BlogCard
-        {...args}
         title={"Where can I watch?"}
         description={"Mauris id nibh eu fermentum mattis purus?"}
         shortDescription={
           "Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla."
         }
-        image={blogImage}
+        {...args}
       />
     </div>
   );
