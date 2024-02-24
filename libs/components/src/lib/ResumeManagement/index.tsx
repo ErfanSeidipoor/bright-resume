@@ -22,6 +22,7 @@ export const ResumeManagement: FC<ResumeManagementProps> = ({
 
   return (
     <div
+      data-testid="backdrop"
       className={cls(classes.backdrop, {
         [classes["show-backdrop"]]: data.showModal,
       })}
@@ -33,6 +34,7 @@ export const ResumeManagement: FC<ResumeManagementProps> = ({
         rootClassName={classes["float-button"]}
       />
       <div
+        data-testid="modal"
         className={cls(classes.modal, {
           [classes["modal-story-book"]]: isStoryBook,
           [classes["show-modal"]]: data.showModal,
@@ -46,7 +48,7 @@ export const ResumeManagement: FC<ResumeManagementProps> = ({
             onEmptyValue={data.emptySearchHandler}
             rootClassName={classes.search}
           />
-          <CancelIcon onClick={data.closeModal} />
+          <CancelIcon data-testid="close-button" onClick={data.closeModal} />
         </div>
         <div className={classes.body}>
           {resumes?.map((resume) => (
