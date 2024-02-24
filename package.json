@@ -71,7 +71,8 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.6.2",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.1",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
