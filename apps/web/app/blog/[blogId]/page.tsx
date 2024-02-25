@@ -1,7 +1,7 @@
 import { BlogDetail } from "@web/components/blog";
 import classes from "./page.module.scss";
 
-type BlogDetailPageProps = { blogId: string };
+type BlogDetailPageProps = { params: { blogId: string } };
 
 const getPost = async ({ blogId }: { blogId: string }) => {
   const response = await fetch(
@@ -11,7 +11,7 @@ const getPost = async ({ blogId }: { blogId: string }) => {
 };
 
 export default async function Index(props: BlogDetailPageProps) {
-  const post = await getPost({ blogId: props.blogId });
+  const post = await getPost({ blogId: props.params.blogId });
 
   return (
     <div className={classes.container}>

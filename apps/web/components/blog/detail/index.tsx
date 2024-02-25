@@ -50,15 +50,15 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
 
   const renderContent = () => {
     const blogDetailContentHTML = Dompurify.sanitize(
-      blogDetailData.attributes.content
+      blogDetailData?.attributes.content
     );
     return (
       <div className={classes.blog__detail__content__wrapper}>
         <Typography variant="h2" className={classes.blog__detail__title}>
-          {blogDetailData.attributes.title}
+          {blogDetailData?.attributes.title}
         </Typography>
         <Typography variant="h4" className={classes.blog__detail__description}>
-          {blogDetailData.attributes.sammary}
+          {blogDetailData?.attributes.sammary}
         </Typography>
         <div dangerouslySetInnerHTML={{ __html: blogDetailContentHTML }}></div>
       </div>
