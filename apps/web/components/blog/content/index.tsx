@@ -12,17 +12,17 @@ const BlogContent: FC<BlogContentProps> = ({ blogsData }) => {
   const renderBlogContent = () => {
     if (blogsData.length <= 0) return;
     return blogsData.map((blog, index) => (
-      <div className={classes.blog__card__wrapper} key={crypto.randomUUID()}>
+      <div className={classes.blog__card__wrapper} key={blog.id}>
         <BlogCard
           rootClassName={classes.blog__card}
-          title={blog.title}
-          description={blog.description}
-          shortDescription={blog.shortDescription}
-          image={blog.coverImage.src}
+          title={blog.attributes.title}
+          description={blog.attributes.sammary}
+          shortDescription={blog.attributes.content}
+          // image={blog.coverImage.src}
           imageWidth={"100%"}
           imageHeight={"400px"}
-          link={`/blog/${index}`}
-          categories={blog.categories}
+          link={`/blog/${blog.id}`}
+          // categories={blog.categories}
           isCutOutImage
         />
       </div>
