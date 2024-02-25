@@ -1,15 +1,21 @@
 import { BlogDetail } from "@web/components/blog";
 import classes from "./page.module.scss";
-import { useData } from "./useData";
 
-type BlogDetailPageProps = {};
+type BlogDetailPageProps = { blogId: string };
+
+const getPost = async ({ blogId }: { blogId: string }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_SERVER_URL}/posts/${blogId}`
+  );
+  return response.json();
+};
 
 export default async function Index(props: BlogDetailPageProps) {
-  const data = useData();
+  const post = await getPost({ blogId: props.blogId });
 
   return (
     <div className={classes.container}>
-      <BlogDetail blogDetailData={data.blogDetailSample} />
+      <BlogDetail blogDetailData={post.data} />
     </div>
   );
 }

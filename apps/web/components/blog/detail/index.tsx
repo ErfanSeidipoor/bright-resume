@@ -49,14 +49,16 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
   };
 
   const renderContent = () => {
-    const blogDetailContentHTML = Dompurify.sanitize(blogDetailData.content);
+    const blogDetailContentHTML = Dompurify.sanitize(
+      blogDetailData.attributes.content
+    );
     return (
       <div className={classes.blog__detail__content__wrapper}>
         <Typography variant="h2" className={classes.blog__detail__title}>
-          {blogDetailData.title}
+          {blogDetailData.attributes.title}
         </Typography>
         <Typography variant="h4" className={classes.blog__detail__description}>
-          {blogDetailData.description}
+          {blogDetailData.attributes.sammary}
         </Typography>
         <div dangerouslySetInnerHTML={{ __html: blogDetailContentHTML }}></div>
       </div>
@@ -79,7 +81,7 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
 
   return (
     <div className={classes.blog__detail__wrapper}>
-      {renderImage()}
+      {/* {renderImage()} */}
       {renderContent()}
       {renderBack()}
     </div>
