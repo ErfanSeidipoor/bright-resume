@@ -2,7 +2,7 @@
 
 .content__wrapper {
   @include flexbox(row, center, center, 1, wrap);
-  margin-bottom: spacing(16);
+  margin-bottom: spacing(15);
   .blog__card__content__wrapper {
     @include flexbox(row, flex-start, center, 9, wrap);
     padding-bottom: spacing(2);

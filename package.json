@@ -66,6 +66,7 @@
     "passport-linkedin-oauth2": "github:auth0/passport-linkedin-oauth2#v3.0.0",
     "pg": "^8.11.3",
     "puppeteer": "^21.5.2",
+    "query-string": "^8.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
