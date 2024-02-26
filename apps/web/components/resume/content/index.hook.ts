@@ -1,4 +1,4 @@
-import { useFieldArray, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { classValidatorResolver } from "@hookform/resolvers/class-validator";
 import { CreateResumeResumeInputs } from "@dto";
 
@@ -22,6 +22,13 @@ export const useData = () => {
         },
       ],
       experienceLabel: "Experience",
+      educations: [
+        {
+          degree: "",
+          points: [],
+        },
+      ],
+      educationLabel: "Education",
       certifications: [
         {
           name: "",
@@ -32,61 +39,12 @@ export const useData = () => {
     },
   });
 
-  /* -------------------------------- Experiences -------------------------------- */
-
-  const {
-    fields: experienceFields,
-    append: experienceAppend,
-    remove: experienceRemove,
-  } = useFieldArray({
-    control,
-    name: "experiences",
-  });
-
-  const handleIncreaseExperience = () => {
-    experienceAppend({
-      company: "",
-      role: "",
-      points: [],
-    });
-  };
-
-  const handleDecreaseExperience = (index: number) => {
-    experienceRemove(index);
-  };
-
-  /* -------------------------------- Experiences -------------------------------- */
-
-  const {
-    fields: certificationFields,
-    append: certificationsAppend,
-    remove: certificationsRemove,
-  } = useFieldArray({
-    control,
-    name: "certifications",
-  });
-
-  const handleIncreaseCertifications = () => {
-    certificationsAppend({
-      name: "",
-      points: [],
-    });
-  };
-
-  const handleDecreaseCertifications = (index: number) => {
-    certificationsRemove(index);
-  };
-
   return {
     control,
     setValue,
-    experienceFields,
-    handleIncreaseExperience,
-    handleDecreaseExperience,
     experienceValues: watch("experiences"),
-    certificationFields,
-    handleIncreaseCertifications,
-    handleDecreaseCertifications,
     certificationValues: watch("certifications"),
+    educationValues: watch("educations"),
+    courseWorkValues: watch("courseWorks"),
   };
 };

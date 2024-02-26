@@ -24,13 +24,10 @@ import { texts } from "./texts";
 
 export const Certification: FC<CertificationProps> = ({
   control,
-  fields = [],
-  onDecrease = () => undefined,
-  onIncrease = () => undefined,
   setValue,
   certificationValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
@@ -56,7 +53,7 @@ export const Certification: FC<CertificationProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -103,7 +100,7 @@ export const Certification: FC<CertificationProps> = ({
     index: number
   ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <Controller
@@ -121,12 +118,12 @@ export const Certification: FC<CertificationProps> = ({
             />
           </div>
           <div className={classes.title__left_side}>
-            {fields.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(index)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
             {certificationValues?.[index]?.isShowDate && (
@@ -148,7 +145,7 @@ export const Certification: FC<CertificationProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child.id, index)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
@@ -181,7 +178,7 @@ export const Certification: FC<CertificationProps> = ({
           )}
         />
 
-        {data.handleIsLastItemOnHover(fields.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -189,13 +186,16 @@ export const Certification: FC<CertificationProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(fields[0], 0);
+    return renderFields(
+      data.fields[data.fields.length + 1],
+      data.fields.length + 1
+    );
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {fields.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,

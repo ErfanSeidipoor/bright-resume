@@ -1,11 +1,13 @@
-import cls from "classnames";
 import { FC } from "react";
+import cls from "classnames";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+// dto
+import { CreateResumeResumeInputs } from "@dto";
 // components
 import {
   CheckBox,
-  CourseWorkChildProps,
   CourseWorkProps,
-  RangePicker,
+  DatePicker,
   TextArea,
   TextField,
 } from "@bright-resume/components";
@@ -21,52 +23,26 @@ import classes from "./index.module.scss";
 import { texts } from "./texts";
 
 export const CourseWork: FC<CourseWorkProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      name: {},
-      institute: {},
-      rangeDate: undefined,
-      skills: {},
-      points: {},
-      showInstitute: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showSkills: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    name: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  setValue,
+  courseWorkValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          fullWidth
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="certificationLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.course_work}
+              rootClassName={classes.header}
+            />
+          )}
         />
         <div>
           <AddCircleRoundedIcon
@@ -77,7 +53,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -85,64 +61,97 @@ export const CourseWork: FC<CourseWorkProps> = ({
     );
   };
 
-  const renderMenu = (child: CourseWorkChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showInstitute?.isShow}
-          onClick={child.showInstitute?.onToggle}
-          onChange={child.showInstitute?.onToggle}
-          label={texts.institute}
+        <Controller
+          control={control}
+          name={`courseWorks.${index}.isShowInstitute`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.institute}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label={texts.date}
+        <Controller
+          control={control}
+          name={`courseWorks.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.date}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showSkills?.isShow}
-          onClick={child.showSkills?.onToggle}
-          onChange={child.showSkills?.onToggle}
-          label={texts.skills}
-        />
-        <CheckBox
-          checked={child.showPoints?.isShow}
-          onClick={child.showPoints?.onToggle}
-          onChange={child.showPoints?.onToggle}
-          label={texts.points}
+        <Controller
+          control={control}
+          name={`courseWorks.${index}.isShowSkills`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.skills}
+            />
+          )}
         />
       </div>
     );
   };
 
-  const renderFields = (child: CourseWorkChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "courseWorks", "id">,
+    index: number
+  ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.name}
-              fullWidth
-              variant="h4"
-              placeholder={child.name.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.name.rootClassName || ""]: !!child.name.rootClassName,
-              })}
+            <Controller
+              control={control}
+              name={`courseWorks.${index}.name`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  variant="h4"
+                  placeholder={texts.name}
+                  rootClassName={classes.title}
+                />
+              )}
             />
           </div>
           <div className={classes.title__left_side}>
-            {items.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
+
+            {courseWorkValues?.[index]?.isShowDate && (
+              <DatePicker
+                month={undefined}
+                year={Number(courseWorkValues?.[index].year)}
+                onChangeMonth={() => undefined}
+                onChangeYear={(value) =>
+                  setValue(`courseWorks.${index}.year`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+              />
             )}
 
             <div className={classes.menu__container}>
@@ -150,42 +159,55 @@ export const CourseWork: FC<CourseWorkProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
-        {child.showInstitute?.isShow && child.institute && (
-          <TextField
-            {...child.institute}
-            fullWidth
-            variant="h7"
-            placeholder={child.institute.placeholder}
+        {courseWorkValues?.[index]?.isShowInstitute && (
+          <Controller
+            control={control}
+            name={`courseWorks.${index}.institute`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h7"
+                placeholder={texts.institute}
+              />
+            )}
           />
         )}
 
-        {child.showSkills?.isShow && child.skills && (
-          <TextArea
-            {...child.skills}
-            variant="h7"
-            placeholder={child.skills.placeholder}
-            className={cls(classes.skills, {
-              [child.skills.className || ""]: !!child.skills.className,
-            })}
+        {courseWorkValues?.[index]?.isShowSkills && (
+          <Controller
+            control={control}
+            name={`courseWorks.${index}.skills`}
+            render={({ field }) => (
+              <TextArea
+                {...field}
+                variant="h7"
+                placeholder={texts.skills}
+                className={classes.skills}
+              />
+            )}
           />
         )}
 
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
-          />
-        )}
+        <Controller
+          control={control}
+          name={`courseWorks.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
 
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -193,13 +215,16 @@ export const CourseWork: FC<CourseWorkProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(
+      data.fields[data.fields.length + 1],
+      data.fields.length + 1
+    );
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,

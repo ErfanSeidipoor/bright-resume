@@ -24,13 +24,10 @@ import { CreateResumeResumeInputs } from "@dto";
 
 export const Experience: FC<ExperienceProps> = ({
   control,
-  fields = [],
-  onDecrease = () => undefined,
-  onIncrease = () => undefined,
   setValue,
   experienceValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
@@ -42,7 +39,7 @@ export const Experience: FC<ExperienceProps> = ({
               {...field}
               fullWidth
               variant="h2"
-              placeholder={texts.position}
+              placeholder={texts.experience}
               rootClassName={classes.header}
             />
           )}
@@ -57,7 +54,7 @@ export const Experience: FC<ExperienceProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -110,7 +107,7 @@ export const Experience: FC<ExperienceProps> = ({
     index: number
   ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <Controller
@@ -128,12 +125,12 @@ export const Experience: FC<ExperienceProps> = ({
             />
           </div>
           <div className={classes.title__left_side}>
-            {fields.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(index)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
             {experienceValues?.[index]?.isShowDate && (
@@ -174,7 +171,7 @@ export const Experience: FC<ExperienceProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child.id, index)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
@@ -218,7 +215,7 @@ export const Experience: FC<ExperienceProps> = ({
           )}
         />
 
-        {data.handleIsLastItemOnHover(fields.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -226,13 +223,16 @@ export const Experience: FC<ExperienceProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(fields[0], 0);
+    return renderFields(
+      data.fields[data.fields.length + 1],
+      data.fields.length + 1
+    );
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {fields.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,

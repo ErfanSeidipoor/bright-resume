@@ -26,35 +26,23 @@ export const ResumeContent = () => {
       />
       <Experience
         control={data.control}
-        experienceValues={data.experienceValues || []}
-        fields={data.experienceFields}
-        onDecrease={data.handleDecreaseExperience}
-        onIncrease={data.handleIncreaseExperience}
         setValue={data.setValue}
+        experienceValues={data.experienceValues || []}
       />
       <Education
-        header={{
-          value: "Education",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
-      />
-      <Certification
-        certificationValues={data.certificationValues || []}
-        fields={data.certificationFields}
         control={data.control}
         setValue={data.setValue}
-        onDecrease={data.handleDecreaseExperience}
-        onIncrease={data.handleIncreaseCertifications}
+        educationValues={data.educationValues || []}
+      />
+      <Certification
+        control={data.control}
+        setValue={data.setValue}
+        certificationValues={data.certificationValues || []}
       />
       <CourseWork
-        header={{
-          value: "Course Work",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        courseWorkValues={data.courseWorkValues || []}
       />
       <Project
         header={{

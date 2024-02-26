@@ -1,10 +1,12 @@
 import {
   CreateResumeCertificationItemInputs,
+  CreateResumeCourseWorkItemInputs,
+  CreateResumeEducationItemInputs,
   CreateResumeExperienceItemResumeInputs,
   CreateResumeResumeInputs,
 } from "@dto";
 import { ChangeEventHandler } from "react";
-import { Control, FieldArrayWithId, UseFormSetValue } from "react-hook-form";
+import { Control, UseFormSetValue } from "react-hook-form";
 
 export type TypographyVariant =
   | "h1"
@@ -88,42 +90,21 @@ export type showOptionsType = {
 };
 
 export type ExperienceProps = {
-  control: Control<CreateResumeResumeInputs, any, CreateResumeResumeInputs>;
-  fields: FieldArrayWithId<CreateResumeResumeInputs, "experiences", "id">[];
+  control: createResumeControlType;
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
-  onIncrease: () => void;
-  onDecrease: (number: number) => void;
   experienceValues: CreateResumeExperienceItemResumeInputs[];
 };
 
 export type CertificationProps = {
-  control: Control<CreateResumeResumeInputs, any, CreateResumeResumeInputs>;
-  fields: FieldArrayWithId<CreateResumeResumeInputs, "certifications", "id">[];
+  control: createResumeControlType;
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
-  onIncrease: () => void;
-  onDecrease: (number: number) => void;
   certificationValues: CreateResumeCertificationItemInputs[];
 };
 
-export type CourseWorkChildProps = {
-  id: string;
-  name: TextFieldProps;
-  institute?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  skills?: TextAreaProps;
-  points?: TextAreaProps;
-  showInstitute?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
-  showSkills?: showOptionsType;
-};
-
 export type CourseWorkProps = {
-  header: TextFieldProps;
-  items: CourseWorkChildProps[];
-  hoverItem?: CourseWorkChildProps;
-  onIncrease: () => void;
-  onDecrease: (id: string) => void;
+  control: createResumeControlType;
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
+  courseWorkValues: CreateResumeCourseWorkItemInputs[];
 };
 
 export type ProjectChildProps = {
@@ -172,27 +153,10 @@ export type InvolvementProps = {
   onDecrease: (id: string) => void;
 };
 
-export type EducationChildProps = {
-  id: string;
-  degree: TextFieldProps;
-  institute?: TextFieldProps;
-  gpa?: TextFieldProps;
-  location?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  points?: TextAreaProps;
-  showInstitute?: showOptionsType;
-  showLocation?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
-  showGpa?: showOptionsType;
-};
-
 export type EducationProps = {
-  header: TextFieldProps;
-  items: EducationChildProps[];
-  hoverItem?: EducationChildProps;
-  onIncrease: () => void;
-  onDecrease: (id: string) => void;
+  control: createResumeControlType;
+  educationValues: CreateResumeEducationItemInputs[];
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
 };
 
 export type LanguageChildProps = {
@@ -349,3 +313,9 @@ export type SliderProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
+
+export type createResumeControlType = Control<
+  CreateResumeResumeInputs,
+  any,
+  CreateResumeResumeInputs
+>;

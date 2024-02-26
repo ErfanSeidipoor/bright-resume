@@ -140,7 +140,7 @@ export const Project: FC<ProjectProps> = ({
 
   const renderFields = (child: ProjectChildProps, index: number) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
             <TextField
