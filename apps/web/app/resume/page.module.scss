@@ -14,22 +14,23 @@
     justify-content: center;
     align-items: center;
     margin: spacing(2);
-  }
-}
 
-.resume__container {
-  width: 210mm;
-  max-width: 210mm;
-  background-color: $light;
-  min-height: 90vh;
-  display: flex;
-  @include shadow(2);
-  .menu__wrapper {
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    .resume__container {
+      width: 210mm;
+      max-width: 210mm;
+      background-color: $light;
+      min-height: 90vh;
+      display: flex;
+      margin-bottom: 120px;
+      @include shadow(2);
+      .menu__wrapper {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
   }
 }
 

@@ -9,8 +9,10 @@ import {
   Involvement,
 } from "@bright-resume/components";
 import classes from "./index.module.scss";
+import { useData } from "./index.hook";
 
 export const ResumeContent = () => {
+  const data = useData();
   return (
     <div className={classes.container}>
       <AboutMe
@@ -23,52 +25,34 @@ export const ResumeContent = () => {
         }}
       />
       <Experience
-        header={{
-          value: "Experience",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        experienceValues={data.experienceValues || []}
       />
       <Education
-        header={{
-          value: "Education",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        educationValues={data.educationValues || []}
       />
       <Certification
-        header={{
-          value: "Certification",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        certificationValues={data.certificationValues || []}
       />
       <CourseWork
-        header={{
-          value: "Course Work",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        courseWorkValues={data.courseWorkValues || []}
       />
       <Project
-        header={{
-          value: "Project",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        projectValues={data.projectValues || []}
       />
       <Involvement
-        header={{
-          value: "Involvement",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        involvementValues={data.involvementValues || []}
       />
     </div>
   );

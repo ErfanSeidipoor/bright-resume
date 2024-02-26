@@ -57,7 +57,7 @@
 
     .child__wrapper {
       position: relative;
-      padding-bottom: 90px;
+      padding-bottom: spacing(2);
 
       &:hover {
         .remove__icon {
@@ -141,8 +141,8 @@
 
       .hover__line {
         position: absolute;
-        left: -15px;
-        top: 16px;
+        left: -3.9mm;
+        top: 2.5mm;
         width: 2px;
         height: 100%;
         background-color: var(--primary);

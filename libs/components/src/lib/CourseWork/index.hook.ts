@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
 
-export const useData = () => {
+import { createResumeControlType } from "../../index.type";
+import { useFieldArray } from "react-hook-form";
+
+export const useData = (control: createResumeControlType) => {
   const [isHoverAddBtn, setIsHoverAddBtn] = useState(false);
   const [showMenuId, setShowMenuId] = useState<string>("");
 
@@ -14,11 +17,30 @@ export const useData = () => {
     return setShowMenuId(id);
   };
 
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "courseWorks",
+  });
+
+  const handleIncrease = () => {
+    append({
+      name: "",
+      points: [],
+    });
+  };
+
+  const handleDecrease = (index: number) => {
+    remove(index);
+  };
+
   return {
     isHoverAddBtn,
     setIsHoverAddBtn,
     handleIsLastItemOnHover,
     showMenuId,
     handleShowMenuId,
+    fields,
+    handleIncrease,
+    handleDecrease,
   };
 };

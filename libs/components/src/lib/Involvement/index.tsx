@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  InvolvementChildProps,
   InvolvementProps,
+  MonthEnum,
   RangePicker,
   TextArea,
   TextField,
@@ -19,53 +19,30 @@ import {
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import { texts } from "./texts";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
 
 export const Involvement: FC<InvolvementProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      role: {},
-      company: {},
-      location: {},
-      rangeDate: undefined,
-      points: {},
-      showCompany: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showLocation: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    role: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  setValue,
+  involvementValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="involvementLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.involvement}
+              rootClassName={classes.header}
+            />
+          )}
         />
         <div>
           <AddCircleRoundedIcon
@@ -76,7 +53,7 @@ export const Involvement: FC<InvolvementProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -84,65 +61,115 @@ export const Involvement: FC<InvolvementProps> = ({
     );
   };
 
-  const renderMenu = (child: InvolvementChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showCompany?.isShow}
-          onClick={child.showCompany?.onToggle}
-          onChange={child.showCompany?.onToggle}
-          label={texts.company}
+        <Controller
+          control={control}
+          name={`involvements.${index}.isShowCompany`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.company}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showLocation?.isShow}
-          onClick={child.showLocation?.onToggle}
-          onChange={child.showLocation?.onToggle}
-          label={texts.location}
+        <Controller
+          control={control}
+          name={`involvements.${index}.isShowLocation`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.location}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label={texts.date}
-        />
-        <CheckBox
-          checked={child.showPoints?.isShow}
-          onClick={child.showPoints?.onToggle}
-          onChange={child.showPoints?.onToggle}
-          label={texts.points}
+        <Controller
+          control={control}
+          name={`involvements.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.date}
+            />
+          )}
         />
       </div>
     );
   };
 
-  const renderFields = (child: InvolvementChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "involvements", "id">,
+    index: number
+  ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.role}
-              fullWidth
-              variant="h4"
-              placeholder={child.role.placeholder}
-              containerClassName={cls(classes.title, {
-                [child.role.containerClassName || ""]:
-                  !!child.role.containerClassName,
-              })}
+            <Controller
+              control={control}
+              name={`involvements.${index}.role`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  variant="h4"
+                  placeholder={texts.role}
+                  containerClassName={classes.title}
+                />
+              )}
             />
           </div>
           <div className={classes.title__left_side}>
-            {items.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
+            {involvementValues?.[index]?.isShowDate && (
+              <RangePicker
+                fromMonth={involvementValues?.[index].fromMonth as MonthEnum}
+                toMonth={involvementValues?.[index].toMonth as MonthEnum}
+                fromYear={Number(involvementValues?.[index].fromYear)}
+                toYear={Number(involvementValues?.[index].toYear)}
+                onChangeFromMonth={(value) =>
+                  setValue(`involvements.${index}.fromMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToMonth={(value) =>
+                  setValue(`involvements.${index}.toMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeFromYear={(value) =>
+                  setValue(`involvements.${index}.fromYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToYear={(value) =>
+                  setValue(`involvements.${index}.toYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+              />
             )}
 
             <div className={classes.menu__container}>
@@ -150,39 +177,54 @@ export const Involvement: FC<InvolvementProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
-        {child.showCompany?.isShow && child.company && (
-          <TextField
-            {...child.company}
-            fullWidth
-            variant="h5"
-            placeholder={child.company.placeholder}
+        {involvementValues?.[index]?.isShowCompany && (
+          <Controller
+            control={control}
+            name={`involvements.${index}.company`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h5"
+                placeholder={texts.company}
+              />
+            )}
           />
         )}
-        {child.showLocation?.isShow && child.location && (
-          <TextField
-            {...child.location}
-            fullWidth
-            variant="h7"
-            placeholder={child.location.placeholder}
+        {involvementValues?.[index]?.isShowLocation && (
+          <Controller
+            control={control}
+            name={`involvements.${index}.location`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h7"
+                placeholder={texts.location}
+              />
+            )}
           />
         )}
 
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
-          />
-        )}
+        <Controller
+          control={control}
+          name={`involvements.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
 
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -190,13 +232,13 @@ export const Involvement: FC<InvolvementProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(data.fields[-1], -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,

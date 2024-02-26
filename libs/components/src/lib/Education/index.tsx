@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  EducationChildProps,
   EducationProps,
+  MonthEnum,
   RangePicker,
   TextArea,
   TextField,
@@ -19,56 +19,30 @@ import {
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import { texts } from "./texts";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
 
 export const Education: FC<EducationProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      degree: {},
-      location: {},
-      rangeDate: undefined,
-      points: {},
-      showLocation: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showGpa: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showInstitute: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    degree: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  educationValues = [],
+  setValue,
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="educationLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.education}
+              rootClassName={classes.header}
+            />
+          )}
         />
         <div>
           <AddCircleRoundedIcon
@@ -79,7 +53,7 @@ export const Education: FC<EducationProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -87,126 +61,199 @@ export const Education: FC<EducationProps> = ({
     );
   };
 
-  const renderMenu = (child: EducationChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showInstitute?.isShow}
-          onClick={child.showInstitute?.onToggle}
-          onChange={child.showInstitute?.onToggle}
-          label={texts.institute}
+        <Controller
+          control={control}
+          name={`educations.${index}.isShowInstitute`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.institute}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showGpa?.isShow}
-          onClick={child.showGpa?.onToggle}
-          onChange={child.showGpa?.onToggle}
-          label={texts.gpa}
+        <Controller
+          control={control}
+          name={`educations.${index}.isShowGpa`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.gpa}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showLocation?.isShow}
-          onClick={child.showLocation?.onToggle}
-          onChange={child.showLocation?.onToggle}
-          label={texts.location}
+        <Controller
+          control={control}
+          name={`educations.${index}.isShowLocation`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.location}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label={texts.date}
-        />
-        <CheckBox
-          checked={child.showPoints?.isShow}
-          onClick={child.showPoints?.onToggle}
-          onChange={child.showPoints?.onToggle}
-          label={texts.points}
+        <Controller
+          control={control}
+          name={`educations.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.date}
+            />
+          )}
         />
       </div>
     );
   };
 
-  const renderFields = (child: EducationChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "educations", "id">,
+    index: number
+  ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.degree}
-              variant="h6"
-              isMinimal
-              placeholder={child.degree.placeholder}
-              containerClassName={cls(classes.title, {
-                [child.degree.containerClassName || ""]:
-                  !!child.degree.containerClassName,
-              })}
+            <Controller
+              control={control}
+              name={`educations.${index}.degree`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  variant="h6"
+                  isMinimal
+                  placeholder={texts.degree}
+                  containerClassName={classes.title}
+                />
+              )}
             />
-            {child.showInstitute?.isShow && child.institute && (
-              <TextField
-                {...child.institute}
-                variant="h6"
-                isMinimal
-                placeholder={child.institute.placeholder}
-                containerClassName={cls(classes.title, {
-                  [child.institute.containerClassName || ""]:
-                    !!child.institute.containerClassName,
-                })}
+            {educationValues?.[index]?.isShowInstitute && (
+              <Controller
+                control={control}
+                name={`educations.${index}.institute`}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    variant="h6"
+                    isMinimal
+                    placeholder={texts.institute}
+                    containerClassName={classes.title}
+                  />
+                )}
               />
             )}
-            {child.showGpa?.isShow && child.gpa && (
-              <TextField
-                {...child.gpa}
-                isMinimal
-                variant="h6"
-                placeholder={child.gpa.placeholder}
-                containerClassName={cls(classes.title, {
-                  [child.gpa.containerClassName || ""]:
-                    !!child.gpa.containerClassName,
-                })}
+            {educationValues?.[index]?.isShowGpa && (
+              <Controller
+                control={control}
+                name={`educations.${index}.gpa`}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    variant="h6"
+                    isMinimal
+                    placeholder={texts.gpa}
+                    containerClassName={classes.title}
+                  />
+                )}
               />
             )}
           </div>
           <div className={classes.title__left_side}>
+            {data.fields.length > 1 && (
+              <RemoveCircleRounded
+                width="20px"
+                height="20px"
+                className={classes.remove__icon}
+                onClick={() => data.handleDecrease(index)}
+              />
+            )}
             <div className={classes.menu__container}>
               <MeatBallsMenuIcon
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child?.id, index)}
             </div>
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
-            )}
-
-            {items.length > 1 && (
-              <RemoveCircleRounded
-                width="20px"
-                height="20px"
-                className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+            {educationValues?.[index]?.isShowDate && (
+              <RangePicker
+                fromMonth={educationValues?.[index].fromMonth as MonthEnum}
+                toMonth={educationValues?.[index].toMonth as MonthEnum}
+                fromYear={Number(educationValues?.[index].fromYear)}
+                toYear={Number(educationValues?.[index].toYear)}
+                onChangeFromMonth={(value) =>
+                  setValue(`educations.${index}.fromMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToMonth={(value) =>
+                  setValue(`educations.${index}.toMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeFromYear={(value) =>
+                  setValue(`educations.${index}.fromYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToYear={(value) =>
+                  setValue(`educations.${index}.toYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
               />
             )}
           </div>
         </div>
 
-        {child.showLocation?.isShow && child.location && (
-          <TextField
-            {...child.location}
-            variant="h7"
-            placeholder={child.location.placeholder}
-          />
-        )}
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
+        {educationValues?.[index]?.isShowLocation && (
+          <Controller
+            control={control}
+            name={`educations.${index}.location`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h7"
+                placeholder={texts.location}
+              />
+            )}
           />
         )}
 
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        <Controller
+          control={control}
+          name={`educations.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
+
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -214,13 +261,13 @@ export const Education: FC<EducationProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(data.fields[-1], -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,

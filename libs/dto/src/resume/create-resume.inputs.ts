@@ -189,12 +189,22 @@ export class CreateResumeEducationItemInputs {
   @IsOptional()
   @IsString()
   @MaxLength(25)
-  from?: string;
+  fromMonth?: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(25)
-  to?: string;
+  fromYear?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(25)
+  toMonth?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(25)
+  toYear?: string;
 
   @IsOptional()
   @IsBoolean()
