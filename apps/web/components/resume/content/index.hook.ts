@@ -36,6 +36,13 @@ export const useData = () => {
         },
       ],
       certificationLabel: "Certification",
+      courseWorks: [
+        {
+          name: "",
+          points: [],
+        },
+      ],
+      courseWorkLabel: "Course Work",
     },
   });
 

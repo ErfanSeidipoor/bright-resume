@@ -33,7 +33,7 @@ export const CourseWork: FC<CourseWorkProps> = ({
       <div className={classes.header__container}>
         <Controller
           control={control}
-          name="certificationLabel"
+          name="courseWorkLabel"
           render={({ field }) => (
             <TextField
               {...field}
