@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useFieldArray } from "react-hook-form";
+import { createResumeControlType } from "../../index.type";
 
-export const useData = () => {
+export const useData = (control: createResumeControlType) => {
   const [isHoverAddBtn, setIsHoverAddBtn] = useState(false);
   const [showMenuId, setShowMenuId] = useState<string>("");
 
@@ -13,11 +15,30 @@ export const useData = () => {
     return setShowMenuId(id);
   };
 
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "projects",
+  });
+
+  const handleIncrease = () => {
+    append({
+      title: "",
+      points: [],
+    });
+  };
+
+  const handleDecrease = (index: number) => {
+    remove(index);
+  };
+
   return {
     isHoverAddBtn,
     setIsHoverAddBtn,
     handleIsLastItemOnHover,
     showMenuId,
     handleShowMenuId,
+    fields,
+    handleIncrease,
+    handleDecrease,
   };
 };

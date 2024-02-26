@@ -3,8 +3,8 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ExperienceChildProps,
   ExperienceProps,
+  MonthEnum,
   RangePicker,
   TextArea,
   TextField,
@@ -18,51 +18,33 @@ import {
 // locals
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+import { texts } from "./texts";
+import { CreateResumeResumeInputs } from "@dto";
 
 export const Experience: FC<ExperienceProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      role: {},
-      company: {},
-      location: {},
-      rangeDate: undefined,
-      points: {},
-      showLocation: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    role: {},
-    company: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  setValue,
+  experienceValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="experienceLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.experience}
+              rootClassName={classes.header}
+            />
+          )}
         />
+
         <div>
           <AddCircleRoundedIcon
             width="24px"
@@ -72,7 +54,7 @@ export const Experience: FC<ExperienceProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -80,59 +62,108 @@ export const Experience: FC<ExperienceProps> = ({
     );
   };
 
-  const renderMenu = (child: ExperienceChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showLocation?.isShow}
-          onClick={child.showLocation?.onToggle}
-          onChange={child.showLocation?.onToggle}
-          label="Location"
+        <Controller
+          control={control}
+          name={`experiences.${index}.isShowLocation`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label="Location"
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label="Date"
+        <Controller
+          control={control}
+          name={`experiences.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label="Date"
+            />
+          )}
         />
-        <CheckBox
+        {/* <CheckBox
           checked={child.showPoints?.isShow}
           onClick={child.showPoints?.onToggle}
           onChange={child.showPoints?.onToggle}
           label="Points"
-        />
+        /> */}
       </div>
     );
   };
 
-  const renderFields = (child: ExperienceChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "experiences", "id">,
+    index: number
+  ) => {
     return (
-      <li key={child.id} className={classes.child__wrapper}>
+      <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.role}
-              fullWidth
-              variant="h4"
-              placeholder={child.role.placeholder}
-              containerClassName={cls(classes.title, {
-                [child.role.containerClassName || ""]:
-                  !!child.role.containerClassName,
-              })}
+            <Controller
+              control={control}
+              name={`experiences.${index}.role`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  variant="h4"
+                  placeholder={texts.position}
+                  containerClassName={classes.title}
+                />
+              )}
             />
           </div>
           <div className={classes.title__left_side}>
-            {items.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
+            {experienceValues?.[index]?.isShowDate && (
+              <RangePicker
+                fromMonth={experienceValues?.[index].fromMonth as MonthEnum}
+                toMonth={experienceValues?.[index].toMonth as MonthEnum}
+                fromYear={Number(experienceValues?.[index].fromYear)}
+                toYear={Number(experienceValues?.[index].toYear)}
+                onChangeFromMonth={(value) =>
+                  setValue(`experiences.${index}.fromMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToMonth={(value) =>
+                  setValue(`experiences.${index}.toMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeFromYear={(value) =>
+                  setValue(`experiences.${index}.fromYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToYear={(value) =>
+                  setValue(`experiences.${index}.toYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+              />
             )}
 
             <div className={classes.menu__container}>
@@ -140,37 +171,51 @@ export const Experience: FC<ExperienceProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
-        <TextField
-          {...child.company}
-          fullWidth
-          variant="h5"
-          placeholder={child.company.placeholder}
+        <Controller
+          control={control}
+          name={`experiences.${index}.company`}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h5"
+              placeholder={texts.company}
+            />
+          )}
         />
-        {child.showLocation?.isShow && child.location && (
-          <TextField
-            {...child.location}
-            fullWidth
-            variant="h7"
-            placeholder={child.location.placeholder}
+        {experienceValues?.[index]?.isShowLocation && (
+          <Controller
+            control={control}
+            name={`experiences.${index}.location`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h7"
+                placeholder={texts.location}
+              />
+            )}
           />
         )}
+        <Controller
+          control={control}
+          name={`experiences.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
 
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
-          />
-        )}
-
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -178,13 +223,13 @@ export const Experience: FC<ExperienceProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(data.fields[-1], -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,
