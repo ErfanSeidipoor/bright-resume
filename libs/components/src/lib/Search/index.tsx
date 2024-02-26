@@ -30,7 +30,7 @@ export const Search: React.FC<SearchProps> = ({
   return (
     <div
       className={cls(classes.root, {
-        [classes.rootClassName]: !!rootClassName,
+        [`${rootClassName}`]: !!rootClassName,
       })}
     >
       <div className={classes.search__box}>
