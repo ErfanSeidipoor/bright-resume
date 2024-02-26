@@ -186,10 +186,7 @@ export const Certification: FC<CertificationProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(
-      data.fields[data.fields.length + 1],
-      data.fields.length + 1
-    );
+    return renderFields(data.fields[-1], -1);
   };
 
   const renderItems = () => {

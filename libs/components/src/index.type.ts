@@ -3,6 +3,8 @@ import {
   CreateResumeCourseWorkItemInputs,
   CreateResumeEducationItemInputs,
   CreateResumeExperienceItemResumeInputs,
+  CreateResumeInvolvementItemInputs,
+  CreateResumeProjectItemInputs,
   CreateResumeResumeInputs,
 } from "@dto";
 import { ChangeEventHandler } from "react";
@@ -113,50 +115,16 @@ export type CourseWorkProps = {
   courseWorkValues: CreateResumeCourseWorkItemInputs[];
 };
 
-export type ProjectChildProps = {
-  id: string;
-  title: TextFieldProps;
-  role?: TextFieldProps;
-  company?: TextFieldProps;
-  location?: TextFieldProps;
-  url?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  points?: TextAreaProps;
-  showRole?: showOptionsType;
-  showCompany?: showOptionsType;
-  showUrl?: showOptionsType;
-  showLocation?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
-};
-
 export type ProjectProps = {
-  header: TextFieldProps;
-  items: ProjectChildProps[];
-  hoverItem?: ProjectChildProps;
-  onIncrease: () => void;
-  onDecrease: (id: string) => void;
-};
-
-export type InvolvementChildProps = {
-  id: string;
-  role: TextFieldProps;
-  company?: TextFieldProps;
-  location?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  points?: TextAreaProps;
-  showCompany?: showOptionsType;
-  showLocation?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
+  control: createResumeControlType;
+  projectValues: CreateResumeProjectItemInputs[];
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
 };
 
 export type InvolvementProps = {
-  header: TextFieldProps;
-  items: InvolvementChildProps[];
-  hoverItem?: InvolvementChildProps;
-  onIncrease: () => void;
-  onDecrease: (id: string) => void;
+  control: createResumeControlType;
+  involvementValues: CreateResumeInvolvementItemInputs[];
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
 };
 
 export type EducationProps = {

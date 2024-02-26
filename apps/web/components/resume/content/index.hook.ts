@@ -43,6 +43,20 @@ export const useData = () => {
         },
       ],
       courseWorkLabel: "Course Work",
+      involvements: [
+        {
+          role: "",
+          points: [],
+        },
+      ],
+      involvementLabel: "Involvement",
+      projects: [
+        {
+          title: "",
+          points: [],
+        },
+      ],
+      projectLabel: "Project",
     },
   });
 
@@ -53,5 +67,7 @@ export const useData = () => {
     certificationValues: watch("certifications"),
     educationValues: watch("educations"),
     courseWorkValues: watch("courseWorks"),
+    involvementValues: watch("involvements"),
+    projectValues: watch("projects"),
   };
 };

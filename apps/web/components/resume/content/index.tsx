@@ -45,20 +45,14 @@ export const ResumeContent = () => {
         courseWorkValues={data.courseWorkValues || []}
       />
       <Project
-        header={{
-          value: "Project",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        projectValues={data.projectValues || []}
       />
       <Involvement
-        header={{
-          value: "Involvement",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        setValue={data.setValue}
+        involvementValues={data.involvementValues || []}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import { FC } from "react";
 // components
 import {
   CheckBox,
-  ProjectChildProps,
+  MonthEnum,
   ProjectProps,
   RangePicker,
   TextArea,
@@ -19,63 +19,30 @@ import {
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import { texts } from "./texts";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
 
 export const Project: FC<ProjectProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      title: {},
-      role: {},
-      company: {},
-      location: {},
-      url: {},
-      rangeDate: undefined,
-      points: {},
-      showRole: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showCompany: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showLocation: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showUrl: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    title: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  setValue,
+  projectValues = [],
 }) => {
-  const data = useData();
+  const data = useData(control);
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="projectLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.project}
+              rootClassName={classes.header}
+            />
+          )}
         />
         <div>
           <AddCircleRoundedIcon
@@ -86,7 +53,7 @@ export const Project: FC<ProjectProps> = ({
             onMouseLeave={() => data.setIsHoverAddBtn(false)}
             onClick={() => {
               data.setIsHoverAddBtn(false);
-              onIncrease();
+              data.handleIncrease();
             }}
           />
         </div>
@@ -94,76 +61,142 @@ export const Project: FC<ProjectProps> = ({
     );
   };
 
-  const renderMenu = (child: ProjectChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showRole?.isShow}
-          onClick={child.showRole?.onToggle}
-          onChange={child.showRole?.onToggle}
-          label={texts.role}
+        <Controller
+          control={control}
+          name={`projects.${index}.isShowRole`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.role}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showCompany?.isShow}
-          onClick={child.showCompany?.onToggle}
-          onChange={child.showCompany?.onToggle}
-          label={texts.company}
+        <Controller
+          control={control}
+          name={`projects.${index}.isShowCompany`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.company}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showLocation?.isShow}
-          onClick={child.showLocation?.onToggle}
-          onChange={child.showLocation?.onToggle}
-          label={texts.location}
+        <Controller
+          control={control}
+          name={`projects.${index}.isShowLocation`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.location}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showUrl?.isShow}
-          onClick={child.showUrl?.onToggle}
-          onChange={child.showUrl?.onToggle}
-          label={texts.url}
+        <Controller
+          control={control}
+          name={`projects.${index}.isShowUrl`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.url}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label={texts.date}
-        />
-        <CheckBox
-          checked={child.showPoints?.isShow}
-          onClick={child.showPoints?.onToggle}
-          onChange={child.showPoints?.onToggle}
-          label={texts.points}
+        <Controller
+          control={control}
+          name={`projects.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.date}
+            />
+          )}
         />
       </div>
     );
   };
 
-  const renderFields = (child: ProjectChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "projects", "id">,
+    index: number
+  ) => {
     return (
       <li key={child?.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.role}
-              fullWidth
-              variant="h4"
-              placeholder={child.title.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.title.rootClassName || ""]: !!child.title.rootClassName,
-              })}
+            <Controller
+              control={control}
+              name={`projects.${index}.title`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  variant="h4"
+                  placeholder={texts.title}
+                  containerClassName={classes.title}
+                />
+              )}
             />
           </div>
           <div className={classes.title__left_side}>
-            {items.length > 1 && (
+            {data.fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+                onClick={() => data.handleDecrease(index)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
+
+            {projectValues?.[index]?.isShowDate && (
+              <RangePicker
+                fromMonth={projectValues?.[index].fromMonth as MonthEnum}
+                toMonth={projectValues?.[index].toMonth as MonthEnum}
+                fromYear={Number(projectValues?.[index].fromYear)}
+                toYear={Number(projectValues?.[index].toYear)}
+                onChangeFromMonth={(value) =>
+                  setValue(`projects.${index}.fromMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToMonth={(value) =>
+                  setValue(`projects.${index}.toMonth`, value, {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeFromYear={(value) =>
+                  setValue(`projects.${index}.fromYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+                onChangeToYear={(value) =>
+                  setValue(`projects.${index}.toYear`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+              />
             )}
 
             <div className={classes.menu__container}>
@@ -171,55 +204,82 @@ export const Project: FC<ProjectProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child?.id, index)}
             </div>
           </div>
         </div>
-        {child.showRole?.isShow && child.role && (
-          <TextField
-            {...child.role}
-            fullWidth
-            variant="h5"
-            placeholder={child.role.placeholder}
+        {projectValues?.[index]?.isShowRole && (
+          <Controller
+            control={control}
+            name={`projects.${index}.role`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h5"
+                placeholder={texts.role}
+              />
+            )}
           />
         )}
-        {child.showCompany?.isShow && child.company && (
-          <TextField
-            {...child.company}
-            fullWidth
-            variant="h5"
-            placeholder={child.company.placeholder}
+        {projectValues?.[index]?.isShowCompany && (
+          <Controller
+            control={control}
+            name={`projects.${index}.company`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h5"
+                placeholder={texts.company}
+              />
+            )}
           />
         )}
-        {child.showLocation?.isShow && child.location && (
-          <TextField
-            {...child.location}
-            fullWidth
-            variant="h7"
-            placeholder={child.location.placeholder}
+        {projectValues?.[index]?.isShowLocation && (
+          <Controller
+            control={control}
+            name={`projects.${index}.location`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h5"
+                placeholder={texts.location}
+              />
+            )}
           />
         )}
-        {child.showUrl?.isShow && child.url && (
-          <TextField
-            {...child.url}
-            fullWidth
-            variant="h7"
-            placeholder={child.url.placeholder}
+        {projectValues?.[index]?.isShowUrl && (
+          <Controller
+            control={control}
+            name={`projects.${index}.url`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h5"
+                placeholder={texts.url}
+              />
+            )}
           />
         )}
 
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
-          />
-        )}
+        <Controller
+          control={control}
+          name={`projects.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
 
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        {data.handleIsLastItemOnHover(data.fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -227,13 +287,13 @@ export const Project: FC<ProjectProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(data.fields[-1], -1);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {data.fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,
