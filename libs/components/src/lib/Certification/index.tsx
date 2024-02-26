@@ -1,13 +1,15 @@
 import cls from "classnames";
 import { FC } from "react";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+// dtos
+import { CreateResumeResumeInputs } from "@dto";
 // components
 import {
   CheckBox,
-  CertificationChildProps,
   CertificationProps,
-  RangePicker,
   TextArea,
   TextField,
+  DatePicker,
 } from "@bright-resume/components";
 // icons
 import {
@@ -21,47 +23,29 @@ import classes from "./index.module.scss";
 import { texts } from "./texts";
 
 export const Certification: FC<CertificationProps> = ({
-  header = {},
-  items = [
-    {
-      id: "item-1",
-      name: {},
-      institute: {},
-      rangeDate: undefined,
-      points: {},
-      showInstitute: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showDate: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-      showPoints: {
-        isShow: false,
-        onToggle: () => undefined,
-      },
-    },
-  ],
-  hoverItem = {
-    id: "hover-item",
-    name: {},
-  },
-  onIncrease = () => null,
-  onDecrease = () => null,
+  control,
+  fields = [],
+  onDecrease = () => undefined,
+  onIncrease = () => undefined,
+  setValue,
+  certificationValues = [],
 }) => {
   const data = useData();
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
-        <TextField
-          {...header}
-          fullWidth
-          variant="h2"
-          placeholder={header.placeholder}
-          rootClassName={cls(classes.header, {
-            [header.rootClassName || ""]: !!header.rootClassName,
-          })}
+        <Controller
+          control={control}
+          name="certificationLabel"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              fullWidth
+              variant="h2"
+              placeholder={texts.certification}
+              rootClassName={classes.header}
+            />
+          )}
         />
         <div>
           <AddCircleRoundedIcon
@@ -80,58 +64,83 @@ export const Certification: FC<CertificationProps> = ({
     );
   };
 
-  const renderMenu = (child: CertificationChildProps) => {
-    if (data.showMenuId !== child.id) return;
+  const renderMenu = (childId: string, index: number) => {
+    if (data.showMenuId !== childId) return;
     return (
       <div className={classes.menu__wrapper}>
-        <CheckBox
-          checked={child.showInstitute?.isShow}
-          onClick={child.showInstitute?.onToggle}
-          onChange={child.showInstitute?.onToggle}
-          label={texts.institute}
+        <Controller
+          control={control}
+          name={`certifications.${index}.isShowInstitute`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.institute}
+            />
+          )}
         />
-        <CheckBox
-          checked={child.showDate?.isShow}
-          onClick={child.showDate?.onToggle}
-          onChange={child.showDate?.onToggle}
-          label={texts.date}
-        />
-        <CheckBox
-          checked={child.showPoints?.isShow}
-          onClick={child.showPoints?.onToggle}
-          onChange={child.showPoints?.onToggle}
-          label={texts.points}
+        <Controller
+          control={control}
+          name={`certifications.${index}.isShowDate`}
+          render={({ field }) => (
+            <CheckBox
+              checked={field.value}
+              onChange={() =>
+                field.value ? field.onChange(false) : field.onChange(true)
+              }
+              label={texts.date}
+            />
+          )}
         />
       </div>
     );
   };
 
-  const renderFields = (child: CertificationChildProps, index: number) => {
+  const renderFields = (
+    child: FieldArrayWithId<CreateResumeResumeInputs, "certifications", "id">,
+    index: number
+  ) => {
     return (
       <li key={child.id} className={classes.child__wrapper}>
         <div className={classes.title__container}>
           <div className={classes.title__wrapper}>
-            <TextField
-              {...child.name}
-              fullWidth
-              variant="h4"
-              placeholder={child.name.placeholder}
-              rootClassName={cls(classes.title, {
-                [child.name.rootClassName || ""]: !!child.name.rootClassName,
-              })}
+            <Controller
+              control={control}
+              name={`certifications.${index}.name`}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  variant="h4"
+                  placeholder={texts.name}
+                  rootClassName={classes.title}
+                />
+              )}
             />
           </div>
           <div className={classes.title__left_side}>
-            {items.length > 1 && (
+            {fields.length > 1 && (
               <RemoveCircleRounded
                 width="20px"
                 height="20px"
                 className={classes.remove__icon}
-                onClick={() => onDecrease(child.id)}
+                onClick={() => onDecrease(index)}
               />
             )}
-            {child.showDate?.isShow && child.rangeDate && (
-              <RangePicker {...child.rangeDate} />
+            {certificationValues?.[index]?.isShowDate && (
+              <DatePicker
+                month={undefined}
+                year={Number(certificationValues?.[index].year)}
+                onChangeMonth={() => undefined}
+                onChangeYear={(value) =>
+                  setValue(`certifications.${index}.year`, value.toString(), {
+                    shouldTouch: true,
+                    shouldValidate: true,
+                  })
+                }
+              />
             )}
 
             <div className={classes.menu__container}>
@@ -139,31 +148,40 @@ export const Certification: FC<CertificationProps> = ({
                 className={classes.menu__icon}
                 onClick={() => data.handleShowMenuId(child.id)}
               />
-              {renderMenu(child)}
+              {renderMenu(child.id, index)}
             </div>
           </div>
         </div>
-        {child.showInstitute?.isShow && child.institute && (
-          <TextField
-            {...child.institute}
-            fullWidth
-            variant="h7"
-            placeholder={child.institute.placeholder}
+        {certificationValues?.[index]?.isShowInstitute && (
+          <Controller
+            control={control}
+            name={`certifications.${index}.institute`}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                fullWidth
+                variant="h7"
+                placeholder={texts.institute}
+              />
+            )}
           />
         )}
 
-        {child.showPoints?.isShow && child.points && (
-          <TextArea
-            {...child.points}
-            variant="h7"
-            placeholder={child.points.placeholder}
-            className={cls(classes.points, {
-              [child.points.className || ""]: !!child.points.className,
-            })}
-          />
-        )}
+        <Controller
+          control={control}
+          name={`certifications.${index}.points`}
+          render={({ field }) => (
+            <TextArea
+              getSeparatedValues={field.onChange}
+              value={field.value?.join("")}
+              variant="h7"
+              placeholder={texts.points}
+              className={classes.points}
+            />
+          )}
+        />
 
-        {data.handleIsLastItemOnHover(items.length, index + 1) && (
+        {data.handleIsLastItemOnHover(fields.length, index + 1) && (
           <div className={classes.hover__line}></div>
         )}
       </li>
@@ -171,13 +189,13 @@ export const Certification: FC<CertificationProps> = ({
   };
 
   const renderHoverItems = () => {
-    return renderFields(hoverItem, -1);
+    return renderFields(fields[0], 0);
   };
 
   const renderItems = () => {
     return (
       <ul className={classes.child__container}>
-        {items.map((child, index) => renderFields(child, index))}
+        {fields.map((child, index) => renderFields(child, index))}
         <div
           className={cls(classes.hover__items, {
             [classes.hover__items_enable]: data.isHoverAddBtn,
