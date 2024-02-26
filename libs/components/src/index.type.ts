@@ -1,4 +1,10 @@
+import {
+  CreateResumeCertificationItemInputs,
+  CreateResumeExperienceItemResumeInputs,
+  CreateResumeResumeInputs,
+} from "@dto";
 import { ChangeEventHandler } from "react";
+import { Control, FieldArrayWithId, UseFormSetValue } from "react-hook-form";
 
 export type TypographyVariant =
   | "h1"
@@ -81,43 +87,22 @@ export type showOptionsType = {
   onToggle: () => void;
 };
 
-export type ExperienceChildProps = {
-  id: string;
-  role: TextFieldProps;
-  company: TextFieldProps;
-  location?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  points?: TextAreaProps;
-  showLocation?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
-};
-
 export type ExperienceProps = {
-  header: TextFieldProps;
-  items: ExperienceChildProps[];
-  hoverItem?: ExperienceChildProps;
+  control: Control<CreateResumeResumeInputs, any, CreateResumeResumeInputs>;
+  fields: FieldArrayWithId<CreateResumeResumeInputs, "experiences", "id">[];
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
   onIncrease: () => void;
-  onDecrease: (id: string) => void;
-};
-
-export type CertificationChildProps = {
-  id: string;
-  name: TextFieldProps;
-  institute?: TextFieldProps;
-  rangeDate?: RangePickerProps;
-  points?: TextAreaProps;
-  showInstitute?: showOptionsType;
-  showDate?: showOptionsType;
-  showPoints?: showOptionsType;
+  onDecrease: (number: number) => void;
+  experienceValues: CreateResumeExperienceItemResumeInputs[];
 };
 
 export type CertificationProps = {
-  header: TextFieldProps;
-  items: CertificationChildProps[];
-  hoverItem?: CertificationChildProps;
+  control: Control<CreateResumeResumeInputs, any, CreateResumeResumeInputs>;
+  fields: FieldArrayWithId<CreateResumeResumeInputs, "certifications", "id">[];
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
   onIncrease: () => void;
-  onDecrease: (id: string) => void;
+  onDecrease: (number: number) => void;
+  certificationValues: CreateResumeCertificationItemInputs[];
 };
 
 export type CourseWorkChildProps = {

@@ -9,8 +9,10 @@ import {
   Involvement,
 } from "@bright-resume/components";
 import classes from "./index.module.scss";
+import { useData } from "./index.hook";
 
 export const ResumeContent = () => {
+  const data = useData();
   return (
     <div className={classes.container}>
       <AboutMe
@@ -23,12 +25,12 @@ export const ResumeContent = () => {
         }}
       />
       <Experience
-        header={{
-          value: "Experience",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        control={data.control}
+        experienceValues={data.experienceValues || []}
+        fields={data.experienceFields}
+        onDecrease={data.handleDecreaseExperience}
+        onIncrease={data.handleIncreaseExperience}
+        setValue={data.setValue}
       />
       <Education
         header={{
@@ -39,12 +41,12 @@ export const ResumeContent = () => {
         onIncrease={() => undefined}
       />
       <Certification
-        header={{
-          value: "Certification",
-        }}
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
+        certificationValues={data.certificationValues || []}
+        fields={data.certificationFields}
+        control={data.control}
+        setValue={data.setValue}
+        onDecrease={data.handleDecreaseExperience}
+        onIncrease={data.handleIncreaseCertifications}
       />
       <CourseWork
         header={{
