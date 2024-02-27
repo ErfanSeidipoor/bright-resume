@@ -61,7 +61,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         {categories.length > 0 &&
           categories.map((category) => (
             <Button key={crypto.randomUUID()} variant="rounded">
-              {category.name}
+              {category.attributes.title}
             </Button>
           ))}
       </div>

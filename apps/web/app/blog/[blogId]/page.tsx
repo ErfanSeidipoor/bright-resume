@@ -1,11 +1,12 @@
 import { BlogDetail } from "@web/components/blog";
 import classes from "./page.module.scss";
+import { queryStringUrl } from "@bright-resume/utils";
 
 type BlogDetailPageProps = { params: { blogId: string } };
 
 const getPost = async ({ blogId }: { blogId: string }) => {
   const response = await fetch(
-    `${process.env.REACT_APP_SERVER_URL}/posts/${blogId}`
+    queryStringUrl(`${process.env.REACT_APP_SERVER_URL}/posts/${blogId}`, {})
   );
   return response.json();
 };

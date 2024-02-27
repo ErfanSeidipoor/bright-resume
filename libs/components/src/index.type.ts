@@ -227,7 +227,7 @@ export type BlogCardProps = {
   imageWidth?: string | number;
   imageHeight?: string | number;
   link?: string;
-  categories?: { name: string }[];
+  categories?: { attributes: { title: string } }[];
   isCutOutImage?: boolean;
 };
 

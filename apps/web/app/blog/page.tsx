@@ -1,6 +1,7 @@
 import { BlogContent, BlogTitle } from "@web/components/blog";
-import queryString, { StringifiableRecord } from "query-string";
+import { StringifiableRecord } from "query-string";
 import classes from "./page.module.scss";
+import { queryStringUrl } from "@bright-resume/utils";
 
 interface IQuery {
   search: string;
@@ -14,10 +15,7 @@ type BlogPageProps = {
 const getPosts = async ({ query }: { query: StringifiableRecord }) => {
   const revalidateTime = 60 * 60 * 3;
   const response = await fetch(
-    queryString.stringifyUrl({
-      url: `${process.env.REACT_APP_SERVER_URL}/posts`,
-      query: query,
-    }),
+    queryStringUrl(`${process.env.REACT_APP_SERVER_URL}/posts`, query),
     {
       next: { revalidate: revalidateTime },
     }

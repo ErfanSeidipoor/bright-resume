@@ -21,7 +21,7 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
       <div className={classes.blog__detail__image__wrapper}>
         <Image
           className={classes.blog__detail__image}
-          src={blogDetailData.coverImage.src}
+          src={`https://cms-development.bright-resume.com${blogDetailData?.attributes.coverImage.data.attributes.url}`}
           alt={"blog-post-img"}
           width={500}
           height={300}
@@ -32,18 +32,20 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
   };
 
   const renderCategories = () => {
-    if (blogDetailData.categories.length <= 0) return;
+    if (blogDetailData?.attributes.categories.data.length <= 0) return;
     return (
       <div className={classes.blog__details__categories}>
-        {blogDetailData.categories.map((category: { name: string }) => (
-          <Button
-            className={classes.blog__details__category__button}
-            key={crypto.randomUUID()}
-            variant="rounded"
-          >
-            {category.name}
-          </Button>
-        ))}
+        {blogDetailData?.attributes.categories.data.map(
+          (category: { attributes: { title: string } }) => (
+            <Button
+              className={classes.blog__details__category__button}
+              key={crypto.randomUUID()}
+              variant="rounded"
+            >
+              {category.attributes.title}
+            </Button>
+          )
+        )}
       </div>
     );
   };
@@ -81,7 +83,7 @@ const BlogDetail: FC<BlogDetailProps> = ({ blogDetailData }) => {
 
   return (
     <div className={classes.blog__detail__wrapper}>
-      {/* {renderImage()} */}
+      {renderImage()}
       {renderContent()}
       {renderBack()}
     </div>

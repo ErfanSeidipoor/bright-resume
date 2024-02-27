@@ -24,11 +24,14 @@ const BlogContent: FC<BlogContentProps> = ({ blogsData }) => {
           title={blog.attributes.title}
           description={blog.attributes.sammary}
           shortDescription={blog.attributes.content}
-          // image={blog.coverImage.src}
+          image={
+            process.env.STRAPI_URL +
+            blog.attributes.coverImage.data.attributes.url
+          }
           imageWidth={"100%"}
           imageHeight={"400px"}
           link={`/blog/${blog.id}`}
-          // categories={blog.categories}
+          categories={blog.attributes.categories.data}
           isCutOutImage
         />
       </div>
