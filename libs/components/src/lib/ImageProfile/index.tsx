@@ -12,7 +12,7 @@ export const ImageProfile = () => {
     if (!profileImage) {
       return (
         <>
-          <ProfileImageIcon />
+          <ProfileImageIcon className={classes.icon} />
           <Typography variant="h6" rootClassName={classes.text__wrapper}>
             {texts.yourPicture}
           </Typography>

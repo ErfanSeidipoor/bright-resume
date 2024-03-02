@@ -29,6 +29,10 @@
     .menu__content {
       @include flexbox(column, center, center);
       cursor: pointer;
+
+      .menu__content_text {
+        margin-top: spacing(2);
+      }
     }
 
     & p {
@@ -97,6 +101,12 @@
       }
       &.font__active {
         color: $blue;
+      }
+    }
+
+    .color__icon {
+      circle {
+        fill: var(--primary);
       }
     }
   }

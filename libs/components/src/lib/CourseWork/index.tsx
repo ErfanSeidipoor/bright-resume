@@ -26,8 +26,11 @@ export const CourseWork: FC<CourseWorkProps> = ({
   control,
   setValue,
   courseWorkValues = [],
+  isHidden = false,
 }) => {
   const data = useData(control);
+  if (isHidden) return;
+
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>

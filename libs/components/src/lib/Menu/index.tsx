@@ -15,12 +15,18 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 // types //TODO => change type path
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import {
+  FontFamily,
+  FonSize,
+  ThemeColor,
+  SectionsEnum,
+} from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Popup from "../Popup";
+import CheckBox from "../CheckBox";
 
 type Avatar = {
   src: string;
@@ -45,8 +51,9 @@ export type MenuProps = {
   user?: User;
   color: ThemeColor;
   onChangeColor: (color: ThemeColor) => void;
-  sections: string[];
-  onChangeSections: (sections: string[]) => void;
+  sections: SectionsEnum[];
+  onAppendSection: (section: SectionsEnum) => void;
+  onRemoveSection: (section: SectionsEnum) => void;
   fontFamily: FontFamily;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
   fonSize: FonSize;
@@ -59,7 +66,8 @@ export const Menu: React.FC<MenuProps> = ({
   color,
   onChangeColor,
   sections,
-  onChangeSections,
+  onAppendSection,
+  onRemoveSection,
   fontFamily,
   onChangeFontFamily,
   fonSize,
@@ -80,7 +88,11 @@ export const Menu: React.FC<MenuProps> = ({
         {popup}
         <div className={classes.menu__content} onClick={onClick}>
           {title && <Typography component="div">{title}</Typography>}
-          {text && <Typography>{text}</Typography>}
+          {text && (
+            <Typography className={classes.menu__content_text}>
+              {text}
+            </Typography>
+          )}
         </div>
       </div>
     );
@@ -92,7 +104,13 @@ export const Menu: React.FC<MenuProps> = ({
 
   const renderColor = () => {
     return renderMenuItem({
-      title: <BlueCircleIcon width="35px" height="35px" />,
+      title: (
+        <BlueCircleIcon
+          width="35px"
+          height="35px"
+          className={classes.color__icon}
+        />
+      ),
       text: texts.color,
       popup: (
         <Popup
@@ -160,7 +178,16 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenSectionsPicker}
           onClose={data.handleToggleSectionsPicker}
         >
-          Sections
+          {Object.values(SectionsEnum).map((section) => (
+            <CheckBox
+              label={section}
+              onClick={() => {
+                if (sections.includes(section)) return onRemoveSection(section);
+                return onAppendSection(section);
+              }}
+              checked={sections.includes(section)}
+            />
+          ))}
         </Popup>
       ),
       text: texts.sections,
@@ -188,8 +215,8 @@ export const Menu: React.FC<MenuProps> = ({
           ))}
         </Popup>
       ),
-      title: <div className={classes.select}>Change</div>,
-      text: texts.font,
+      title: fontFamily,
+      text: texts.change_font,
       onClick: data.handleToggleFontFamilyPicker,
     });
   };
@@ -214,8 +241,8 @@ export const Menu: React.FC<MenuProps> = ({
           ))}
         </Popup>
       ),
-      title: <div className={classes.select}>Change</div>,
-      text: texts.size,
+      title: fonSize,
+      text: texts.change_size,
       onClick: data.handleToggleFontSizePicker,
     });
   };

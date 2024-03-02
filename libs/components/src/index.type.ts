@@ -101,36 +101,42 @@ export type ExperienceProps = {
   control: createResumeControlType;
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
   experienceValues: CreateResumeExperienceItemResumeInputs[];
+  isHidden?: boolean;
 };
 
 export type CertificationProps = {
   control: createResumeControlType;
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
   certificationValues: CreateResumeCertificationItemInputs[];
+  isHidden?: boolean;
 };
 
 export type CourseWorkProps = {
   control: createResumeControlType;
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
   courseWorkValues: CreateResumeCourseWorkItemInputs[];
+  isHidden?: boolean;
 };
 
 export type ProjectProps = {
   control: createResumeControlType;
   projectValues: CreateResumeProjectItemInputs[];
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
+  isHidden?: boolean;
 };
 
 export type InvolvementProps = {
   control: createResumeControlType;
   involvementValues: CreateResumeInvolvementItemInputs[];
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
+  isHidden?: boolean;
 };
 
 export type EducationProps = {
   control: createResumeControlType;
   educationValues: CreateResumeEducationItemInputs[];
   setValue: UseFormSetValue<CreateResumeResumeInputs>;
+  isHidden?: boolean;
 };
 
 export type LanguageChildProps = {
@@ -154,6 +160,7 @@ export type ContactInfoProps = {
 export type AboutMeProps = {
   header: TextFieldProps;
   description: TextAreaProps;
+  isHidden?: boolean;
 };
 
 export enum ThemeColor {
@@ -162,6 +169,16 @@ export enum ThemeColor {
   purple = "purple",
   gold = "gold",
   grey = "grey",
+}
+
+export enum SectionsEnum {
+  about_me = "About Me",
+  experience = "Experience",
+  education = "Education",
+  certification = "Certification",
+  course_work = "Course Work",
+  project = "Project",
+  involvement = "Involvement",
 }
 
 export enum FonSize {

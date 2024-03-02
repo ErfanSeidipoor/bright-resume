@@ -8,7 +8,10 @@ import classes from "./index.module.scss";
 export const AboutMe: FC<AboutMeProps> = ({
   header = {},
   description = {},
+  isHidden = false,
 }) => {
+  if (isHidden) return;
+
   const renderHeader = () => {
     return (
       <TextField {...header} variant="h2" placeholder={header.placeholder} />

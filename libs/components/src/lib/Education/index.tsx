@@ -26,8 +26,11 @@ export const Education: FC<EducationProps> = ({
   control,
   educationValues = [],
   setValue,
+  isHidden = false,
 }) => {
   const data = useData(control);
+  if (isHidden) return;
+
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
