@@ -29,4 +29,10 @@
     height: 100%;
     object-fit: cover;
   }
+
+  .icon {
+    path {
+      fill: var(--primary);
+    }
+  }
 }

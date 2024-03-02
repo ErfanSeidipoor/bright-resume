@@ -7,17 +7,19 @@ import {
   ThemeProvider,
   useTheme,
 } from "@bright-resume/components";
+import { useData } from "./index.hook";
 
 /* eslint-disable-next-line */
 export interface ResumeProps {}
 
 const ResumePage = () => {
   const theme = useTheme();
+  const data = useData();
 
   return (
     <div className={classes.resume__container}>
       <ResumeSidebar />
-      <ResumeContent />
+      <ResumeContent sections={data.selectedSections} />
       <Menu
         color={theme.themeColor}
         fonSize={theme.fonSize}
@@ -25,8 +27,9 @@ const ResumePage = () => {
         onChangeColor={theme.changeThemeColor}
         onChangeFontFamily={theme.changeFontFamily}
         onChangeFontSize={theme.changeFontSize}
-        sections={[]}
-        onChangeSections={() => undefined}
+        sections={data.selectedSections}
+        onAppendSection={data.handleAppendSections}
+        onRemoveSection={data.handleRemoveSections}
       />
     </div>
   );

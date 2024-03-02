@@ -26,8 +26,11 @@ export const Project: FC<ProjectProps> = ({
   control,
   setValue,
   projectValues = [],
+  isHidden = false,
 }) => {
   const data = useData(control);
+  if (isHidden) return;
+
   const renderHeader = () => {
     return (
       <div className={classes.header__container}>
