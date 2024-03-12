@@ -24,9 +24,9 @@
   }
 
   .container {
+    position: relative;
     @include flexbox(column, center, center, 1);
     width: 100%;
-    padding-top: spacing(15);
 
     form {
       width: 100%;
@@ -36,121 +36,107 @@
       padding: unset;
     }
 
-    .wrapper {
-      height: 100%;
-      max-width: 500px;
-
-      @include flexbox(column, center, center);
-      gap: 20px;
+    .header {
+      width: 100%;
       padding: spacing(2);
-
-      @include md {
-        width: 100%;
-        padding: spacing(10);
+      @include typography(h6);
+      h1 {
+        @include typography(h2);
+        line-height: 1;
+        margin-bottom: 1rem;
       }
+    }
 
-      .header {
+    .form {
+      width: 100%;
+
+      .inputField {
         width: 100%;
-        padding: spacing(2);
+        @include flexbox(column, center, flex-start);
 
-        h1 {
-          @include typography(h1);
-          line-height: 1;
-          margin-bottom: 1rem;
+        h2 {
+          @include typography(h2);
+          margin-bottom: 20px;
         }
-      }
 
-      .form {
-        width: 100%;
-
-        .inputField {
+        input {
           width: 100%;
-          @include flexbox(column, center, flex-start);
-
-          h2 {
-            @include typography(h2);
-            margin-bottom: 20px;
-          }
-
-          input {
-            width: 100%;
-            padding: spacing(4, 4);
-            margin-bottom: 10px;
-            border: 1px solid $blue;
-            border-radius: 100px;
-            @include typography(h9);
-            color: $blue;
-
-            &::placeholder {
-              color: $blue;
-            }
-          }
-
-          label {
-            display: block;
-            margin: spacing(4, 0);
-            @include typography(h6);
-          }
-        }
-
-        span {
-          color: $blue;
-        }
-
-        .submitButton {
-          width: 100%;
-          padding: spacing(4, 8);
-          margin-top: spacing(8);
-          background-color: $blue;
-          color: $light;
-          border: none;
+          padding: spacing(4, 4);
+          margin-bottom: 10px;
+          border: 1px solid $blue;
           border-radius: 100px;
-          @include typography(h8);
+          @include typography(h9);
+          color: $blue;
 
-          &:hover {
-            background-color: $dark-blue;
+          &::placeholder {
+            color: $blue;
           }
         }
 
-        .forgot_password {
-          margin-top: 8px;
+        label {
+          display: block;
+          margin: spacing(4, 0);
+          @include typography(h6);
+        }
+      }
+
+      span {
+        color: $blue;
+      }
+
+      .submitButton {
+        width: 100%;
+        padding: spacing(4, 8);
+        margin-top: spacing(8);
+        background-color: $blue;
+        color: $light;
+        border: none;
+        border-radius: 100px;
+        @include typography(h8);
+
+        &:hover {
+          background-color: $dark-blue;
+        }
+      }
+
+      .forgot_password {
+        margin-top: 8px;
+        text-decoration: none;
+        color: $blue;
+        font-size: 14px;
+      }
+
+      .signup {
+        width: 100%;
+        @include flexbox(row, center, center);
+        padding: spacing(4, 0);
+        a {
           text-decoration: none;
           color: $blue;
-          font-size: 14px;
-        }
-
-        .signup {
-          width: 100%;
-          @include flexbox(row, center, center);
-          padding: spacing(4, 0);
-          a {
-            text-decoration: none;
-            color: $blue;
-            margin-left: spacing(1);
-          }
+          margin-left: spacing(1);
         }
       }
+    }
 
-      .social {
-        width: 100%;
-        @include flexbox(row, space-between, center, 5, nowrap);
+    .social {
+      width: 100%;
+      @include flexbox(row, space-between, center, 5, nowrap);
 
-        .social_item {
-          @include flexbox(row, center, center, 0, nowrap);
-          position: relative;
-          height: 4rem;
-          width: 8rem;
-          border-radius: 247px;
-          background: $light;
+      .social_item {
+        @include flexbox(row, center, center, 0, nowrap);
+        position: relative;
+        height: 4rem;
+        width: 8rem;
+        border-radius: 247px;
+        background: $light;
 
-          cursor: pointer;
-          background-color: $light;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          transition: box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+        background-color: $light;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.2s ease-in-out;
 
-          &:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-          }
+        &:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
         }
       }
     }
@@ -158,5 +144,12 @@
 }
 
 .error {
-  color: $error;
+  @include flexbox(row, center, center);
+  color: $light !important;
+  background-color: $error !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
 }

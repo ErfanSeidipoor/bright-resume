@@ -1,19 +1,17 @@
 "use client";
 import logo from "@bright-resume/assets/image/logo-with-typography-horizontal.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./index.module.scss";
 import Link from "next/link";
 import { MenuIcon } from "@bright-resume/components/Icons";
 import { Sidebar } from "../sidebar";
 import { useOutsideClick } from "./index.hooks";
 import { useSession } from "next-auth/react";
-import { handleSignOut } from "./action";
 
-export default function MainNav() {
-  const { update, data, status } = useSession();
+export default function MainNav({ handleSignOut }: any) {
+  const { update, data: session, status } = useSession();
   const [open, setOpen] = useState(false);
-  console.log("status", { status, update, data });
 
   const ref = useOutsideClick(() => setOpen(false));
 
@@ -42,8 +40,16 @@ export default function MainNav() {
             Login/Sign up
           </Link>
         ) : (
-          <form className={classes.login_button} action={handleSignOut}>
-            Sign out
+          <form
+            className={classes.login_button}
+            action={handleSignOut}
+            method="post"
+          >
+            {status === "loading" ? (
+              <div>...loading</div>
+            ) : (
+              `Hi ${session?.user.name}`
+            )}
           </form>
         )}
       </div>

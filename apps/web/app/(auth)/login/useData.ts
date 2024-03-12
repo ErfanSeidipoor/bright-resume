@@ -1,33 +1,35 @@
+import { useRef } from "react";
 import { SignInAuthInputs } from "@dto";
 import { classValidatorResolver } from "@hookform/resolvers/class-validator";
 import { useForm } from "react-hook-form";
 import { useFormState } from "react-dom";
-import { authenticate } from "../actions";
+import { authenticate, logoutAction } from "../actions";
+// import { useSession } from "next-auth/react";
+// import { useRouter } from "next/navigation";
 
 export const useData = () => {
-  const [state, formAction] = useFormState(authenticate, undefined);
+  // const router = useRouter();
+  // const session = useSession();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignInAuthInputs>({
+  const formRef = useRef<HTMLFormElement>(null);
+  const [state, formAction] = useFormState(authenticate, undefined);
+  const form = useForm<SignInAuthInputs>({
     resolver: classValidatorResolver(SignInAuthInputs),
     mode: "onChange",
   });
 
-  const onSubmit = async (data: SignInAuthInputs) => {
+  // TODO: logout in login page is only for test, should be removed
+  function logout(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event?.preventDefault();
 
-    if (errors.root) return;
-    await formAction(JSON.stringify(data));
-  };
+    logoutAction();
+  }
 
   return {
-    handleSubmit,
-    onSubmit,
-    register,
-    errors,
+    form,
     state,
+    formRef,
+    formAction,
+    logout,
   };
 };

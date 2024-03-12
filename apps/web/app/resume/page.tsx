@@ -13,7 +13,7 @@ export interface ResumeProps {}
 
 const ResumePage = () => {
   const theme = useTheme();
-  console.log(theme);
+
   return (
     <ThemeProvider
       fonSize={theme.fonSize}

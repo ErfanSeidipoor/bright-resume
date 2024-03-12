@@ -28,6 +28,7 @@
     padding: spacing(0, 4);
     border: 1px solid $blue;
     border-radius: 5px;
+    user-select: none;
 
     @include flexbox(row, center, center);
     cursor: pointer;

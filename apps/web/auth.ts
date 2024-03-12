@@ -1,10 +1,24 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import { authConfig } from "./auth.config";
 import { graphqlClient } from "./lib/graphql-client";
 import { SignInUsrDocument } from "./gql/graphql";
 import { SignInAuthInputs } from "@dto";
 import { validate } from "class-validator";
 import Credentials from "next-auth/providers/credentials";
+
+declare module "next-auth" {
+  /**
+   * Returned by `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
+   */
+  interface Session {
+    user: {
+      username: string;
+      token: string | null;
+      createdAt: string | null;
+      updatedAt: string | null;
+    } & User;
+  }
+}
 
 export const {
   handlers: { POST, GET },
@@ -27,12 +41,16 @@ export const {
         const errors = await validate(user);
 
         if (errors.length === 0) {
-          const response = await graphqlClient.request(SignInUsrDocument, {
+          const { signIn } = await graphqlClient.request(SignInUsrDocument, {
             username,
             password,
           });
-          if (!response.signIn || !response.signIn.token) return null;
-          return await response.signIn;
+          if (!signIn || !signIn.token) return null;
+          return {
+            name: signIn.username,
+            email: signIn.email,
+            token: signIn.token,
+          };
         }
 
         return null;

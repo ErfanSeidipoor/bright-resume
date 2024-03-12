@@ -1,5 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 .env
+.env.local
+.env.*.local
 .nx
 
 # compiled output
@@ -53,3 +55,5 @@ Thumbs.db
 # Next.js
 .next
 
+.vscode
+.idea
