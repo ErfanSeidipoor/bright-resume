@@ -1,18 +1,12 @@
 import { BlogDetail } from "@web/components/blog";
 import classes from "./page.module.scss";
-import { queryStringUrl } from "@bright-resume/utils";
+import { useData } from "./index.hook";
 
 type BlogDetailPageProps = { params: { blogId: string } };
 
-const getPost = async ({ blogId }: { blogId: string }) => {
-  const response = await fetch(
-    queryStringUrl(`${process.env.REACT_APP_SERVER_URL}/posts/${blogId}`, {})
-  );
-  return response.json();
-};
-
 export default async function Index(props: BlogDetailPageProps) {
-  const post = await getPost({ blogId: props.params.blogId });
+  const data = useData();
+  const post = await data.getPost({ blogId: props.params.blogId });
 
   return (
     <div className={classes.container}>
