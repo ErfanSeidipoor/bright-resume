@@ -51,11 +51,7 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   fullWidth?: boolean;
 };
 
-export type createResumeControlType = Control<
-  CreateResumeResumeInputs,
-  any,
-  CreateResumeResumeInputs
->;
+export type createResumeControlType = Control<CreateResumeResumeInputs, any>;
 
 export type BackgroundInfoChildKeys =
   | "title"
