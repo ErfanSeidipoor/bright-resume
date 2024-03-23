@@ -48,6 +48,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "classnames": "^2.3.2",
+    "dompurify": "^3.0.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "graphql": "^16.7.1",
@@ -66,13 +67,15 @@
     "passport-linkedin-oauth2": "github:auth0/passport-linkedin-oauth2#v3.0.0",
     "pg": "^8.11.3",
     "puppeteer": "^21.5.2",
+    "query-string": "^8.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.50.1",
     "reflect-metadata": "^0.1.14",
     "rxjs": "^7.8.0",
     "tslib": "^2.6.2",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.1",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -105,6 +108,7 @@
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/bull": "^4.10.0",
+    "@types/dompurify": "^3.0.5",
     "@types/jest": "^29.4.0",
     "@types/mongoose-delete": "^1.0.0",
     "@types/node": "18.16.9",

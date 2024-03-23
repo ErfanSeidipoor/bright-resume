@@ -1,3 +1,4 @@
+"use client";
 import { ChangeEvent, useEffect, useState } from "react";
 
 export const useData = (onClose?: () => void) => {

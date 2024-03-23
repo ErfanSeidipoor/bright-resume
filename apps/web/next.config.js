@@ -12,6 +12,14 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cms-development.bright-resume.com",
+      },
+    ],
+  },
 };
 
 const plugins = [

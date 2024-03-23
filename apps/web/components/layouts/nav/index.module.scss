@@ -45,7 +45,7 @@
 .tabs {
   @include flexbox(row, space-between, center);
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
 
   @include sm {
     display: none;

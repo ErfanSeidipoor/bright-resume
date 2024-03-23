@@ -1,0 +1,14 @@
+@import "libs/theme";
+
+.title__wrapper {
+  @include flexbox(row, space-between, center, 2);
+  margin: spacing(8, 0, 5);
+  .title {
+    padding-bottom: spacing(1);
+    @include flexbox();
+    .title__blog__text {
+      color: #{$blue};
+      padding-left: spacing(2);
+    }
+  }
+}

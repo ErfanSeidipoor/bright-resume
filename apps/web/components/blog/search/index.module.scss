@@ -1,0 +1,8 @@
+@import "libs/theme";
+
+.search__container {
+  width: 30%;
+  @include sm {
+    width: 100%;
+  }
+}

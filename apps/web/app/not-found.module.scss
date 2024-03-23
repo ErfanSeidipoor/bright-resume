@@ -1,0 +1,19 @@
+@import "libs/theme";
+
+.notfound__container {
+  @include flexbox(column, center, center);
+  height: 100vh;
+  .notfound__title {
+    font-size: 150px !important;
+    text-shadow: 5px -2px 0px #{$blue}, -5px 4px 0 #a79393;
+  }
+  .notfound__text {
+    color: #{$grey-300};
+  }
+  .notfound__link {
+    color: #{$blue};
+    background-color: #{$blue-hover};
+    padding: spacing(2, 10, 2.5, 10);
+    border-radius: 8px;
+  }
+}

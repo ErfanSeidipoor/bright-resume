@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useFieldArray } from "react-hook-form";
 import { createResumeControlType } from "../../index.type";
