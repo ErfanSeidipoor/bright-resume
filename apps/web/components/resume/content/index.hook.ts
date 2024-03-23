@@ -1,73 +1,40 @@
-import { useForm } from "react-hook-form";
-import { classValidatorResolver } from "@hookform/resolvers/class-validator";
+"use client";
+
+import { useMemo } from "react";
+import { UseFormWatch } from "react-hook-form";
 import { CreateResumeResumeInputs } from "@dto";
 
-export const useData = () => {
-  const {
-    handleSubmit,
-    control,
-    reset,
-    watch,
-    setValue,
-    formState: { errors },
-  } = useForm<CreateResumeResumeInputs>({
-    mode: "onSubmit",
-    resolver: classValidatorResolver(CreateResumeResumeInputs),
-    defaultValues: {
-      experiences: [
-        {
-          company: "",
-          role: "",
-          points: [],
-        },
-      ],
-      experienceLabel: "Experience",
-      educations: [
-        {
-          degree: "",
-          points: [],
-        },
-      ],
-      educationLabel: "Education",
-      certifications: [
-        {
-          name: "",
-          points: [],
-        },
-      ],
-      certificationLabel: "Certification",
-      courseWorks: [
-        {
-          name: "",
-          points: [],
-        },
-      ],
-      courseWorkLabel: "Course Work",
-      involvements: [
-        {
-          role: "",
-          points: [],
-        },
-      ],
-      involvementLabel: "Involvement",
-      projects: [
-        {
-          title: "",
-          points: [],
-        },
-      ],
-      projectLabel: "Project",
-    },
-  });
+export const useData = (watch: UseFormWatch<CreateResumeResumeInputs>) => {
+  const experienceValues = useMemo(() => {
+    return watch("experiences");
+  }, [watch("experiences")]);
+
+  const certificationValues = useMemo(() => {
+    return watch("certifications");
+  }, [watch("certifications")]);
+
+  const educationValues = useMemo(() => {
+    return watch("educations");
+  }, [watch("educations")]);
+
+  const courseWorkValues = useMemo(() => {
+    return watch("courseWorks");
+  }, [watch("courseWorks")]);
+
+  const involvementValues = useMemo(() => {
+    return watch("involvements");
+  }, [watch("involvements")]);
+
+  const projectValues = useMemo(() => {
+    return watch("projects");
+  }, [watch("projects")]);
 
   return {
-    control,
-    setValue,
-    experienceValues: watch("experiences"),
-    certificationValues: watch("certifications"),
-    educationValues: watch("educations"),
-    courseWorkValues: watch("courseWorks"),
-    involvementValues: watch("involvements"),
-    projectValues: watch("projects"),
+    experienceValues,
+    certificationValues,
+    educationValues,
+    courseWorkValues,
+    involvementValues,
+    projectValues,
   };
 };

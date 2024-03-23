@@ -209,7 +209,6 @@ export const Experience: FC<ExperienceProps> = ({
           render={({ field }) => (
             <TextArea
               getSeparatedValues={field.onChange}
-              value={field.value?.join("")}
               variant="h7"
               placeholder={texts.points}
               className={classes.points}

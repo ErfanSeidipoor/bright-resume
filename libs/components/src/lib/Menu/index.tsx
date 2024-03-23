@@ -58,6 +58,7 @@ export type MenuProps = {
   onChangeFontFamily: (fontFamily: FontFamily) => void;
   fonSize: FonSize;
   onChangeFontSize: (fonSize: FonSize) => void;
+  onSave?: () => void;
 };
 
 export const Menu: React.FC<MenuProps> = ({
@@ -72,6 +73,7 @@ export const Menu: React.FC<MenuProps> = ({
   onChangeFontFamily,
   fonSize,
   onChangeFontSize,
+  onSave = () => undefined,
 }) => {
   const data = useData();
 
@@ -281,6 +283,7 @@ export const Menu: React.FC<MenuProps> = ({
     return renderMenuItem({
       title: <SaveIcon width="34px" height="34px" />,
       text: texts.save,
+      onClick: onSave,
     });
   };
 

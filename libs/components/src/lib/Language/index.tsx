@@ -4,7 +4,6 @@ import React from "react";
 import {
   RadioButton,
   TextField,
-  LanguageChildProps,
   LanguageProps,
   ProficiencyEnum,
 } from "@bright-resume/components";
@@ -15,19 +14,20 @@ import Typography from "../Typography";
 // locals
 import classes from "./index.module.scss";
 import { texts } from "./texts";
+import { useData } from "./index.hook";
+import { Controller, FieldArrayWithId } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
 
-export const Language: React.FC<LanguageProps> = ({
-  items = [],
-  onDecrease,
-  onIncrease,
-}) => {
+export const Language: React.FC<LanguageProps> = ({ control }) => {
+  const data = useData(control);
+
   const renderHeader = () => {
     return (
       <div className={classes.title__wrapper}>
         <Typography className={classes.header} variant="h2">
           {texts.languages}
         </Typography>
-        <div className={classes.add__icon} onClick={onIncrease}>
+        <div className={classes.add__icon} onClick={data.handleIncrease}>
           <AddCircleRoundedIcon />
           <Typography className={classes.add__text} variant="h7">
             {texts.add}
@@ -37,47 +37,85 @@ export const Language: React.FC<LanguageProps> = ({
     );
   };
 
-  const renderItem = (item: LanguageChildProps) => {
+  const renderItem = (
+    item: FieldArrayWithId<CreateResumeResumeInputs, "languages", "id">,
+    index: number
+  ) => {
     return (
-      <div key={item.id} className={classes.wrapper__items}>
-        <div className={classes.language__container}>
-          <TextField
-            rootClassName={classes.language}
-            {...item.language}
-            variant="h4"
-          />
-          {items.length > 1 && (
-            <RemoveCircleRounded
-              className={classes.remove__icon}
-              onClick={() => onDecrease(item.id)}
-            />
-          )}
-        </div>
-        <Typography className={classes.proficiency__value} variant="h9">
-          {item.proficiency}
-        </Typography>
-        <div className={classes.proficiency__wrapper}>
-          {Object.values(ProficiencyEnum).map((proficiency) => (
-            <div key={`level-${proficiency}`} className={classes.proficiency}>
-              <RadioButton
-                value={proficiency}
-                id={`${proficiency}-${item.id}`}
-                checked={item.proficiency === proficiency}
-                onChange={(e) =>
-                  e.target.checked &&
-                  item.onChangeProficiency(item.id, proficiency)
-                }
-                label={proficiency}
+      <Controller
+        control={control}
+        name={`languages.${index}.isShowLevel`}
+        render={({ field: showField }) => (
+          <div
+            key={item.id}
+            className={classes.wrapper__items}
+            onMouseEnter={() => showField.onChange(true)}
+            onMouseLeave={() => showField.onChange(false)}
+          >
+            <div className={classes.language__container}>
+              <Controller
+                control={control}
+                name={`languages.${index}.name`}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    rootClassName={classes.language}
+                    variant="h4"
+                  />
+                )}
               />
+              {data.fields.length > 1 && (
+                <RemoveCircleRounded
+                  className={classes.remove__icon}
+                  onClick={() => data.handleDecrease(index)}
+                />
+              )}
             </div>
-          ))}
-        </div>
-      </div>
+
+            {!showField.value && (
+              <Controller
+                control={control}
+                name={`languages.${index}.level`}
+                render={({ field }) => (
+                  <TextField {...field} variant="h9" disabled />
+                )}
+              />
+            )}
+            <div className={classes.proficiency__wrapper}>
+              {showField.value &&
+                Object.values(ProficiencyEnum).map((proficiency) => (
+                  <div
+                    key={`level-${proficiency}`}
+                    className={classes.proficiency}
+                  >
+                    <Controller
+                      control={control}
+                      name={`languages.${index}.level`}
+                      render={({ field }) => (
+                        <RadioButton
+                          value={proficiency}
+                          id={`${proficiency}-${item.id}`}
+                          checked={field.value === proficiency}
+                          onChange={(e) =>
+                            e.target.checked && field.onChange(proficiency)
+                          }
+                          label={proficiency}
+                        />
+                      )}
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+      />
     );
   };
 
   const renderItems = () => {
-    return <div>{items.map((item) => renderItem(item))}</div>;
+    return (
+      <div>{data.fields.map((item, index) => renderItem(item, index))}</div>
+    );
   };
 
   return (

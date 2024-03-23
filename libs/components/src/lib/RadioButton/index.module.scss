@@ -1,4 +1,4 @@
-@import '../../../../theme/index';
+@import "../../../../theme/index";
 
 .root {
   width: fit-content;
@@ -17,7 +17,7 @@
 
   .checked__icon {
     > path {
-      fill: var(--primary);
+      fill: var(--dark-success);
     }
   }
 
