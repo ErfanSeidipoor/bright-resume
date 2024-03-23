@@ -1,4 +1,9 @@
 "use client";
+import { FC } from "react";
+import { Control, UseFormSetValue, UseFormWatch } from "react-hook-form";
+// dto
+import { CreateResumeResumeInputs } from "@dto";
+// components
 import {
   Experience,
   AboutMe,
@@ -9,16 +14,24 @@ import {
   Involvement,
   SectionsEnum,
 } from "@bright-resume/components";
+// locals
 import classes from "./index.module.scss";
 import { useData } from "./index.hook";
-import { FC } from "react";
 
 type ResumeContentProps = {
   sections: SectionsEnum[];
+  watch: UseFormWatch<CreateResumeResumeInputs>;
+  control: Control<CreateResumeResumeInputs, any>;
+  setValue: UseFormSetValue<CreateResumeResumeInputs>;
 };
 
-export const ResumeContent: FC<ResumeContentProps> = ({ sections = [] }) => {
-  const data = useData();
+export const ResumeContent: FC<ResumeContentProps> = ({
+  sections = [],
+  watch,
+  control,
+  setValue,
+}) => {
+  const data = useData(watch);
 
   return (
     <div className={classes.container}>
@@ -33,38 +46,38 @@ export const ResumeContent: FC<ResumeContentProps> = ({ sections = [] }) => {
         isHidden={!sections.includes(SectionsEnum.about_me)}
       />
       <Experience
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         experienceValues={data.experienceValues || []}
         isHidden={!sections.includes(SectionsEnum.experience)}
       />
       <Education
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         educationValues={data.educationValues || []}
         isHidden={!sections.includes(SectionsEnum.education)}
       />
       <Certification
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         certificationValues={data.certificationValues || []}
         isHidden={!sections.includes(SectionsEnum.certification)}
       />
       <CourseWork
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         courseWorkValues={data.courseWorkValues || []}
         isHidden={!sections.includes(SectionsEnum.course_work)}
       />
       <Project
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         projectValues={data.projectValues || []}
         isHidden={!sections.includes(SectionsEnum.project)}
       />
       <Involvement
-        control={data.control}
-        setValue={data.setValue}
+        control={control}
+        setValue={setValue}
         involvementValues={data.involvementValues || []}
         isHidden={!sections.includes(SectionsEnum.involvement)}
       />

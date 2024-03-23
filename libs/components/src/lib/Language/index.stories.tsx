@@ -76,16 +76,16 @@ const Template: StoryFn<typeof Language> = (args) => {
     <div id="theme-blue">
       <Language
         {...args}
-        items={items.map((item) => ({
-          ...item,
-          language: {
-            ...item.language,
-            onChange: (e) => onChangeLanguage(item.id, e.target.value),
-          },
-          onChangeProficiency: handleChangeProficiency,
-        }))}
-        onIncrease={onIncrease}
-        onDecrease={onDecrease}
+        // items={items.map((item) => ({
+        //   ...item,
+        //   language: {
+        //     ...item.language,
+        //     onChange: (e) => onChangeLanguage(item.id, e.target.value),
+        //   },
+        //   onChangeProficiency: handleChangeProficiency,
+        // }))}
+        // onIncrease={onIncrease}
+        // onDecrease={onDecrease}
       />
     </div>
   );

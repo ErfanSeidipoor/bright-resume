@@ -219,7 +219,6 @@ export const Involvement: FC<InvolvementProps> = ({
           render={({ field }) => (
             <TextArea
               getSeparatedValues={field.onChange}
-              value={field.value?.join("")}
               variant="h7"
               placeholder={texts.points}
               className={classes.points}

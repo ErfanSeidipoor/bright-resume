@@ -1,4 +1,14 @@
 "use client";
+import { FC } from "react";
+import {
+  Control,
+  Controller,
+  UseFormSetValue,
+  UseFormWatch,
+} from "react-hook-form";
+// dto
+import { CreateResumeResumeInputs } from "@dto";
+// components
 import {
   ImageProfile,
   TextField,
@@ -9,17 +19,34 @@ import {
 } from "@bright-resume/components";
 import classes from "./index.module.scss";
 
-export const ResumeSidebar = () => {
+type ResumeSidebarProps = {
+  control: Control<CreateResumeResumeInputs, any>;
+};
+
+export const ResumeSidebar: FC<ResumeSidebarProps> = ({ control }) => {
   return (
     <div className={classes.container}>
       <ImageProfile />
       <div>
-        <TextField
-          rootClassName={classes.field}
-          variant="h3"
-          placeholder="Your Full Name"
+        <Controller
+          control={control}
+          name="name"
+          render={({ field }) => (
+            <TextField
+              {...field}
+              rootClassName={classes.field}
+              variant="h3"
+              placeholder="Your Full Name"
+            />
+          )}
         />
-        <TextField variant="h6" placeholder="Your Job Title" />
+        <Controller
+          control={control}
+          name="role"
+          render={({ field }) => (
+            <TextField {...field} variant="h6" placeholder="Your Job Title" />
+          )}
+        />
       </div>
       <ContactInfo
         EmailAddress={{
@@ -28,16 +55,13 @@ export const ResumeSidebar = () => {
         PhoneNumber={{
           placeholder: "Phone Number",
         }}
+        control={control}
       />
       <div>
         <Typography variant="h3">Top Skills</Typography>
         <Slider onChange={() => {}} label="Skill #1" />
       </div>
-      <Language
-        items={[]}
-        onDecrease={() => undefined}
-        onIncrease={() => undefined}
-      />
+      <Language control={control} />
     </div>
   );
 };

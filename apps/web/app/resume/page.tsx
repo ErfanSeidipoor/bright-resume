@@ -1,9 +1,14 @@
 "use client";
-import { ResumeSidebar, ResumeContent } from "@web/components/resume";
+import {
+  ResumeSidebar,
+  ResumeContent,
+  ResumeConfirmationPopup,
+} from "@web/components/resume";
 import classes from "./page.module.scss";
 import {
   Experience,
   Menu,
+  Popup,
   ThemeProvider,
   useTheme,
 } from "@bright-resume/components";
@@ -18,8 +23,13 @@ const ResumePage = () => {
 
   return (
     <div className={classes.resume__container}>
-      <ResumeSidebar />
-      <ResumeContent sections={data.selectedSections} />
+      <ResumeSidebar control={data.control} />
+      <ResumeContent
+        sections={data.selectedSections}
+        watch={data.watch}
+        control={data.control}
+        setValue={data.setValue}
+      />
       <Menu
         color={theme.themeColor}
         fonSize={theme.fonSize}
@@ -30,6 +40,14 @@ const ResumePage = () => {
         sections={data.selectedSections}
         onAppendSection={data.handleAppendSections}
         onRemoveSection={data.handleRemoveSections}
+        onSave={data.handleOpenConfirmation}
+      />
+
+      <ResumeConfirmationPopup
+        isOpen={data.isOpenConfirmation}
+        onClose={data.handleCloseConfirmation}
+        control={data.control}
+        onSubmit={data.handleSubmitForm}
       />
     </div>
   );

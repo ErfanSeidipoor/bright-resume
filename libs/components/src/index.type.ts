@@ -49,6 +49,7 @@ export type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   isMinimal?: boolean;
   fullWidth?: boolean;
+  fixedInput?: boolean;
 };
 
 export type createResumeControlType = Control<CreateResumeResumeInputs, any>;
@@ -143,14 +144,13 @@ export type LanguageChildProps = {
 };
 
 export type LanguageProps = {
-  items: LanguageChildProps[];
-  onIncrease: () => void;
-  onDecrease: (id: string) => void;
+  control: createResumeControlType;
 };
 
 export type ContactInfoProps = {
   EmailAddress: TextFieldProps;
   PhoneNumber: TextFieldProps;
+  control: createResumeControlType;
 };
 
 export type AboutMeProps = {

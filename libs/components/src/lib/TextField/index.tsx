@@ -18,6 +18,7 @@ export const TextField: FC<TextFieldProps> = ({
   label = "",
   isMinimal = false,
   fullWidth = false,
+  fixedInput = false,
   ...props
 }) => {
   const data = useData();
@@ -64,14 +65,14 @@ export const TextField: FC<TextFieldProps> = ({
   };
 
   const renderBody = () => {
-    if (!data.isInputActive) return renderTypography();
+    if (!data.isInputActive && !fixedInput) return renderTypography();
     else return renderInput();
   };
 
   const renderLabel = () => {
     if (!label) return;
     return (
-      <Typography variant="h4" component="label" htmlFor={props.id}>
+      <Typography variant={variant} component="label" htmlFor={props.id}>
         {label}:
       </Typography>
     );
