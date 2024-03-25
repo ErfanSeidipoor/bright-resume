@@ -19,7 +19,6 @@ export const ResumeConfirmationPopup: React.FC<
 > = ({ isOpen = false, onClose, onSubmit, control }) => {
   return (
     <Popup isOpen={isOpen} onClose={onClose} className={classes.container}>
-      {/* <div className={classes.container}> */}
       <div className={classes.wrapper}>
         <TextField
           variant="h3"
@@ -35,7 +34,6 @@ export const ResumeConfirmationPopup: React.FC<
           </Button>
         </div>
       </div>
-      {/* </div> */}
     </Popup>
   );
 };

@@ -17,3 +17,6 @@ export const assignProps = <T>(obj: T, props: Partial<T>) => {
   }
   return obj;
 };
+
+export const toCamelCase = (value: string): string =>
+  value.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());

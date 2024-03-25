@@ -177,16 +177,6 @@ export enum SectionsEnum {
   involvement = "Involvement",
 }
 
-export enum FonSize {
-  small = "small",
-  medium = "medium",
-  large = "large",
-}
-
-export enum FontFamily {
-  arial = "arial",
-  montserrat = "montserrat",
-}
 export enum ProficiencyEnum {
   beginner = "Beginner",
   intermediate = "Intermediate",

@@ -7,6 +7,7 @@ import { classValidatorResolver } from "@hookform/resolvers/class-validator";
 import { SectionsEnum } from "@bright-resume/components";
 // dto
 import { CreateResumeResumeInputs } from "@dto";
+import { ResumeFontFamilyEnum } from "@enums";
 
 export const useData = () => {
   const [selectedSections, setSelectedSections] = useState<SectionsEnum[]>([
@@ -70,6 +71,7 @@ export const useData = () => {
         },
       ],
       projectLabel: "Project",
+      fontFamily: ResumeFontFamilyEnum.montserrat,
     },
   });
 

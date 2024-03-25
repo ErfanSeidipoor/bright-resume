@@ -41,6 +41,7 @@ const ResumePage = () => {
         onAppendSection={data.handleAppendSections}
         onRemoveSection={data.handleRemoveSections}
         onSave={data.handleOpenConfirmation}
+        control={data.control}
       />
 
       <ResumeConfirmationPopup

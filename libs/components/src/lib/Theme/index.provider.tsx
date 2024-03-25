@@ -1,4 +1,5 @@
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import { ResumeFontFamilyEnum, ResumeFontSizeEnum } from "@enums";
+import { ThemeColor } from "../../index.type";
 import { ThemeContext } from "./index.context";
 // locals
 import { useData } from "./index.hook";
@@ -6,15 +7,15 @@ import { useData } from "./index.hook";
 export type ThemeProps = {
   children: React.ReactNode;
   themeColor?: ThemeColor;
-  fontFamily?: FontFamily;
-  fonSize?: FonSize;
+  fontFamily?: ResumeFontFamilyEnum;
+  fonSize?: ResumeFontSizeEnum;
 };
 
 export const ThemeProvider: React.FC<ThemeProps> = ({
   children,
   themeColor = ThemeColor.blue,
-  fontFamily = FontFamily.montserrat,
-  fonSize = FonSize.medium,
+  fontFamily = ResumeFontFamilyEnum.montserrat,
+  fonSize = ResumeFontSizeEnum.small,
 }) => {
   const data = useData({ themeColor, fontFamily, fonSize });
 

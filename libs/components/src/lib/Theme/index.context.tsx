@@ -1,22 +1,23 @@
 import { createContext, useContext } from "react";
 
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import { ThemeColor } from "../../index.type";
+import { ResumeFontFamilyEnum, ResumeFontSizeEnum } from "@enums";
 
 export type Theme = {
   themeColor: ThemeColor;
   changeThemeColor: (themeColor: ThemeColor) => void;
-  fontFamily: FontFamily;
-  changeFontFamily: (fontFamily: FontFamily) => void;
-  fonSize: FonSize;
-  changeFontSize: (fonSize: FonSize) => void;
+  fontFamily: ResumeFontFamilyEnum;
+  changeFontFamily: (fontFamily: ResumeFontFamilyEnum) => void;
+  fonSize: ResumeFontSizeEnum;
+  changeFontSize: (fonSize: ResumeFontSizeEnum) => void;
 };
 
 export const ThemeContext = createContext<Theme>({
   themeColor: ThemeColor.blue,
   changeThemeColor: () => undefined,
-  fontFamily: FontFamily.montserrat,
+  fontFamily: ResumeFontFamilyEnum.montserrat,
   changeFontFamily: () => undefined,
-  fonSize: FonSize.medium,
+  fonSize: ResumeFontSizeEnum.small,
   changeFontSize: () => undefined,
 });
 

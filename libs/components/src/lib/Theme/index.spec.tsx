@@ -2,12 +2,13 @@ import { act } from "react-dom/test-utils";
 import { renderHook } from "@testing-library/react";
 // locals
 import { useData } from "./index.hook";
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import { ThemeColor } from "../../index.type";
+import { ResumeFontFamilyEnum, ResumeFontSizeEnum } from "@enums";
 
 const initialProps = {
   themeColor: ThemeColor.blue,
-  fontFamily: FontFamily.montserrat,
-  fonSize: FonSize.medium,
+  fontFamily: ResumeFontFamilyEnum.montserrat,
+  fonSize: ResumeFontSizeEnum.medium,
 };
 
 describe("theme hook", () => {
@@ -29,10 +30,10 @@ describe("theme hook", () => {
     expect(result.current.fontFamily).toBe(initialProps.fontFamily);
 
     act(() => {
-      result.current.changeFontFamily(FontFamily.montserrat);
+      result.current.changeFontFamily(ResumeFontFamilyEnum.montserrat);
     });
 
-    expect(result.current.fontFamily).toBe(FontFamily.montserrat);
+    expect(result.current.fontFamily).toBe(ResumeFontFamilyEnum.montserrat);
   });
 
   it("should change font family state", () => {
@@ -41,9 +42,9 @@ describe("theme hook", () => {
     expect(result.current.fonSize).toBe(initialProps.fonSize);
 
     act(() => {
-      result.current.changeFontSize(FonSize.large);
+      result.current.changeFontSize(ResumeFontSizeEnum.large);
     });
 
-    expect(result.current.fonSize).toBe(FonSize.large);
+    expect(result.current.fonSize).toBe(ResumeFontSizeEnum.large);
   });
 });
