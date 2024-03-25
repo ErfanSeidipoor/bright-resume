@@ -45,6 +45,10 @@ export class Experience extends Document {
   @Prop({ type: Boolean, required: false })
   untilNow?: boolean;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowPoints: boolean;
+
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })
   points?: string[];

@@ -41,6 +41,10 @@ export class Resume extends Document {
   @Prop({ type: String, required: false })
   name: string;
 
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  title: string;
+
   @Field(() => ResumeFontSizeEnum, { nullable: true })
   @Prop({ type: String, enum: ResumeFontSizeEnum, required: false })
   fontSize?: ResumeFontSizeEnum;

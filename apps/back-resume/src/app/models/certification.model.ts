@@ -25,6 +25,10 @@ export class Certification extends Document {
   @Prop({ type: String, reqßuired: false })
   year: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowPoints: boolean;
+
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })
   points: string[];

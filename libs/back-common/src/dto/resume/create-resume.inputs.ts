@@ -47,6 +47,9 @@ export class CreateResumeExperienceItemResumeInputsGQL extends CreateResumeExper
   @Field(() => Boolean, { nullable: true })
   untilNow?: boolean;
 
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
+
   @Field(() => [String], { nullable: true })
   points?: string[];
 }
@@ -97,6 +100,9 @@ export class CreateResumeProjectItemInputsGQL extends CreateResumeProjectItemInp
   @Field(() => Boolean, { nullable: true })
   untilNow?: boolean;
 
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
+
   @Field(() => [String], { nullable: true })
   points?: string[];
 }
@@ -122,6 +128,9 @@ export class CreateResumeCourseWorkItemInputsGQL extends CreateResumeCourseWorkI
 
   @Field(() => String, { nullable: true })
   skills?: string;
+
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
 
   @Field(() => [String], { nullable: true })
   points?: string[];
@@ -153,13 +162,22 @@ export class CreateResumeEducationItemInputsGQL extends CreateResumeEducationIte
   isShowDate?: boolean;
 
   @Field(() => String, { nullable: true })
-  from?: string;
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
-  to?: string;
+  fromYear?: string;
+
+  @Field(() => String, { nullable: true })
+  toMonth?: string;
+
+  @Field(() => String, { nullable: true })
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
   untilNow?: boolean;
+
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
 
   @Field(() => [String], { nullable: true })
   points?: string[];
@@ -199,6 +217,9 @@ export class CreateResumeInvolvementItemInputsGQL extends CreateResumeInvolvemen
   @Field(() => Boolean, { nullable: true })
   untilNow?: boolean;
 
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
+
   @Field(() => [String], { nullable: true })
   points?: string[];
 }
@@ -218,6 +239,9 @@ export class CreateResumeCertificationItemInputsGQL extends CreateResumeCertific
 
   @Field(() => String, { nullable: true })
   year?: string;
+
+  @Field(() => Boolean, { nullable: true })
+  isShowPoints?: boolean;
 
   @Field(() => [String], { nullable: true })
   points?: string[];
@@ -239,6 +263,9 @@ export class CreateResumeLanguageItemInputsGQL extends CreateResumeLanguageItemI
 export class CreateResumeResumeInputsGQL extends CreateResumeResumeInputs {
   @Field(() => String, { nullable: true })
   name?: string;
+
+  @Field(() => String, { nullable: true })
+  title?: string;
 
   @Field(() => ResumeFontSizeEnum, { nullable: true })
   fontSize?: ResumeFontSizeEnum;

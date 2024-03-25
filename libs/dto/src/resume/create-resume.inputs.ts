@@ -64,6 +64,10 @@ export class CreateResumeExperienceItemResumeInputs {
   untilNow?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
+
+  @IsOptional()
   @IsString({ each: true })
   @MaxLength(2000, { each: true })
   @IsArray()
@@ -142,6 +146,10 @@ export class CreateResumeProjectItemInputs {
   untilNow?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
+
+  @IsOptional()
   @IsString({ each: true })
   @MaxLength(2000, { each: true })
   @IsArray()
@@ -211,6 +219,10 @@ export class CreateResumeEducationItemInputs {
   untilNow?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
+
+  @IsOptional()
   @IsString({ each: true })
   @MaxLength(2000, { each: true })
   @IsArray()
@@ -223,6 +235,11 @@ export class CreateResumeCertificationItemInputs {
   @IsString()
   @MaxLength(100)
   name?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(100)
+  title?: string;
 
   @IsOptional()
   @IsBoolean()
@@ -241,6 +258,10 @@ export class CreateResumeCertificationItemInputs {
   @IsString()
   @MaxLength(25)
   year?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
 
   @IsOptional()
   @IsString({ each: true })
@@ -282,6 +303,10 @@ export class CreateResumeCourseWorkItemInputs {
   @IsString()
   @MaxLength(1000)
   skills?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
 
   @IsOptional()
   @IsString({ each: true })
@@ -344,6 +369,10 @@ export class CreateResumeInvolvementItemInputs {
   untilNow?: boolean;
 
   @IsOptional()
+  @IsBoolean()
+  isShowPoints?: boolean;
+
+  @IsOptional()
   @IsString({ each: true })
   @MaxLength(2000, { each: true })
   @IsArray()
@@ -372,6 +401,11 @@ export class CreateResumeResumeInputs {
   @IsString()
   @MaxLength(50)
   name?: string;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  title?: string;
 
   @IsOptional()
   @IsString()

@@ -24,6 +24,9 @@ export class UpdateResumeResumeInputsGQL extends UpdateResumeResumeInputs {
   @Field(() => String, { nullable: true })
   name: string;
 
+  @Field(() => String, { nullable: true })
+  title: string;
+
   @Field(() => ResumeFontSizeEnum, { nullable: true })
   fontSize?: ResumeFontSizeEnum;
 
