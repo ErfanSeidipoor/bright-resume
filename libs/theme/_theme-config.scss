@@ -2,10 +2,34 @@
 
 @font-face {
   font-family: $montserrat;
-  src: url("../assets/src/fonts/montserrat.eot") format("eot");
-  src: url("../assets/src/fonts/montserrat.ttf") format("ttf");
-  src: url("../assets/src/fonts/montserrat.woff") format("woff");
-  src: url("../assets/src/fonts/montserrat.woff2") format("woff2");
+  src: url("../assets/src/fonts/montserrat/montserrat.eot") format("eot");
+  src: url("../assets/src/fonts/montserrat/montserrat.ttf") format("ttf");
+  src: url("../assets/src/fonts/montserrat/montserrat.woff") format("woff");
+  src: url("../assets/src/fonts/montserrat/montserrat.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $nunito;
+  src: url("../assets/src/fonts/nunito/Nunito.eot") format("eot");
+  src: url("../assets/src/fonts/nunito/Nunito.ttf") format("ttf");
+  src: url("../assets/src/fonts/nunito/Nunito.woff") format("woff");
+  src: url("../assets/src/fonts/nunito/Nunito.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $roboto;
+  src: url("../assets/src/fonts/Roboto/Roboto.eot") format("eot");
+  src: url("../assets/src/fonts/Roboto/Roboto.ttf") format("ttf");
+  src: url("../assets/src/fonts/Roboto/Roboto.woff") format("woff");
+  src: url("../assets/src/fonts/Roboto/Roboto.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $raleway;
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.eot") format("eot");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.ttf") format("ttf");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.woff") format("woff");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.woff2") format("woff2");
 }
 
 /* ------------------------------- Theme color ------------------------------ */
@@ -152,16 +176,47 @@
   font-size: 15px;
 }
 
+#nunito {
+  font-family: $nunito;
+  font-size: 15px;
+}
+
+#roboto {
+  font-family: $roboto;
+  font-size: 15px;
+}
+
+#raleway {
+  font-family: $raleway;
+  font-size: 15px;
+}
+
 /* -------------------------------- Font size ------------------------------- */
 
-#small {
+#xxSmall {
   font-size: map-get($font-size, h9);
 }
 
-#medium {
+#xSmall {
+  font-size: map-get($font-size, h8);
+}
+
+#small {
   font-size: map-get($font-size, h7);
 }
 
-#large {
+#medium {
   font-size: map-get($font-size, h6);
+}
+
+#large {
+  font-size: map-get($font-size, h5);
+}
+
+#xLarge {
+  font-size: map-get($font-size, h4);
+}
+
+#xLarge {
+  font-size: map-get($font-size, h3);
 }

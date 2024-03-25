@@ -1,16 +1,19 @@
 import { useState } from "react";
 // locals
-import { FontFamily, FonSize, ThemeColor } from "../../index.type";
+import { FonSize, ThemeColor } from "../../index.type";
+import { ResumeFontFamilyEnum } from "@enums";
 
 type Props = {
   themeColor: ThemeColor;
-  fontFamily: FontFamily;
+  fontFamily: ResumeFontFamilyEnum;
   fonSize: FonSize;
 };
 
 export const useData = (props: Props) => {
   const [themeColor, setThemeColor] = useState<ThemeColor>(props.themeColor);
-  const [fontFamily, setFontFamily] = useState<FontFamily>(props.fontFamily);
+  const [fontFamily, setFontFamily] = useState<ResumeFontFamilyEnum>(
+    props.fontFamily
+  );
   const [fonSize, setFontWeight] = useState<FonSize>(props.fonSize);
 
   return {

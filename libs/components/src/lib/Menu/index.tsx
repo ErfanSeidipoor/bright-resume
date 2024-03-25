@@ -15,18 +15,16 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 // types //TODO => change type path
-import {
-  FontFamily,
-  FonSize,
-  ThemeColor,
-  SectionsEnum,
-} from "../../index.type";
+import { FonSize, ThemeColor, SectionsEnum } from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Popup from "../Popup";
 import CheckBox from "../CheckBox";
+import { ResumeFontFamilyEnum } from "@enums";
+import { Control, Controller } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
 
 type Avatar = {
   src: string;
@@ -54,11 +52,12 @@ export type MenuProps = {
   sections: SectionsEnum[];
   onAppendSection: (section: SectionsEnum) => void;
   onRemoveSection: (section: SectionsEnum) => void;
-  fontFamily: FontFamily;
-  onChangeFontFamily: (fontFamily: FontFamily) => void;
+  fontFamily: ResumeFontFamilyEnum;
+  onChangeFontFamily: (fontFamily: ResumeFontFamilyEnum) => void;
   fonSize: FonSize;
   onChangeFontSize: (fonSize: FonSize) => void;
   onSave?: () => void;
+  control: Control<CreateResumeResumeInputs, any>;
 };
 
 export const Menu: React.FC<MenuProps> = ({
@@ -74,6 +73,7 @@ export const Menu: React.FC<MenuProps> = ({
   fonSize,
   onChangeFontSize,
   onSave = () => undefined,
+  control,
 }) => {
   const data = useData();
 
@@ -205,15 +205,24 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenFontFamilyPicker}
           onClose={data.handleToggleFontFamilyPicker}
         >
-          {Object.values(FontFamily).map((currentFontFamily) => (
-            <Typography
-              className={cls(classes.font, {
-                [classes.font__active]: currentFontFamily === fontFamily,
-              })}
-              onClick={() => onChangeFontFamily(currentFontFamily)}
-            >
-              {currentFontFamily}
-            </Typography>
+          {Object.values(ResumeFontFamilyEnum).map((currentFontFamily) => (
+            <Controller
+              control={control}
+              name="fontFamily"
+              render={({ field }) => (
+                <Typography
+                  className={cls(classes.font, {
+                    [classes.font__active]: currentFontFamily === fontFamily,
+                  })}
+                  onClick={() => {
+                    onChangeFontFamily(currentFontFamily);
+                    field.onChange(currentFontFamily);
+                  }}
+                >
+                  {currentFontFamily}
+                </Typography>
+              )}
+            />
           ))}
         </Popup>
       ),
