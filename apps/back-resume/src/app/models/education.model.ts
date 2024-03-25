@@ -38,16 +38,28 @@ export class Education extends Document {
   isShowDate: boolean;
 
   @Field(() => String, { nullable: true })
-  @Prop({ type: String, reqßuired: false })
-  from: string;
+  @Prop({ type: String, required: false })
+  fromMonth?: string;
 
   @Field(() => String, { nullable: true })
   @Prop({ type: String, required: false })
-  to: string;
+  fromYear?: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  toMonth?: string;
+
+  @Field(() => String, { nullable: true })
+  @Prop({ type: String, required: false })
+  toYear?: string;
 
   @Field(() => Boolean, { nullable: true })
   @Prop({ type: Boolean, required: false })
-  untilNow: boolean;
+  untilNow?: boolean;
+
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowPoints: boolean;
 
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })

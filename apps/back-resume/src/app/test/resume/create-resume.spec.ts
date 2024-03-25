@@ -75,6 +75,7 @@ describe("microservice:resume CreateResume", () => {
 
     const createResumeResumeInputs: CreateResumeResumeInputs = {
       name: faker.person.fullName(),
+      title: faker.person.fullName(),
       color: ResumeColorEnum.black,
       fontFamily: ResumeFontFamilyEnum.nunito,
       fontSize: ResumeFontSizeEnum.large,
@@ -111,6 +112,7 @@ describe("microservice:resume CreateResume", () => {
           toMonth: moment(faker.date.recent()).format("MMMM"),
           toYear: moment(faker.date.recent()).format("YYYY"),
           untilNow: faker.datatype.boolean(),
+          isShowPoints: faker.datatype.boolean(),
           points: [
             faker.lorem.paragraph(),
             faker.lorem.paragraph(),
@@ -129,6 +131,7 @@ describe("microservice:resume CreateResume", () => {
           toMonth: moment(faker.date.recent()).format("MMMM"),
           toYear: moment(faker.date.recent()).format("YYYY"),
           untilNow: faker.datatype.boolean(),
+          isShowPoints: faker.datatype.boolean(),
           points: [
             faker.lorem.paragraph(),
             faker.lorem.paragraph(),
@@ -161,6 +164,7 @@ describe("microservice:resume CreateResume", () => {
           toMonth: moment(faker.date.recent()).format("MMMM"),
           toYear: moment(faker.date.recent()).format("YYYY"),
           untilNow: faker.datatype.boolean(),
+          isShowPoints: faker.datatype.boolean(),
           points: [
             faker.lorem.paragraph(),
             faker.lorem.paragraph(),
@@ -187,9 +191,12 @@ describe("microservice:resume CreateResume", () => {
             .float({ precision: 0.1, min: 0, max: 20 })
             .toString(),
           isShowDate: faker.datatype.boolean(),
-          from: moment(faker.date.past()).format("YYYY MMMM"),
-          to: moment(faker.date.recent()).format("YYYY MMMM"),
+          fromMonth: moment(faker.date.past()).format("MMMM"),
+          fromYear: moment(faker.date.past()).format("YYYY"),
+          toMonth: moment(faker.date.recent()).format("MMMM"),
+          toYear: moment(faker.date.recent()).format("YYYY"),
           untilNow: faker.datatype.boolean(),
+          isShowPoints: faker.datatype.boolean(),
           points: [
             faker.lorem.paragraph(),
             faker.lorem.paragraph(),
@@ -209,6 +216,7 @@ describe("microservice:resume CreateResume", () => {
           institute: faker.company.name(),
           isShowDate: faker.datatype.boolean(),
           year: moment(faker.date.past()).format("YYYY"),
+          isShowPoints: faker.datatype.boolean(),
           points: [faker.lorem.paragraph(), faker.lorem.paragraph()],
         },
       ],
@@ -228,6 +236,7 @@ describe("microservice:resume CreateResume", () => {
           year: moment(faker.date.past()).format("YYYY"),
           isShowSkills: faker.datatype.boolean(),
           skills: faker.lorem.words(10),
+          isShowPoints: faker.datatype.boolean(),
           points: [faker.lorem.paragraph()],
         },
       ],
@@ -249,6 +258,7 @@ describe("microservice:resume CreateResume", () => {
           toMonth: moment(faker.date.recent()).format("MMMM"),
           toYear: moment(faker.date.recent()).format("YYYY"),
           untilNow: faker.datatype.boolean(),
+          isShowPoints: faker.datatype.boolean(),
           points: [faker.lorem.paragraph(), faker.lorem.paragraph()],
         },
       ],
@@ -303,6 +313,7 @@ describe("microservice:resume CreateResume", () => {
     // i want to check all propes
 
     expect(createResumeResumeInputs.name).toBe(resume.name);
+    expect(createResumeResumeInputs.title).toBe(resume.title);
     expect(createResumeResumeInputs.color).toBe(resume.color);
     expect(createResumeResumeInputs.fontFamily).toBe(resume.fontFamily);
     expect(createResumeResumeInputs.fontSize).toBe(resume.fontSize);
@@ -379,6 +390,10 @@ describe("microservice:resume CreateResume", () => {
       );
       expect(createResumeResumeInputs.experiences[i].untilNow).toBe(
         resume.experiences[i].untilNow
+      );
+
+      expect(createResumeResumeInputs.experiences[i].isShowPoints).toBe(
+        resume.experiences[i].isShowPoints
       );
 
       expect(createResumeResumeInputs.experiences[i].points).toHaveLength(
@@ -464,6 +479,10 @@ describe("microservice:resume CreateResume", () => {
         resume.projects[i].untilNow
       );
 
+      expect(createResumeResumeInputs.projects[i].isShowPoints).toBe(
+        resume.projects[i].isShowPoints
+      );
+
       expect(createResumeResumeInputs.projects[i].points).toHaveLength(
         resume.projects[i].points.length
       );
@@ -525,17 +544,28 @@ describe("microservice:resume CreateResume", () => {
       expect(createResumeResumeInputs.educations[i].gpa).toBe(
         resume.educations[i].gpa
       );
+
       expect(createResumeResumeInputs.educations[i].isShowDate).toBe(
         resume.educations[i].isShowDate
       );
-      expect(createResumeResumeInputs.educations[i].from).toBe(
-        resume.educations[i].from
+      expect(createResumeResumeInputs.educations[i].fromMonth).toBe(
+        resume.educations[i].fromMonth
       );
-      expect(createResumeResumeInputs.educations[i].to).toBe(
-        resume.educations[i].to
+      expect(createResumeResumeInputs.educations[i].fromYear).toBe(
+        resume.educations[i].fromYear
+      );
+      expect(createResumeResumeInputs.educations[i].toMonth).toBe(
+        resume.educations[i].toMonth
+      );
+      expect(createResumeResumeInputs.educations[i].toYear).toBe(
+        resume.educations[i].toYear
       );
       expect(createResumeResumeInputs.educations[i].untilNow).toBe(
         resume.educations[i].untilNow
+      );
+
+      expect(createResumeResumeInputs.educations[i].isShowPoints).toBe(
+        resume.educations[i].isShowPoints
       );
 
       expect(createResumeResumeInputs.educations[i].points).toHaveLength(
@@ -589,6 +619,10 @@ describe("microservice:resume CreateResume", () => {
       );
       expect(createResumeResumeInputs.certifications[i].year).toBe(
         resume.certifications[i].year
+      );
+
+      expect(createResumeResumeInputs.certifications[i].isShowPoints).toBe(
+        resume.certifications[i].isShowPoints
       );
 
       expect(createResumeResumeInputs.certifications[i].points).toHaveLength(
@@ -653,6 +687,10 @@ describe("microservice:resume CreateResume", () => {
       );
       expect(createResumeResumeInputs.courseWorks[i].year).toBe(
         resume.courseWorks[i].year
+      );
+
+      expect(createResumeResumeInputs.courseWorks[i].isShowPoints).toBe(
+        resume.courseWorks[i].isShowPoints
       );
 
       expect(createResumeResumeInputs.courseWorks[i].points).toHaveLength(
@@ -726,6 +764,10 @@ describe("microservice:resume CreateResume", () => {
       );
       expect(createResumeResumeInputs.involvements[i].untilNow).toBe(
         resume.involvements[i].untilNow
+      );
+
+      expect(createResumeResumeInputs.involvements[i].isShowPoints).toBe(
+        resume.involvements[i].isShowPoints
       );
 
       expect(createResumeResumeInputs.involvements[i].points).toHaveLength(

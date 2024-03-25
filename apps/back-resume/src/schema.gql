@@ -28,6 +28,7 @@ type Involvement {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -40,6 +41,7 @@ type CourseWork {
   isShowSkills: Boolean
   isSkills: Boolean
   skills: String
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -49,6 +51,7 @@ type Certification {
   institute: String
   isShowDate: Boolean
   year: String
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -61,9 +64,12 @@ type Education {
   isShowGpa: Boolean
   gpa: String
   isShowDate: Boolean
-  from: String
-  to: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -83,6 +89,7 @@ type Project {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -97,6 +104,7 @@ type Experience {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -104,6 +112,7 @@ type Resume {
   id: ID
   userId: ID!
   name: String
+  title: String
   fontSize: ResumeFontSizeEnum
   fontFamily: ResumeFontFamilyEnum
   color: ResumeColorEnum
@@ -190,6 +199,7 @@ enum ResumeFontSizeEnum {
 }
 
 enum ResumeFontFamilyEnum {
+  arial
   montserrat
   nunito
   roboto
@@ -245,6 +255,7 @@ input DeleteResumeResumeInputsGQL {
 
 input CreateResumeResumeInputsGQL {
   name: String
+  title: String
   fontSize: ResumeFontSizeEnum
   fontFamily: ResumeFontFamilyEnum
   color: ResumeColorEnum
@@ -329,6 +340,7 @@ input CreateResumeExperienceItemResumeInputsGQL {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -348,6 +360,7 @@ input CreateResumeProjectItemInputsGQL {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -360,9 +373,12 @@ input CreateResumeEducationItemInputsGQL {
   isShowGpa: Boolean
   gpa: String
   isShowDate: Boolean
-  from: String
-  to: String
+  fromMonth: String
+  fromYear: String
+  toMonth: String
+  toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -372,6 +388,7 @@ input CreateResumeCertificationItemInputsGQL {
   institute: String
   isShowDate: Boolean
   year: String
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -383,6 +400,7 @@ input CreateResumeCourseWorkItemInputsGQL {
   year: String
   isShowSkills: Boolean
   skills: String
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -398,6 +416,7 @@ input CreateResumeInvolvementItemInputsGQL {
   toMonth: String
   toYear: String
   untilNow: Boolean
+  isShowPoints: Boolean
   points: [String!]
 }
 
@@ -410,6 +429,7 @@ input CreateResumeLanguageItemInputsGQL {
 input UpdateResumeResumeInputsGQL {
   resumeId: String!
   name: String
+  title: String
   fontSize: ResumeFontSizeEnum
   fontFamily: ResumeFontFamilyEnum
   color: ResumeColorEnum

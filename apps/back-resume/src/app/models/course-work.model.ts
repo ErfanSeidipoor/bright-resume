@@ -37,6 +37,10 @@ export class CourseWork extends Document {
   @Prop({ type: String, reqßuired: false })
   skills: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Prop({ type: Boolean, required: false })
+  isShowPoints: boolean;
+
   @Field(() => [String], { nullable: true })
   @Prop({ type: [String], required: false })
   points: string[];
