@@ -15,14 +15,18 @@ import {
 } from "../Icons";
 import Typography from "../Typography";
 // types //TODO => change type path
-import { FonSize, ThemeColor, SectionsEnum } from "../../index.type";
+import { ThemeColor, SectionsEnum } from "../../index.type";
 // locals
 import { texts } from "./index.texts";
 import { useData } from "./index.hook";
 import classes from "./index.module.scss";
 import Popup from "../Popup";
 import CheckBox from "../CheckBox";
-import { ResumeFontFamilyEnum } from "@enums";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
 import { Control, Controller } from "react-hook-form";
 import { CreateResumeResumeInputs } from "@dto";
 
@@ -54,8 +58,8 @@ export type MenuProps = {
   onRemoveSection: (section: SectionsEnum) => void;
   fontFamily: ResumeFontFamilyEnum;
   onChangeFontFamily: (fontFamily: ResumeFontFamilyEnum) => void;
-  fonSize: FonSize;
-  onChangeFontSize: (fonSize: FonSize) => void;
+  fonSize: ResumeFontSizeEnum;
+  onChangeFontSize: (fonSize: ResumeFontSizeEnum) => void;
   onSave?: () => void;
   control: Control<CreateResumeResumeInputs, any>;
 };
@@ -120,51 +124,74 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenColorPicker}
           onClose={data.handleToggleColorPicker}
         >
-          <div
-            className={classes.color__icon_container}
-            onClick={() => onChangeColor(ThemeColor.blue)}
-          >
-            <BlueCircleIcon />
-            {color === ThemeColor.blue && (
-              <CheckIcon className={classes.color__icon} />
+          <Controller
+            control={control}
+            name="color"
+            render={({ field }) => (
+              <>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.blue);
+                    field.onChange(ResumeColorEnum.blue);
+                  }}
+                >
+                  <BlueCircleIcon />
+                  {color === ThemeColor.blue && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.green);
+                    field.onChange(ResumeColorEnum.green);
+                  }}
+                >
+                  <GreenCircleIcon />
+                  {color === ThemeColor.green && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.purple);
+                    field.onChange(ResumeColorEnum.purple);
+                  }}
+                >
+                  <PurpleCircleIcon />
+                  {color === ThemeColor.purple && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.gold);
+                    field.onChange(ResumeColorEnum.yellow);
+                  }}
+                >
+                  <GoldCircle />
+                  {color === ThemeColor.gold && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.grey);
+                    field.onChange(ResumeColorEnum.gray);
+                  }}
+                >
+                  <GreyCircleIcon />
+                  {color === ThemeColor.grey && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+              </>
             )}
-          </div>
-          <div
-            className={classes.color__icon_container}
-            onClick={() => onChangeColor(ThemeColor.green)}
-          >
-            <GreenCircleIcon />
-            {color === ThemeColor.green && (
-              <CheckIcon className={classes.color__icon} />
-            )}
-          </div>
-          <div
-            className={classes.color__icon_container}
-            onClick={() => onChangeColor(ThemeColor.purple)}
-          >
-            <PurpleCircleIcon />
-            {color === ThemeColor.purple && (
-              <CheckIcon className={classes.color__icon} />
-            )}
-          </div>
-          <div
-            className={classes.color__icon_container}
-            onClick={() => onChangeColor(ThemeColor.gold)}
-          >
-            <GoldCircle />
-            {color === ThemeColor.gold && (
-              <CheckIcon className={classes.color__icon} />
-            )}
-          </div>
-          <div
-            className={classes.color__icon_container}
-            onClick={() => onChangeColor(ThemeColor.grey)}
-          >
-            <GreyCircleIcon />
-            {color === ThemeColor.grey && (
-              <CheckIcon className={classes.color__icon} />
-            )}
-          </div>
+          />
         </Popup>
       ),
       onClick: data.handleToggleColorPicker,
@@ -240,15 +267,24 @@ export const Menu: React.FC<MenuProps> = ({
           isOpen={data.isOpenFontSizePicker}
           onClose={data.handleToggleFontSizePicker}
         >
-          {Object.values(FonSize).map((currentFontSize) => (
-            <Typography
-              className={cls(classes.font, {
-                [classes.font__active]: currentFontSize === fonSize,
-              })}
-              onClick={() => onChangeFontSize(currentFontSize)}
-            >
-              {currentFontSize}
-            </Typography>
+          {Object.values(ResumeFontSizeEnum).map((currentFontSize) => (
+            <Controller
+              control={control}
+              name="fontSize"
+              render={({ field }) => (
+                <Typography
+                  className={cls(classes.font, {
+                    [classes.font__active]: currentFontSize === fonSize,
+                  })}
+                  onClick={() => {
+                    onChangeFontSize(currentFontSize);
+                    field.onChange(currentFontSize);
+                  }}
+                >
+                  {currentFontSize}
+                </Typography>
+              )}
+            />
           ))}
         </Popup>
       ),

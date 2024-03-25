@@ -2,13 +2,13 @@ import { act } from "react-dom/test-utils";
 import { renderHook } from "@testing-library/react";
 // locals
 import { useData } from "./index.hook";
-import { FonSize, ThemeColor } from "../../index.type";
-import { ResumeFontFamilyEnum } from "@enums";
+import { ThemeColor } from "../../index.type";
+import { ResumeFontFamilyEnum, ResumeFontSizeEnum } from "@enums";
 
 const initialProps = {
   themeColor: ThemeColor.blue,
   fontFamily: ResumeFontFamilyEnum.montserrat,
-  fonSize: FonSize.medium,
+  fonSize: ResumeFontSizeEnum.medium,
 };
 
 describe("theme hook", () => {
@@ -42,9 +42,9 @@ describe("theme hook", () => {
     expect(result.current.fonSize).toBe(initialProps.fonSize);
 
     act(() => {
-      result.current.changeFontSize(FonSize.large);
+      result.current.changeFontSize(ResumeFontSizeEnum.large);
     });
 
-    expect(result.current.fonSize).toBe(FonSize.large);
+    expect(result.current.fonSize).toBe(ResumeFontSizeEnum.large);
   });
 });

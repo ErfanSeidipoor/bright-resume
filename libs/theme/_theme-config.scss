@@ -193,11 +193,11 @@
 
 /* -------------------------------- Font size ------------------------------- */
 
-#xxSmall {
+#xx_small {
   font-size: map-get($font-size, h9);
 }
 
-#xSmall {
+#x_small {
   font-size: map-get($font-size, h8);
 }
 
@@ -213,10 +213,10 @@
   font-size: map-get($font-size, h5);
 }
 
-#xLarge {
+#x_large {
   font-size: map-get($font-size, h4);
 }
 
-#xLarge {
+#xx_large {
   font-size: map-get($font-size, h3);
 }

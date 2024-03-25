@@ -1,4 +1,5 @@
-import { assignDefinedProps, assignProps } from ".";
+import { ResumeFontSizeEnum } from "@enums";
+import { assignDefinedProps, assignProps, toCamelCase } from ".";
 
 describe("assignDefinedProps", () => {
   it("should assign only defined properties to the object", () => {
@@ -34,5 +35,14 @@ describe("assignProps", () => {
       b: undefined,
       c: 2,
     });
+  });
+});
+
+describe("transformEnumValues", () => {
+  it("should assign all properties to the object, even if they are undefined", () => {
+    const transformedValues = Object.values(ResumeFontSizeEnum).map((value) =>
+      toCamelCase(value)
+    );
+    console.log(transformedValues);
   });
 });
