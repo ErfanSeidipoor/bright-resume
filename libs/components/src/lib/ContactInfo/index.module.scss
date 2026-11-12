@@ -1,0 +1,26 @@
+@import "../../../../theme/index";
+
+.root {
+  background-color: var(--primary);
+  color: var(--light);
+  .field__container {
+    display: flex;
+    gap: spacing(3);
+    align-items: center;
+    padding-bottom: 20px;
+    width: 200px;
+    .field {
+      color: var(--light);
+      width: 170px;
+      input {
+        color: var(--light);
+        &::placeholder {
+          color: var(--light);
+        }
+      }
+    }
+    .enable__field {
+      border: 1px solid var(--light) !important;
+    }
+  }
+}

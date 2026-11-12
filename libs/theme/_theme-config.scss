@@ -1,0 +1,222 @@
+/* ------------------------------- Custom font ------------------------------ */
+
+@font-face {
+  font-family: $montserrat;
+  src: url("../assets/src/fonts/montserrat/montserrat.eot") format("eot");
+  src: url("../assets/src/fonts/montserrat/montserrat.ttf") format("ttf");
+  src: url("../assets/src/fonts/montserrat/montserrat.woff") format("woff");
+  src: url("../assets/src/fonts/montserrat/montserrat.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $nunito;
+  src: url("../assets/src/fonts/nunito/Nunito.eot") format("eot");
+  src: url("../assets/src/fonts/nunito/Nunito.ttf") format("ttf");
+  src: url("../assets/src/fonts/nunito/Nunito.woff") format("woff");
+  src: url("../assets/src/fonts/nunito/Nunito.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $roboto;
+  src: url("../assets/src/fonts/Roboto/Roboto.eot") format("eot");
+  src: url("../assets/src/fonts/Roboto/Roboto.ttf") format("ttf");
+  src: url("../assets/src/fonts/Roboto/Roboto.woff") format("woff");
+  src: url("../assets/src/fonts/Roboto/Roboto.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: $raleway;
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.eot") format("eot");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.ttf") format("ttf");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.woff") format("woff");
+  src: url("../assets/src/fonts/Raleway/Raleway-Regular.woff2") format("woff2");
+}
+
+/* ------------------------------- Theme color ------------------------------ */
+
+#blue {
+  --primary: #{$blue};
+  --dark-primary: #{$dark-blue};
+  --light-primary: #{$light-blue};
+  --primary-hover: #{$blue-hover};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
+  --transparent: #{$transparent};
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+#green {
+  --primary: #{$green};
+  --dark-primary: #{$dark-green};
+  --light-primary: #{$light-green};
+  --primary-hover: #{$green-hover};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$blue};
+  --dark-success: #{$dark-blue};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
+  --transparent: #{$transparent};
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+#purple {
+  --primary: #{$purple};
+  --dark-primary: #{$dark-purple};
+  --light-primary: #{$light-purple};
+  --primary-hover: #{$purple-hover};
+  --secondary: #{$dark-blue};
+  --dark-secondary: #{$dark-blue};
+  --light-secondary: #{$light-blue};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
+  --transparent: #{$transparent};
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+#gold {
+  --primary: #{$gold};
+  --dark-primary: #{$dark-gold};
+  --light-primary: #{$light-gold};
+  --primary-hover: #{$gold-hover};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
+  --info: #{$grey-300};
+  --dark-info: #{$grey-500};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$blue};
+  --dark-warning: #{$dark-blue};
+  --grey-50: #{$grey-50};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
+  --transparent: #{$transparent};
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+#grey {
+  --primary: #{$grey-300};
+  --dark-primary: #{$grey-500};
+  --light-primary: #{$grey-100};
+  --primary-hover: #{$grey-200};
+  --secondary: #{$dark-purple};
+  --dark-secondary: #{$dark-purple};
+  --light-secondary: #{$light-purple};
+  --info: #{$blue};
+  --dark-info: #{$dark-blue};
+  --success: #{$green};
+  --dark-success: #{$dark-green};
+  --warning: #{$gold};
+  --dark-warning: #{$dark-gold};
+  --grey-50: #{$grey-50};
+  --grey-100: #{$grey-100};
+  --grey-200: #{$grey-200};
+  --grey-300: #{$grey-300};
+  --grey-400: #{$grey-400};
+  --grey-500: #{$grey-500};
+  --grey-600: #{$grey-600};
+  --transparent: #{$transparent};
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+/* ------------------------------- Font family ------------------------------ */
+
+#arial {
+  font-family: Arial;
+  font-size: 15px;
+}
+
+#montserrat {
+  font-family: $montserrat;
+  font-size: 15px;
+}
+
+#nunito {
+  font-family: $nunito;
+  font-size: 15px;
+}
+
+#roboto {
+  font-family: $roboto;
+  font-size: 15px;
+}
+
+#raleway {
+  font-family: $raleway;
+  font-size: 15px;
+}
+
+/* -------------------------------- Font size ------------------------------- */
+
+#xx_small {
+  font-size: map-get($font-size, h9);
+}
+
+#x_small {
+  font-size: map-get($font-size, h8);
+}
+
+#small {
+  font-size: map-get($font-size, h7);
+}
+
+#medium {
+  font-size: map-get($font-size, h6);
+}
+
+#large {
+  font-size: map-get($font-size, h5);
+}
+
+#x_large {
+  font-size: map-get($font-size, h4);
+}
+
+#xx_large {
+  font-size: map-get($font-size, h3);
+}

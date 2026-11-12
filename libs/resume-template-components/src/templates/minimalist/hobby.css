@@ -1,0 +1,25 @@
+.hb-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.hb-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+.hb-label:hover {
+  background-color: #0002;
+}
+
+.hb-item {
+  display: flex;
+  position: relative;
+}
+
+.hb-item:hover {
+  background-color: #0002;
+}
+
+.hb-item-icon {
+  margin-right: 3px;
+}

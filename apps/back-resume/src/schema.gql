@@ -1,0 +1,550 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PageInfo {
+  totalEdges: Float!
+  edgeCount: Float
+  edgesPerPage: Float!
+  totalPages: Float!
+  currentPage: Float!
+}
+
+type Language {
+  name: String
+  isShowLevel: Boolean
+  isShow: Boolean
+  level: String
+}
+
+type Involvement {
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type CourseWork {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  isShowSkills: Boolean
+  isSkills: Boolean
+  skills: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type Certification {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type Education {
+  degree: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowLocation: Boolean
+  location: String
+  isShowGpa: Boolean
+  gpa: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type Project {
+  title: String
+  isShowRole: Boolean
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowUrl: Boolean
+  url: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type Experience {
+  role: String
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+type Skill {
+  point: String
+  isShow: Boolean
+}
+
+type Hobby {
+  point: String
+  isShow: Boolean
+}
+
+type Resume {
+  id: ID
+  userId: ID!
+  name: String
+  title: String
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
+  role: String
+  isShowImage: Boolean
+  isShowPhoneNumber: Boolean
+  phoneNumber: String
+  isShowLinkedin: Boolean
+  linkedin: String
+  isShowWebsite: Boolean
+  website: String
+  isShowEmail: Boolean
+  email: String
+  isShowLocation: Boolean
+  location: String
+  isShowBirthDay: Boolean
+  birthDay: String
+  isShowSummary: Boolean
+  summaryOrder: Float
+  summaryLabel: String
+  summary: String
+  isShowExperience: Boolean
+  experienceOrder: Float
+  experienceLabel: String
+  experienceRoleLabel: String
+  experienceCompanyLabel: String
+  experienceLocationLabel: String
+  experiences: [Experience!]
+  isShowProject: Boolean
+  projectOrder: Float
+  projectLabel: String
+  projectRoleLabel: String
+  projectTitleLabel: String
+  projectCompanyLabel: String
+  projectLocationLabel: String
+  projectUrlLabel: String
+  projects: [Project!]
+  isShowEducation: Boolean
+  educationOrder: Float
+  educationLabel: String
+  educationDegreeLabel: String
+  educationInstituteLabel: String
+  educationLocationLabel: String
+  educationGpaLabel: String
+  educations: [Education!]
+  isShowCertification: Boolean
+  certificationOrder: Float
+  certificationLabel: String
+  certificationNameLabel: String
+  certificationInstituteLabel: String
+  certificationYearLabel: String
+  certifications: [Certification!]
+  isShowCourseWork: Boolean
+  courseWorkOrder: Float
+  courseWorkLabel: String
+  courseWorkTitleLabel: String
+  courseWorkNameLabel: String
+  courseWorkInstituteLabel: String
+  courseWorkYearLabel: String
+  courseWorkSkillsLabel: String
+  courseWorks: [CourseWork!]
+  isShowInvolvement: Boolean
+  involvementOrder: Float
+  involvementLabel: String
+  involvementRoleLabel: String
+  involvementCompanyLabel: String
+  involvementLocationLabel: String
+  involvements: [Involvement!]
+  isShowSkill: Boolean
+  skillOrder: Float
+  skillLabel: String
+  skills: [Skill!]
+  isShowLanguage: Boolean
+  languageOrder: Float
+  languageLabel: String
+  languageNameLabel: String
+  languageLevelLabel: String
+  languages: [Language!]
+  hobbyLabel: String
+  hobbies: [Hobby!]
+  isShowHobby: Boolean
+  hobbyOrder: Float
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum ResumeFontSizeEnum {
+  XxSmall
+  XSmall
+  Small
+  Medium
+  Large
+  XLarge
+  XxLarge
+}
+
+enum ResumeFontFamilyEnum {
+  Arial
+  Montserrat
+  Nunito
+  Raleway
+  Roboto
+}
+
+enum ResumeColorEnum {
+  Black
+  Blue
+  Brown
+  Gray
+  Green
+  Orange
+  Purple
+  Red
+  Yellow
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PaginatedResume {
+  edges: [Resume!]!
+  pageInfo: PageInfo!
+}
+
+type Query {
+  getResumes(paginationArgs: PaginationArgsGQL!, getResumesResumeArgs: GetResumesResumeArgsGQL!): PaginatedResume!
+  getResumeById(getResumeByIdResumeArgs: GetResumeByIdResumeArgsGQL!): Resume!
+}
+
+input PaginationArgsGQL {
+  limit: Int = 10
+  page: Int = 1
+}
+
+input GetResumesResumeArgsGQL {
+  title: String = ""
+}
+
+input GetResumeByIdResumeArgsGQL {
+  resumeId: String!
+}
+
+type Mutation {
+  deleteResume(deleteResumeResumeInputs: DeleteResumeResumeInputsGQL!): Resume!
+  createResume(createResumeResumeInputs: CreateResumeResumeInputsGQL!): Resume!
+  updateResume(updateResumeResumeInputs: UpdateResumeResumeInputsGQL!): Resume!
+}
+
+input DeleteResumeResumeInputsGQL {
+  resumeId: String!
+}
+
+input CreateResumeResumeInputsGQL {
+  name: String
+  title: String!
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
+  role: String
+  isShowPhoneNumber: Boolean
+  phoneNumber: String
+  isShowLinkedin: Boolean
+  linkedin: String
+  isShowWebsite: Boolean
+  website: String
+  isShowEmail: Boolean
+  email: String
+  isShowLocation: Boolean
+  location: String
+  isShowBirthDay: Boolean
+  birthDay: String
+  isShowImage: Boolean
+  isShowSummary: Boolean
+  summaryOrder: Float
+  summaryLabel: String
+  summary: String
+  isShowExperience: Boolean
+  experienceOrder: Float
+  experienceLabel: String
+  experienceRoleLabel: String
+  experienceCompanyLabel: String
+  experienceLocationLabel: String
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
+  isShowProject: Boolean
+  projectOrder: Float
+  projectLabel: String
+  projectRoleLabel: String
+  projectTitleLabel: String
+  projectCompanyLabel: String
+  projectLocationLabel: String
+  projectUrlLabel: String
+  projects: [CreateResumeProjectItemInputsGQL!]
+  isShowEducation: Boolean
+  educationLabel: String
+  educationOrder: Float
+  educationDegreeLabel: String
+  educationInstituteLabel: String
+  educationLocationLabel: String
+  educationGpaLabel: String
+  educations: [CreateResumeEducationItemInputsGQL!]
+  isShowCertification: Boolean
+  certificationOrder: Float
+  certificationLabel: String
+  certificationNameLabel: String
+  certificationInstituteLabel: String
+  certificationYearLabel: String
+  certifications: [CreateResumeCertificationItemInputsGQL!]
+  isShowCourseWork: Boolean
+  courseWorkOrder: Float
+  courseWorkLabel: String
+  courseWorkTitleLabel: String
+  courseWorkNameLabel: String
+  courseWorkInstituteLabel: String
+  courseWorkYearLabel: String
+  courseWorkSkillsLabel: String
+  courseWorks: [CreateResumeCourseWorkItemInputsGQL!]
+  isShowInvolvement: Boolean
+  involvementLabel: String
+  involvementOrder: Float
+  involvementRoleLabel: String
+  involvementCompanyLabel: String
+  involvementLocationLabel: String
+  involvements: [CreateResumeInvolvementItemInputsGQL!]
+  isShowSkill: Boolean
+  skillLabel: String
+  skillOrder: Float
+  skills: [CreateResumeSkillItemInputsGQL!]
+  isShowLanguage: Boolean
+  languageLabel: String
+  languageOrder: Float
+  languageNameLabel: String
+  languageLevelLabel: String
+  languages: [CreateResumeLanguageItemInputsGQL!]
+  hobbyLabel: String
+  hobbyOrder: Float
+  isShowHobby: Boolean
+  hobbies: [CreateResumeHobbyItemInputsGQL!]
+}
+
+input CreateResumeExperienceItemResumeInputsGQL {
+  role: String
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeProjectItemInputsGQL {
+  title: String
+  isShowRole: Boolean
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowUrl: Boolean
+  url: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeEducationItemInputsGQL {
+  degree: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowLocation: Boolean
+  location: String
+  isShowGpa: Boolean
+  gpa: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeCertificationItemInputsGQL {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeCourseWorkItemInputsGQL {
+  name: String
+  isShowInstitute: Boolean
+  institute: String
+  isShowDate: Boolean
+  year: String
+  isShowSkills: Boolean
+  skills: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeInvolvementItemInputsGQL {
+  role: String
+  isShowCompany: Boolean
+  company: String
+  isShowLocation: Boolean
+  location: String
+  isShowDate: Boolean
+  from: String
+  to: String
+  isShowPoints: Boolean
+  isShow: Boolean
+  points: [String!]
+}
+
+input CreateResumeSkillItemInputsGQL {
+  point: String
+  isShow: Boolean
+}
+
+input CreateResumeLanguageItemInputsGQL {
+  name: String
+  isShowLevel: Boolean
+  level: String
+  isShow: Boolean
+}
+
+input CreateResumeHobbyItemInputsGQL {
+  point: String
+  isShow: Boolean
+}
+
+input UpdateResumeResumeInputsGQL {
+  resumeId: String!
+  name: String
+  title: String
+  fontSize: ResumeFontSizeEnum
+  fontFamily: ResumeFontFamilyEnum
+  color: ResumeColorEnum
+  role: String
+  isShowPhoneNumber: Boolean
+  phoneNumber: String
+  isShowLinkedin: Boolean
+  linkedin: String
+  isShowWebsite: Boolean
+  website: String
+  isShowEmail: Boolean
+  email: String
+  isShowLocation: Boolean
+  location: String
+  isShowBirthDay: Boolean
+  birthDay: String
+  isShowImage: Boolean
+  isShowSummary: Boolean
+  summaryOrder: Float
+  summaryLabel: String
+  summary: String
+  isShowExperience: Boolean
+  experienceOrder: Float
+  experienceLabel: String
+  experienceRoleLabel: String
+  experienceCompanyLabel: String
+  experienceLocationLabel: String
+  experiences: [CreateResumeExperienceItemResumeInputsGQL!]
+  isShowProject: Boolean
+  projectOrder: Float
+  projectLabel: String
+  projectRoleLabel: String
+  projectTitleLabel: String
+  projectCompanyLabel: String
+  projectLocationLabel: String
+  projectUrlLabel: String
+  projects: [CreateResumeProjectItemInputsGQL!]
+  isShowEducation: Boolean
+  educationLabel: String
+  educationOrder: Float
+  educationDegreeLabel: String
+  educationInstituteLabel: String
+  educationLocationLabel: String
+  educationGpaLabel: String
+  educations: [CreateResumeEducationItemInputsGQL!]
+  isShowCertification: Boolean
+  certificationOrder: Float
+  certificationLabel: String
+  certificationNameLabel: String
+  certificationInstituteLabel: String
+  certificationYearLabel: String
+  certifications: [CreateResumeCertificationItemInputsGQL!]
+  isShowCourseWork: Boolean
+  courseWorkOrder: Float
+  courseWorkLabel: String
+  courseWorkTitleLabel: String
+  courseWorkNameLabel: String
+  courseWorkInstituteLabel: String
+  courseWorkYearLabel: String
+  courseWorkSkillsLabel: String
+  courseWorks: [CreateResumeCourseWorkItemInputsGQL!]
+  isShowInvolvement: Boolean
+  involvementLabel: String
+  involvementOrder: Float
+  involvementRoleLabel: String
+  involvementCompanyLabel: String
+  involvementLocationLabel: String
+  involvements: [CreateResumeInvolvementItemInputsGQL!]
+  isShowSkill: Boolean
+  skillLabel: String
+  skillOrder: Float
+  skills: [CreateResumeSkillItemInputsGQL!]
+  isShowLanguage: Boolean
+  languageLabel: String
+  languageOrder: Float
+  languageNameLabel: String
+  languageLevelLabel: String
+  languages: [CreateResumeLanguageItemInputsGQL!]
+  hobbyLabel: String
+  hobbyOrder: Float
+  hobbies: [CreateResumeHobbyItemInputsGQL!]
+  isShowHobby: Boolean
+}

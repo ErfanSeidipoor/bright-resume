@@ -1,0 +1,96 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PageInfo {
+  totalEdges: Float!
+  edgeCount: Float
+  edgesPerPage: Float!
+  totalPages: Float!
+  currentPage: Float!
+}
+
+type File {
+  id: ID
+  userId: ID!
+  resumeId: ID!
+  path: String
+  type: FileTypeEnum
+  reason: FileReasonEnum
+  status: FileStatusEnum
+  isVerified: Boolean
+  size: Float
+  hash: String
+  name: String
+  uploadLink: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum FileTypeEnum {
+  Image
+  Pdf
+}
+
+enum FileReasonEnum {
+  ResumeProfileImage
+  ResumePdf
+}
+
+enum FileStatusEnum {
+  Waiting
+  Error
+  Uploaded
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PaginatedFile {
+  edges: [File!]!
+  pageInfo: PageInfo!
+}
+
+type Query {
+  getFiles(paginationArgs: PaginationArgsGQL!, getFilesFileInputs: GetFilesFileInputsGQL!): PaginatedFile!
+  getFileById(getFileByIdFileInputs: GetFileByIdFileInputsGQL!): File!
+  getDownloadLink(getDownloadLinkFileInputs: GetDownloadLinkFileInputsGQL!): String!
+}
+
+input PaginationArgsGQL {
+  limit: Int = 10
+  page: Int = 1
+}
+
+input GetFilesFileInputsGQL {
+  resumeId: String = ""
+  reason: FileReasonEnum
+}
+
+input GetFileByIdFileInputsGQL {
+  fileId: String!
+}
+
+input GetDownloadLinkFileInputsGQL {
+  fileId: String!
+}
+
+type Mutation {
+  verifyUploadedFile(verifyUploadedFileFileInputs: VerifyUploadedFileFileInputsGQL!): File!
+  getUploadLinkForProfileImage(getUploadLinkForProfileImageFileInputs: GetUploadLinkForProfileImageFileInputsGQL!): File!
+  generatePdfOfResume(generatePdfOfResumeFileInputs: GeneratePdfOfResumeFileInputsGQL!): File!
+}
+
+input VerifyUploadedFileFileInputsGQL {
+  fileId: String!
+}
+
+input GetUploadLinkForProfileImageFileInputsGQL {
+  resumeId: String!
+}
+
+input GeneratePdfOfResumeFileInputsGQL {
+  resumeId: String!
+}

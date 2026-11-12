@@ -1,0 +1,35 @@
+@import "../../../../theme/index";
+
+.root {
+  .search__box {
+    border: 1px solid #{$blue};
+    height: 45px;
+    width: 50%;
+    border-radius: 100px;
+    padding: spacing(0.5, 5);
+    @include flexbox(row, space-between, center, 2, nowrap);
+
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+
+    .input {
+      border: 0 !important;
+      outline: none !important;
+      height: 100%;
+      width: 100%;
+      &::placeholder {
+        color: #{$blue};
+      }
+    }
+
+    .icons {
+      cursor: pointer;
+    }
+
+    @include sm {
+      width: auto;
+    }
+  }
+}

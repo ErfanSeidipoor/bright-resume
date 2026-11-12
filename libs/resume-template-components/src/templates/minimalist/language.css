@@ -1,0 +1,35 @@
+.ln-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.ln-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+
+.ln-label:hover {
+  background-color: #0002;
+}
+
+.ln-item {
+  display: flex;
+  position: relative;
+}
+
+.ln-item:hover {
+  background-color: #0002;
+}
+
+.ln-item-icon {
+  margin-right: 3px;
+}
+
+.ln-item-text {
+  display: flex;
+}
+
+.ln-item-divider {
+  margin-left: 2px;
+  margin-right: 2px;
+}

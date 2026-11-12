@@ -1,13 +1,28 @@
+$transparent: transparent;
 $light: #ffffff;
 $dark: #000000;
 
-$primary: #3a86ff;
-$secondary: #913aff;
-$success: #00a184;
-$warning: #bd7d00;
+$blue: #3a86ff;
+$blue-hover: #3a85ff50;
+$dark-blue: #0f3f8d;
+$light-blue: #3a86ff14;
+$purple: #913aff;
+$purple-hover: #8f3aff50;
+$dark-purple: #480e94;
+$light-purple: #8f3aff14;
+$green: #00a184;
+$green-hover: #00a38550;
+$dark-green: #096e5c;
+$light-green: #00a38514;
+$gold: #bd7d00;
+$gold-hover: #bd7e0050;
+$dark-gold: #704c04;
+$light-gold: #bd7e0014;
 
+$grey-50: #eeeeee;
 $grey-100: #eff5ff;
 $grey-200: #d7def0;
 $grey-300: #636c79;
 $grey-400: #666666;
 $grey-500: #555555;
+$grey-600: #333333;

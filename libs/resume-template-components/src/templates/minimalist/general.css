@@ -1,0 +1,247 @@
+.container {
+  padding: 30px;
+  width: 21cm;
+  max-width: 21cm;
+  min-width: 21cm;
+  min-height: 29.7cm;
+  overflow-x: hidden;
+  background: #fff;
+  transform-origin: top left;
+}
+
+.container-scale-0_50 {
+  transform: scale(0.5);
+}
+.container-scale-0_75 {
+  transform: scale(0.75);
+}
+.container-scale-1 {
+  transform: scale(1);
+}
+.container-scale-1_25 {
+  transform: scale(1.25);
+}
+.container-scale-1_50 {
+  transform: scale(1.5);
+}
+.container-scale-1_75 {
+  transform: scale(1.75);
+}
+
+.container * {
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+}
+
+.container .section-toolbar {
+  width: 25px;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding-right: 3px;
+
+  border-radius: 2px;
+  display: none;
+}
+
+.container .section-toolbar-show {
+  display: block;
+}
+
+.container .section-toolbar .button {
+  cursor: pointer;
+  padding: 2px;
+  background-color: #0002;
+  margin-bottom: 2px;
+}
+
+.container .sub-section-toolbar {
+  width: 25px;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding-right: 3px;
+  border-radius: 2px;
+  display: none;
+}
+
+.container .sub-section-toolbar-show {
+  display: block;
+}
+
+.container .sub-section-toolbar .button {
+  cursor: pointer;
+  padding: 2px;
+  background-color: #0002;
+  margin-bottom: 2px;
+}
+
+.container .section-toolbar-point {
+  width: 25px;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding-right: 3px;
+  border-radius: 2px;
+  display: none;
+}
+
+.container .section-toolbar-point-show {
+  display: block;
+}
+
+.container .section-toolbar-point .button {
+  cursor: pointer;
+  padding: 2px;
+  background-color: #0002;
+  margin-bottom: 2px;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("/assets/fonts/montserrat/montserrat.eot") format("eot");
+  src: url("/assets/fonts/montserrat/montserrat.ttf") format("ttf");
+  src: url("/assets/fonts/montserrat/montserrat.woff") format("woff");
+  src: url("/assets/fonts/montserrat/montserrat.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "nunito";
+  src: url("/assets/fonts/nunito/Nunito.eot") format("eot");
+  src: url("/assets/fonts/nunito/Nunito.ttf") format("ttf");
+  src: url("/assets/fonts/nunito/Nunito.woff") format("woff");
+  src: url("/assets/fonts/nunito/Nunito.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("/assets/fonts/Roboto/Roboto.eot") format("eot");
+  src: url("/assets/fonts/Roboto/Roboto.ttf") format("ttf");
+  src: url("/assets/fonts/Roboto/Roboto.woff") format("woff");
+  src: url("/assets/fonts/Roboto/Roboto.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Regular.eot") format("eot");
+  src: url("/assets/fonts/Raleway/Raleway-Regular.ttf") format("ttf");
+  src: url("/assets/fonts/Raleway/Raleway-Regular.woff") format("woff");
+  src: url("/assets/fonts/Raleway/Raleway-Regular.woff2") format("woff2");
+}
+
+.font-family-montserrat {
+  font-family: "montserrat" !important;
+}
+.font-family-nunito {
+  font-family: "nunito" !important;
+}
+.font-family-roboto {
+  font-family: "roboto" !important;
+}
+.font-family-raleway {
+  font-family: "raleway" !important;
+}
+.font-family-arial {
+  font-family: "arial" !important;
+}
+
+.text-black {
+  color: #000;
+}
+.text-red {
+  color: #ff0000;
+}
+.text-yellow {
+  color: #cd9d00;
+}
+.text-blue {
+  color: #0000ff;
+}
+.text-green {
+  color: #008000;
+}
+.text-black {
+  color: #000000;
+}
+.text-gray {
+  color: #808080;
+}
+.text-purple {
+  color: #800080;
+}
+.text-orange {
+  color: #ffa500;
+}
+.text-brown {
+  color: #a52a2a;
+}
+
+.border-red {
+  border-color: #ff0000;
+}
+.border-yellow {
+  border-color: #cd9d00;
+}
+.border-blue {
+  border-color: #0000ff;
+}
+.border-green {
+  border-color: #008000;
+}
+.border-black {
+  border-color: #000000;
+}
+.border-gray {
+  border-color: #808080;
+}
+.border-purple {
+  border-color: #800080;
+}
+.border-orange {
+  border-color: #ffa500;
+}
+.border-brown {
+  border-color: #a52a2a;
+}
+
+.font-size-6 {
+  font-size: 6px;
+}
+.font-size-7 {
+  font-size: 7px;
+}
+.font-size-8 {
+  font-size: 8px;
+}
+.font-size-9 {
+  font-size: 9px;
+}
+.font-size-10 {
+  font-size: 10px;
+}
+.font-size-11 {
+  font-size: 11px;
+}
+.font-size-12 {
+  font-size: 12px;
+}
+.font-size-13 {
+  font-size: 13px;
+}
+.font-size-14 {
+  font-size: 14px;
+}
+.font-size-15 {
+  font-size: 15px;
+}
+.font-size-16 {
+  font-size: 16px;
+}
+.font-size-17 {
+  font-size: 17px;
+}
+.font-size-18 {
+  font-size: 18px;
+}

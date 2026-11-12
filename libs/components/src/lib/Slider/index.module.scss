@@ -1,0 +1,23 @@
+@import "../../../../theme/index";
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: spacing(4);
+
+  datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+  }
+
+  option {
+    padding: spacing(0);
+  }
+
+  input[type="range"] {
+    margin: spacing(0);
+  }
+}

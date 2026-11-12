@@ -1,0 +1,352 @@
+import cls from "classnames";
+// components
+import {
+  LogoIcon,
+  BlueCircleIcon,
+  NotebookIcon,
+  DownloadCircleIcon,
+  UserCircleIcon,
+  SaveIcon,
+  GreenCircleIcon,
+  PurpleCircleIcon,
+  GoldCircle,
+  GreyCircleIcon,
+  CheckIcon,
+} from "../Icons";
+import Typography from "../Typography";
+// types //TODO => change type path
+import { ThemeColor, SectionsEnum } from "../../index.type";
+// locals
+import { texts } from "./index.texts";
+import { useData } from "./index.hook";
+import classes from "./index.module.scss";
+import Popup from "../Popup";
+import CheckBox from "../CheckBox";
+import {
+  ResumeColorEnum,
+  ResumeFontFamilyEnum,
+  ResumeFontSizeEnum,
+} from "@enums";
+import { Control, Controller } from "react-hook-form";
+import { CreateResumeResumeInputs } from "@dto";
+
+type Avatar = {
+  src: string;
+  alt: string;
+};
+
+type User = {
+  avatar: Avatar;
+  fullName: string;
+};
+
+export type MenuItem = {
+  title?: React.ReactNode;
+  text?: string;
+  isHidden?: boolean;
+  popup?: React.ReactNode;
+  onClick?: () => void;
+};
+
+export type MenuProps = {
+  isLoggedIn?: boolean;
+  user?: User;
+  color: ThemeColor;
+  onChangeColor: (color: ThemeColor) => void;
+  sections: SectionsEnum[];
+  onAppendSection: (section: SectionsEnum) => void;
+  onRemoveSection: (section: SectionsEnum) => void;
+  fontFamily: ResumeFontFamilyEnum;
+  onChangeFontFamily: (fontFamily: ResumeFontFamilyEnum) => void;
+  fonSize: ResumeFontSizeEnum;
+  onChangeFontSize: (fonSize: ResumeFontSizeEnum) => void;
+  onSave?: () => void;
+  control: Control<CreateResumeResumeInputs, any>;
+};
+
+export const Menu: React.FC<MenuProps> = ({
+  isLoggedIn = true,
+  user = { fullName: "", avatar: { src: "", alt: "" } },
+  color,
+  onChangeColor,
+  sections,
+  onAppendSection,
+  onRemoveSection,
+  fontFamily,
+  onChangeFontFamily,
+  fonSize,
+  onChangeFontSize,
+  onSave = () => undefined,
+  control,
+}) => {
+  const data = useData();
+
+  const renderMenuItem = ({
+    title,
+    text,
+    isHidden,
+    popup,
+    onClick,
+  }: MenuItem) => {
+    if (isHidden) return;
+    return (
+      <div>
+        {popup}
+        <div className={classes.menu__content} onClick={onClick}>
+          {title && <Typography component="div">{title}</Typography>}
+          {text && (
+            <Typography className={classes.menu__content_text}>
+              {text}
+            </Typography>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const renderLogo = () => {
+    return renderMenuItem({ title: <LogoIcon width="32px" height="32px" /> });
+  };
+
+  const renderColor = () => {
+    return renderMenuItem({
+      title: (
+        <BlueCircleIcon
+          width="35px"
+          height="35px"
+          className={classes.color__icon}
+        />
+      ),
+      text: texts.color,
+      popup: (
+        <Popup
+          className={cls(classes.popup, classes.colors__container)}
+          isOpen={data.isOpenColorPicker}
+          onClose={data.handleToggleColorPicker}
+        >
+          <Controller
+            control={control}
+            name="color"
+            render={({ field }) => (
+              <>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.blue);
+                    field.onChange(ResumeColorEnum.blue);
+                  }}
+                >
+                  <BlueCircleIcon />
+                  {color === ThemeColor.blue && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.green);
+                    field.onChange(ResumeColorEnum.green);
+                  }}
+                >
+                  <GreenCircleIcon />
+                  {color === ThemeColor.green && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.purple);
+                    field.onChange(ResumeColorEnum.purple);
+                  }}
+                >
+                  <PurpleCircleIcon />
+                  {color === ThemeColor.purple && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.gold);
+                    field.onChange(ResumeColorEnum.yellow);
+                  }}
+                >
+                  <GoldCircle />
+                  {color === ThemeColor.gold && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+                <div
+                  className={classes.color__icon_container}
+                  onClick={() => {
+                    onChangeColor(ThemeColor.grey);
+                    field.onChange(ResumeColorEnum.gray);
+                  }}
+                >
+                  <GreyCircleIcon />
+                  {color === ThemeColor.grey && (
+                    <CheckIcon className={classes.color__icon} />
+                  )}
+                </div>
+              </>
+            )}
+          />
+        </Popup>
+      ),
+      onClick: data.handleToggleColorPicker,
+    });
+  };
+
+  const renderSections = () => {
+    return renderMenuItem({
+      title: <NotebookIcon width="34px" height="34px" />,
+      popup: (
+        <Popup
+          className={classes.popup}
+          isOpen={data.isOpenSectionsPicker}
+          onClose={data.handleToggleSectionsPicker}
+        >
+          {Object.values(SectionsEnum).map((section) => (
+            <CheckBox
+              label={section}
+              onClick={() => {
+                if (sections.includes(section)) return onRemoveSection(section);
+                return onAppendSection(section);
+              }}
+              checked={sections.includes(section)}
+            />
+          ))}
+        </Popup>
+      ),
+      text: texts.sections,
+      onClick: data.handleToggleSectionsPicker,
+    });
+  };
+
+  const renderFont = () => {
+    return renderMenuItem({
+      popup: (
+        <Popup
+          className={classes.popup}
+          isOpen={data.isOpenFontFamilyPicker}
+          onClose={data.handleToggleFontFamilyPicker}
+        >
+          {Object.values(ResumeFontFamilyEnum).map((currentFontFamily) => (
+            <Controller
+              control={control}
+              name="fontFamily"
+              render={({ field }) => (
+                <Typography
+                  className={cls(classes.font, {
+                    [classes.font__active]: currentFontFamily === fontFamily,
+                  })}
+                  onClick={() => {
+                    onChangeFontFamily(currentFontFamily);
+                    field.onChange(currentFontFamily);
+                  }}
+                >
+                  {currentFontFamily}
+                </Typography>
+              )}
+            />
+          ))}
+        </Popup>
+      ),
+      title: fontFamily,
+      text: texts.change_font,
+      onClick: data.handleToggleFontFamilyPicker,
+    });
+  };
+
+  const renderSize = () => {
+    return renderMenuItem({
+      popup: (
+        <Popup
+          className={classes.popup}
+          isOpen={data.isOpenFontSizePicker}
+          onClose={data.handleToggleFontSizePicker}
+        >
+          {Object.values(ResumeFontSizeEnum).map((currentFontSize) => (
+            <Controller
+              control={control}
+              name="fontSize"
+              render={({ field }) => (
+                <Typography
+                  className={cls(classes.font, {
+                    [classes.font__active]: currentFontSize === fonSize,
+                  })}
+                  onClick={() => {
+                    onChangeFontSize(currentFontSize);
+                    field.onChange(currentFontSize);
+                  }}
+                >
+                  {currentFontSize}
+                </Typography>
+              )}
+            />
+          ))}
+        </Popup>
+      ),
+      title: fonSize,
+      text: texts.change_size,
+      onClick: data.handleToggleFontSizePicker,
+    });
+  };
+
+  const renderDownload = () => {
+    return renderMenuItem({
+      title: <DownloadCircleIcon width="34px" height="34px" />,
+      text: texts.download,
+    });
+  };
+
+  const renderLogin = () => {
+    return renderMenuItem({
+      title: <UserCircleIcon width="34px" height="34px" />,
+      text: texts.login,
+      isHidden: isLoggedIn,
+    });
+  };
+
+  const renderProfile = () => {
+    return renderMenuItem({
+      title: (
+        <img
+          className={classes.person}
+          src={user.avatar.src}
+          width="20px"
+          height="20px"
+          alt={user.avatar.alt}
+        />
+      ),
+      text: user.fullName,
+    });
+  };
+
+  const renderSave = () => {
+    return renderMenuItem({
+      title: <SaveIcon width="34px" height="34px" />,
+      text: texts.save,
+      onClick: onSave,
+    });
+  };
+
+  return (
+    <div className={classes.root}>
+      <div className={classes.container}>
+        {renderLogo()}
+        {renderColor()}
+        {renderSections()}
+        {renderFont()}
+        {renderSize()}
+        {renderDownload()}
+        {renderLogin()}
+        {renderProfile()}
+        {renderSave()}
+      </div>
+    </div>
+  );
+};
+
+export default Menu;

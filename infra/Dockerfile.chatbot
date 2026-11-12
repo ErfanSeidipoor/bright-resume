@@ -1,0 +1,18 @@
+FROM node:20-alpine as build
+
+WORKDIR /app
+
+ADD package.json /app/package.json
+
+RUN npm i -g pnpm
+RUN apk update && apk add --no-cache git
+RUN pnpm install
+
+ADD . /app
+
+RUN pnpm run chatbot:build
+RUN rm -rf ./node_modules
+RUN pnpm install -P
+
+
+CMD ["pnpm", "run" ,"chatbot:run"]

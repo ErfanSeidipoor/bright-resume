@@ -1,0 +1,40 @@
+@import "libs/theme";
+
+@page {
+  size: A4;
+  margin: spacing(2);
+  background-color: green;
+}
+
+.root {
+  position: relative;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: spacing(2);
+
+    .resume__container {
+      width: 210mm;
+      max-width: 210mm;
+      background-color: $light;
+      min-height: 90vh;
+      display: flex;
+      margin-bottom: 120px;
+      @include shadow(2);
+      .menu__wrapper {
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.resume__content {
+  // padding: spacing(5);
+  width: 100%;
+}

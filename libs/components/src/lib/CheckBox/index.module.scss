@@ -1,0 +1,38 @@
+@import '../../../../theme/index';
+
+.root {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  padding: spacing(0.5, 1);
+  position: relative;
+  cursor: pointer;
+
+  .input {
+    display: none;
+  }
+
+  .checked__icon {
+    > path {
+      fill: var(--primary);
+    }
+  }
+
+  .label {
+    margin: 0;
+  }
+}
+
+.disabled {
+  cursor: default;
+  color: #{$grey-500};
+
+  .icon {
+    > path {
+      fill: #{$grey-500};
+    }
+  }
+}

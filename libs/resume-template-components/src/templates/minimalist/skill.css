@@ -1,0 +1,30 @@
+.sk-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.sk-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+
+.sk-label:hover {
+  background-color: #0002;
+}
+
+.sk-item {
+  display: flex;
+  position: relative;
+}
+
+.sk-item:hover {
+  background-color: #0002;
+}
+
+.sk-item:hover {
+  background-color: #0002;
+}
+
+.sk-item-icon {
+  margin-right: 3px;
+}

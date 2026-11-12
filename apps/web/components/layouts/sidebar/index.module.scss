@@ -1,0 +1,47 @@
+@import "libs/theme";
+
+.container {
+  width: 56vw;
+  margin-right: -56vw;
+  background-color: $light;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 6.25rem;
+  transition: margin 0.5s;
+
+  a {
+    @include flexbox(row, center, center);
+    min-height: 2rem;
+    padding: spacing(4, 4);
+    background-color: $light-blue;
+    margin-bottom: 0.1rem;
+    @include shadow(2);
+  }
+
+  .backdrop {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: $blue;
+  }
+}
+
+.container.active {
+  margin-right: unset !important;
+}
+
+.login_button {
+  @include flexbox(row, center, center);
+  font-weight: map-get($font-weight, bold);
+
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+
+  cursor: pointer;
+  color: $blue;
+  text-decoration: none;
+}

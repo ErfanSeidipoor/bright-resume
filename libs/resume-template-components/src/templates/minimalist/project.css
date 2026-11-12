@@ -1,0 +1,61 @@
+.pr-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.pr-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+.pr-label:hover {
+  background-color: #0002;
+}
+
+.pr-item {
+  margin-bottom: 10px;
+}
+
+.pr-item-header {
+  position: relative;
+}
+.pr-item-header:hover {
+  background-color: #0002;
+}
+
+.pr-item-role {
+  font-weight: bold;
+}
+
+.pr-item-company-date-location {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pr-item-company {
+  font-weight: bold;
+}
+
+.pr-item-date {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 5px;
+  display: flex;
+  gap: 3px;
+}
+
+.pr-item-location {
+  font-weight: bold;
+}
+
+.pr-item-point {
+  display: flex;
+  position: relative;
+}
+
+.pr-item-point:hover {
+  background-color: #0002;
+}
+
+.pr-item-point-icon {
+  margin-right: 3px;
+}

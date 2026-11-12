@@ -1,0 +1,17 @@
+.sm-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.sm-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+
+.sm-label:hover {
+  background-color: #0002;
+}
+
+.sm-text {
+  margin-top: 2px;
+}

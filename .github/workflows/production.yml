@@ -1,0 +1,80 @@
+name: Production CI
+
+on:
+  push:
+    branches: ["production"]
+  pull_request:
+    branches: [production]
+
+jobs:
+  build-and-push-images:
+    if: github.ref == 'refs/heads/production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build back-auth
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }} -f infra/Dockerfile.auth .
+
+      - name: Build back-resume
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-resume:${{ github.sha }} -f infra/Dockerfile.resume .
+
+      - name: Build back-file
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-file:${{ github.sha }} -f infra/Dockerfile.file .
+
+      - name: Build back-gateway
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-gateway:${{ github.sha }} -f infra/Dockerfile.gateway .
+
+      - name: Build back-cms
+        run: docker build -t ghcr.io/bright-co/bright-resume-back-cms:${{ github.sha }} -f infra/Dockerfile.cms .
+
+      - name: Build web
+        run: docker build -t ghcr.io/bright-co/bright-resume-web:${{ github.sha }} -f infra/Dockerfile.web .
+
+      - name: Docker Login
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.G_TOKEN }}
+
+      - name: Push Images
+        run: |
+          docker push ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}
+          docker push ghcr.io/bright-co/bright-resume-back-resume:${{ github.sha }}
+          docker push ghcr.io/bright-co/bright-resume-back-file:${{ github.sha }}
+          docker push ghcr.io/bright-co/bright-resume-back-gateway:${{ github.sha }}
+          docker push ghcr.io/bright-co/bright-resume-back-cms:${{ github.sha }}
+          docker push ghcr.io/bright-co/bright-resume-web:${{ github.sha }}
+
+  update-manifest-stage:
+    if: github.ref == 'refs/heads/production'
+    runs-on: ubuntu-latest
+    needs: ["build-and-push-images"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: bright-co/bright-resume-gitops
+          ref: main
+          token: ${{ secrets.G_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "erfan@bright-resume.com"
+          git config --global user.name "erfan"
+
+      - name: Update Image Tag
+        run: |
+          echo ${{ github.sha }}
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-auth:.*|image: ghcr.io/bright-co/bright-resume-back-auth:${{ github.sha }}|" ./production/auth.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-resume:.*|image: ghcr.io/bright-co/bright-resume-back-resume:${{ github.sha }}|" ./production/resume.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-file:.*|image: ghcr.io/bright-co/bright-resume-back-file:${{ github.sha }}|" ./production/file.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-gateway:.*|image: ghcr.io/bright-co/bright-resume-back-gateway:${{ github.sha }}|" ./production/gateway.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-back-cms:.*|image: ghcr.io/bright-co/bright-resume-back-cms:${{ github.sha }}|" ./production/cms.yaml
+          sed -i "s|image: ghcr.io/bright-co/bright-resume-web:.*|image: ghcr.io/bright-co/bright-resume-web:${{ github.sha }}|" ./production/web.yaml
+          git add -A
+          git commit -m "update image for - ${{ github.sha }}"
+
+      - name: Push Changes
+        run: git push

@@ -1,0 +1,27 @@
+@import "libs/theme";
+
+.container {
+  width: 233px;
+  max-width: 233px;
+  min-width: 233px;
+  background-color: var(--primary);
+  padding: spacing(2);
+  display: flex;
+  // align-items: center;
+  flex-direction: column;
+  gap: spacing(5);
+
+  p,
+  h6,
+  h3,
+  h2,
+  label,
+  input {
+    color: var(--light) !important;
+    margin: spacing(0);
+  }
+
+  input::placeholder {
+    color: var(--light) !important;
+  }
+}

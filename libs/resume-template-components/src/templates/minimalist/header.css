@@ -1,0 +1,51 @@
+.hr-container {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.hr-image {
+  width: 100px;
+  height: 110px;
+  margin-right: 10px;
+  display: block;
+}
+
+.hr-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.hr-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.hr-role {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.hr-social-media {
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.hr-item {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+
+.hr-item-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}

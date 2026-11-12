@@ -1,0 +1,31 @@
+.rsw-editor {
+  min-height: unset !important;
+  line-height: inherit !important;
+  font-family: inherit !important;
+  border: none !important;
+}
+
+.rsw-editor .rsw-ce {
+  min-height: unset !important;
+  line-height: inherit !important;
+  font-family: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important;
+  border: none !important;
+}
+
+.rsw-toolbar .rsw-btn-container {
+  width: 25px !important;
+  height: 25px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: white !important;
+}
+
+.rsw-toolbar .rsw-btn {
+  background-color: white !important;
+  width: 25px !important;
+  height: 25px !important;
+}

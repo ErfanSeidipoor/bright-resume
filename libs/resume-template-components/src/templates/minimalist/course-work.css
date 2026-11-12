@@ -1,0 +1,59 @@
+.cw-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.cw-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+
+.cw-label:hover {
+  background-color: #0002;
+}
+
+.cw-item {
+  margin-bottom: 10px;
+}
+
+.cw-item-header {
+  position: relative;
+}
+.cw-item-header:hover {
+  background-color: #0002;
+}
+
+.cw-item-role {
+  font-weight: bold;
+}
+
+.cw-item-institute-date {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cw-item-institute {
+  font-weight: bold;
+}
+
+.cw-item-date {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.cw-item-skill {
+}
+
+.cw-item-point {
+  display: flex;
+  position: relative;
+}
+.cw-item-point:hover {
+  display: flex;
+  background-color: #0002;
+}
+
+.cw-item-point-icon {
+  margin-right: 3px;
+}

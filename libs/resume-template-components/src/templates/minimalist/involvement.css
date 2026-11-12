@@ -1,0 +1,63 @@
+.iv-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.iv-label {
+  font-weight: bold;
+  border-bottom: 1.5px solid;
+}
+
+.iv-label:hover {
+  background-color: #0002;
+}
+
+.iv-item {
+  margin-bottom: 10px;
+}
+
+.iv-item-header {
+  position: relative;
+}
+
+.iv-item-header:hover {
+  background-color: #0002;
+}
+
+.iv-item-role {
+  font-weight: bold;
+}
+
+.iv-item-company-date-location {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.iv-item-company {
+  font-weight: bold;
+}
+
+.iv-item-date {
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 5px;
+  display: flex;
+  gap: 3px;
+}
+
+.iv-item-location {
+  font-weight: bold;
+}
+
+.iv-item-point {
+  display: flex;
+  position: relative;
+}
+
+.iv-item-point:hover {
+  background-color: #0002;
+}
+
+.iv-item-point-icon {
+  margin-right: 3px;
+}

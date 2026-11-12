@@ -1,0 +1,70 @@
+@import "../../../../theme/index";
+
+.accordion {
+  width: 100%;
+  @include flexbox(column, center, center);
+
+  .accordion__item {
+    width: 100%;
+    @include flexbox(column, center, center);
+    border-bottom: 3px solid $grey-200;
+
+    &:last-child {
+      border: none;
+    }
+
+    .accordion__item__header {
+      width: 100%;
+      min-height: 70px;
+      @include flexbox(row, space-between, center, 5, nowrap);
+
+      padding: spacing(4, 0);
+      cursor: pointer;
+
+      .accordion__item__header__title {
+        @include typography(h5);
+        color: $dark;
+
+        &__open {
+          color: $blue !important;
+          font-weight: 700;
+        }
+      }
+
+      .accordion__item__header__icon {
+        @include flexbox(center, center, center);
+        @include transition(transform, 0.3s, ease-in-out);
+
+        &__open {
+          transform: rotate(135deg);
+        }
+      }
+    }
+
+    .accordion__item__title {
+      width: 100%;
+      @include flexbox(row, center, center);
+      cursor: pointer;
+    }
+
+    .accordion__item__children {
+      overflow: hidden;
+      width: 100%;
+      @include typography(h8);
+      overflow: hidden;
+      color: $dark;
+      @include typography(h9);
+      height: 1px;
+      opacity: 0;
+
+      transition: height 0.5s, opacity 0.1s;
+
+      &__open {
+        overflow: auto;
+        opacity: 1;
+        padding: spacing(2, 0);
+        transition: height 0.5s, opacity 0.2s 0.3s;
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import "./variables/breakpoints";
+
 @mixin maxWidth($property) {
   @media screen and (max-width: map-get($grid-breakpoints, $property)) {
     @content;
@@ -15,4 +17,84 @@
   -webkit-transition: $property $time $timing-function;
   -moz-transition: $property $time $timing-function;
   -o-transition: $property $time $timing-function;
+}
+
+@mixin typography($type) {
+  font-size: em(map-get($font-size, $type), map-get($font-size, h7));
+  line-height: 150%;
+  @if ($type == h1) {
+    font-weight: map-get($font-weight, semi-bold);
+  }
+  @if ($type == h2) {
+    font-weight: map-get($font-weight, bold);
+  }
+  @if ($type == h3) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h4) {
+    font-weight: map-get($font-weight, semi-bold);
+  }
+  @if ($type == h5) {
+    font-weight: map-get($font-weight, medium);
+  }
+  @if ($type == h6) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h7) {
+    font-weight: map-get($font-weight, regular);
+  }
+  @if ($type == h8) {
+    font-weight: map-get($font-weight, light);
+  }
+  @if ($type == h9) {
+    font-weight: map-get($font-weight, medium);
+  }
+}
+
+@mixin flexbox(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $gap: 0,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: nowrap;
+  gap: spacing($gap);
+  flex-wrap: $wrap;
+}
+
+@mixin shadow($shadow-key) {
+  box-shadow: map-get($shadow, $shadow-key);
+}
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{map-get($grid-breakpoints, 'sm')}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{map-get($grid-breakpoints, 'md')}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: #{map-get($grid-breakpoints, 'lg')}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: #{map-get($grid-breakpoints, 'xl')}) {
+    @content;
+  }
 }
